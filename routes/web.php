@@ -22,3 +22,13 @@ Route::get('/search', function () {
 Route::get('/venue', function () {
     return view('venue');
 });
+
+Route::get('db', function () {
+    if(DB::connection()->getDatabaseName())
+    {
+        echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
+    }
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
