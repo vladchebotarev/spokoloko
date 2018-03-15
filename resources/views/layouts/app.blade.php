@@ -10,9 +10,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/base.min.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/base.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/header.min.css') }}>
-    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.min.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="icon" href={{ asset('new-assets/images/ico/favicon.ico') }}>
 

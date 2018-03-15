@@ -66,11 +66,13 @@
             <!--Slide 01-->
             <div class="">
                 <div class="caption-content">
-                    <h1 class="font-weight-extrabold-sq">New Experiences</h1>
+                    <h1 class="font-weight-extrabold-sq">Zorganizuj swój event</h1>
+                    <p>Znajdż sale, catering, zespół muzyczny lub zleć organizacje wydarzenia firmom eventowym
+                    </p>
                 </div>
                 <div class="caption-outside">
                     <a class="button anchor-sq" href="#top">
-                        <i class="icon big icon-compass"></i>
+                        <i class="icon big icon-location-pin-2"></i>
                         <span>Explore</span>
                     </a>
                 </div>
@@ -82,64 +84,7 @@
                 </div>
             </div>
 
-            <!--Slide 02-->
-            <div>
-                <div class="caption-content">
-                    <h1 class="font-weight-extrabold-sq">New Feelings</h1>
-                </div>
 
-                <div class="caption-outside">
-                    <a class="button anchor-sq" href="#top">
-                        <i class="icon big icon-compass"></i>
-                        <span>Find</span>
-                    </a>
-                </div>
-
-                <div class="image-wrapper">
-                    <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/hero/hero_big_29.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <!--Slide 03-->
-            <div>
-                <div class="caption-content">
-                    <h1 class="font-weight-extrabold-sq">New Stories</h1>
-                </div>
-
-                <div class="caption-outside">
-                    <a class="button anchor-sq" href="#top">
-                        <i class="icon big icon-compass"></i>
-                        <span>Read</span>
-                    </a>
-                </div>
-
-                <div class="image-wrapper">
-                    <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/hero/hero_big_30.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <!--Slide 04-->
-            <div>
-                <div class="caption-content">
-                    <h1 class="font-weight-extrabold-sq">New Locations</h1>
-                </div>
-                <div class="caption-outside">
-                    <a class="button anchor-sq" href="#top">
-                        <i class="icon big icon-compass"></i>
-                        <span>View</span>
-                    </a>
-                </div>
-
-                <div class="image-wrapper">
-                    <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/hero/hero_big_31.jpg" alt="">
-                    </div>
-                </div>
-            </div>
 
         </div>
 
