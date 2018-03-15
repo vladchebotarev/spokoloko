@@ -13,6 +13,10 @@
 
 Route::get('/', function () {
     return view('index');
+})->name('index');
+
+Route::get('/b2b', function () {
+    return view('b2b');
 });
 
 Route::get('/search', function () {
@@ -23,12 +27,7 @@ Route::get('/venue', function () {
     return view('venue');
 });
 
-Route::get('db', function () {
-    if(DB::connection()->getDatabaseName())
-    {
-        echo "conncted sucessfully to database ".DB::connection()->getDatabaseName();
-    }
-});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
