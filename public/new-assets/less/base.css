@@ -121,7 +121,7 @@ p:last-child {
         Links
 --------------------*/
 a {
-  color: #F0114C;
+  color: #FF5722;
   text-decoration: none;
 }
 a:hover {
@@ -170,18 +170,18 @@ input::selection {
 *******************************/
 
 ::selection {
-  background: #FD386C;
+  background: #F57C00;
   color: white;
   text-shadow: none;
 }
 ::-moz-selection {
-  background: #FD386C;
+  background: #F57C00;
   /* Firefox */
   color: white;
   text-shadow: none;
 }
 ::-webkit-selection {
-  background: #FD386C;
+  background: #F57C00;
   /* Safari */
   color: white;
   text-shadow: none;
@@ -455,7 +455,7 @@ code {
 /* Mark & Ins Tag */
 mark,
 ins {
-  background: #FD386C;
+  background: #F57C00;
   color: white;
   padding: 0.125em 0.25em;
   text-decoration: none;
@@ -580,7 +580,7 @@ input[type="time"]:focus,
 input[type="text"]:focus,
 input[type="url"]:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #FD386C;
+  border-color: #F57C00;
   border-radius: 0;
   background: transparent;
   box-shadow: 0px 0em 0em 0em #bbbbbb inset;
@@ -607,7 +607,7 @@ textarea {
 /* Focus */
 textarea:focus {
   color: rgba(0, 0, 0, 0.95);
-  border-color: #FD386C;
+  border-color: #F57C00;
   border-radius: 0;
   background: transparent;
   box-shadow: 0px 0em 0em 0em #bbbbbb inset;
@@ -663,22 +663,22 @@ input[type="radio"] + label:before {
 }
 input[type="checkbox"] + label:hover,
 input[type="radio"] + label:hover {
-  color: #F0114C;
+  color: #FF5722;
 }
 input[type="checkbox"] + label:hover:before,
 input[type="radio"] + label:hover:before {
-  border-color: #FD386C;
+  border-color: #F57C00;
   border-width: 2px;
 }
 input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before {
   border-radius: 50%;
-  background: #FD386C;
-  border-color: #FD386C;
+  background: #F57C00;
+  border-color: #F57C00;
 }
 input[type="checkbox"]:checked + label:hover:before,
 input[type="radio"]:checked + label:hover:before {
-  border-color: #FD386C;
+  border-color: #F57C00;
 }
 input[type="checkbox"] + label:after {
   font-family: 'Checkbox';
@@ -741,8 +741,8 @@ label > input[type="radio"] {
 }
 label > input[type="checkbox"]:checked,
 label > input[type="radio"]:checked {
-  background-color: #F0114C;
-  border-color: #F0114C;
+  background-color: #FF5722;
+  border-color: #FF5722;
 }
 .firefox label > input[type="checkbox"],
 .firefox label > input[type="radio"] {
@@ -792,8 +792,8 @@ input[type="radio"].checkbox-radio-desc-icon-style + label > i {
 }
 input[type="checkbox"].checkbox-radio-desc-icon-style:checked + label,
 input[type="radio"].checkbox-radio-desc-icon-style:checked + label {
-  border-color: #FD386C;
-  color: #FD386C;
+  border-color: #F57C00;
+  color: #F57C00;
 }
 /*--------- Select ---------*/
 select {
@@ -2564,7 +2564,7 @@ select::-ms-expand {
 }
 .switch-view-controller > .item:hover,
 .switch-view-controller > .item:focus {
-  color: #F0114C;
+  color: #FF5722;
 }
 .switch-view-controller > .item:last-child {
   border-right: none;
@@ -2578,7 +2578,7 @@ select::-ms-expand {
   font-size: 16px;
 }
 .switch-view-controller > .item.modal-trigger > .icon {
-  color: #F0114C;
+  color: #FF5722;
 }
 .switch-view-controller > .item.modal-trigger span {
   font-weight: 700;
@@ -3416,7 +3416,7 @@ select::-ms-expand {
   line-height: 18px;
 }
 .div-c.extras-sq .divided-column .value-sq {
-  color: #F0114C;
+  color: #FF5722;
   font-size: 14px;
 }
 .div-c.total-sq {
@@ -3443,7 +3443,7 @@ select::-ms-expand {
   font-weight: 700;
 }
 .inline-check-in.focused input[type="text"] {
-  border-color: #FD386C;
+  border-color: #F57C00;
 }
 
 /*------------------------------------------
@@ -3603,14 +3603,14 @@ hr.padded-sq {
   margin-top: 35px;
 }
 .definition-sq strong {
-  color: #F0114C;
+  color: #FF5722;
 }
 .definition-sq:before {
   content: 'def';
   background-color: rgba(253, 56, 108, 0.15);
   width: 34px;
   text-align: center;
-  color: #FD386C;
+  color: #F57C00;
   font-size: 9px;
   letter-spacing: 1px;
   line-height: 1em;
@@ -3791,10 +3791,10 @@ hr.padded-sq {
 }
 .pagination-simple-sq > li > a:hover,
 .pagination-simple-sq > li > a:focus {
-  color: #F0114C;
+  color: #FF5722;
 }
 .pagination-simple-sq > li.active > a {
-  color: #F0114C;
+  color: #FF5722;
 }
 .pagination-simple-sq.right-sq {
   -ms-flex-pack: end;
@@ -4190,7 +4190,7 @@ object {
   font-weight: 700;
 }
 .product-payment-item .product-extra .extra-row.link-sq > p {
-  color: #F0114C;
+  color: #FF5722;
 }
 .product-payment-item .product-extra .extra-row.total-sq > p {
   font-weight: 700;
