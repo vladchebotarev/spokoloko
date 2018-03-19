@@ -3477,7 +3477,7 @@ select::-ms-expand {
   margin-left: 0;
 }
 .typo-section-sq .typo-section-header-sq {
-  padding-top: 120px;
+  padding-top: 50px;
   padding-bottom: 60px;
 }
 @media only screen and (max-width: 767px) {
