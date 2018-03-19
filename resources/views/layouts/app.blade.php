@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en-US">
+<html dir="ltr" lang="pl">
 <head>
     <!-- Standard Meta -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/header.min.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="icon" href={{ asset('new-assets/images/ico/favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -31,168 +32,18 @@
 
 <!-- Modals -->
 
-    <!-- Sign Up -->
-    <div class="ui full modal" data-for="modal01">
-        <div class="modal-full-background">
-            <img src="new-assets/images/modal/modal_background_001.jpg" alt="">
-        </div>
+@guest
+@component('components.register-modal')
+@endcomponent
 
-        <i class="icon icon-close close-modal"></i>
+@component('components.register-email-modal')
+@endcomponent
 
-        <div class="header center">
-            Sign Up Now
-        </div>
+@component('components.login-modal')
+@endcomponent
+@endguest
 
-        <div class="content">
-            <a href="" class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
-                <i class="icon icon-email-2"></i>
-                <span>Sign Up with Email</span>
-            </a>
 
-            <a href="" class="button-sq fullwidth-sq facebook-button">
-                <i class="icon icon-logo-facebook2"></i>
-                <span>Sign Up with Facebook</span>
-            </a>
-
-            <a href="" class="button-sq fullwidth-sq google-button">
-                <img src="new-assets/images/icon-google-plus.svg" alt="">
-                <span>Sign Up with Google</span>
-            </a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-        </div>
-
-        <div class="actions">
-            <div class="border-container">
-                <div class="button-sq link-sq modal-ui-trigger" data-trigger-for="modal02">Already a member?</div>
-
-                <div class="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal02">
-                    Log In
-                    <i class="icon icon-person-lock-2"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Log In -->
-    <div class="ui full modal" data-for="modal02">
-        <div class="modal-full-background">
-            <img src="new-assets/images/modal/modal_background_001.jpg" alt="">
-        </div>
-
-        <i class="icon icon-close close-modal"></i>
-
-        <div class="header center">
-            Log In
-        </div>
-
-        <div class="content">
-            <div class="div-c">
-                <div class="divided-column">
-                    <input type="text" placeholder="E-mail Adress">
-                </div>
-                <div class="divided-column">
-                    <input type="text" placeholder="Password">
-                </div>
-            </div>
-
-            <div class="button-sq fullwidth-sq">Sign Up</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-        </div>
-
-        <div class="actions">
-            <div class="border-container">
-                <div class="button-sq link-sq modal-ui-trigger" data-trigger-for="modal01">Don’t have an account?</div>
-
-                <div class="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal01">
-                    Sign Up
-                    <i class="icon icon-person-add-1"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sign Up with mail -->
-    <div class="ui full modal" data-for="modal03">
-        <div class="modal-full-background">
-            <img src="new-assets/images/modal/modal_background_001.jpg" alt="">
-        </div>
-
-        <i class="icon icon-close close-modal"></i>
-
-        <div class="header center">
-            Sign Up Now
-        </div>
-
-        <div class="content">
-
-            <div class="div-c inline-2">
-                <div class="divided-column">
-                    <input type="text" placeholder="First Name">
-                </div>
-                <div class="divided-column">
-                    <input type="text" placeholder="Last Name">
-                </div>
-            </div>
-
-            <div class="div-c">
-                <div class="divided-column">
-                    <input type="text" placeholder="E-mail Adress">
-                </div>
-                <div class="divided-column">
-                    <input type="text" placeholder="Password">
-                </div>
-            </div>
-
-            <div class="div-c inline-3 one-label">
-                <label>Birthday</label>
-                <div class="divided-column">
-                    <select name="dropdown"  class="dropdown">
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">...</option>
-                    </select>
-                </div>
-                <div class="divided-column">
-                    <select name="dropdown"  class="dropdown">
-                        <option value="1">Jan</option>
-                        <option value="2">Feb</option>
-                        <option value="3">Mar</option>
-                        <option value="4">Apr</option>
-                        <option value="5">May</option>
-                        <option value="6">...</option>
-                    </select>
-                </div>
-                <div class="divided-column">
-                    <select name="dropdown"  class="dropdown">
-                        <option value="1">1985</option>
-                        <option value="2">1986</option>
-                        <option value="3">1987</option>
-                        <option value="4">1988</option>
-                        <option value="5">1989</option>
-                        <option value="6">...</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="button-sq fullwidth-sq">Sign Up</div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-
-        </div>
-
-        <div class="actions">
-            <div class="border-container">
-                <div class="button-sq link-sq"></div>
-
-                <div class="button-sq link-sq login-sq modal-ui-trigger" data-trigger-for="modal01">
-                    Log In
-                    <i class="icon icon-person-lock-2"></i>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Wishlist -->
     <div class="ui modal small" data-for="wishlist">
@@ -259,7 +110,67 @@
 
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
+<script>
+    /* AJAX Login Function*/
+    $(function () {
+        $(document).on('submit', '#formLogin', function (e) {
+            e.preventDefault();
 
+            $('#loginError').fadeOut();
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: $(this).attr('method'),
+                dataType: "json",
+                data: $(this).serialize(),
+
+            })
+                .always(function (data) {
+                    if (data.status === 200) {
+                        location.reload();
+                    } else {
+                        $('#loginError').text(data.responseJSON.errors.email[0]).fadeIn();
+
+                    }
+
+                });
+        });
+    })
+    /* END */
+
+    /* AJAX Email Register Function*/
+    $(function(){
+
+        $(document).on('submit', '#formRegisterEmail', function(e) {
+            e.preventDefault();
+
+            $('input+small').text('').fadeOut();
+            $('input').removeClass('has-error');
+
+            $.ajax({
+                method: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: "json"
+            })
+                .always(function (data) {
+                    if (data.status === 200) {
+                        location.reload();
+                    } else {
+                        $.each(data.responseJSON.errors, function (key, value) {
+                            var input = '#formRegisterEmail input[name=' + key + ']';
+                            $(input + '+small').text(value).fadeIn();
+                            $(input).addClass('has-error');
+                        });
+                    }
+
+                });
+
+        });
+
+    })
+    /* END */
+</script>
 </body>
 
 </html>

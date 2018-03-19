@@ -16,9 +16,9 @@ Default Header with a White Background & Dark text.
             <div class="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
 
                 <a href="{{ url('/') }}" class="logo item">
-                    <img src="new-assets/images/logo-mybnb-transparent.png" srcset="new-assets/images/logo-mybnb-transparent.png 1x, new-assets/images/logo-mybnb-transparent@2x.png 2x" alt="mybnb logo" class="logo-transparent">
+                    <img src="{{ asset('new-assets/images/logo-mybnb-transparent.png') }}" srcset="{{ asset('new-assets/images/logo-mybnb-transparent.png') }} 1x, {{ asset('new-assets/images/logo-mybnb-transparent@2x.png') }} 2x" alt="mybnb logo" class="logo-transparent">
 
-                    <img src="new-assets/images/logo-mybnb.png" srcset="new-assets/images/logo-mybnb.png 1x, new-assets/images/logo-mybnb@2x.png 2x" alt="mybnb logo">
+                    <img src="{{ asset('new-assets/images/logo-mybnb.png') }}" srcset="{{ asset('new-assets/images/logo-mybnb.png') }} 1x, {{ asset('new-assets/images/logo-mybnb@2x.png') }} 2x" alt="mybnb logo">
                 </a>
 
 
@@ -71,16 +71,16 @@ Default Header with a White Background & Dark text.
                         </li>
                         @else
                             <li><a href="messages.html" class="item">
-                                    <span>Messages</span>
+                                    <span>{{ __('Wiadomości') }}</span>
                                 </a>
                             </li>
                             <li class="has-submenu">
-                                <a href="" class="item">Vendor</a>
+                                <a href="" class="item">{{ __('Mój biznes') }}</a>
                                 <ul class="submenu">
-                                    <li><a href="my_listings.html" class="item"><span>My Listings</span></a></li>
+                                    <li><a href="my_listings.html" class="item"><span>{{ __('Moje biznesy') }}</span></a></li>
                                     <li>
                                         <div class="item">
-                                            <a href="add_listing.html" class="button-sq small-sq fullwidth-sq"><i class="icon icon-add-1"></i><span>Add New Listing</span></a>
+                                            <a href="add_listing.html" class="button-sq small-sq fullwidth-sq"><i class="icon icon-add-1"></i><span>{{ __('Dodaj biznes') }}</span></a>
                                         </div>
                                     </li>
                                 </ul>
@@ -88,7 +88,7 @@ Default Header with a White Background & Dark text.
                             <li class="profile-item has-submenu">
                                 <a href="#" class="item">
                                     <span>{{ Auth::user()->name }}</span>
-                                    <img src="new-assets/images/avatar/my_avatar.jpg" alt="">
+                                    <img src="{{ asset('new-assets/images/avatar/my_avatar.jpg') }}" alt="">
                                 </a>
                                 <ul class="submenu">
                                     <li><a href="my_profile.html" class="item"><span>Mój profil</span></a></li>

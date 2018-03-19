@@ -30,4 +30,14 @@ Route::get('/venue', function () {
 
 Auth::routes();
 
+// OAuth Routes
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() {
+    Route::get('profile', function () {
+        return view('user.profile');
+    });
+});
