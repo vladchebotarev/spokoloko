@@ -39,5 +39,29 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() {
     Route::get('profile', function () {
         return view('user.profile');
-    });
+    })->name('profile');
+
+    Route::get('profile/verification', function () {
+        return view('user.verification');
+    })->name('verification');
+
+    Route::post('profile', 'UserController@updateProfile')->name('profile.update');
+
+    Route::post('profile/image', 'UserController@updateProfileImage')->name('profile.image');
+
+
+    Route::get('settings', function () {
+        return view('user.settings');
+    })->name('settings');
+
+    Route::get('listings', function () {
+        return view('user.listings');
+    })->name('listings');
+
+    Route::get('messages', function () {
+        return view('user.messages');
+    })->name('messages');
+
+
+
 });

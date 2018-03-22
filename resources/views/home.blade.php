@@ -9,9 +9,12 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                        <div class="ui positive message transition hidden">
+                            <i class="close icon"></i>
+
+                            <p>{{ session('status') }}</p>
                         </div>
+
                     @endif
 
                     You are logged in!

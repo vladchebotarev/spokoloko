@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'user/profile';
 
     /**
      * Create a new controller instance.
@@ -81,7 +81,7 @@ class LoginController extends Controller
             return $authUser;
         }
         return User::create([
-            'name'     => $user->name,
+            'first_name'     => $user->first_name,
             'email'    => $user->email,
             'provider' => $provider,
             'provider_id' => $user->id

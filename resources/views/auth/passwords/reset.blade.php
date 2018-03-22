@@ -1,70 +1,49 @@
-@extends('layouts.app-old')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="ui layout">
+        <div class="ui centered grid container">
+            <div class="row">
+                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.request') }}">
-                        @csrf
+                    <br>
+                    <h3 class="text-align-center-sq">
+                        {{ __('Ustaw nowe hasło') }}
+                    </h3>
+                    <br>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+                    <div class="content">
+                        <form method="POST" action="{{ route('password.request') }}">
+                            @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email or old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                            <input type="hidden" name="token" value="{{ $token }}">
+                            <div class="div-c">
+                                <div class="divided-column">
+                                    <input id="email" type="email" class="{{ $errors->has('email') ? 'has-error' : '' }}" placeholder="{{ __('E-Mail') }}" name="email" value="{{ $email or old('email') }}" required autofocus>
+                                    @if ($errors->has('email'))
+                                        <small class="small-display-has-error">{{ $errors->first('email') }}</small>
+                                    @endif
+                                </div>
+                                <div class="divided-column">
+                                    <input id="password" type="password" class="{{ $errors->has('password') ? 'has-error' : '' }}" placeholder="{{ __('Nowe hasło') }}" name="password" required>
+                                    @if ($errors->has('password'))
+                                        <small class="small-display-has-error">{{ $errors->first('password') }}</small>
+                                    @endif
+                                </div>
+                                <div class="divided-column">
+                                    <input id="password-confirm" type="password" class="{{ $errors->has('password_confirmation') ? 'has-error' : '' }}" placeholder="{{ __('Powtórz hasło') }}" name="password_confirmation" required>
+                                    @if ($errors->has('password_confirmation'))
+                                        <small class="small-display-has-error">{{ $errors->first('password_confirmation') }}</small>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" required>
-
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                            <button type="submit" class="button-sq fullwidth-sq">{{ __('Ustaw nowe hasło') }}</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection

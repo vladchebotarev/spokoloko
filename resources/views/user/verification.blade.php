@@ -20,11 +20,11 @@
 
                 <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
                     <ul class="inline-menu-sq list-default-sq list-style-inline-sq">
-                        <li class="active">
-                            <a href="">{{ __('Edytuj profil') }}</a>
-                        </li>
                         <li class="">
-                            <a href="{{ route('verification') }}">{{ __('Weryfikacja') }}</a>
+                            <a href="{{ route('profile') }}">{{ __('Edytuj profil') }}</a>
+                        </li>
+                        <li class="active">
+                            <a href="">{{ __('Weryfikacja') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -33,46 +33,40 @@
 
         </div>
     </div>
+
     <form method="POST" id="formUpdate" action="{{ route('profile.update') }}">
         @csrf
+    </form>
 
         <div class="ui grid">
             <div class="row">
 
-                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
-                    <div class="my-profile-avatar-container">
-                        <a class="avatar-sq extreme-avatar-sq verified-sq upload-sq modal-ui-trigger"
-                           data-trigger-for="uipicturemodal">
-                            <img src="{{ asset('/images/avatar/'.Auth::user()->avatar) }}" alt="">
-                        </a>
-                    </div>
+
+
+                <div class="ui twelve wide tablet twelve wide computer twelve wide widescreen twelve wide large screen column">
+                    <hr>
                 </div>
 
                 <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
-
-                    <div class="div-c">
-                        <div class="divided-column">
-                            <label>{{ __('Imię') }}</label>
-                            <input type="text" name="first_name" class="{{ $errors->has('first_name') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz imię') }}" value="{{ Auth::user()->first_name }}" required>
-                            @if ($errors->has('first_name'))
-                                <small class="small-display-has-error">{{ $errors->first('first_name') }}</small>
-                            @endif
-                        </div>
-
-                        <div class="divided-column">
-                            <label>{{ __('Nazwisko') }}</label>
-                            <input type="text" name="last_name" class="{{ $errors->has('last_name') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz nazwisko') }}" value="{{ Auth::user()->last_name }}">
-                            @if ($errors->has('last_name'))
-                                <small class="small-display-has-error">{{ $errors->first('last_name') }}</small>
-                            @endif
-                        </div>
-
-                    </div>
-
                     <br>
+                    <strong>Change E-mail adress</strong>
+                    <p>You can renew the e-mail account adress.</p>
+
+                    <a href="" class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="login">Change Email</a>
+
+                </div>
+
+                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
+                    <br>
+                    <strong>Change Password</strong>
+                    <p>You can renew the password account adress.</p>
+
+                    <a href="" class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="login">Change Password</a>
+
                 </div>
 
                 <div class="ui twelve wide tablet twelve wide computer twelve wide widescreen twelve wide large screen column">
+                    <br>
                     <hr class="margin-null-sq">
                     <br>
                 </div>
@@ -197,12 +191,9 @@
             </div>
         </div>
 
-    </form>
 
-    <form method="POST" id="formUpdateImage" action="{{ route('profile.image') }}">
-        @csrf
-        <input type="hidden" name="image" id="imageBase64input">
-    </form>
+
+
 
 
 

@@ -1,69 +1,67 @@
-@extends('layouts.app-old')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+    <div class="ui layout">
+        <div class="ui centered grid container">
+            <div class="row">
+                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
 
-                        <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                    <br>
+                    <h3 class="text-align-center-sq">
+                        {{ __('Zaloguj się') }}
+                    </h3>
+                    <br>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                    <div class="content">
+                        <a href="{{ url('/auth/facebook') }}" class="button-sq fullwidth-sq facebook-button">
+                            <i class="icon icon-logo-facebook2"></i>
+                            <span>{{ __('Zaloguj się poprzez Facebook') }}</span>
+                        </a>
+                        <br>
+                        <br>
+                        <a href="/auth/google" class="button-sq fullwidth-sq google-button">
+                            <img src="new-assets/images/icon-google-plus.svg" alt="">
+                            <span>{{ __('Zaloguj się poprzez Google') }}</span>
+                        </a>
+                        <br>
+                        <br>
+                        <br>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="div-c">
+                                <div class="divided-column">
+                                    <input id="email" type="email"
+                                           class="{{ $errors->has('email') ? 'has-error' : '' }}"
+                                           placeholder="{{ __('E-Mail') }}" name="email" value="{{ old('email') }}"
+                                           required autofocus>
+                                </div>
+                                <div class="divided-column">
+                                    <input id="password" type="password"
+                                           class="{{ $errors->has('email') ? 'has-error' : '' }}"
+                                           placeholder="{{ __('Hasło') }}" name="password" required>
+                                    @if ($errors->has('email'))
+                                        <small class="small-display-has-error">{{ $errors->first('email') }}</small>
+                                    @endif
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
-                                    </label>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                            <button type="submit" class="button-sq fullwidth-sq">{{ __('Zaloguj się') }}</button>
+                        </form>
+                    </div>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    {{ __('Forgot Your Password?') }}
-                                </a>
-                            </div>
+                    <div class="actions" style="padding-top: 0px !important;">
+                        <div class="border-container">
+                            <div class="button-sq link-sq"><a
+                                        href="{{ route('password.request') }}">{{ __('Zapamniałeś hasło?') }}</a></div>
+                            <br>
+                            <div class="button-sq link-sq"><a
+                                        href="{{ route('register') }}">{{ __('Nie masz konta?') }}</a></div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

@@ -1,47 +1,41 @@
-@extends('layouts.app-old')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="ui layout">
+        <div class="ui centered grid container">
+            <div class="row">
+                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <br>
+                    <h3 class="text-align-center-sq">
+                        {{ __('Resetuj hasło') }}
+                    </h3>
+                    <br>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                    <div class="content">
+                        @if (session('status'))
+                            <div class="alert alert-success" style="color: green;">
+                                {{ session('status') }}
                             </div>
-                        </div>
+                        @endif
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
+                        <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
+                            <div class="div-c">
+                                <div class="divided-column">
+                                    <input id="email" type="email" class="{{ $errors->has('email') ? 'has-error' : '' }}" placeholder="{{ __('E-Mail') }}" name="email" value="{{ old('email') }}" required autofocus>
+                                    @if ($errors->has('email'))
+                                        <small class="small-display-has-error">{{ $errors->first('email') }}</small>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <button type="submit" class="button-sq fullwidth-sq">{{ __('Wyślij link do resetowania hasła') }}</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection

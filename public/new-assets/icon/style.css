@@ -44,6 +44,9 @@
 .icon-logo-facebook2:before {
   content: "\e95b";
 }
+.icon-logo-google:before {
+  content: "\ea8a";
+}
 .icon-logo-twitter-bird2:before {
   content: "\e95c";
 }

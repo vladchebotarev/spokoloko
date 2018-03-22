@@ -163,6 +163,7 @@ return [
         // Other service providers...
 
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -216,6 +217,7 @@ return [
         // Other aliases...
 
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

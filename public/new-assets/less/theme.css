@@ -2456,22 +2456,22 @@ button .icon + span {
   position: relative;
 }
 .avatar-sq.verified-sq:after {
-  content: '\e800';
-  font-family: 'Checkbox';
+  content: '\f040';
+  font-family: FontAwesome;
   display: block;
-  width: 16px;
-  height: 16px;
-  line-height: 17px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
   text-indent: 1px;
   text-align: center;
   border-radius: 50%;
   position: absolute;
   right: -16px;
   bottom: 0;
-  background: #1FCB41;
+  background: #636363;
   color: #fff;
-  font-size: 9px;
-  box-shadow: 0 0 19px 0 rgba(31, 203, 65, 0.36);
+  font-size: 16px;
+  box-shadow: 0 0 19px 0 rgba(78, 78, 78, 0.36);
 }
 /* little avatar */
 .avatar-sq.little-avatar-sq {
@@ -9285,6 +9285,12 @@ body.dimmable > .dimmer {
   margin: 0 0 20px 0;
 }
 .ui.modal > .content .button-sq.fullwidth-sq img {
+  width: 16px;
+  height: auto;
+  margin-left: 5px;
+  float: left;
+}
+.content .button-sq.fullwidth-sq img {
   width: 16px;
   height: auto;
   margin-left: 5px;

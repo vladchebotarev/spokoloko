@@ -2,9 +2,9 @@
 <html dir="ltr" lang="pl">
 <head>
     <!-- Standard Meta -->
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SeventhQueen" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="author" content="SeventhQueen"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- CSRF Token -->
@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
     <link rel="icon" href={{ asset('new-assets/images/ico/favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -28,24 +29,36 @@
 @component('components.header')
 @endcomponent
 
-    @yield('content')
+
+@yield('content')
 
 <!-- Modals -->
 
 @guest
-@component('components.register-modal')
-@endcomponent
+    @if(!Request::is('login'))
+        @if(!Request::is('register'))
+            @if(!Request::is('password/*'))
+                @component('components.register-modal')
+                @endcomponent
 
-@component('components.register-email-modal')
-@endcomponent
+                @component('components.register-email-modal')
+                @endcomponent
 
-@component('components.login-modal')
-@endcomponent
+                @component('components.login-modal')
+                @endcomponent
+            @endif
+        @endif
+    @endif
+@else
+    @if(Request::is('user/profile'))
+        @component('user.components.update_image_modal')
+        @endcomponent
+    @endif
 @endguest
 
 
 
-    <!-- Wishlist -->
+<!-- Wishlist -->
     <div class="ui modal small" data-for="wishlist">
         <i class="icon icon-close close-modal"></i>
 
@@ -54,7 +67,8 @@
         </div>
 
         <div class="content">
-            <p>Mauris malesuada leo libero, vitae tempor ante sagittis vitae. Suspendisse consectetur facilisis enim.</p>
+            <p>Mauris malesuada leo libero, vitae tempor ante sagittis vitae. Suspendisse consectetur facilisis
+                enim.</p>
             <br>
             <input type="checkbox" id="c01">
             <label for="c01">Beautiful Places</label>
@@ -77,6 +91,15 @@
         </div>
 
     </div>
+
+    @if(!Request::is('login'))
+        @if(!Request::is('register'))
+            @if(!Request::is('password/*'))
+                @component('components.footer')
+                @endcomponent
+            @endif
+        @endif
+    @endif
 </div><!--end #page-wrapper-->
 <script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>
 <script src={{ asset('new-assets/library/flexmenu.js') }}></script>
@@ -110,67 +133,23 @@
 
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
-<script>
-    /* AJAX Login Function*/
-    $(function () {
-        $(document).on('submit', '#formLogin', function (e) {
-            e.preventDefault();
 
-            $('#loginError').fadeOut();
+@guest
+    @if(!Request::is('login'))
+        @if(!Request::is('register'))
+            @if(!Request::is('password/*'))
+                <script src={{ asset('js/auth-modals.js') }}></script>
+            @endif
+        @endif
+    @endif
+@else
+    @if(Request::is('user/profile'))
+        <script src={{ asset('js/profile-avatar.js') }}></script>
+        <script src={{ asset('js/profile-form.js') }}></script>
+    @endif
+@endguest
 
-            $.ajax({
-                url: $(this).attr('action'),
-                type: $(this).attr('method'),
-                dataType: "json",
-                data: $(this).serialize(),
 
-            })
-                .always(function (data) {
-                    if (data.status === 200) {
-                        location.reload();
-                    } else {
-                        $('#loginError').text(data.responseJSON.errors.email[0]).fadeIn();
-
-                    }
-
-                });
-        });
-    })
-    /* END */
-
-    /* AJAX Email Register Function*/
-    $(function(){
-
-        $(document).on('submit', '#formRegisterEmail', function(e) {
-            e.preventDefault();
-
-            $('input+small').text('').fadeOut();
-            $('input').removeClass('has-error');
-
-            $.ajax({
-                method: $(this).attr('method'),
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: "json"
-            })
-                .always(function (data) {
-                    if (data.status === 200) {
-                        location.reload();
-                    } else {
-                        $.each(data.responseJSON.errors, function (key, value) {
-                            var input = '#formRegisterEmail input[name=' + key + ']';
-                            $(input + '+small').text(value).fadeIn();
-                            $(input).addClass('has-error');
-                        });
-                    }
-
-                });
-
-        });
-
-    })
-    /* END */
-</script>
 </body>
 
 </html>
