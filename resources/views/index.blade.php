@@ -733,7 +733,7 @@
                                             <h2>Udostepnij swoj biznes</h2>
                                             <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko całkowicie za darmo..</p>
 
-                                            <a href="listing_page.html" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
+                                            <a href="/b2b" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
                                         </div>
 
                                     </div>
@@ -748,7 +748,7 @@
                             </div>
                         </div>
 
-                        <!--  <div class="ui grid container">
+                        <!-- <div class="ui grid container">
                               <div class="row">
                                   <div class="ui column">
 
