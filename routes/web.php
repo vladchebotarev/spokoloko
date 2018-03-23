@@ -27,6 +27,10 @@ Route::get('/venue', function () {
     return view('venue');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 
 Auth::routes();
 

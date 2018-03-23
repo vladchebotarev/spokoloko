@@ -20,8 +20,8 @@
                     <h5>Przydatne linki</h5>
 
                     <ul class="list-default-sq">
-                        <li><a href="">Dodaj swoj biznes</a></li>
-                        <li><a href="">Jak to działa</a></li>
+                        <li><a href="{{ url('/b2b') }}">Dodaj swoj biznes</a></li>
+                        <li><a href="{{ url('/about') }}">Jak to działa</a></li>
                         <li><a href="">Kariera</a></li>
                         <li><a href="">Regulamin</a></li>
                     </ul>

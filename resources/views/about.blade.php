@@ -2,19 +2,18 @@
 
 @section('content')
     <div class="ui layout">
-
         <div class="promo-section" style="max-height: 600px;">
 
             <!-- content -->
             <div class="ui container grid centered">
                 <div class="row">
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
-                        <div class="promo-content style-02" style="background-color: rgba(37,37,37,0.8); borderborder-radius: 30px;">
-                            <h2>Zarabiaj ze Spokoloko</h2>
-                            <p>Masz lokal do wynajęcia, lub pomagasz innym tworzyć wydarzenia? <br>
-                                Dodaj sie na serwis Spokoloko i zwieksz swoj dochod. <br>
-                                Zarzadzaj swoja stroną, tworz promocje i Pakiety eventowe.</p>
+                        <div class="promo-content style-02" style="background-color: rgba(255,140,0,0.9); borderborder-radius: 30px;">
+                            <h2>Czym jest Spokoloko</h2>
+                            <p>Jestesmy aby pomagac tworzyc wydarzenia. Laczymy uslugodawcow i ogranizatorow wydarzen</p>
 
+                            <a href="/b2b" class="button-sq see-through-sq"> Znajdz uslugodawcow </a>
+                            <br><br>
 
                             <a href="/b2b" class="button-sq see-through-sq" > Dodaj swoj biznes </a>
                         </div>
@@ -123,30 +122,7 @@
             </div>
 
 
-            <div class="promo-section">
 
-                <!-- content -->
-                <div class="ui container grid centered">
-                    <div class="row">
-                        <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
-                            <div class="promo-content style-01">
-                                <h2>Zarejestruj się za darmo</h2>
-                                <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko całkowicie za darmo..</p>
-
-                                <a href="/b2b" class="button-sq see-through-sq"> Zarejestrować się </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- picture -->
-                <div class="image-wrapper">
-                    <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/promo_section/promo_section_02.jpg" alt="">
-                    </div>
-                </div>
-            </div>
 
             <div class="ui container text" style="padding-top: 50px;">
                 <h3 class="text-align-center-sq" style="padding:10px; ">Dostępne pakiety</h3>
