@@ -6,24 +6,24 @@
         <div class="ui grid container">
             <div class="row">
                 <div class="ui six wide tablet four wide computer column">
-                    <h5>Hosting</h5>
+                    <h5>Spokoloko</h5>
 
                     <ul class="list-default-sq">
-                        <li><a href="">Etiam consequat</a></li>
-                        <li><a href="">Phasellus sed neque </a></li>
-                        <li><a href="">Morbi suscipit convallis</a></li>
-                        <li><a href="">Praesent diam</a></li>
+                        <li><a href="">Eventy </a></li>
+                        <li><a href="">Blog </a></li>
+                        <li><a href="">Karta serwisu</a></li>
+                        <li><a href="">Kontakt</a></li>
                     </ul>
 
                 </div>
                 <div class="ui six wide tablet four wide computer column">
-                    <h5>Useful Links</h5>
+                    <h5>Przydatne linki</h5>
 
                     <ul class="list-default-sq">
-                        <li><a href="">Aenean sit amet ipsum</a></li>
-                        <li><a href="">Sed mollis</a></li>
-                        <li><a href="">Aliquam porttitor</a></li>
-                        <li><a href="">Nulla vitae</a></li>
+                        <li><a href="{{ url('/b2b') }}">Dodaj swoj biznes</a></li>
+                        <li><a href="{{ url('/about') }}">Jak to działa</a></li>
+                        <li><a href="">Kariera</a></li>
+                        <li><a href="">Regulamin</a></li>
                     </ul>
                 </div>
                 <div class="ui twelve wide tablet four wide computer column">
@@ -43,13 +43,13 @@
                 <div class="ui twelve wide mobile eight wide computer column">
                     <a href="" class="footer-logo">
                         <img src="{{ asset('new-assets/images/logo-mybnb-transparent.png') }}" srcset="{{ asset('new-assets/images/logo-mybnb-transparent.png') }} 1x, {{ asset('new-assets/images/logo-mybnb-transparent@2x.png') }} 2x" alt="mybnb logo" >
-                        © SeventhQueen 2018                   </a>
+                        © 2017-2018 Spokoloko                   </a>
                 </div>
                 <div class="ui twelve wide mobile four wide computer column">
                     <ul class="social-links-sq list-style-inline-sq list-default-sq">
-                        <li><a href="" class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
+                        <li><a href="https://www.facebook.com/spokolokoeu/" class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
 
-                        <li><a href="" class="tw"><i class="icon icon-logo-twitter-bird2"></i></a></li>
+                        <li><a href="https://twitter.com/spokoloko_eu" class="tw"><i class="icon icon-logo-twitter-bird2"></i></a></li>
 
                         <li><a href="" class="gp"><i class="icon icon-logo-circle-google-plus-22"></i></a></li>
                     </ul>
