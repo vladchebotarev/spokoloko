@@ -16,11 +16,17 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-    <link rel="icon" href={{ asset('new-assets/images/ico/favicon.ico') }}>
+    <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
+{{--TODO customize--}}
+    @if(Request::is('search') or Request::is('venue'))
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFGjWRN0ddQwopal_6VZNmz-9PJCX-caI&callback=initMap"></script>
+            <script src={{ asset('new-assets/library/map.js') }}></script>
+    @endif
 
-    <title>Homepage</title>
+    <title>Spokoloko @yield('title')</title>
 
 </head>
 <body class="no-transition">
@@ -35,19 +41,17 @@
 <!-- Modals -->
 
 @guest
-    @if(!Request::is('login'))
-        @if(!Request::is('register'))
-            @if(!Request::is('password/*'))
-                @component('components.register-modal')
-                @endcomponent
+    @if(!Request::is('login') and !Request::is('register') and !Request::is('password/*'))
 
-                @component('components.register-email-modal')
-                @endcomponent
+        {{--@component('components.register-modal')
+        @endcomponent
 
-                @component('components.login-modal')
-                @endcomponent
-            @endif
-        @endif
+        @component('components.register-email-modal')
+        @endcomponent
+
+        @component('components.login-modal')
+        @endcomponent--}}
+
     @endif
 @else
     @if(Request::is('user/profile'))
@@ -92,13 +96,14 @@
 
     </div>
 
-    @if(!Request::is('login'))
-        @if(!Request::is('register'))
-            @if(!Request::is('password/*'))
-                @component('components.footer')
-                @endcomponent
-            @endif
-        @endif
+
+    @if(!Request::is('login') and
+        !Request::is('register') and
+        !Request::is('password/*') and
+        !Request::is('search') and
+        !Request::is('venue'))
+            @component('components.footer')
+            @endcomponent
     @endif
 </div><!--end #page-wrapper-->
 <script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>
@@ -134,6 +139,8 @@
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 
+<!-- Other scripts -->
+{{--TODO--}}
 @guest
     @if(!Request::is('login'))
         @if(!Request::is('register'))

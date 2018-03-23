@@ -35,9 +35,9 @@
                 </div>
 
                 <div class="search-item">
-                    <button class="button-sq hero-search-button">
+                    <a href="{{ url('search') }}" class="button-sq hero-search-button" >
                         <i class="icon icon-search"></i>
-                    </button>
+                    </a>
                 </div>
 
             </form>

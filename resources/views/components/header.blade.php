@@ -9,7 +9,10 @@ Default Header with a White Background & Dark text.
 <header class="header-section ths header-shadow header-sticky header-slide-up equal-tablet-header-items equal-mobile-header-items
 @if(Route::current()->getName() == 'index')
         header-transparent is-transparent
-@endif ">
+@endif
+@if(Request::is('search'))
+        header-fullwidth
+@endif">
     <div class="header-content">
 
         <div class="ui container grid">
@@ -68,12 +71,14 @@ Default Header with a White Background & Dark text.
                                             </a>
                                         </li>
 
-                                        <li><a href="#" class="item modal-ui-trigger" data-trigger-for="modal01">
+                                        <li>{{--<a href="#" class="item modal-ui-trigger" data-trigger-for="modal01">--}}
+                                            <a href="{{ route('register') }}" class="item">
                                                 <span>Zarejestruj się</span>
                                             </a>
                                         </li>
 
-                                        <li><a href="#" class="item modal-ui-trigger" data-trigger-for="modal02">
+                                        <li>{{--<a href="#" class="item modal-ui-trigger" data-trigger-for="modal02">--}}
+                                            <a href="{{ route('login') }}" class="item">
                                                 <span>Zaloguj się</span>
                                             </a>
                                         </li>
