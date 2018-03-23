@@ -6,6 +6,12 @@
             <div class="row">
                 <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
 
+                    @if (session('confirmation-success'))
+                        <div class="alert alert-success">
+                            {{ session('confirmation-success') }}
+                        </div>
+                    @endif
+
                     <br>
                     <h3 class="text-align-center-sq">
                         {{ __('Zarejestruj się') }}

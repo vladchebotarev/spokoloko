@@ -161,7 +161,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // Other service providers...
-
+        Bestmomo\LaravelEmailConfirmation\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
 
