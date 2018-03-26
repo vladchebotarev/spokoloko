@@ -756,12 +756,7 @@
 
             </div>
 
-<<<<<<< HEAD
             <div class="promo-section">
-=======
-                                            <a href="/b2b" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
-                                        </div>
->>>>>>> origin/frontend_b2b
 
                 <!-- content -->
                 <div class="ui container grid centered">
@@ -772,14 +767,13 @@
                                 <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko
                                     całkowicie za darmo..</p>
 
-                                <a href="listing_page.html" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
+                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
                             </div>
 
                         </div>
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <!-- picture -->
                 <div class="image-wrapper">
                     <div class="image-inner">
@@ -787,11 +781,6 @@
                     </div>
                 </div>
             </div>
-=======
-                        <!-- <div class="ui grid container">
-                              <div class="row">
-                                  <div class="ui column">
->>>>>>> origin/frontend_b2b
 
             <!--  <div class="ui grid container">
                   <div class="row">

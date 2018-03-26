@@ -261,7 +261,4 @@
         </div>
     </div>
 
-    @component('components.footer')
-    @endcomponent
-
 @endsection
