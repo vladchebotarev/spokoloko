@@ -767,7 +767,7 @@
                                 <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko
                                     całkowicie za darmo..</p>
 
-                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Dowiedziec sie wiecej </a>
+                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Dowiedzie sie wiecej </a>
                             </div>
 
                         </div>
