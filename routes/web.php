@@ -70,6 +70,16 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.messages');
     })->name('messages');
 
+    Route::get('share', function () {
+        return view('user.share');
+    })->name('share');
 
+    Route::get('share-venue', function () {
+        return view('user.share-venue');
+    })->name('share-venue');
+
+    Route::get('share', function () {
+        return view('user.share-business');
+    })->name('share-business');
 
 });
