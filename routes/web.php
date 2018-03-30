@@ -23,9 +23,7 @@ Route::get('/search', function () {
     return view('search');
 });
 
-Route::get('/venue', function () {
-    return view('venue');
-});
+Route::get('/venue', 'VenueController@getVenue');
 
 Route::get('/about', function () {
     return view('about');

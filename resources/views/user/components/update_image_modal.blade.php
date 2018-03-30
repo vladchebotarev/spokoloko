@@ -57,7 +57,7 @@
             </div>
 
             <div class="divided-column">
-                <button id="uploadImgBtn" class="button-sq fullwidth-sq">OK</button>
+                <button type="button" id="uploadImgBtn" class="button-sq fullwidth-sq">{{ __('Zapisz') }}</button>
             </div>
         </div>
     </div>
