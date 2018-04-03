@@ -5,7 +5,7 @@
     <div class="ui layout">
         <div class="ui centered grid container">
             <div class="row">
-                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
+                <div class="ui twelve wide tablet five wide computer five wide widescreen five wide large screen column">
 
                     @if (session('confirmation-success'))
                         <div class="alert alert-success">

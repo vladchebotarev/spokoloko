@@ -92,6 +92,7 @@ Default Header with a White Background & Dark text.
                                             <ul class="submenu">
                                                 <li><a href="{{ url('user/listings') }}"
                                                        class="item"><span>{{ __('Moje biznesy') }}</span></a></li>
+
                                                 <li>
                                                     <div class="item">
                                                         <a href="add_listing.html"
