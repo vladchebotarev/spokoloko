@@ -12,15 +12,14 @@ class ShareController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'max:255',
-            'last_name' => 'max:255',
-            'address' => 'max:255',
-            'birthday' => 'max:255',
-            'sex' => 'max:255',
-            'about' => 'max:255',
-            'company' => 'max:255',
-            'job_title' => 'max:255'
-            // TODO user validation
+            'first_name' => 'max:191',
+            'last_name' => 'max:191',
+            'address' => 'max:191',
+            'birthday' => 'max:191',
+            'sex' => 'max:191',
+            'about' => 'max:191',
+            'company' => 'max:191',
+            'job_title' => 'max:191'
         ]);
 
         if ($validator->fails()) {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\EventType;
 use Illuminate\Http\Request;
 use App\Venue;
 
@@ -12,7 +14,20 @@ class VenueController extends Controller
 
         $venue = Venue::find(1);
 
-        dump($venue);
+        //$city = City::find(1);
+        //$venues = $city->venues;
+
+        //$vt = EventType::find(1);
+
+        $vts = $venue->rules;
+
+        //$venues = $vt->venues;
+        //dump($vt->name);
+
+        foreach ($vts as $vt) {
+
+            dump($vt->name);
+        }
 
         return ;
     }
