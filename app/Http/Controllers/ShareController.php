@@ -40,7 +40,7 @@ class ShareController extends Controller
             $venue->company = $request->get('company');
             $venue->job_title = $request->get('job_title');
 
-            $venue7->save($request->all());
+            $venue->save($request->all());
             //dd($request->all());
         }
 
