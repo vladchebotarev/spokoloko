@@ -38,6 +38,9 @@ Route::get('/jobs', function () {
 
 Auth::routes();
 
+
+
+
 // OAuth Routes
 Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('auth/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
@@ -70,6 +73,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.messages');
     })->name('messages');
 
+
     Route::get('share', function () {
         return view('user.share');
     })->name('share');
@@ -78,8 +82,9 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.share-venue');
     })->name('share-venue');
 
-    Route::get('share', function () {
+    Route::get('share-business', function () {
         return view('user.share-business');
     })->name('share-business');
 
 });
+
