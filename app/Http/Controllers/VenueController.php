@@ -10,24 +10,37 @@ use App\Venue;
 class VenueController extends Controller
 {
 
-    public function getVenue(Request $request){
+    public function getVenue($venue_url, Request $request){
 
-        $venue = Venue::find(1);
+
+        $venue = Venue::where('url', $venue_url)->first();
+
+        if ($venue === null) {
+            return redirect('/');
+        } else {
+            //dump($venue->toArray());
+            return view('venue', $venue->toArray());
+        }
+
+
+
+        //echo $venue_url;
+        //$venue = Venue::find(1);
 
         //$city = City::find(1);
         //$venues = $city->venues;
 
         //$vt = EventType::find(1);
 
-        $vts = $venue->rules;
+        //$vts = $venue->rules;
 
         //$venues = $vt->venues;
         //dump($vt->name);
 
-        foreach ($vts as $vt) {
+        /*foreach ($vts as $vt) {
 
             dump($vt->name);
-        }
+        }*/
 
         return ;
     }

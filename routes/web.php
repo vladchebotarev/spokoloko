@@ -23,7 +23,7 @@ Route::get('/search', function () {
     return view('search');
 });
 
-Route::get('/venue', 'VenueController@getVenue');
+Route::get('/venue/{venue_url}', 'VenueController@getVenue');
 
 Route::get('/about', function () {
     return view('about');

@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="ui column main-column">
 
-                        <h1 class="title-sq">Gorgeous Spacious Bright Apartment</h1>
+                        <h1 class="title-sq">{{ $name }}</h1>
 
                         <div class="rating-sq">
                             <span>9.4</span>
@@ -28,7 +28,7 @@
 
                         <div class="location-sq">
                             <i class="icon icon-location-pin-2"></i>
-                            Romania, Bucuresti
+                            {{ $street_address }}
                         </div>
 
                         <div class="icons-row">

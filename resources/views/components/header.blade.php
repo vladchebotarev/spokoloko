@@ -95,7 +95,7 @@ Default Header with a White Background & Dark text.
 
                                                 <li>
                                                     <div class="item">
-                                                        <a href="add_listing.html"
+                                                        <a href="{{ url('user/share') }}"
                                                            class="button-sq small-sq fullwidth-sq"><i
                                                                     class="icon icon-add-1"></i><span>{{ __('Dodaj biznes') }}</span></a>
                                                     </div>
