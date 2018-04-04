@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content" >
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -100,7 +100,7 @@
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content" >
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -204,7 +204,7 @@
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -417,7 +417,7 @@
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -584,7 +584,7 @@
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -859,5 +859,22 @@
     </div>
 </div>
 
+<div class="add-listing-footer">
+    <div class="ui grid container">
+        <div class="row">
+            <div class="ui column">
+                <a class="button-sq link-sq" href="add_listing_amenities.html">
+                    <i class="icon icon-slim-arrow-left"></i><span>back</span>
+                </a>
+
+                <div class="basic-progressbar dashboard-progressbar-sq">
+                    <div class="inner" data-percentage="36%" style="width:36%"></div>
+                </div>
+
+                <a class="button-sq next-sq" href="add_listing_location.html"><i class="icon icon-slim-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

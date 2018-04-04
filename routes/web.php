@@ -84,5 +84,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.share-business');
     })->name('share-business');
 
+
+
 });
 

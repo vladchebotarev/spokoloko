@@ -24,52 +24,50 @@
 
                         <ul>
 
-                            <li class="inline-flat-sq">
-                                <div class="fltp item" id="rangestart">
-                                    <input type="text" class="filter" value="" required placeholder="Enter Date">
-                                    <label class="placeholder"  data-big-placeholder="Check In Date" data-little-placeholder="Check In"></label>
+
+
+                            <li >
+                                <div class="field item" >
+
+                                    <div class="ui fluid search selection dropdown" style="min-width: 250px;" >
+
+                                        <input type="hidden" name="country">
+                                        <i class="dropdown icon" style="padding-left: 40px;"></i>
+                                        <div class="default text">Miasto</div>
+                                        <div class="menu">
+                                            <div class="item" data-value="kr">Krakow</div>
+                                            <div class="item" data-value="wa">Warszawa</div>
+                                            <div class="item" data-value="tr">Trojmiasto</div>
+
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
 
-                                <i class="icon icon-little-arrow item hidden-mobile hidden-tablet"></i>
-
-                                <div class="fltp item" id="rangeend">
-                                    <input type="text" class="filter" value="" required placeholder="Enter Date">
-                                    <label class="placeholder"  data-big-placeholder="Check Out Date" data-little-placeholder="Check Out"></label>
-                                </div>
                             </li>
 
                             <li>
-                                <div class="fltp item flat-sq">
-                                    <select name="dropdown" size="13" class="dropdown" tabindex="0" required>
-                                        <option value="0" selected>Guests</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                    <label class="placeholder">Guests</label>
+                                <div class="field item" style="margin-left: 0px;">
+
+                                    <div class="ui fluid search selection dropdown" style="min-width: 250px;">
+                                        <input type="hidden" name="country">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">Typ wydarzenia</div>
+                                        <div class="menu">
+                                            <div class="item" data-value="im"></i>Impreza</div>
+                                            <div class="item" data-value="ko"></i>Konferecnja</div>
+                                            <div class="item" data-value="sa"></i>Sasai Kudasai</div>
+
+
+                                        </div>
+                                    </div>
                                 </div>
+
                             </li>
 
-                            <li>
-                                <div class="fltp item modal-icons three-columns flat-sq">
-                                    <select name="dropdown" size="4" class="dropdown" required>
-                                        <option value="0" selected>Entire Room</option>
-                                        <option value="1" data-icon="icon-home-3">Entire Room</option>
-                                        <option value="2" data-icon="icon-door-simple">Private Room</option>
-                                        <option value="3" data-icon="icon-bed-single">Shared Room</option>
-                                    </select>
-                                    <label class="placeholder">Room Type</label>
-                                </div>
-                            </li>
+
 
                             <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
                                 <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
@@ -384,21 +382,21 @@
                     <div class="switch-view-controller">
                         <a href="" id="only-list-trigger" class="item">
                             <i class="icon icon-list"></i>
-                            <span>List</span>
+                            <span>Lista</span>
                         </a>
                         <a href="" id="both-trigger" class="item active hidden-mobile">
                             <i class="icon icon-both"></i>
-                            <span>Both</span>
+                            <span>Razem</span>
                         </a>
 
                         <a href="" id="only-map-trigger" class="item">
                             <i class="icon icon-map"></i>
-                            <span>Map</span>
+                            <span>Mapa</span>
                         </a>
 
                         <a href="" class="modal-trigger item hidden-desktop hidden-large-desktop" data-trigger-for="menu02">
                             <i class="icon icon-filter"></i>
-                            <span>Filters</span>
+                            <span>Filtry</span>
                         </a>
                     </div>
 
@@ -416,12 +414,12 @@
                                 @for ($i = 1; $i < 10; $i++)
                                     <!-- property item -->
                                         <div class="ui twelve wide mobile six wide tablet six wide computer four wide widescreen four wide large screen column">
-                                            <div class="property-item">
+                                            <div class="property-item ">
                                                 <div class="property-item-inner">
 
-                                                    <div class="price-tag-sq">112 &euro; <span>/ night</span></div>
+                                                    <div class="price-tag-sq"><span>od </span>112 PLN <span>/3 godz</span></div>
                                                     <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                                        <i class="icon icon-add-wishlist"></i>
+                                                        <i class="icon icon-heart-line"></i>
                                                     </a>
 
                                                     <a class="image-sq" href="{{ url('venue') }}">
@@ -432,26 +430,29 @@
                                                 </span>
                                                     </a>
 
-                                                    <div class="main-details">
-                                                        <div class="title-row">
+                                                    <div class="main-details" >
+                                                        <div class="title-row" style="margin-bottom: 5px;">
                                                             <a href="{{ url('venue') }}" class="title-sq">Downtown Sweet House</a>
-                                                            <a href="{{ url('venue') }}" class="avatar-sq">
-                                                                <img src="{{ asset('new-assets/images/avatar/avatar_0'.$i.'.jpg') }}" alt="">
-                                                            </a>
+
+
+
+                                                        </div>
+                                                        <div class="asd" style="color:white; margin-bottom: 0px">
+                                                            <i class="icon icon-location-pin-2"></i> ul. Zamenhofa 7
                                                         </div>
 
-                                                        <div class="icons-row">
-                                                            <div class="icons-column">
-                                                                <i class="icon icon-heart"></i> 8.6
+                                                        <div class="icons-row" style="padding-top: 20px;">
+                                                            <div class="icons-column" data-content="Add users to your feed">
+                                                                <i class="icon icon-star-2"></i> 8.6
                                                             </div>
                                                             <div class="icons-column">
-                                                                <i class="icon icon-account-group-5"></i> x 4
+                                                                <i class="icon icon-account-group-5"></i> 520
                                                             </div>
                                                             <div class="icons-column">
-                                                                <i class="icon icon-door-simple"></i> x 6
+                                                                <i class="icon icon-home-3"></i> 30m²
                                                             </div>
                                                             <div class="icons-column">
-                                                                <i class="icon icon-bed-double"></i> x 2
+                                                                <i class="icon icon-lock-close-3"></i> 250zł
                                                             </div>
                                                         </div>
                                                     </div>
