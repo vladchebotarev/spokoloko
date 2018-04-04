@@ -872,12 +872,12 @@
                </div> -->
                <nav id="pagination">
                    <ul class="pagination-list">
-                       <li class="pagination-active">Najważniejsze</li>
-                       <li>Kategorie</li>
-                       <li>O przestrzeni</li>
-                       <li>Usługi</li>
-                       <li>O rezerwacji</li>
-                       <li>Zdjęcia</li>
+                       <li class="pagination-active"></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
                    </ul>
                </nav>
                <button class="button-sq next-sq" >

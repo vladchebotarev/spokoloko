@@ -14,28 +14,30 @@
 #pagination .pagination-list {
   list-style-type: none;
   display: flex;
+  justify-content: space-around;
 }
 
-/* line 16, git/spokoloko-repo/public/css/scss/share-venue.scss */
+/* line 17, git/spokoloko-repo/public/css/scss/share-venue.scss */
 #pagination .pagination-list li {
-  color: #aaa;
-  padding: 0;
+  padding: 0 0.5em;
   margin: 0 0.5em;
   display: flex;
   align-items: center;
-  text-align: center;
-  font-weight: 400;
 }
 
-/* line 35, git/spokoloko-repo/public/css/scss/share-venue.scss */
+/* line 33, git/spokoloko-repo/public/css/scss/share-venue.scss */
 #pagination .pagination-list li::before {
   content: '';
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #aaa;
+  width: 1em;
+  height: 1em;
 }
 
-/* line 38, git/spokoloko-repo/public/css/scss/share-venue.scss */
-#pagination .pagination-list li.pagination-active {
-  font-weight: 700;
-  color: #F57C00;
+/* line 42, git/spokoloko-repo/public/css/scss/share-venue.scss */
+#pagination .pagination-list li.pagination-active::before {
+  background-color: #F57C00;
 }
 
 /*# sourceMappingURL=share-venue.css.map */
