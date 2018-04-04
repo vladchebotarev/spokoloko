@@ -2,7 +2,7 @@
 //Set Map
 function initMap() {
 	var myLatlng = new google.maps.LatLng(53.3333,-3.08333);
-	var imagePath = 'http://m.schuepfen.ch/icons/helveticons/black/60/Pin-location.png';
+	var imagePath = 'https://spokoloko.eu/img/logos/pin_map_hover.png';
 	var mapOptions = {
 		zoom: 11,
 		center: myLatlng,

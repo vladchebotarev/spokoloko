@@ -3648,7 +3648,7 @@ button .icon + span {
   z-index: 10;
   height: 40px;
   line-height: 40px;
-  background: rgba(36, 43, 51, 0.9);
+  background: rgba(242, 137, 60, 0.9);
   color: #fff;
   font-size: 1.125em;
   font-weight: 700;
@@ -11284,7 +11284,7 @@ select.ui.dropdown {
   width: auto;
   outline: none;
   margin: 0px -1px;
-  min-width: calc(100% +  2px );
+  min-width: 140px;
   width: calc(100% +  2px );
   border-radius: 0em 0em 0 0;
   box-shadow: 0px 2px 3px 0px #D4D4D4;
