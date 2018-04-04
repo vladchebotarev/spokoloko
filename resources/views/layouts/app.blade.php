@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share-venue.css') }}">
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -157,6 +158,8 @@
     @endif
 @endguest
 
+<script src="{{ asset('js/share/velocity.min.js')}}"></script>
+<script src={{ asset('js/share/share-venue.steps.js') }}></script>
 
 </body>
 

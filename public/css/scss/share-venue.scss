@@ -1,0 +1,10 @@
+.add-listing-content {
+    &:not(.active-block) {
+        display: none;
+        opacity: 0;
+    }
+    .active-block {
+        display: block;
+        opacity: 1;
+    }
+}

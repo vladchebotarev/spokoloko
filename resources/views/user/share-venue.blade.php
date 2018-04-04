@@ -2,8 +2,7 @@
 
 @section('content')
 
-
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content active-block" style="height: 100%">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -857,6 +856,25 @@
 
         </div>
     </div>
+</div>
+
+
+<div class="add-listing-footer">
+   <div class="ui grid container">
+       <div class="row">
+           <div class="ui column">
+               <a class="button-sq link-sq">
+                   <i class="icon icon-slim-arrow-left"></i><span>back</span>
+               </a>
+               <!-- href="add_listing_amenities.html" -->
+               <div class="basic-progressbar dashboard-progressbar-sq">
+                   <div class="inner" data-percentage="0%" style="width:0%"></div>
+               </div>
+               <a class="button-sq next-sq" ><i class="icon icon-slim-arrow-right"></i></a>
+               <!-- href="add_listing_location.html" -->
+           </div>
+       </div>
+   </div>
 </div>
 
 
