@@ -8,3 +8,37 @@
         opacity: 1;
     }
 }
+
+#pagination {
+    .pagination-list {
+        list-style-type: none;
+        display: flex;
+        li {
+            color: #aaa;
+            padding: 0;
+            margin: 0 0.5em;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            font-weight: 400;
+            // &::before {
+            //     content: '';
+            //     width: 1px;
+            //     background-color: #aaa;
+            //     height: 90%;
+            //     top: 10%;
+            //     left: 10%;
+            //     &:not(:first-of-type) {
+            //         display: none;
+            //     }
+            // }
+            &::before{
+                content: '';
+            }
+            &.pagination-active {
+                font-weight: 700;
+                color: #F57C00;
+            }
+        }
+    }
+}

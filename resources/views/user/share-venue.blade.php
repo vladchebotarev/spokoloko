@@ -863,14 +863,26 @@
    <div class="ui grid container">
        <div class="row">
            <div class="ui column">
-               <a class="button-sq link-sq">
+               <button class="button-sq link-sq">
                    <i class="icon icon-slim-arrow-left"></i><span>back</span>
-               </a>
+               </button>
                <!-- href="add_listing_amenities.html" -->
-               <div class="basic-progressbar dashboard-progressbar-sq">
+               <!-- <div class="basic-progressbar dashboard-progressbar-sq">
                    <div class="inner" data-percentage="0%" style="width:0%"></div>
-               </div>
-               <a class="button-sq next-sq" ><i class="icon icon-slim-arrow-right"></i></a>
+               </div> -->
+               <nav id="pagination">
+                   <ul class="pagination-list">
+                       <li class="pagination-active">Najważniejsze</li>
+                       <li>Kategorie</li>
+                       <li>O przestrzeni</li>
+                       <li>Usługi</li>
+                       <li>O rezerwacji</li>
+                       <li>Zdjęcia</li>
+                   </ul>
+               </nav>
+               <button class="button-sq next-sq" >
+                   <i class="icon icon-slim-arrow-right"></i>
+               </button>
                <!-- href="add_listing_location.html" -->
            </div>
        </div>
