@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="add-listing-content active-block" style="height: 100%">
+<div class="add-listing-content active-block">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -85,7 +85,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -93,13 +93,18 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <div class="map-wrapper map">
+                   <div id="map"></div>
+                </div>
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -189,7 +194,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -197,13 +202,16 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -402,7 +410,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -410,13 +418,15 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -569,7 +579,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -577,13 +587,15 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>
 
-<div class="add-listing-content" style="height: 100%">
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -756,7 +768,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -764,8 +776,10 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>

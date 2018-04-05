@@ -21,7 +21,7 @@
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 {{--TODO customize--}}
-    @if(Request::is('search') or Request::is('venue'))
+    @if(Request::is('search') or Request::is('venue') or Request::is('user/share-venue'))
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFGjWRN0ddQwopal_6VZNmz-9PJCX-caI&callback=initMap"></script>
             <script src={{ asset('new-assets/library/map.js') }}></script>
@@ -30,7 +30,10 @@
     <title>Spokoloko @yield('title')</title>
 
 </head>
-<body class="no-transition">
+<body class="no-transition"
+    @if(Request::is('user/share-venue'))
+        style="overflow: hidden;"
+    @endif>
 <div id="page-wrapper">
 
 @component('components.header')
@@ -141,6 +144,9 @@
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 
+</script>
+
+
 <!-- Other scripts -->
 {{--TODO--}}
 @guest
@@ -157,10 +163,11 @@
         <script src={{ asset('js/profile-form.js') }}></script>
     @endif
 @endguest
-
-<script src="{{ asset('js/share/velocity.min.js')}}"></script>
+@if(Request::is('user/share-venue'))
+<script src={{ asset('js/share/velocity.min.js')}}></script>
 <script src={{ asset('js/share/share-venue.steps.js') }}></script>
-
+<script src={{ asset('js/share/map.location.js') }}></script>
+@endif
 </body>
 
 </html>
