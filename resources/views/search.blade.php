@@ -35,9 +35,12 @@
                                         <i class="dropdown icon" style="padding-left: 40px;"></i>
                                         <div class="default text">Miasto</div>
                                         <div class="menu">
-                                            <div class="item" data-value="kr">Krakow</div>
+                                            @foreach ($cities as $city)
+                                                <div class="item" data-value="kr">{{ $city->name }}</div>
+                                            @endforeach
+                                            {{--<div class="item" data-value="kr">Krakow</div>
                                             <div class="item" data-value="wa">Warszawa</div>
-                                            <div class="item" data-value="tr">Trojmiasto</div>
+                                            <div class="item" data-value="tr">Trojmiasto</div>--}}
 
 
 
@@ -56,9 +59,13 @@
                                         <i class="dropdown icon"></i>
                                         <div class="default text">Typ wydarzenia</div>
                                         <div class="menu">
-                                            <div class="item" data-value="im"></i>Impreza</div>
+                                            @foreach ($eventTypes as $eventType)
+                                                <div class="item" data-value="kr">{{ $eventType->name }}</div>
+                                            @endforeach
+
+                                            {{--<div class="item" data-value="im"></i>Impreza</div>
                                             <div class="item" data-value="ko"></i>Konferecnja</div>
-                                            <div class="item" data-value="sa"></i>Sasai Kudasai</div>
+                                            <div class="item" data-value="sa"></i>Sasai Kudasai</div>--}}
 
 
                                         </div>
@@ -82,7 +89,7 @@
 
                                 <a href="#" class="item hidden-tablet hidden-mobile">
                                     <i class="icon icon-filter"></i>
-                                    <span class="">Filters</span>
+                                    <span class="">{{ __('Filtry') }}</span>
                                 </a>
 
                                 <ul class="submenu megamenu special-sq">
@@ -164,7 +171,8 @@
                                                     </a>
 
                                                     <div class="div-c inline-3 one-label">
-                                                        <label>Amenities</label>
+                                                        <label>{{ __('Udogodnienia') }}</label>
+
                                                         <div class="divided-column">
                                                             <input type="checkbox" id="checkbox1">
                                                             <label for="checkbox1">Wireless Internet</label>
@@ -194,6 +202,7 @@
                                                             <input type="checkbox" id="checkbox6">
                                                             <label for="checkbox6">Washer</label>
                                                         </div>
+
 
                                                     </div>
 
@@ -348,9 +357,9 @@
                                                 </div>
 
                                                 <div class="divided-column">
-                                                    <a href="" class="float-right-sq button-sq modal-button font-weight-bold-sq">Apply</a>
+                                                    <a href="" class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }}</a>
 
-                                                    <a class="float-right-sq button-sq cancel-sq hidden-tablet hidden-mobile" href="">Cancel</a>
+                                                    {{--<a class="item float-right-sq button-sq cancel-sq hidden-tablet hidden-mobile" href="#">{{ __('Zamknij') }}</a>--}}
 
                                                 </div>
                                             </div>
