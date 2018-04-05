@@ -34,7 +34,7 @@
                         <div class="icons-row">
                             <div class="icons-column">
                                 <i class="icon icon-account-group-5"></i>
-                                4 Guests
+                                do 240 osob
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-door-simple"></i>
@@ -80,8 +80,8 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
-                                        <span class="price-sq">214&euro;</span>
-                                        <span class="per-sq" data-text-mobile="/ " data-text="per ">night</span>
+                                        <span class="price-sq">od 250 PLN</span>
+                                        <span class="per-sq" data-text-mobile="/ " data-text="za ">3h</span>
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
@@ -90,71 +90,45 @@
 
                                     <div class="mobile-fixed-section">
                                         <div class="sticky-box-content">
-                                            <form action="checkout_page.html">
-                                                <div class="main-infos inline-check-in">
-                                                    <div class="check-in calendar-sq" id="sticky-box-rangestart">
-                                                        <label class="placeholder" data-placeholder="Check In"></label>
 
-                                                        <div class="relative">
-                                                            <input type="text" class="filter" value="" required
-                                                                   placeholder="date">
-                                                            <i class="icon icon-little-arrow filters-arrow"></i>
-                                                        </div>
+                                                <div class="twelve wide column">
+                                                    <ul class="description-list" style="font-size:10pt">
+                                                        <li>
+                                                            <div>
+                                                                <p>Cena za godzine:</p>
+                                                                <strong style="float: right">100 PLN</strong>
+                                                            </div>
+                                                        </li>
 
-                                                    </div>
+                                                        <li>
+                                                            <div><p>Minimum godzin:</p>
+                                                                <strong style="float: right">3</strong></div>
+                                                        </li>
 
-                                                    <div class="check-out calendar-sq" id="sticky-box-rangeend">
+                                                        <li>
+                                                            <div><p>Cena za dzien:</p>
+                                                                <strong style="float: right">1200 PLN</strong></div>
+                                                        </li>
 
-                                                        <label class="placeholder" data-placeholder="Check Out"></label>
+                                                        <li>
+                                                            <div><p>Kaucja:</p>
+                                                                <strong style="float: right">500zl</strong></div>
+                                                        </li>
+                                                        <li>
+                                                            <div style="text-align: center;"><p >Poznaj sczególy w rozdzielie ceny</p></div>
+                                                        </li>
 
-                                                        <input type="text" class="filter" value="" required
-                                                               placeholder="date">
 
-                                                    </div>
-
-                                                    <div class="guests">
-                                                        <label class="placeholder" data-placeholder="Guests"></label>
-
-                                                        <select name="dropdown" size="12" class="dropdown" required>
-                                                            <option value="1" selected>1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                            <option value="8">8</option>
-                                                            <option value="9">9</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                        </select>
-
-                                                    </div>
+                                                    </ul>
                                                 </div>
 
-                                                <div class="calculations">
-                                                    <div class="calc-row">
-                                                        <div class="calc-column"><p class="desc">Service fee</p></div>
-                                                        <div class="calc-column"><p class="price-sq">&euro;24</p></div>
-                                                    </div>
 
-                                                    <div class="calc-row">
-                                                        <div class="calc-column"><p class="desc">Cleaning fee</p></div>
-                                                        <div class="calc-column"><p class="price-sq">&euro;16</p></div>
-                                                    </div>
 
-                                                    <div class="calc-row">
-                                                        <div class="calc-column"><p class="desc">Total</p></div>
-                                                        <div class="calc-column"><p class="price-sq">&euro;657</p></div>
-                                                    </div>
-                                                </div>
+                                            <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Napisz do nas
+                                            </button>
 
-                                                <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Instant
-                                                    Booking
-                                                </button>
-
-                                            </form>
+                                            <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Zarezerwuj teraz
+                                            </button>
                                         </div>
 
                                         <div class="sticky-box-wishlist">

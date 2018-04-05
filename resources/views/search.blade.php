@@ -442,18 +442,16 @@
                                                         </div>
 
                                                         <div class="icons-row" style="padding-top: 20px;">
-                                                            <div class="icons-column" data-content="Add users to your feed">
+                                                            <div class="icons-column" >
                                                                 <i class="icon icon-star-2"></i> 8.6
                                                             </div>
                                                             <div class="icons-column">
-                                                                <i class="icon icon-account-group-5"></i> 520
+                                                                <i class="icon icon-account-group-5" ></i> 520
                                                             </div>
                                                             <div class="icons-column">
                                                                 <i class="icon icon-home-3"></i> 30m²
                                                             </div>
-                                                            <div class="icons-column">
-                                                                <i class="icon icon-lock-close-3"></i> 250zł
-                                                            </div>
+
                                                         </div>
                                                     </div>
 
