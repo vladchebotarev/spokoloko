@@ -618,61 +618,113 @@
 
                 </div>
 
+                <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
+                <div class="week-group">
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day1" checked="false"></button>
+                        <div class="label">
+                            Poniedziałek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                <div class="div-c inline-3 one-label">
-                    <label>Poniedziałek-piątek</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day2" checked="false"></button>
+                        <div class="label">
+                            Wtorek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day3" checked="false"></button>
+                        <div class="label">
+                            Środa
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox2">
-                        <label for="work_checkbox2">Nie działa</label>
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day4" checked="false"></button>
+                        <div class="label">
+                            Czwartek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                </div>
-                <div class="div-c inline-3 one-label">
-                    <label>Sobota-Niedzieła</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day5" checked="false"></button>
+                        <div class="label">
+                            Piątek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day6" checked="false"></button>
+                        <div class="label">
+                            Sobota
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox3">
-                        <label for="work_checkbox3">Nie działa</label>
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day7" checked="false"></button>
+                        <div class="label">
+                            Niedziela
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                </div>
-
-                <div class="div-c inline-3 one-label">
-                    <label>Swięta</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
-                    </div>
-
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox4">
-                        <label for="work_checkbox4">Nie działa</label>
-                    </div>
-
                 </div>
 
 
