@@ -4,7 +4,7 @@
 
 @section('content')
     <header class="header-section mhs header-sticky header-fullwidth header-isnt-tablet header-isnt-mobile">
-        <form method="get" action="venues/{{ $current_city->name }}" id="search_form">
+        <form method="get" action="{{ $current_city->name }}" id="search_form">
             <div class="header-content">
                 <div class="ui container grid">
                     <div class="header-item header-left">
@@ -27,97 +27,24 @@
                             <ul>
                                 <li>
                                     <div class="field item">
-                                        <select class="ui search dropdown">
-                                            <option value="">State</option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="DC">District Of Columbia</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NY">New York</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WY">Wyoming</option>
+                                        <select class="ui search dropdown" id="select_city">
+                                            <option value="">Miasto</option>
+                                            @foreach ($cities as $city)
+                                                <option value="{{ $city->name }}" @if($current_city->name === $city->name) selected @endif>{{ $city->name }}</option>
+                                            @endforeach
                                         </select>
-
-
-
-                                        {{--<div class="ui fluid search selection dropdown" style="min-width: 250px;" onkeydown = "if (event.keyCode == 13)
-                                                alert(1)">
-
-                                            --}}{{--<input type="hidden" name="city" id="city">--}}{{--
-
-                                            <div class="default text" onclick="alert(1);">{{ $current_city->name }}</div>
-                                            <div class="menu">
-                                                @foreach ($cities as $city)
-                                                    <div class="item" id="city" data-value="{{ $city->name }}"
-                                                         onclick="sendSearchForm(this.getAttribute('data-value'))">{{ $city->name }}</div>
-                                                @endforeach
-                                            </div>
-                                        </div>--}}
-
-
-
                                     </div>
 
                                 </li>
 
                                 <li>
                                     <div class="field item" style="margin-left: 0px;">
-
-                                        <div class="ui fluid search selection dropdown" style="min-width: 250px;">
-                                            <input type="hidden" name="eventType">
-                                            <i class="dropdown icon"></i>
-                                            <div class="default text">{{ $current_event_type }}</div>
-                                            <div class="menu">
-                                                @foreach ($eventTypes as $eventType)
-                                                    <div class="item"
-                                                         data-value="{{ $eventType->name }}">{{ $eventType->name }}</div>
-                                                @endforeach
-                                            </div>
-                                        </div>
+                                        <select class="ui search dropdown" id="select_event_type" name="eventType">
+                                            <option value="">Wydarzenie</option>
+                                            @foreach ($eventTypes as $eventType)
+                                                <option value="{{ $eventType->name }}" @if($current_event_type === $eventType->name) selected @endif>{{ $eventType->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
 
                                 </li>
@@ -125,9 +52,9 @@
 
                                 <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
                                     <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
-
-                                        <label class="placeholder hidden-desktop hidden-large-desktop">Price
-                                            Range</label>
+                                        <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
+                                        <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
+                                        <label class="placeholder hidden-desktop hidden-large-desktop">Zakres cen</label>
 
                                         <div id="price-range-slider" class="price-range-slider-base"></div>
                                     </div>
@@ -147,7 +74,7 @@
                                                 <div class="div-c inline-3">
                                                     <div class="divided-column">
                                                         <label>Bedrooms</label>
-                                                        <select name="dropdown" class="dropdown item">
+                                                        <select class="dropdown item">
                                                             <option value="0">1</option>
                                                             <option value="1">2</option>
                                                             <option value="2">3</option>
@@ -163,7 +90,7 @@
 
                                                     <div class="divided-column">
                                                         <label>Number of beds</label>
-                                                        <select name="dropdown" class="dropdown item">
+                                                        <select class="dropdown item">
                                                             <option value="0">1</option>
                                                             <option value="1">2</option>
                                                             <option value="2">3</option>
@@ -179,7 +106,7 @@
 
                                                     <div class="divided-column">
                                                         <label>Bathrooms</label>
-                                                        <select name="dropdown" class="dropdown item">
+                                                        <select class="dropdown item">
                                                             <option value="0">1</option>
                                                             <option value="1">2</option>
                                                             <option value="2">3</option>
@@ -191,22 +118,6 @@
                                                             <option value="8">9</option>
                                                             <option value="9">10</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-
-                                                <hr>
-
-                                                <div class="div-c inline-3">
-
-                                                    <div class="divided-column">
-                                                        <label>Instant Booking</label>
-                                                        <input type="checkbox" id="extra01">
-                                                        <label for="extra01">Instant Booking</label>
-                                                    </div>
-                                                    <div class="divided-column">
-                                                        <label>Super Host</label>
-                                                        <input type="checkbox" id="extra02">
-                                                        <label for="extra02">Super Host</label>
                                                     </div>
                                                 </div>
 
@@ -224,7 +135,10 @@
                                                             @for ($i = 0; $i < 3; $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="venue_type_{{ $venueTypes[$i]->id }}">
+                                                                           id="venue_type_{{ $venueTypes[$i]->id }}" name="venue_types[]" value="{{ $venueTypes[$i]->name }}"
+                                                                           @if(in_array($venueTypes[$i]->name, $current_venue_types))
+                                                                                checked
+                                                                           @endif>
                                                                     <label for="venue_type_{{ $venueTypes[$i]->id }}">{{ $venueTypes[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
@@ -235,7 +149,10 @@
                                                             @for ($i = 3; $i < count($venueTypes); $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="venue_type_{{ $venueTypes[$i]->id }}">
+                                                                           id="venue_type_{{ $venueTypes[$i]->id }}" name="venue_types[]" value="{{ $venueTypes[$i]->name }}"
+                                                                           @if(in_array($venueTypes[$i]->name, $current_venue_types))
+                                                                                checked
+                                                                           @endif>
                                                                     <label for="venue_type_{{ $venueTypes[$i]->id }}">{{ $venueTypes[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
@@ -257,7 +174,10 @@
                                                             @for ($i = 0; $i < 3; $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="amenity_{{ $amenities[$i]->id }}">
+                                                                           id="amenity_{{ $amenities[$i]->id }}" name="amenities[]" value="{{ $amenities[$i]->name }}"
+                                                                           @if(in_array($amenities[$i]->name, $current_amenities))
+                                                                                checked
+                                                                           @endif>
                                                                     <label for="amenity_{{ $amenities[$i]->id }}">{{ $amenities[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
@@ -268,7 +188,10 @@
                                                             @for ($i = 3; $i < count($amenities); $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="amenity_{{ $amenities[$i]->id }}">
+                                                                           id="amenity_{{ $amenities[$i]->id }}" name="amenities[]" value="{{ $amenities[$i]->name }}"
+                                                                           @if(in_array($amenities[$i]->name, $current_amenities))
+                                                                                checked
+                                                                           @endif>
                                                                     <label for="amenity_{{ $amenities[$i]->id }}">{{ $amenities[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
@@ -290,8 +213,11 @@
                                                             @for ($i = 0; $i < 3; $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="amenity_{{ $features[$i]->id }}">
-                                                                    <label for="amenity_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
+                                                                           id="feature_{{ $features[$i]->id }}" name="features[]" value="{{ $features[$i]->name }}"
+                                                                           @if(in_array($features[$i]->name, $current_features))
+                                                                                checked
+                                                                           @endif>
+                                                                    <label for="feature_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
                                                         </div>
@@ -302,8 +228,11 @@
                                                             @for ($i = 3; $i < count($features); $i++)
                                                                 <div class="divided-column">
                                                                     <input type="checkbox"
-                                                                           id="amenity_{{ $features[$i]->id }}">
-                                                                    <label for="amenity_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
+                                                                           id="feature_{{ $features[$i]->id }}" name="features[]" value="{{ $features[$i]->name }}"
+                                                                           @if(in_array($features[$i]->name, $current_features))
+                                                                                checked
+                                                                           @endif>
+                                                                    <label for="feature_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
                                                                 </div>
                                                             @endfor
                                                         </div>
@@ -312,22 +241,42 @@
 
                                                 <hr>
 
-                                                <div class="div-c inline-3 one-label">
-                                                    <label>House Rules</label>
-                                                    <div class="divided-column">
-                                                        <input type="checkbox" id="rules01">
-                                                        <label for="rules01">Pets allowed</label>
+                                                <div class="ui accordion more-sq">
+                                                    <div class="title">
+                                                        <a class="accordion-trigger more-trigger"
+                                                           data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
+                                                            <i class="icon icon-arrow-down-122"></i>
+                                                        </a>
+
+                                                        <div class="div-c inline-3 one-label">
+                                                            <label>{{ __('Zasasdy') }}</label>
+                                                            @for ($i = 0; $i < 6; $i++)
+                                                                <div class="divided-column">
+                                                                    <input type="checkbox"
+                                                                           id="rules_{{ $rules[$i]->id }}" name="rules[]" value="{{ $rules[$i]->name }}"
+                                                                           @if(in_array($rules[$i]->name, $current_rules))
+                                                                                checked
+                                                                           @endif>
+                                                                    <label for="rules_{{ $rules[$i]->id }}">{{ $rules[$i]->name }}</label>
+                                                                </div>
+                                                            @endfor
+                                                        </div>
                                                     </div>
-                                                    <div class="divided-column">
-                                                        <input type="checkbox" id="rules02">
-                                                        <label for="rules02">Smoking allowed</label>
-                                                    </div>
-                                                    <div class="divided-column">
-                                                        <input type="checkbox" id="rules03">
-                                                        <label for="rules03">Suitable for events</label>
+                                                    <div class="content">
+                                                        <div class="div-c inline-3">
+                                                            @for ($i = 6; $i < count($rules); $i++)
+                                                                <div class="divided-column">
+                                                                    <input type="checkbox"
+                                                                           id="rules_{{ $rules[$i]->id }}" name="rules[]"  value="{{ $rules[$i]->name }}"
+                                                                           @if(in_array($rules[$i]->name, $current_rules))
+                                                                                checked
+                                                                           @endif>
+                                                                    <label for="rules_{{ $rules[$i]->id }}">{{ $rules[$i]->name }}</label>
+                                                                </div>
+                                                            @endfor
+                                                        </div>
                                                     </div>
                                                 </div>
-
                                             </div>
 
                                             <div class="footer">
@@ -337,18 +286,16 @@
                                                             <div class="filters-icon-container">
                                                                 <i class="icon icon-filter"></i>
                                                             </div>
-                                                            <a class="remove-all">
-                                                                Remove All<i class="icon icon-close"></i>
-                                                            </a>
-                                                            <a class="">
-                                                                Applied Filter<i class="icon icon-close"></i>
+                                                            <a class="remove-all" id="clearFilters">
+                                                                Wyczyść filtry<i class="icon icon-close"></i>
                                                             </a>
                                                         </div>
                                                     </div>
 
                                                     <div class="divided-column">
-                                                        <a href=""
-                                                           class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }}</a>
+                                                        <button type="submit" class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }} </button>
+                                                        {{--<a href=""
+                                                           class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }}</a>--}}
 
                                                         {{--<a class="item float-right-sq button-sq cancel-sq hidden-tablet hidden-mobile" href="#">{{ __('Zamknij') }}</a>--}}
 
@@ -412,8 +359,8 @@
 
                         <div class="ui grid narrow-sq">
                             <div class="row">
-
-                            @for ($i = 1; $i < 10; $i++)
+                                {{ dump($venues) }}
+                            {{--@for ($i = 1; $i < 10; $i++)
                                 <!-- property item -->
                                     <div class="ui twelve wide mobile six wide tablet six wide computer four wide widescreen four wide large screen column">
                                         <div class="property-item ">
@@ -463,7 +410,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endfor
+                                @endfor--}}
 
                             </div>
                         </div>

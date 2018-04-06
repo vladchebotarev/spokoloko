@@ -324,7 +324,7 @@ var SQ = SQ || {};
             });
 
             /* Price Range Slider */
-            var startSlider = document.getElementById('price-range-slider');
+            /*var startSlider = document.getElementById('price-range-slider');
 
             if (startSlider) {
                 noUiSlider.create(startSlider, {
@@ -341,7 +341,7 @@ var SQ = SQ || {};
                         'max': [1000]
                     }
                 });
-            }
+            }*/
 
             /* Slick */
 
