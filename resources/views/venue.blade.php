@@ -37,16 +37,16 @@
                                 do 240 osob
                             </div>
                             <div class="icons-column">
-                                <i class="icon icon-door-simple"></i>
-                                3 Bedrooms
+                                <i class="icon icon-home-3"></i>
+                                150 m²
                             </div>
                             <div class="icons-column">
-                                <i class="icon icon-bed-double"></i>
-                                3 Beds
+                                <i class="icon icon-user-circle"></i>
+                                120 stojąco
                             </div>
                             <div class="icons-column">
-                                <i class="icon icon-bath-tub"></i>
-                                2 Baths
+                                <i class="icon icon-armchair-1"></i>
+                                64 siedząco
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
-                                         data-trigger-for="menu04">Instant Booking
+                                         data-trigger-for="menu04">Skontaktuj się
                                     </div>
 
                                     <div class="mobile-fixed-section">
@@ -100,10 +100,7 @@
                                                             </div>
                                                         </li>
 
-                                                        <li>
-                                                            <div><p>Minimum godzin:</p>
-                                                                <strong style="float: right">3</strong></div>
-                                                        </li>
+
 
                                                         <li>
                                                             <div><p>Cena za dzien:</p>
@@ -115,17 +112,90 @@
                                                                 <strong style="float: right">500zl</strong></div>
                                                         </li>
                                                         <li>
-                                                            <div style="text-align: center;"><p >Poznaj sczególy w rozdzielie ceny</p></div>
+                                                            <div class="ui internally celled grid">
+                                                            <div class="row" style="padding-right: 20px; padding-left: 20px;">
+                                                                <div class="four wide column" style="padding-right: 1%; padding-left:0%;"> <button class="social_icons facebook" ><i class="fa fa-facebook"></i>
+                                                                    </button></div>
+
+                                                                <div class="four wide column" style="padding-right: 1%; padding-left:1%;"><button class="column social_icons instagram" ><i class="fa fa-instagram"></i>
+                                                                </button></div>
+                                                                <div class="four wide column" style="padding-right: 0%;  padding-left:1%;"><button class="column social_icons tripadvisor" ><i class="fa fa-tripadvisor"></i>
+                                                                    </button></div>
+                                                            </div></div>
                                                         </li>
 
+
+
+        <style>
+            div.soc_buttons{
+                width:100%;
+            }
+
+            button.social_icons{
+                font-size: 15px;
+                width: 100%;
+
+                border: 1px;
+                border-style: inset;
+                background-color: white;
+            }
+            button.social_icons.facebook {
+                border-color: dodgerblue;
+                color: dodgerblue;
+            }
+            button.social_icons.instagram {
+                border-color: deeppink;
+                color: deeppink;
+            }
+            button.social_icons.tripadvisor {
+                border-color: forestgreen;
+                color: forestgreen;
+            }
+            button.button_call{
+                width: 100%;
+                border: 1px;
+                border-style: solid;
+
+                background-color: white;
+                color:orangered;
+                border-bottom-color: orangered;
+            }
+            button.button_message{
+                width: 100%;
+                border: 1px;
+                border-style: solid;
+
+                background-color: white;
+                color:dodgerblue;
+                border-bottom-color: dodgerblue;
+            }
+
+
+
+
+        </style>
+
+
+
+                                                        <li>
+                                                            <div>
+                                                                <button class="button_call"><i class="fa fa-phone" style="padding-right: 10px;"></i> Zadzwon do nas
+                                                                </button>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div>
+                                                                <button class="button_message"><i class="fa fa-commenting" style="padding-right: 10px;"></i>  Czat s nami
+                                                                </button>
+                                                            </div>
+                                                        </li>
 
                                                     </ul>
                                                 </div>
 
 
 
-                                            <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Napisz do nas
-                                            </button>
+
 
                                             <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Zarezerwuj teraz
                                             </button>
@@ -133,13 +203,11 @@
 
                                         <div class="sticky-box-wishlist">
                                             <div class="wishlist-sq">
-                                                <a href=""><i class="icon icon-filter-heart"></i>Save Property</a>
+                                                <a href=""><i class="icon icon-filter-heart"></i>Zachowaj</a>
                                             </div>
-                                            <div class="aux-info-sq">
-                                                <p>1060 travelers saved this place</p>
-                                            </div>
+
                                             <div class="share-sq">
-                                                <a href=""><i class="icon icon-share"></i>Share</a>
+                                                <a href=""><i class="icon icon-share"></i>Udostępnij</a>
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +239,7 @@
                         <ul class="main-menu anchor-menu">
 
                             <li class="active"><a href="#section-01" class="item">
-                                    <span>About this listings</span>
+                                    <span>O przestrzeni</span>
                                 </a>
                             </li>
 
@@ -214,7 +282,7 @@
                 <div class="section-container" id="section-01">
 
                     <div class="typo-section-sq top-default bottom-default">
-                        <h3>About this listning</h3>
+                        <h3>O przestrzeni</h3>
 
                         <p>Our house is a wood and glass house, built in the 21th century's first years. A large living
                             room widely glazed with a fireplace, two large sofas and the "chief's armchair" and a
@@ -222,7 +290,9 @@
                             <br><br>
                             Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
                             bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
-                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.</p>
+                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a href="#section-cena">
+                                ...
+                            </a></p>
 
                         <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
                             message us
@@ -236,7 +306,7 @@
                     </div>
 
                     <div class="typo-section-sq bottom-default">
-                        <h5>The Space</h5>
+                        <h5>Najważniejsze</h5>
                         <div class="ui grid moved">
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
@@ -299,7 +369,7 @@
                     </div>
 
                     <div class="typo-section-sq bottom-default">
-                        <h5>Amenities</h5>
+                        <h5>Dodatkowe atuty</h5>
 
                         <div class="ui grid moved">
                             <div class="ui column">
@@ -409,8 +479,8 @@
 
                     </div>
 
-                    <div class="typo-section-sq bottom-default">
-                        <h5>The Space</h5>
+                    <div class="typo-section-sq bottom-default" id="section-cena">
+                        <h5>Cena i zasady rezerwacji</h5>
                         <div class="ui grid moved">
                             <div class="twelve wide column">
                                 <ul class="description-list">

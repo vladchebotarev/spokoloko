@@ -31,15 +31,15 @@
 
 @topHeaderSectionBackgroundColor: #fff; //#240b5d; //#fff;
 @topHeaderSectionTextColor: #1f1f1f; //#fff; //#000;
-@topHeaderSectionLinkColor: #F0114C; //#000;
-@topHeaderSectionAccentColor: #F0114C; //#000;
+@topHeaderSectionLinkColor: #F57C00; //#000;
+@topHeaderSectionAccentColor: #F57C00; //#000;
 
 
 // Transparent Colors 
 
 @topHeaderSectionTransparentTextColor: #fff;
 @topHeaderSectionTransparentLinkColor: #BEBEBE;
-@topHeaderSectionTransparentAccentColor: #F0114C;
+@topHeaderSectionTransparentAccentColor: #F57C00;
 
 
 //  Sidemenu Colors
@@ -88,8 +88,8 @@
 
 @middleHeaderSectionBackgroundColor: #fff; //#f2f2f2;
 @middleHeaderSectionTextColor: #6D6D6D; //#000;
-@middleHeaderSectionLinkColor: #F0114C; //#000;
-@middleHeaderSectionAccentColor: #FD386C; //#000;
+@middleHeaderSectionLinkColor: #F57C00; //#000;
+@middleHeaderSectionAccentColor: #F57C01; //#000;
 
 
 // Transparent Colors 
