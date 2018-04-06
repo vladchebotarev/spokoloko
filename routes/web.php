@@ -19,7 +19,7 @@ Route::get('/b2b', function () {
     return view('b2b');
 });
 
-Route::get('/search', 'SearchController@index');
+Route::get('/venues/{city_request}', 'SearchController@index');
 
 Route::get('/venue/{venue_url}', 'VenueController@getVenue');
 

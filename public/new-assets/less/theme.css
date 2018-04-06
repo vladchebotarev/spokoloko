@@ -11230,7 +11230,7 @@ body.dimmable > .dimmer {
   white-space: normal;
   outline: 0;
   transform: rotateZ(0deg);
-  min-width: 14em;
+  min-width: 250px; /*vlad*/
   background: transparent;
   display: inline-block;
   padding: 1em 2.6em 1em 1em;

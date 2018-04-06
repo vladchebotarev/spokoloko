@@ -10,7 +10,7 @@ Default Header with a White Background & Dark text.
 @if(Route::current()->getName() == 'index')
         header-transparent is-transparent
 @endif
-@if(Request::is('search'))
+@if(Request::is('venues/*'))
         header-fullwidth
 @endif">
     <div class="header-content">
