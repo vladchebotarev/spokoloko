@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
                 <div class="map-wrapper map">
                    <div id="map"></div>
                 </div>
@@ -203,8 +203,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
-                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
+                <div class="image-inner">
+                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+                </div>
             </div>
 
         </div>
@@ -419,8 +421,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
-                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
+                <div class="image-inner">
+                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+                </div>
             </div>
         </div>
     </div>
@@ -588,8 +592,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
-                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
+                <div class="image-inner">
+                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+                </div>
             </div>
         </div>
     </div>
@@ -829,8 +835,10 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
-                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
+                <div class="image-inner">
+                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
+                </div>
             </div>
         </div>
     </div>
@@ -870,7 +878,7 @@
                     </div>
 
                     <a href="" class="remove"><i class="icon icon-close2"></i></a>
-                    <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a>
+                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
                     <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
 
@@ -886,7 +894,7 @@
                     </div>
 
                     <a href="" class="remove"><i class="icon icon-close2"></i></a>
-                    <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a>
+                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
                     <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
 
@@ -902,7 +910,7 @@
                     </div>
 
                     <a href="" class="remove"><i class="icon icon-close2"></i></a>
-                    <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a>
+                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
                     <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
 
@@ -912,7 +920,7 @@
 
 
             <div class="ui three wide computer six wide tablet twelve wide mobile column">
-                <div class="photo-upload-item">
+                <div class="photo-upload-item" id="add-photo">
                     <a href="" class="add-photo">
                         <i class="icon icon-add-wishlist"></i>
                         Add Photo

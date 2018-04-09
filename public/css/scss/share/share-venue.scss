@@ -25,9 +25,9 @@ $grey: #aaa;
         .sticky-img {
             width: 100%;
             height: auto;
-            position: sticky;
-            top: 50%;
-            transform: translateY(-50%);
+            position: relative;
+            top: 0%;
+            transform: translateY(0%);
             left: 0;
             right: 0;
         }
@@ -70,6 +70,13 @@ $grey: #aaa;
 .description-sq {
     padding-top: 20px;
     padding-bottom: 30px;
+}
+
+.photo-upload-item:not(#add-photo) {
+    transition: all 200ms ease;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .week-group {

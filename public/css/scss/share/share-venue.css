@@ -32,9 +32,9 @@
 .add-listing-content .image-inner .sticky-img {
   width: 100%;
   height: auto;
-  position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
+  top: 0%;
+  transform: translateY(0%);
   left: 0;
   right: 0;
 }
@@ -84,6 +84,16 @@
 }
 
 /* line 75, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+.photo-upload-item:not(#add-photo) {
+  transition: all 200ms ease;
+}
+
+/* line 77, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+.photo-upload-item:not(#add-photo):hover {
+  transform: scale(1.1);
+}
+
+/* line 82, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group {
   display: flex;
   flex-direction: row;
@@ -91,7 +101,7 @@
   margin-bottom: 3%;
 }
 
-/* line 80, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 87, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day {
   display: flex;
   flex-wrap: nowrap;
@@ -100,7 +110,7 @@
   margin: 0 0.5%;
 }
 
-/* line 86, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 93, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn {
   width: 5em;
   height: 4em;
@@ -110,22 +120,22 @@
   outline: 0;
 }
 
-/* line 93, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 100, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn::-moz-focus-inner {
   border: 0;
 }
 
-/* line 96, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 103, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn:hover {
   background-color: #252525;
 }
 
-/* line 100, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 107, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .label {
   font-size: 0.8em;
 }
 
-/* line 103, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 110, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .hours-available {
   visibility: hidden;
   display: flex;
