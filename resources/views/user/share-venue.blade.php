@@ -3,7 +3,7 @@
 @section('content')
 
 
-<div class="add-listing-content" >
+<div class="add-listing-content active-block">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -86,7 +86,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -94,13 +94,19 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <div class="map-wrapper map">
+                   <div id="map"></div>
+                </div>
             </div>
 
         </div>
     </div>
 </div>
 
-<div class="add-listing-content" >
+
+<div class="add-listing-content">
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
@@ -190,7 +196,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -198,6 +204,9 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
 
         </div>
@@ -403,7 +412,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -411,8 +420,10 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>
@@ -570,7 +581,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -578,8 +589,10 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>
@@ -607,61 +620,113 @@
 
                 </div>
 
+                <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
+                <div class="week-group">
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day1" checked="false"></button>
+                        <div class="label">
+                            Poniedziałek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                <div class="div-c inline-3 one-label">
-                    <label>Poniedziałek-piątek</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day2" checked="false"></button>
+                        <div class="label">
+                            Wtorek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day3" checked="false"></button>
+                        <div class="label">
+                            Środa
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox2">
-                        <label for="work_checkbox2">Nie działa</label>
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day4" checked="false"></button>
+                        <div class="label">
+                            Czwartek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                </div>
-                <div class="div-c inline-3 one-label">
-                    <label>Sobota-Niedzieła</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day5" checked="false"></button>
+                        <div class="label">
+                            Piątek
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day6" checked="false"></button>
+                        <div class="label">
+                            Sobota
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox3">
-                        <label for="work_checkbox3">Nie działa</label>
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
+                    <div class="day">
+                        <button type="button" name="button" class="day-btn" id="day7" checked="false"></button>
+                        <div class="label">
+                            Niedziela
+                        </div>
+                        <div class="hours-available">
+                            <div class="divided-column">
+                                <input type="text" placeholder="7:00">
+                            </div>
 
-                </div>
-
-                <div class="div-c inline-3 one-label">
-                    <label>Swięta</label>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="7:00">
+                            <div class="divided-column">
+                                <input type="text" placeholder="19:00">
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="divided-column">
-                        <input type="text" placeholder="19:00">
-                    </div>
-
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="work_checkbox4">
-                        <label for="work_checkbox4">Nie działa</label>
-                    </div>
-
                 </div>
 
 
@@ -757,7 +822,7 @@
 
             </div>
 
-            <div class="ui six wide computer twelve wide tablet column">
+            <!-- <div class="ui six wide computer twelve wide tablet column">
                 <div class="image-full-height">
                     <div class="image-wrapper">
                         <div class="image-inner">
@@ -765,8 +830,10 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper image-inner">
+                <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
             </div>
-
         </div>
     </div>
 </div>
@@ -876,5 +943,36 @@
         </div>
     </div>
 </div>
+
+<div class="add-listing-footer">
+   <div class="ui grid container">
+       <div class="row">
+           <div class="ui column">
+               <button class="button-sq link-sq">
+                   <i class="icon icon-slim-arrow-left"></i><span>back</span>
+               </button>
+               <!-- href="add_listing_amenities.html" -->
+               <!-- <div class="basic-progressbar dashboard-progressbar-sq">
+                   <div class="inner" data-percentage="0%" style="width:0%"></div>
+               </div> -->
+               <nav id="pagination">
+                   <ul class="pagination-list">
+                       <li class="pagination-active"></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                       <li></li>
+                   </ul>
+               </nav>
+               <button class="button-sq next-sq" >
+                   <i class="icon icon-slim-arrow-right"></i>
+               </button>
+               <!-- href="add_listing_location.html" -->
+           </div>
+       </div>
+   </div>
+</div>
+
 
 @endsection
