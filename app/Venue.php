@@ -16,6 +16,14 @@ class Venue extends Model
     }
 
     /**
+     * Get the images for the blog post.
+     */
+    public function images()
+    {
+        return $this->hasMany('App\VenueImage');
+    }
+
+    /**
      * Get the event types for the venue.
      */
     public function eventTypes()
@@ -41,6 +49,22 @@ class Venue extends Model
     }
 
     /**
+     * Get the venue rules for the venue.
+     */
+    public function rules()
+    {
+        return $this->belongsToMany('App\VenueRule', 'venue_venuerules', 'venue_id', 'venue_rule_id');
+    }
+
+    /**
+     * Get the venue styles for the venue.
+     */
+    public function styles()
+    {
+        return $this->belongsToMany('App\VenueStyle', 'venue_venuestyle', 'venue_id', 'venue_style_id');
+    }
+
+    /**
      * Get the venue features for the venue.
      */
     public function features()
@@ -48,12 +72,6 @@ class Venue extends Model
         return $this->belongsToMany('App\VenueFeature', 'venue_venuefeatures', 'venue_id', 'venue_feature_id');
     }
 
-    /**
-     * Get the venue rules for the venue.
-     */
-    public function rules()
-    {
-        return $this->belongsToMany('App\VenueRule', 'venue_venuerules', 'venue_id', 'venue_rule_id');
-    }
+
 
 }

@@ -8,15 +8,16 @@ use App\Venue;
 use App\VenueAmenity;
 use App\VenueFeature;
 use App\VenueRule;
+use App\VenueStyle;
 use App\VenueType;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class SearchController extends Controller
 {
     //
-    public function index($city_request, Request $request)
+    public function index($city_request)
     {
 
         $city = City::where('name', $city_request)->first();
@@ -24,25 +25,93 @@ class SearchController extends Controller
         if ($city === null) {
             return abort(404);
         } else {
-            $current_event_type = Input::get('eventType');
 
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $current_venue_types = (Input::get('venue_types') != '') ? Input::get('venue_types') : array();
-            $current_amenities = (Input::get('amenities') != '') ? Input::get('amenities') : array();
-            $current_features = (Input::get('features') != '') ? Input::get('features') : array();
-            $current_rules = (Input::get('rules') != '') ? Input::get('rules') : array();
+            $venues_query = "SELECT DISTINCT v.name, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
 
-            $venues = DB::table('venues')->where('city_id', $city->id)->get();
+            $venues_query_cond = " WHERE v.city_id=$city->id
+                                    AND v.price_hour*v.min_hours >= $min_price
+                                    AND v.price_hour*v.min_hours <= $max_price
+                                    AND vi.cover_on = 1";
+
+
+            /*event type*/
+            $current_event_type = Input::get('eventType');
+
+            if ($current_event_type != '') {
+                $venues_query .= " LEFT JOIN sl_venue_eventtypes vet ON (v.id=vet.venue_id) LEFT JOIN sl_eventtypes et ON (vet.event_type_id=et.id)";
+                $venues_query_cond .= " AND et.name = '$current_event_type'";
+            }
+
+            /*venue types*/
+            if (Input::get('venue_types') != '') {
+                $current_venue_types = Input::get('venue_types');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuetypes vvt ON (v.id=vvt.venue_id) LEFT JOIN sl_venuetypes vt ON (vvt.venue_type_id=vt.id)";
+                $current_venue_types_sql_string = implode ( "' ,'" ,$current_venue_types);
+                $venues_query_cond .= " AND vt.name IN ('$current_venue_types_sql_string')";
+            } else {
+                $current_venue_types = array();
+            }
+
+            /*venue amenities*/
+            if (Input::get('amenities') != '') {
+                $current_amenities = Input::get('amenities');
+
+                $venues_query .= " LEFT JOIN sl_venue_venueamenities vva ON (v.id=vva.venue_id) LEFT JOIN sl_venueamenities va ON (vva.venue_amenity_id=va.id)";
+                $current_amenities_sql_string = implode ( "' ,'" ,$current_amenities);
+                $venues_query_cond .= " AND va.name IN ('$current_amenities_sql_string')";
+            } else {
+                $current_amenities = array();
+            }
+
+            /*venue rules*/
+            if (Input::get('rules') != '') {
+                $current_rules = Input::get('rules');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuerules vvr ON (v.id=vvr.venue_id) LEFT JOIN sl_venuerules vr ON (vvr.venue_rule_id=vr.id)";
+                $current_rules_sql_string = implode ( "' ,'" ,$current_rules);
+                $venues_query_cond .= " AND vr.name IN ('$current_rules_sql_string')";
+            } else {
+                $current_rules = array();
+            }
+
+            /*venue styles*/
+            if (Input::get('styles') != '') {
+                $current_styles = Input::get('styles');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuestyles vvs ON (v.id=vvs.venue_id) LEFT JOIN sl_venuestyles vs ON (vvs.venue_style_id=vs.id)";
+                $current_styles_sql_string = implode ( "' ,'" ,$current_styles);
+                $venues_query_cond .= " AND vs.name IN ('$current_styles_sql_string')";
+            } else {
+                $current_styles = array();
+            }
+
+            /*venue features*/
+            if (Input::get('features') != '') {
+                $current_features = Input::get('features');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuefeatures vvf ON (v.id=vvf.venue_id) LEFT JOIN sl_venuefeatures vf ON (vvf.venue_feature_id=vf.id)";
+                $current_features_sql_string = implode ( "' ,'" ,$current_features);
+                $venues_query_cond .= " AND vf.name IN ('$current_features_sql_string')";
+            } else {
+                $current_features = array();
+            }
+
+            //echo $venues_query . $venues_query_cond;
+            $venues = DB::select($venues_query . $venues_query_cond);
 
 
             $cities = City::all();
             $eventTypes = EventType::all();
             $venueTypes = VenueType::all();
             $amenities = VenueAmenity::all();
-            $features = VenueFeature::all();
             $rules = VenueRule::all();
+            $styles = VenueStyle::all();
+            $features = VenueFeature::all();
+
 
 
             $data = array(
@@ -50,23 +119,131 @@ class SearchController extends Controller
                 'current_event_type' => $current_event_type,
                 'current_venue_types' => $current_venue_types,
                 'current_amenities' => $current_amenities,
-                'current_features' => $current_features,
                 'current_rules' => $current_rules,
+                'current_features' => $current_features,
+                'current_styles' => $current_styles,
+
                 'min_price' => $min_price,
                 'max_price' => $max_price,
                 'cities' => $cities,
                 'eventTypes' => $eventTypes,
                 'venueTypes' => $venueTypes,
                 'amenities' => $amenities,
-                'features' => $features,
                 'rules' => $rules,
+                'styles' => $styles,
+                'features' => $features,
+
                 'venues' => $venues,
 
             );
 
+
+            //dump($data);
             return view('search', $data);
         }
 
 
     }
+
+    static private function parseToXML($htmlStr)
+    {
+        $xmlStr=str_replace('<','&lt;',$htmlStr);
+        $xmlStr=str_replace('>','&gt;',$xmlStr);
+        $xmlStr=str_replace('"','&quot;',$xmlStr);
+        $xmlStr=str_replace("'",'&#39;',$xmlStr);
+        $xmlStr=str_replace("&",'&amp;',$xmlStr);
+        return $xmlStr;
+    }
+
+    public function getMapMarkers ($city_request) {
+        $city = City::where('name', $city_request)->first();
+
+        if ($city === null) {
+            return abort(404);
+        } else {
+
+            $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
+            $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
+
+            $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
+
+            $venues_query_cond = " WHERE v.city_id=$city->id
+                                    AND v.price_hour*v.min_hours >= $min_price
+                                    AND v.price_hour*v.min_hours <= $max_price
+                                    AND vi.cover_on = 1";
+
+
+            /*event type*/
+            $current_event_type = Input::get('eventType');
+
+            if ($current_event_type != '') {
+                $venues_query .= " LEFT JOIN sl_venue_eventtypes vet ON (v.id=vet.venue_id) LEFT JOIN sl_eventtypes et ON (vet.event_type_id=et.id)";
+                $venues_query_cond .= " AND et.name = '$current_event_type'";
+            }
+
+            /*venue types*/
+            if (Input::get('venue_types') != '') {
+                $current_venue_types = Input::get('venue_types');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuetypes vvt ON (v.id=vvt.venue_id) LEFT JOIN sl_venuetypes vt ON (vvt.venue_type_id=vt.id)";
+                $current_venue_types_sql_string = implode ( "' ,'" ,$current_venue_types);
+                $venues_query_cond .= " AND vt.name IN ('$current_venue_types_sql_string')";
+            }
+
+            /*venue amenities*/
+            if (Input::get('amenities') != '') {
+                $current_amenities = Input::get('amenities');
+
+                $venues_query .= " LEFT JOIN sl_venue_venueamenities vva ON (v.id=vva.venue_id) LEFT JOIN sl_venueamenities va ON (vva.venue_amenity_id=va.id)";
+                $current_amenities_sql_string = implode ( "' ,'" ,$current_amenities);
+                $venues_query_cond .= " AND va.name IN ('$current_amenities_sql_string')";
+            }
+
+            /*venue rules*/
+            if (Input::get('rules') != '') {
+                $current_rules = Input::get('rules');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuerules vvr ON (v.id=vvr.venue_id) LEFT JOIN sl_venuerules vr ON (vvr.venue_rule_id=vr.id)";
+                $current_rules_sql_string = implode ( "' ,'" ,$current_rules);
+                $venues_query_cond .= " AND vr.name IN ('$current_rules_sql_string')";
+            }
+
+            /*venue styles*/
+            if (Input::get('styles') != '') {
+                $current_styles = Input::get('styles');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuestyles vvs ON (v.id=vvs.venue_id) LEFT JOIN sl_venuestyles vs ON (vvs.venue_style_id=vs.id)";
+                $current_styles_sql_string = implode ( "' ,'" ,$current_styles);
+                $venues_query_cond .= " AND vs.name IN ('$current_styles_sql_string')";
+            }
+
+            /*venue features*/
+            if (Input::get('features') != '') {
+                $current_features = Input::get('features');
+
+                $venues_query .= " LEFT JOIN sl_venue_venuefeatures vvf ON (v.id=vvf.venue_id) LEFT JOIN sl_venuefeatures vf ON (vvf.venue_feature_id=vf.id)";
+                $current_features_sql_string = implode ( "' ,'" ,$current_features);
+                $venues_query_cond .= " AND vf.name IN ('$current_features_sql_string')";
+            }
+
+            $venues = DB::select($venues_query . $venues_query_cond);
+
+            //dump($venues);
+
+            //header("Content-type: text/xml");
+
+            // Start XML file, echo parent node
+            $content = '<markers>';
+
+            foreach ($venues as $venue){
+                // Add to XML document node
+                $content .= '<marker name="' . $this->parseToXML($venue->name) . '" url_venue="'. $this->parseToXML($venue->url). '" address="' . $this->parseToXML($venue->street_address) . '" lat="' . $venue->lat . '" lng="' . $venue->lng . '" image="'. $venue->image_url .'" />';
+            }
+            // End XML file
+            $content .= '</markers>';
+            return Response::make($content, '200')->header('Content-Type', 'text/xml');
+        }
+    }
+
+
 }

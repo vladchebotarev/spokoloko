@@ -21,11 +21,14 @@
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 {{--TODO customize--}}
-    @if(Request::is('venues/*') or Request::is('venue/*') or Request::is('user/share-venue'))
+    @if(Request::is('venue/*') or Request::is('user/share-venue'))
             <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFGjWRN0ddQwopal_6VZNmz-9PJCX-caI&callback=initMap"></script>
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
             <script src={{ asset('new-assets/library/map.js') }}></script>
     @endif
+
+
+
 
     <title>Spokoloko @yield('title')</title>
 
@@ -172,7 +175,11 @@
 @endif
 
 @if(Request::is('venues/*'))
-<script src={{ asset('js/search/venues.js') }}></script>
+    <script src={{ asset('js/search/venues.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
+    <script src={{ asset('js/search/venues_map.js') }}></script>
+
 @endif
 </body>
 
