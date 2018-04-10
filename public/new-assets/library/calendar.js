@@ -460,7 +460,7 @@
          ampm: !0,
          disableYear: !1,
          disableMonth: !1,
-         disableMinute: !1,
+         disableMinute: 1,
          formatInput: !0,
          startCalendar: null,
          endCalendar: null,
