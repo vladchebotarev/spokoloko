@@ -8,7 +8,7 @@ function initMap() {
     });
 
     var infoWindow = new google.maps.InfoWindow;
-    var bounds = new google.maps.LatLngBounds();
+    //var bounds = new google.maps.LatLngBounds();
 
     // Change this depending on the name of your PHP or XML file
 
@@ -56,7 +56,7 @@ function initMap() {
                 position: point
             });
             var loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
-            bounds.extend(loc);
+            //bounds.extend(loc);
             //marker.addListener('click', function() {
             //infoWindow.setContent(infowincontent);
             //infoWindow.open(map, marker);
@@ -98,7 +98,7 @@ function initMap() {
         });
 
         //map.fitBounds(bounds); //auto-zoom
-        map.panToBounds(bounds); //auto-center
+        //map.panToBounds(bounds); //auto-center
 
 
 

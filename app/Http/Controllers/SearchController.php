@@ -32,8 +32,8 @@ class SearchController extends Controller
             $venues_query = "SELECT DISTINCT v.name, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
-                                    AND v.price_hour*v.min_hours >= $min_price
-                                    AND v.price_hour*v.min_hours <= $max_price
+                                    AND v.price_hour*v.min_hours >= '$min_price'
+                                    AND v.price_hour*v.min_hours <= '$max_price'
                                     AND vi.cover_on = 1";
 
 
@@ -43,6 +43,24 @@ class SearchController extends Controller
             if ($current_event_type != '') {
                 $venues_query .= " LEFT JOIN sl_venue_eventtypes vet ON (v.id=vet.venue_id) LEFT JOIN sl_eventtypes et ON (vet.event_type_id=et.id)";
                 $venues_query_cond .= " AND et.name = '$current_event_type'";
+            }
+
+            /*area*/
+            $current_area = Input::get('area');
+            if ($current_area != '') {
+                $venues_query_cond .= " AND v.area >= '$current_area'";
+            }
+
+            /*guests standing*/
+            $current_guests_standing = Input::get('guests_standing');
+            if ($current_guests_standing != '') {
+                $venues_query_cond .= " AND v.max_guests_standing >= '$current_guests_standing'";
+            }
+
+            /*guests seating*/
+            $current_guests_seating = Input::get('guests_seating');
+            if ($current_guests_seating != '') {
+                $venues_query_cond .= " AND v.max_guests_seating >= '$current_guests_seating'";
             }
 
             /*venue types*/
@@ -117,6 +135,9 @@ class SearchController extends Controller
             $data = array(
                 'current_city' => $city,
                 'current_event_type' => $current_event_type,
+                'current_area' => $current_area,
+                'current_guests_standing' => $current_guests_standing,
+                'current_guests_seating' => $current_guests_seating,
                 'current_venue_types' => $current_venue_types,
                 'current_amenities' => $current_amenities,
                 'current_rules' => $current_rules,
@@ -168,8 +189,8 @@ class SearchController extends Controller
             $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
-                                    AND v.price_hour*v.min_hours >= $min_price
-                                    AND v.price_hour*v.min_hours <= $max_price
+                                    AND v.price_hour*v.min_hours >= '$min_price'
+                                    AND v.price_hour*v.min_hours <= '$max_price'
                                     AND vi.cover_on = 1";
 
 
@@ -179,6 +200,24 @@ class SearchController extends Controller
             if ($current_event_type != '') {
                 $venues_query .= " LEFT JOIN sl_venue_eventtypes vet ON (v.id=vet.venue_id) LEFT JOIN sl_eventtypes et ON (vet.event_type_id=et.id)";
                 $venues_query_cond .= " AND et.name = '$current_event_type'";
+            }
+
+            /*area*/
+            $current_area = Input::get('area');
+            if ($current_area != '') {
+                $venues_query_cond .= " AND v.area >= '$current_area'";
+            }
+
+            /*guests standing*/
+            $current_guests_standing = Input::get('guests_standing');
+            if ($current_guests_standing != '') {
+                $venues_query_cond .= " AND v.max_guests_standing >= '$current_guests_standing'";
+            }
+
+            /*guests seating*/
+            $current_guests_seating = Input::get('guests_seating');
+            if ($current_guests_seating != '') {
+                $venues_query_cond .= " AND v.max_guests_seating >= '$current_guests_seating'";
             }
 
             /*venue types*/

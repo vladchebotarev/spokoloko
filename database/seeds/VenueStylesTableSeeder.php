@@ -12,15 +12,19 @@ class VenueStylesTableSeeder extends Seeder
     public function run()
     {
         DB::table('venuestyles')->insert([
-            ['id' => 1, 'name' => 'Classic'],
-            ['id' => 2, 'name' => 'Industrial'],
-            ['id' => 3, 'name' => 'Intimate'],
-            ['id' => 4, 'name' => 'Luxurious'],
-            ['id' => 5, 'name' => 'Minimalist'],
-            ['id' => 6, 'name' => 'Modern'],
-            ['id' => 7, 'name' => 'Raw'],
-            ['id' => 8, 'name' => 'Urban'],
-            ['id' => 9, 'name' => 'Whimsical'],
+            ['id' => 1, 'name' => 'Klasyczny'],
+            ['id' => 2, 'name' => 'Przemysłowy'],
+            ['id' => 3, 'name' => 'Romantyczny'],
+            ['id' => 4, 'name' => 'Luksusowy'],
+            ['id' => 5, 'name' => 'Minimalistyczny'],
+            ['id' => 6, 'name' => 'Nowoczesny'],
+            ['id' => 7, 'name' => 'Skandynawski'],
+            ['id' => 8, 'name' => 'Miejski'],
+            ['id' => 9, 'name' => 'Loftowy'],
+            ['id' => 10, 'name' => 'Góralski'],
+            ['id' => 11, 'name' => 'Staropolski'],
+            ['id' => 12, 'name' => 'Japoński'],
+            ['id' => 13, 'name' => 'Włoski'],
             //TODO
 
         ]);

@@ -12,21 +12,17 @@ class VenueRulesTableSeeder extends Seeder
     public function run()
     {
         DB::table('venuerules')->insert([
-            ['id' => 1, 'name' => 'Accepts children (0-10)'],
-            ['id' => 2, 'name' => 'Accepts teenagers (10-18)'],
-            ['id' => 3, 'name' => 'Accepts under-age (18-21)'],
-            ['id' => 4, 'name' => 'Cooking allowed'],
-            ['id' => 5, 'name' => 'External catering allowed'],
-            ['id' => 6, 'name' => 'Late night parties allowed'],
-            ['id' => 7, 'name' => 'Loud music allowed'],
-            ['id' => 8, 'name' => 'Open flame allowed'],
-            ['id' => 9, 'name' => 'Open to public events'],
-            ['id' => 10, 'name' => 'Selling alcohol allowed'],
-            ['id' => 11, 'name' => 'Serving alcohol allowed'],
-            ['id' => 12, 'name' => 'Smoking allowed'],
-            ['id' => 13, 'name' => 'Smoking outside allowed'],
-            ['id' => 14, 'name' => 'Soft music allowed'],
-            ['id' => 15, 'name' => 'Ticket sales allowed'],
+            ['id' => 1, 'name' => 'Przyjazne Dzieciom (0-10)'],
+            ['id' => 2, 'name' => 'Przyjazne Nastolatkom (10-18)'],
+            ['id' => 4, 'name' => 'Dozwolone Gotowanie (Live Cooking)'],
+            ['id' => 5, 'name' => 'Dozwolony Catering Zewnętrzny'],
+            ['id' => 6, 'name' => 'Możliwość Organizacji Imprezy w Okresie Ciszy Nocnej'],
+            ['id' => 7, 'name' => 'Dozwolona Głośna Muzyka'],
+            ['id' => 8, 'name' => 'Dozwolony Otwarty Ogień'],
+            ['id' => 9, 'name' => 'Dozwolone Wniesienie Swojego Alkoholu'],
+            ['id' => 10, 'name' => 'Palarnia w Lokalu'],
+            ['id' => 11, 'name' => 'Palarnia na Zewnątrz'],
+            ['id' => 12, 'name' => 'Dozwolona Nie Glośna Muzyka'],
             //TODO
 
         ]);
