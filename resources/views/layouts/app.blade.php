@@ -108,7 +108,7 @@
         !Request::is('register') and
         !Request::is('password/*') and
         !Request::is('venues/*') and
-        !Request::is('venue/') and
+        !Request::is('venue/*') and
         !Request::is('user/share-venue'))
             @component('components.footer')
             @endcomponent
