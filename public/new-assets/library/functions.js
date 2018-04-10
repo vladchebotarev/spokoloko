@@ -256,7 +256,8 @@ var SQ = SQ || {};
 
 
             $('#sticky-box-rangestart').calendar({
-                type: 'date',
+                type: 'time',
+                ampm: false,
                 endCalendar: $('#sticky-box-rangeend'),
                 className: {
                     prevIcon: "icon icon-arrow-left-122",
@@ -280,7 +281,8 @@ var SQ = SQ || {};
             });
 
             $('#sticky-box-rangeend').calendar({
-                type: 'date',
+                type: 'time',
+                ampm:false,
                 startCalendar: $('#sticky-box-rangestart'),
                 className: {
                     prevIcon: "icon icon-arrow-left-122",

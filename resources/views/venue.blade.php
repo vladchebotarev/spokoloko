@@ -50,16 +50,7 @@
                             </div>
                         </div>
 
-                        <div class="host-sq">
-                            <a href="vendor_details.html" class="avatar-sq">
-                                <img src="{{ asset('new-assets/images/avatar/avatar_04.jpg') }}" alt="">
-                            </a>
-                            <span class="host-right-sq">
-                                <a class="host-name-sq" href="vendor_details.html">Dustin Porter</a>
-                                <a class="host-contact-link-sq modal-ui-trigger" href="" data-trigger-for="contact">Contact me</a>
-                            </span>
 
-                        </div>
 
                     </div>
 
@@ -90,10 +81,43 @@
 
                                     <div class="mobile-fixed-section">
                                         <div class="sticky-box-content">
+                                            <div class="calendar_title"><p>Data wydarzenia:</p></div>
+
+                                            <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px;">
+                                                <input type="text" value="" required placeholder="Wybierz..." >
+                                            </div>
+
+                                            <form action="checkout_page.html">
+                                                <div class="main-infos inline-check-in">
+
+
+
+
+                                                    <div class="check-in calendar-sq" id="sticky-box-rangestart">
+
+
+                                                        <div class="relative">
+                                                            <input type="text" class="filter" value="" required placeholder="od">
+                                                            <i class="icon icon-little-arrow filters-arrow"></i>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="check-out calendar-sq" id="sticky-box-rangeend" style="border-right: 1px;">
+
+
+                                                        <input type="text" class="filter" value="" required placeholder="do">
+
+                                                    </div>
+
+
+                                                </div>
+                                            </form>
+
 
                                                 <div class="twelve wide column">
                                                     <ul class="description-list" style="font-size:10pt">
-                                                        <li>
+                                                        <!--     <li>
                                                             <div>
                                                                 <p>Cena za godzine:</p>
                                                                 <strong style="float: right">100 PLN</strong>
@@ -110,23 +134,38 @@
                                                         <li>
                                                             <div><p>Kaucja:</p>
                                                                 <strong style="float: right">500zl</strong></div>
-                                                        </li>
+                                                        </li>  -->
+                                                        <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Sprawdz dostepnosc
+                                                        </button>
+
+                                                        <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
+
                                                         <li>
                                                             <div class="ui internally celled grid">
-                                                            <div class="row" style="padding-right: 20px; padding-left: 20px;">
-                                                                <div class="four wide column" style="padding-right: 1%; padding-left:0%;"> <button class="social_icons facebook" ><i class="fa fa-facebook"></i>
-                                                                    </button></div>
+                                                                <div class="row" style="padding-right: 20px; padding-left: 20px;">
+                                                                    <div class="four wide column" style="padding-right: 1%; padding-left:0%;"> <button onclick="open('#')" class="social_icons facebook" ><i class="fa fa-facebook"></i>
+                                                                        </button></div>
 
-                                                                <div class="four wide column" style="padding-right: 1%; padding-left:1%;"><button class="column social_icons instagram" ><i class="fa fa-instagram"></i>
-                                                                </button></div>
-                                                                <div class="four wide column" style="padding-right: 0%;  padding-left:1%;"><button class="column social_icons tripadvisor" ><i class="fa fa-tripadvisor"></i>
-                                                                    </button></div>
-                                                            </div></div>
+                                                                    <div class="four wide column" style="padding-right: 1%; padding-left:1%;"><button class="column social_icons instagram" ><i class="fa fa-instagram"></i>
+                                                                        </button></div>
+                                                                    <div class="four wide column" style="padding-right: 0%;  padding-left:1%;"><button class="column social_icons tripadvisor" ><i class="fa fa-tripadvisor"></i>
+                                                                        </button></div>
+                                                                </div></div>
                                                         </li>
 
 
 
         <style>
+            div.calendar_title{
+                font-size: 14px;
+                padding-bottom: 10px;
+                font-family: 'Lato';
+                line-height: 1.2142em;
+                color: #4d4d4d;!important;
+            }
+
+
+
             div.soc_buttons{
                 width:100%;
             }
@@ -138,6 +177,7 @@
                 border: 1px;
                 border-style: inset;
                 background-color: white;
+
             }
             button.social_icons.facebook {
                 border-color: dodgerblue;
@@ -197,8 +237,7 @@
 
 
 
-                                            <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Zarezerwuj teraz
-                                            </button>
+
                                         </div>
 
                                         <div class="sticky-box-wishlist">
@@ -258,10 +297,7 @@
                                 </a>
                             </li>
 
-                            <li><a href="#section-05" class="item">
-                                    <span>The Host</span>
-                                </a>
-                            </li>
+
 
                         </ul>
 
@@ -291,11 +327,14 @@
                             Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
                             bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
                             Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a href="#section-cena">
-                                ...
+                                Czytac więcej
                             </a></p>
 
                         <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
-                            message us
+                            Cena
+                        </div>
+                        <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
+                            Kontakty
                         </div>
 
                         <div class="button-sq link-sq small-sq float-right-sq">
@@ -313,23 +352,23 @@
                                     <li>
                                         <i class="icon icon-account-group-5"></i>
                                         <div>
-                                            <p>Number of guests:</p>
-                                            <strong>4</strong>
+                                            <p>Ilosc gosci stojąco:</p>
+                                            <strong>240 osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-bath-tub"></i>
                                         <div>
-                                            <p>Bathrooms:</p>
-                                            <strong>2</strong>
+                                            <p>Ilosc gosci siedzaco:</p>
+                                            <strong>64 osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-bed-double"></i>
-                                        <div><p>Bed:</p>
-                                            <strong>3 - Real Bed</strong>
+                                        <div><p>Przestzen:</p>
+                                            <strong>150 m²</strong>
                                         </div>
                                     </li>
                                 </ul>
@@ -342,27 +381,175 @@
                                     <li>
                                         <i class="icon icon-building-7"></i>
                                         <div>
-                                            <p>Property:</p>
-                                            <strong>Apartment</strong>
+                                            <p>Typ przestrzeni:</p>
+                                            <strong>Restauracja/Bar</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-door-simple"></i>
                                         <div>
-                                            <p>Room Type:</p>
-                                            <strong>Entire Apartment </strong>
+                                            <p>Styl:</p>
+                                            <strong>Modern </strong>
 
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-house"></i>
-                                        <div><p>Check In / Out:</p>
-                                            <strong>1:00 PM</strong> / <strong>11:00 AM</strong></div>
+                                        <div><p>Ilosc pokoi</p>
+                                            <strong>2</strong></div>
                                     </li>
 
                                 </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="typo-section-sq bottom-default" >
+                        <h5>Cena i zasady rezerwacji</h5>
+                        <div class="ui grid moved">
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Cena za godzine:</p>
+                                            <strong>100 PLN</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Min. ilosc godzin:</p>
+                                            <strong>3</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Cena za dzien:</p>
+                                            <strong>1200 PLN</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>W dni powszednie taniej:</p>
+                                            <strong><i class="fa fa-check"></i></strong></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Kaucja:</p>
+                                            <strong>400 PLN</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Rezerwacja za 3 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide column" style="padding-top:20px;">
+                                <strong >Informacja od wlasciciela:</strong>
+                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do wydarzenia.
+                                    Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <style>
+.ui.label{
+    margin-bottom: 10px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: orange;
+    color: darkorange;
+
+}
+                    </style>
+
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Wydarzenia</h5>
+                        <p>Ta przestrzen jest swietnym miejscem na
+                        </p>
+
+                        <div class="ui grid moved">
+                            <div class="ui column">
+                                <div class="ui accordion more-sq">
+                                    <div class="title">
+                                        <div class="ui grid">
+                                            <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                                <i class="icon icon-arrow-down-122"></i>
+                                            </a>
+
+                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
+                                                <ul class="description-list">
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+
+
+                                                </ul>
+                                            </div>
+
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <div class="ui grid">
+                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
+                                                <ul class="description-list">
+
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -479,48 +666,9 @@
 
                     </div>
 
-                    <div class="typo-section-sq bottom-default" id="section-cena">
-                        <h5>Cena i zasady rezerwacji</h5>
-                        <div class="ui grid moved">
-                            <div class="twelve wide column">
-                                <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Extra people:</p>
-                                            <strong>$10 / night after 2 guests</strong>
-                                        </div>
-                                    </li>
 
-                                    <li>
-                                        <div><p>Cleaning Fee:</p>
-                                            <strong>$29</strong></div>
-                                    </li>
 
-                                    <li>
-                                        <div><p>Security Deposit:</p>
-                                            <strong>$234</strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><p>Weekly discount:</p>
-                                            <strong>5%</strong></div>
-                                    </li>
-                                    <li>
-                                        <div><p>Monthly discount:</p>
-                                            <strong>5%</strong></div>
-                                    </li>
-                                    <li>
-                                        <div><p>Cancellation</p>
-                                            <strong class="accent-color">Moderate</strong></div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="typo-section-sq bottom-default">
+                    <div class="typo-section-sq bottom-default" >
                         <h5>Description</h5>
 
                         <div class="ui grid moved">
@@ -529,35 +677,8 @@
                                     <strong>Sleeping Arrangements</strong>
                                 </p>
 
-                                <ul class="description-list desc-icon-style inline-2">
-                                    <li>
-                                        <i class="icon icon-bed-double"></i>
-                                        <span>2 Bedrooms</span>
-                                        <em>2 queen bed</em>
-                                    </li>
 
-                                    <li>
-                                        <i class="icon icon-couch"></i>
-                                        <span>Common spaces</span>
-                                        <em>1 couch</em>
-                                    </li>
-
-                                    <li>
-                                        <i class="icon icon-bed-single"></i>
-                                        <span>1 Bedroom</span>
-                                        <em>2 beds</em>
-                                    </li>
-
-                                    <li>
-                                        <i class="icon icon-couch"></i>
-                                        <span>Common spaces</span>
-                                        <em>1 couch</em>
-                                    </li>
-
-                                </ul>
-
-
-                                <strong>The Space</strong>
+                                <strong id="section-cena">The Space</strong>
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel
                                     ex semper, in pharetra justo pulvinar. Donec non quam vitae justo mattis vestibulum
@@ -584,11 +705,61 @@
                     </div>
 
                     <div class="typo-section-sq bottom-default">
-                        <h5>House Rules</h5>
+                        <h5>Zasady</h5>
 
                         <div class="ui grid moved">
-                            <div class="twelve wide column">
-                                <strong><i class="icon icon-house"></i>The Rules</strong>
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+
+                                            <strong>Nie palic</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                            <div><strong>Bez dzieci</strong></div>
+                                    </li>
+
+                                    <li>
+                                            <div><strong>Glosna muzyka do godz 23:00</strong></div>
+                                    </li>
+
+                                    <li>
+                                            <div><strong>Bez wlasnego alkoholu</strong></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Kaucja:</p>
+                                            <strong>400 PLN</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Rezerwacja za 3 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+
+
+                                </ul>
+                            </div>
+
+                            <div class="twelve wide column" style="padding-top: 30px;">
+                                <strong><i class="icon icon-house"></i>Dodatkowo</strong>
+
+
+
 
                                 <div class="ui accordion more-sq">
                                     <div class="title">
@@ -832,92 +1003,7 @@
         </div>
     </div>
 
-    <div class="section-container" id="section-05">
-        <div class="typo-section-sq bottom-default">
-            <div class="ui grid container stackable app layout right side">
-                <div class="stretched row">
-                    <div class="ui column main-column" role="main">
-                        <div class="typo-section-sq">
-                            <h3 class="host-heading">The Host</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="host-background">
-                <div class="ui grid container stackable app layout right side">
-                    <div class="stretched row">
-                        <div class="ui column main-column" role="main">
-                            <div class="host-row">
-                                <div class="host-avatar-column">
-                                    <a class="image-sq verified-sq" href="vendor_details.html">
-                                        <img src="{{ asset('new-assets/images/avatar/avatar_04.jpg') }}" alt="">
-                                    </a>
-
-                                    <div class="social-row">
-                                        <ul class="social-links-sq">
-                                            <li><a href="https://www.facebook.com/seventhqueen.themes" target="_blank"
-                                                   class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
-
-                                            <li><a href="https://twitter.com/seventhqueen" target="_blank" class="tw"><i
-                                                            class="icon icon-logo-twitter-bird2"></i></a></li>
-
-                                            <li><a href="#" class="gp"><i
-                                                            class="icon icon-logo-circle-google-plus-22"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="host-meta-column">
-                                    <div class="host-above">
-                                        <a class="host-name" href="vendor_details.html">Dustin Porter</a>
-                                        <span class="host-location"><i class="icon icon-location-pin-2"></i>Bucharest, Romania</span>
-                                    </div>
-
-                                    <div class="host-icons-row">
-                                        <div class="icons-column rating">
-                                            <span><strong>9.2</strong></span><i class="icon icon-heart"></i>
-                                            <p>Reviews</p>
-
-                                        </div>
-
-                                        <div class="icons-column">
-                                            <span><strong>6</strong> x</span><i class="icon icon-house"></i>
-                                            <p>Listings</p>
-                                        </div>
-
-                                        <div class="icons-column">
-                                            <span><strong>145</strong> x</span><i class="icon icon-house"></i>
-                                            <p>Rentals</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="basic-progressbar">
-                                        <div class="inner" style="width:90%"></div>
-                                    </div>
-
-
-                                    <div class="about-host">
-                                        <!--<strong>Description</strong>-->
-                                        <p class="quote">Somos una familia multicultural lo cual nos enorgullece y nos
-                                            enriquece. Nos gusta mucho viajar, hemos estado en Alemania, España, Italia,
-                                            Francia, Luxemburgo, Bélgica, Perú, Bolivia, Argentina, México y de cada
-                                            lugar hemos traído bellas memorias y aprendizajes. </p>
-                                    </div>
-
-                                    <a class="button-sq small-sq modal-ui-trigger" data-trigger-for="contact">
-                                        Contact Host
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
 
     <!--end ui container-->
 
