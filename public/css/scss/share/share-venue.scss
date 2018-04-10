@@ -74,6 +74,7 @@ $grey: #aaa;
 
 .photo-upload {
     & > div {
+        justify-content: space-around;
         // flex-grow: 1;
     }
     .photo-upload-item:not(#add-photo) {
@@ -97,11 +98,22 @@ $grey: #aaa;
         }
         .image-wrapper {
             img {
-                width: 250px !important;
-                height: 250px !important;
+                width: auto !important;
+                height: 100% !important;
                 top: 0 !important;
                 margin-top: 0 !important;
             }
+        }
+    }
+    #add-photo {
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            // border: 1px solid #ccc;
+            // display: inline-block;
+            // padding: 6px 12px;
+            cursor: pointer;
         }
     }
 }

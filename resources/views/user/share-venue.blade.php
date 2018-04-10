@@ -921,10 +921,11 @@
 
             <div class="ui three wide computer six wide tablet twelve wide mobile column">
                 <div class="photo-upload-item" id="add-photo">
-                    <a href="" class="add-photo">
+                    <label for="file-upload" class="add-photo custom-file-upload" id="new-img">
                         <i class="icon icon-add-wishlist"></i>
                         Add Photo
-                    </a>
+                    </label>
+                    <input id="file-upload" type="file"/>
                 </div>
             </div>
 
