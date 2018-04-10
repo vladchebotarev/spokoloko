@@ -9,7 +9,7 @@
 // };
 
 function selected() {
-	if ($('.photo-upload-item').hasClass('selected')) {
+	if ($('.photo-upload-item:not(#add-photo)').hasClass('selected')) {
 		return {
 			obj: $('.selected'),
 			exists: true
@@ -21,7 +21,7 @@ function selected() {
 	};
 };
 
-$('.photo-upload-item').click(function() {
+$('.photo-upload-item:not(#add-photo)').click(function() {
 	// let pins = $(this).find('.cover-photo-sq');
 	let currentlySelected = selected();
 	if ($(this).hasClass('selected')) {
@@ -35,4 +35,15 @@ $('.photo-upload-item').click(function() {
 		$(this).addClass('selected');
 		// pins.css(pinStyleOn);
 	}
+});
+
+$('.photo-upload-item .remove').click(function(event) {
+	event.stopPropagation();
+	$(this).parent().removeClass('selected').parent().velocity({
+		opacity: 0,
+		// flexGrow: 0
+	}, {
+		display: 'none',
+		duration: 'fast'
+	});
 });

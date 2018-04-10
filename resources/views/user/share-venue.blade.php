@@ -877,10 +877,10 @@
                         <img class="image-sq" src="../new-assets/images/host/host_01.jpg" alt="">
                     </div>
 
-                    <a href="" class="remove"><i class="icon icon-close2"></i></a>
+                    <a class="remove"><i class="icon icon-close"></i></a>
                     <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
-                    <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
+                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
 
 
                 </div>
@@ -893,10 +893,10 @@
                         <img class="image-sq" src="../new-assets/images/host/host_02.jpg" alt="">
                     </div>
 
-                    <a href="" class="remove"><i class="icon icon-close2"></i></a>
+                    <a class="remove"><i class="icon icon-close"></i></a>
                     <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
-                    <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
+                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
 
 
                 </div>
@@ -909,10 +909,10 @@
                         <img class="image-sq" src="../new-assets/images/host/host_03.jpg" alt="">
                     </div>
 
-                    <a href="" class="remove"><i class="icon icon-close2"></i></a>
+                    <a class="remove"><i class="icon icon-close"></i></a>
                     <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
-                    <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
+                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
 
 
                 </div>

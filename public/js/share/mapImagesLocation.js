@@ -19,6 +19,12 @@
 	// 	top: `${height/2}px`
 	// })
 	$('.add-listing-content').scroll(function() {
+		height = window.innerHeight;
+		mapHeight = height - headerHeight - footerHeight - paddingHeight;
+		map.css({
+			height: `${mapHeight}px`,
+			bottom: `${footerHeight}`
+		});
 		let object = $(this).find('.image-inner').length ? '.active-block .image-inner' : '.map-wrapper';
 		clearTimeout($.data(this, "scrollCheck"));
 		$.data(this, "scrollCheck", setTimeout(function() {

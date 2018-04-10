@@ -72,10 +72,37 @@ $grey: #aaa;
     padding-bottom: 30px;
 }
 
-.photo-upload-item:not(#add-photo) {
-    transition: all 200ms ease;
-    &:hover {
-        transform: scale(1.1);
+.photo-upload {
+    & > div {
+        // flex-grow: 1;
+    }
+    .photo-upload-item:not(#add-photo) {
+        cursor: pointer;
+        transition: all 200ms ease;
+        .remove {
+            // filter: invert(50%);
+        }
+        &:hover {
+            transform: scale(1.1);
+            .remove {
+                border-color: #DB2828;
+                border-width: thin;
+                color: inherit;
+                text-decoration: none;
+                // filter: invert(80%);
+                i {
+                    color: #DB2828;
+                }
+            }
+        }
+        .image-wrapper {
+            img {
+                width: 250px !important;
+                height: 250px !important;
+                top: 0 !important;
+                margin-top: 0 !important;
+            }
+        }
     }
 }
 
