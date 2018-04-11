@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\City;
 use App\EventType;
-use App\Venue;
 use App\VenueAmenity;
 use App\VenueFeature;
 use App\VenueRule;

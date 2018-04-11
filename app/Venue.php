@@ -61,7 +61,7 @@ class Venue extends Model
      */
     public function styles()
     {
-        return $this->belongsToMany('App\VenueStyle', 'venue_venuestyle', 'venue_id', 'venue_style_id');
+        return $this->belongsToMany('App\VenueStyle', 'venue_venuestyles', 'venue_id', 'venue_style_id');
     }
 
     /**

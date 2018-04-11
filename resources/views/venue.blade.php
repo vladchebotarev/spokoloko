@@ -9,7 +9,8 @@
 
         <div class="image-wrapper">
             <div class="image-inner">
-                <img class="image-sq slick-img" src="{{ asset('new-assets/images/hero/hero_big_32.jpg') }}" alt="" data-gallery="gallery"
+                <img class="image-sq slick-img" src="{{ asset('new-assets/images/hero/hero_big_32.jpg') }}" alt=""
+                     data-gallery="gallery"
                      data-caption="Cover Photo">
             </div>
         </div>
@@ -34,22 +35,21 @@
                         <div class="icons-row">
                             <div class="icons-column">
                                 <i class="icon icon-account-group-5"></i>
-                                do 240 osob
+                                do {{ $max_guests }} osób
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-home-3"></i>
-                                150 m²
+                                {{ $area }} m²
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-user-circle"></i>
-                                120 stojąco
+                                {{ $max_guests_standing }} stojąco
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-armchair-1"></i>
-                                64 siedząco
+                                {{ $max_guests_seating }} siedząco
                             </div>
                         </div>
-
 
 
                     </div>
@@ -71,8 +71,10 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
-                                        <span class="price-sq">od 250 PLN</span>
-                                        <span class="per-sq" data-text-mobile="/ " data-text="za ">3h</span>
+                                        <span class="price-sq">od {{number_format($price_hour*$min_hours, 0, '', '')}}
+                                            PLN</span>
+                                        <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$min_hours}}
+                                            g</span>
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
@@ -84,29 +86,30 @@
                                             <div class="calendar_title"><p>Data wydarzenia:</p></div>
 
                                             <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px;">
-                                                <input type="text" value="" required placeholder="Wybierz..." >
+                                                <input type="text" value="" required placeholder="Wybierz...">
                                             </div>
 
                                             <form action="checkout_page.html">
                                                 <div class="main-infos inline-check-in">
 
 
-
-
                                                     <div class="check-in calendar-sq" id="sticky-box-rangestart">
 
 
                                                         <div class="relative">
-                                                            <input type="text" class="filter" value="" required placeholder="od">
+                                                            <input type="text" class="filter" value="" required
+                                                                   placeholder="od">
                                                             <i class="icon icon-little-arrow filters-arrow"></i>
                                                         </div>
 
                                                     </div>
 
-                                                    <div class="check-out calendar-sq" id="sticky-box-rangeend" style="border-right: 1px;">
+                                                    <div class="check-out calendar-sq" id="sticky-box-rangeend"
+                                                         style="border-right: 1px;">
 
 
-                                                        <input type="text" class="filter" value="" required placeholder="do">
+                                                        <input type="text" class="filter" value="" required
+                                                               placeholder="do">
 
                                                     </div>
 
@@ -115,127 +118,143 @@
                                             </form>
 
 
-                                                <div class="twelve wide column">
-                                                    <ul class="description-list" style="font-size:10pt">
-                                                        <!--     <li>
-                                                            <div>
-                                                                <p>Cena za godzine:</p>
-                                                                <strong style="float: right">100 PLN</strong>
+                                            <div class="twelve wide column">
+                                                <ul class="description-list" style="font-size:10pt">
+                                                    <!--     <li>
+                                                        <div>
+                                                            <p>Cena za godzine:</p>
+                                                            <strong style="float: right">100 PLN</strong>
+                                                        </div>
+                                                    </li>
+
+
+
+                                                    <li>
+                                                        <div><p>Cena za dzien:</p>
+                                                            <strong style="float: right">1200 PLN</strong></div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div><p>Kaucja:</p>
+                                                            <strong style="float: right">500zl</strong></div>
+                                                    </li>  -->
+                                                    <button class="button-sq fullwidth-sq font-weight-extrabold-sq">
+                                                        Sprawdz dostepnosc
+                                                    </button>
+
+                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
+
+                                                    <li>
+                                                        <div class="ui internally celled grid">
+                                                            <div class="row"
+                                                                 style="padding-right: 20px; padding-left: 20px;">
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:0%;">
+                                                                    <button onclick="open('#')"
+                                                                            class="social_icons facebook"><i
+                                                                                class="fa fa-facebook"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:1%;">
+                                                                    <button class="column social_icons instagram"><i
+                                                                                class="fa fa-instagram"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 0%;  padding-left:1%;">
+                                                                    <button class="column social_icons tripadvisor"><i
+                                                                                class="fa fa-tripadvisor"></i>
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                        </li>
+                                                        </div>
+                                                    </li>
 
 
+                                                    <style>
+                                                        div.calendar_title {
+                                                            font-size: 14px;
+                                                            padding-bottom: 10px;
+                                                            font-family: 'Lato';
+                                                            line-height: 1.2142em;
+                                                            color: #4d4d4d;
+                                                        !important;
+                                                        }
 
-                                                        <li>
-                                                            <div><p>Cena za dzien:</p>
-                                                                <strong style="float: right">1200 PLN</strong></div>
-                                                        </li>
+                                                        div.soc_buttons {
+                                                            width: 100%;
+                                                        }
 
-                                                        <li>
-                                                            <div><p>Kaucja:</p>
-                                                                <strong style="float: right">500zl</strong></div>
-                                                        </li>  -->
-                                                        <button class="button-sq fullwidth-sq font-weight-extrabold-sq">Sprawdz dostepnosc
-                                                        </button>
+                                                        button.social_icons {
+                                                            font-size: 15px;
+                                                            width: 100%;
 
-                                                        <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
+                                                            border: 1px;
+                                                            border-style: inset;
+                                                            background-color: white;
 
-                                                        <li>
-                                                            <div class="ui internally celled grid">
-                                                                <div class="row" style="padding-right: 20px; padding-left: 20px;">
-                                                                    <div class="four wide column" style="padding-right: 1%; padding-left:0%;"> <button onclick="open('#')" class="social_icons facebook" ><i class="fa fa-facebook"></i>
-                                                                        </button></div>
+                                                        }
 
-                                                                    <div class="four wide column" style="padding-right: 1%; padding-left:1%;"><button class="column social_icons instagram" ><i class="fa fa-instagram"></i>
-                                                                        </button></div>
-                                                                    <div class="four wide column" style="padding-right: 0%;  padding-left:1%;"><button class="column social_icons tripadvisor" ><i class="fa fa-tripadvisor"></i>
-                                                                        </button></div>
-                                                                </div></div>
-                                                        </li>
+                                                        button.social_icons.facebook {
+                                                            border-color: dodgerblue;
+                                                            color: dodgerblue;
+                                                        }
 
+                                                        button.social_icons.instagram {
+                                                            border-color: deeppink;
+                                                            color: deeppink;
+                                                        }
 
+                                                        button.social_icons.tripadvisor {
+                                                            border-color: forestgreen;
+                                                            color: forestgreen;
+                                                        }
 
-        <style>
-            div.calendar_title{
-                font-size: 14px;
-                padding-bottom: 10px;
-                font-family: 'Lato';
-                line-height: 1.2142em;
-                color: #4d4d4d;!important;
-            }
+                                                        button.button_call {
+                                                            width: 100%;
+                                                            border: 1px;
+                                                            border-style: solid;
 
+                                                            background-color: white;
+                                                            color: orangered;
+                                                            border-bottom-color: orangered;
+                                                        }
 
+                                                        button.button_message {
+                                                            width: 100%;
+                                                            border: 1px;
+                                                            border-style: solid;
 
-            div.soc_buttons{
-                width:100%;
-            }
-
-            button.social_icons{
-                font-size: 15px;
-                width: 100%;
-
-                border: 1px;
-                border-style: inset;
-                background-color: white;
-
-            }
-            button.social_icons.facebook {
-                border-color: dodgerblue;
-                color: dodgerblue;
-            }
-            button.social_icons.instagram {
-                border-color: deeppink;
-                color: deeppink;
-            }
-            button.social_icons.tripadvisor {
-                border-color: forestgreen;
-                color: forestgreen;
-            }
-            button.button_call{
-                width: 100%;
-                border: 1px;
-                border-style: solid;
-
-                background-color: white;
-                color:orangered;
-                border-bottom-color: orangered;
-            }
-            button.button_message{
-                width: 100%;
-                border: 1px;
-                border-style: solid;
-
-                background-color: white;
-                color:dodgerblue;
-                border-bottom-color: dodgerblue;
-            }
+                                                            background-color: white;
+                                                            color: dodgerblue;
+                                                            border-bottom-color: dodgerblue;
+                                                        }
 
 
+                                                    </style>
 
 
-        </style>
+                                                    <li>
+                                                        <div>
+                                                            <button class="button_call"><i class="fa fa-phone"
+                                                                                           style="padding-right: 10px;"></i>
+                                                                Zadzwon do nas
+                                                            </button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <button class="button_message"><i class="fa fa-commenting"
+                                                                                              style="padding-right: 10px;"></i>
+                                                                Czat s nami
+                                                            </button>
+                                                        </div>
+                                                    </li>
 
-
-
-                                                        <li>
-                                                            <div>
-                                                                <button class="button_call"><i class="fa fa-phone" style="padding-right: 10px;"></i> Zadzwon do nas
-                                                                </button>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div>
-                                                                <button class="button_message"><i class="fa fa-commenting" style="padding-right: 10px;"></i>  Czat s nami
-                                                                </button>
-                                                            </div>
-                                                        </li>
-
-                                                    </ul>
-                                                </div>
-
-
-
-
+                                                </ul>
+                                            </div>
 
 
                                         </div>
@@ -283,20 +302,19 @@
                             </li>
 
                             <li><a href="#section-02" class="item">
-                                    <span>Photos</span>
+                                    <span>Zdjęcia</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-03" class="item">
-                                    <span>Location</span>
+                                    <span>Lokalizacja</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-04" class="item">
-                                    <span>Reviews</span>
+                                    <span>Opinie</span>
                                 </a>
                             </li>
-
 
 
                         </ul>
@@ -326,7 +344,8 @@
                             <br><br>
                             Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
                             bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
-                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a href="#section-cena">
+                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a
+                                    href="#section-cena">
                                 Czytac więcej
                             </a></p>
 
@@ -408,7 +427,7 @@
                     </div>
 
 
-                    <div class="typo-section-sq bottom-default" >
+                    <div class="typo-section-sq bottom-default">
                         <h5>Cena i zasady rezerwacji</h5>
                         <div class="ui grid moved">
                             <div class="twelve wide mobile six wide tablet six wide computer column">
@@ -457,30 +476,33 @@
                                     </li>
 
 
-
                                 </ul>
                             </div>
                             <div class="twelve wide column" style="padding-top:20px;">
-                                <strong >Informacja od wlasciciela:</strong>
-                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do wydarzenia.
-                                    Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p></div>
+                                <strong>Informacja od wlasciciela:</strong>
+                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
+                                        rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
+                                        barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
+                                        wydarzenia.
+                                        Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana
+                                        wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p>
+                                </div>
                             </div>
                         </div>
 
                     </div>
 
 
-
                     <style>
-.ui.label{
-    margin-bottom: 10px;
-    background-color: white;
-    border-style: solid;
-    border-width: 1px;
-    border-color: orange;
-    color: darkorange;
+                        .ui.label {
+                            margin-bottom: 10px;
+                            background-color: white;
+                            border-style: solid;
+                            border-width: 1px;
+                            border-color: orange;
+                            color: darkorange;
 
-}
+                        }
                     </style>
 
                     <div class="typo-section-sq bottom-default">
@@ -518,8 +540,6 @@
 
                                                 </ul>
                                             </div>
-
-
 
 
                                         </div>
@@ -667,8 +687,7 @@
                     </div>
 
 
-
-                    <div class="typo-section-sq bottom-default" >
+                    <div class="typo-section-sq bottom-default">
                         <h5>Description</h5>
 
                         <div class="ui grid moved">
@@ -718,15 +737,15 @@
                                     </li>
 
                                     <li>
-                                            <div><strong>Bez dzieci</strong></div>
+                                        <div><strong>Bez dzieci</strong></div>
                                     </li>
 
                                     <li>
-                                            <div><strong>Glosna muzyka do godz 23:00</strong></div>
+                                        <div><strong>Glosna muzyka do godz 23:00</strong></div>
                                     </li>
 
                                     <li>
-                                            <div><strong>Bez wlasnego alkoholu</strong></div>
+                                        <div><strong>Bez wlasnego alkoholu</strong></div>
                                     </li>
 
                                 </ul>
@@ -751,14 +770,11 @@
                                     </li>
 
 
-
                                 </ul>
                             </div>
 
                             <div class="twelve wide column" style="padding-top: 30px;">
                                 <strong><i class="icon icon-house"></i>Dodatkowo</strong>
-
-
 
 
                                 <div class="ui accordion more-sq">
@@ -795,31 +811,37 @@
                         <div class="photo-grid grid-5">
                             <div class="photo-item">
                                 <div class="image-wrapper">
-                                    <img class="image-sq slick-img" src="{{ asset('new-assets/images/property/property_big_01.jpg') }}"
+                                    <img class="image-sq slick-img"
+                                         src="{{ asset('new-assets/images/property/property_big_01.jpg') }}"
                                          alt="" data-gallery="gallery" data-caption="Photo 01">
                                 </div>
                             </div>
                             <div class="photo-item">
                                 <div class="image-wrapper">
-                                    <img class="image-sq slick-img" src="{{ asset('new-assets/images/property/property_big_02.jpg') }}"
+                                    <img class="image-sq slick-img"
+                                         src="{{ asset('new-assets/images/property/property_big_02.jpg') }}"
                                          alt="" data-gallery="gallery" data-caption="Photo 02">
                                 </div>
                             </div>
                             <div class="photo-item">
                                 <div class="image-wrapper">
-                                    <img class="image-sq slick-img" src="{{ asset('new-assets/images/property/property_big_03.jpg') }}"
+                                    <img class="image-sq slick-img"
+                                         src="{{ asset('new-assets/images/property/property_big_03.jpg') }}"
                                          alt="" data-gallery="gallery" data-caption="Photo 03">
                                 </div>
                             </div>
                             <div class="photo-item">
                                 <div class="image-wrapper">
-                                    <a data-items="+22 Photos"><img class="image-sq slick-img" src="{{ asset('new-assets/images/property/property_big_04.jpg') }}" alt="" data-gallery="gallery"
-             data-caption="Photo 04"></a>
+                                    <a data-items="+22 Photos"><img class="image-sq slick-img"
+                                                                    src="{{ asset('new-assets/images/property/property_big_04.jpg') }}"
+                                                                    alt="" data-gallery="gallery"
+                                                                    data-caption="Photo 04"></a>
                                 </div>
                             </div>
                             <div class="photo-item">
                                 <div class="image-wrapper">
-                                    <img class="image-sq slick-img" src="{{ asset('new-assets/images/property/property_big_05.jpg') }}"
+                                    <img class="image-sq slick-img"
+                                         src="{{ asset('new-assets/images/property/property_big_05.jpg') }}"
                                          alt="" data-gallery="gallery" data-caption="Photo 05">
                                 </div>
                             </div>
@@ -862,7 +884,7 @@
     </div>
 
 
-    <div class="ui grid container stackable app layout right side">
+{{--    <div class="ui grid container stackable app layout right side">
         <div class="stretched row">
             <div class="ui column main-column" role="main">
                 <div class="section-container" id="section-04">
@@ -908,14 +930,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="reviews-search">
-                            <form action="#" class="">
-                                <input id="reviews-search" type="text" placeholder="Search reviews" value=""
-                                       required="">
-                                <label><i class="icon icon-search"></i></label>
-                            </form>
                         </div>
 
                         <div class="reviews-feed">
@@ -1001,9 +1015,9 @@
 
             <div class="ui column side-column"></div>
         </div>
-    </div>
+    </div>--}}
 
-  
+
 
     <!--end ui container-->
 

@@ -20,6 +20,7 @@ Route::get('/b2b', function () {
 });
 
 Route::get('/venues/{city_request}', 'SearchController@index');
+
 Route::post('/venues_map/{city_request}', 'SearchController@getMapMarkers');
 
 Route::get('/venue/{venue_url}', 'VenueController@getVenue');

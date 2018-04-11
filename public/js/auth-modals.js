@@ -9,7 +9,7 @@ $(function () {
             url: $(this).attr('action'),
             type: $(this).attr('method'),
             dataType: "json",
-            data: $(this)laravel ,
+            data: $(this).serialize(),
 
         })
             .always(function (data) {

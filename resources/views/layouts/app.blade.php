@@ -152,13 +152,13 @@
 <!-- Other scripts -->
 {{--TODO--}}
 @guest
-    @if(!Request::is('login'))
+    {{--@if(!Request::is('login'))
         @if(!Request::is('register'))
             @if(!Request::is('password/*'))
                 <script src={{ asset('js/auth-modals.js') }}></script>
             @endif
         @endif
-    @endif
+    @endif--}}
 @else
     @if(Request::is('user/profile'))
         <script src={{ asset('js/profile-avatar.js') }}></script>
