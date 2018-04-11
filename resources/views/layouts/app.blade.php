@@ -172,6 +172,7 @@
     <script src={{ asset('js/share/steps.js') }}></script>
     <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
     <script src={{ asset('js/share/weekButtons.js') }}></script>
+    <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 
 @if(Request::is('venues/*'))
@@ -179,7 +180,6 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
     <script src={{ asset('js/search/venues_map.js') }}></script>
-
 @endif
 </body>
 
