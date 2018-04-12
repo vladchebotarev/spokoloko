@@ -54,14 +54,12 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.verification');
     })->name('verification');
 
-    Route::post('profile', 'UserController@updateProfile')->name('profile.update');
+    Route::post('profile', 'User\UserController@updateProfile')->name('profile.update');
 
-    Route::post('profile/image', 'UserController@updateProfileImage')->name('profile.image');
+    Route::post('profile/image', 'User\UserController@updateProfileImage')->name('profile.image');
 
 
-    Route::get('settings', function () {
-        return view('user.settings');
-    })->name('settings');
+    Route::get('settings', 'User\UserSettingsController@index')->name('settings');
 
     Route::get('listings', function () {
         return view('user.listings');

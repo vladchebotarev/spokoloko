@@ -31,12 +31,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Get the venues for the user.
+     */
     public function venues(){
         return $this->hasMany('App\Venue');
     }
 
-
+    /**
+     * Get the businesses for the user.
+     */
     public function businesses(){
         return $this->hasMany('App\Business');
+    }
+
+    /**
+     * Get the sessions for the user.
+     */
+    public function sessions(){
+        return $this->hasMany('App\Session');
     }
 }
