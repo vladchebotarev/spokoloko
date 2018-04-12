@@ -22,15 +22,13 @@ function selected() {
 }
 
 function readURL(input, newPhoto) {
-	if (input.files && input.files[0]) {
-		var reader = new FileReader();
+	var reader = new FileReader();
 
-		reader.onload = function(e) {
-			newPhoto.attr('src', e.target.result);
-		}
-
-		reader.readAsDataURL(input.files[0]);
+	reader.onload = function(e) {
+		newPhoto.attr('src', e.target.result);
 	}
+
+	reader.readAsDataURL(input);
 }
 
 function newPhoto() {
@@ -92,21 +90,23 @@ $('.photo-upload-item .remove').click(function(event) {
 });
 
 $('#file-upload').change(function() {
-	let photo = newPhoto();
-	let imgTag = photo.find('.image-sq');
-	readURL(this, imgTag);
-	photo.find('.image-wrapper').css('opacity', '0');
-	let photoDOM = $(this).parent().parent().parent().prepend(photo);
-	photo.find('.image-wrapper').velocity({
-		opacity: 1
-	}, {
-		duration: 'fast',
-		easing: 'ease-in-out'
-	});
-	photoDOM.find('.photo-upload-item').first().click(function() {
-		selectPhoto(this);
-	});
-	photoDOM.find('.remove').click(function(event) {
-		removePhoto(event, this);
-	});
+	for (let i = 0; i < this.files.length; ++i) {
+		let photo = newPhoto();
+		let imgTag = photo.find('.image-sq');
+		readURL(this.files[i], imgTag);
+		photo.find('.image-wrapper').css('opacity', '0');
+		let photoDOM = $(this).parent().parent().parent().prepend(photo);
+		photo.find('.image-wrapper').velocity({
+			opacity: 1
+		}, {
+			duration: 'fast',
+			easing: 'ease-in-out'
+		});
+		photoDOM.find('.photo-upload-item').first().click(function() {
+			selectPhoto(this);
+		});
+		photoDOM.find('.remove').click(function(event) {
+			removePhoto(event, this);
+		});
+	}
 });
