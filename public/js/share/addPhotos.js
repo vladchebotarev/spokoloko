@@ -19,7 +19,7 @@ function selected() {
 		obj: undefined,
 		exists: false
 	};
-};
+}
 
 function readURL(input, newPhoto) {
 	if (input.files && input.files[0]) {
@@ -31,27 +31,27 @@ function readURL(input, newPhoto) {
 
 		reader.readAsDataURL(input.files[0]);
 	}
-};
+}
 
 function newPhoto() {
 	return $(
 		`<div class="ui three wide computer six wide tablet twelve wide mobile column">
 
 		<div class="photo-upload-item">
-			<div class="image-wrapper">
-				<img class="image-sq" alt="">
-			</div>
+		<div class="image-wrapper">
+		<img class="image-sq" alt="">
+		</div>
 
-			<a class="remove"><i class="icon icon-close"></i></a>
-			<!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
+		<a class="remove"><i class="icon icon-close"></i></a>
+		<!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
 
-			<!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
+		<!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
 
 
 		</div>
-	</div>`
+		</div>`
 	);
-};
+}
 
 function removePhoto(event, object) {
 	event.stopPropagation();
@@ -65,7 +65,7 @@ function removePhoto(event, object) {
 			$(this).remove();
 		}
 	});
-};
+}
 
 function selectPhoto(object) {
 	// let pins = $(this).find('.cover-photo-sq');
@@ -81,7 +81,7 @@ function selectPhoto(object) {
 		$(object).addClass('selected');
 		// pins.css(pinStyleOn);
 	}
-};
+}
 
 $('.photo-upload-item:not(#add-photo)').click(function() {
 	selectPhoto(this);
@@ -95,21 +95,18 @@ $('#file-upload').change(function() {
 	let photo = newPhoto();
 	let imgTag = photo.find('.image-sq');
 	readURL(this, imgTag);
-	photo.find('.photo-upload-item').css('opacity', '0');
+	photo.find('.image-wrapper').css('opacity', '0');
 	let photoDOM = $(this).parent().parent().parent().prepend(photo);
-	console.log(photoDOM);
-	photoDOM.find('.photo-upload-item').click(function() {
+	photo.find('.image-wrapper').velocity({
+		opacity: 1
+	}, {
+		duration: 'fast',
+		easing: 'ease-in-out'
+	});
+	photoDOM.find('.photo-upload-item').first().click(function() {
 		selectPhoto(this);
 	});
 	photoDOM.find('.remove').click(function(event) {
 		removePhoto(event, this);
 	});
-	setTimeout(function() {
-		photoDOM.find('.photo-upload-item').velocity({
-			opacity: 1
-		}, {
-			duration: 'fast'
-		});
-	}, 500);
-
 });

@@ -925,7 +925,7 @@
                         <i class="icon icon-add-wishlist"></i>
                         Add Photo
                     </label>
-                    <input id="file-upload" type="file"/>
+                    <input id="file-upload" type="file" multiple accept=".png, .jpg, .jpeg"/>
                 </div>
             </div>
 
