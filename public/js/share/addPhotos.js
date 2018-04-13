@@ -22,18 +22,28 @@ function selected() {
 }
 
 function readURL(input, newPhoto) {
-	var reader = new FileReader();
+	return new Promise(res => {
+		var reader = new FileReader();
 
-	reader.onload = function(e) {
-		newPhoto.attr('src', e.target.result);
-	}
+		reader.onload = function(e) {
+			newPhoto.attr('src', e.target.result);
+			let bool = newPhoto.css('width') >= newPhoto.css('height') ? true : false;
+			console.log(bool, newPhoto.css('width'), newPhoto.css('height'));
+			res(bool);
+		}
 
-	reader.readAsDataURL(input);
+		reader.readAsDataURL(input);
+	});
+}
+
+async function biggerWidth(obj, index, imgTag) {
+	let imageLoaded = await readURL(obj.files[index], imgTag);
+	return imageLoaded;
 }
 
 function newPhoto() {
 	return $(
-		`<div class="ui three wide computer six wide tablet twelve wide mobile column">
+		`<div class="ui three wide computer six wide tablet six wide mobile column">
 
 		<div class="photo-upload-item">
 		<div class="image-wrapper">
@@ -93,8 +103,21 @@ $('#file-upload').change(function() {
 	for (let i = 0; i < this.files.length; ++i) {
 		let photo = newPhoto();
 		let imgTag = photo.find('.image-sq');
-		readURL(this.files[i], imgTag);
+		biggerWidth(this, i, imgTag).then(isBiggerWidth => {
+			if (isBiggerWidth) {
+				photo.find('.image-wrapper img').addClass('bigger-width');
+			} else {
+				photo.find('.image-wrapper img').addClass('bigger-height');
+			}
+			// photo.find('.image-wrapper').css({
+			// 	opacity: '0',
+			// 	width: `${!res ? '100%' : 'auto'} !important`,
+			// 	height: `${!res ? 'auto' : '100%'} !important`
+			// });
+		});
 		photo.find('.image-wrapper').css('opacity', '0');
+		// let biggerWidth = imgTag.css('width') >= imgTag.css('height') ? true : false;
+		// console.log(biggerWidth, imgTag.css('width'), imgTag.css('height'));
 		let photoDOM = $(this).parent().parent().parent().prepend(photo);
 		photo.find('.image-wrapper').velocity({
 			opacity: 1

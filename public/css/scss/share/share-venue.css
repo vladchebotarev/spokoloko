@@ -113,24 +113,34 @@
 }
 
 /* line 100, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
-.photo-upload .photo-upload-item:not(#add-photo) .image-wrapper img {
+.photo-upload .photo-upload-item:not(#add-photo) .image-wrapper .bigger-width {
   width: auto !important;
   height: 100% !important;
+}
+
+/* line 104, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+.photo-upload .photo-upload-item:not(#add-photo) .image-wrapper .bigger-height {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* line 108, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+.photo-upload .photo-upload-item:not(#add-photo) .image-wrapper img {
   top: 0 !important;
   margin-top: 0 !important;
 }
 
-/* line 109, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 116, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .photo-upload #add-photo input[type="file"] {
   display: none;
 }
 
-/* line 112, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 119, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .photo-upload #add-photo .custom-file-upload {
   cursor: pointer;
 }
 
-/* line 121, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 128, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group {
   display: flex;
   flex-direction: row;
@@ -138,7 +148,7 @@
   margin-bottom: 3%;
 }
 
-/* line 126, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 133, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day {
   display: flex;
   flex-wrap: nowrap;
@@ -147,7 +157,7 @@
   margin: 0 0.5%;
 }
 
-/* line 132, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 139, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn {
   width: 5em;
   height: 4em;
@@ -157,22 +167,22 @@
   outline: 0;
 }
 
-/* line 139, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 146, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn::-moz-focus-inner {
   border: 0;
 }
 
-/* line 142, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 149, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .day-btn:hover {
   background-color: #252525;
 }
 
-/* line 146, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 153, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .label {
   font-size: 0.8em;
 }
 
-/* line 149, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
+/* line 156, git/spokoloko-repo/public/css/scss/share/share-venue.scss */
 .week-group .day .hours-available {
   visibility: hidden;
   display: flex;
