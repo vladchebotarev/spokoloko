@@ -233,6 +233,15 @@ var SQ = SQ || {};
               }
             });
 
+            $('.supadupa').calendar({
+                type: 'time',
+                ampm:false,
+                className: {
+                    prevIcon: "icon icon-arrow-left-122",
+                    nextIcon: "icon icon-arrow-right-122"
+                }
+            });
+
 
             $('#rangestart').calendar({
                 type: 'date',
@@ -304,6 +313,26 @@ var SQ = SQ || {};
                     }
                 }
             });
+
+            $("#timeres").click(function(){
+                $("#setweek").hide();
+            });
+
+            $("#timeweek").click(function(){
+                $("#setweek").show();
+            });
+
+            $("#timeseven").click(function(){
+                $("#setonce").hide();
+                $("#setseven").show();
+            });
+            $("#timeonce").click(function(){
+                $("#setonce").show();
+                $("#setseven").hide();
+            });
+
+
+
 
 
             /* ? - se face focus pe containerul mare din sticky box */

@@ -1911,7 +1911,9 @@ select::-ms-expand {
   padding-right: 1px;
 }
 .ui.grid.narrow-sq > .row .ui.column .property-item {
-  margin-bottom: 2px;
+  margin-bottom: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 /*---------------------------
       Little margin
@@ -3747,7 +3749,7 @@ hr.padded-sq {
   }
 }
 .icons-row .icons-column {
-  width: 25%;
+  width: 33%;
   text-align: center;
   font-size: 0.750em;
   line-height: 0.875em;

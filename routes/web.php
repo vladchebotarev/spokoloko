@@ -80,6 +80,10 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.share-business');
     })->name('share-business');
 
+    Route::get('edit-venue', function () {
+        return view('user.edit-venue');
+    })->name('edit-venue');
+
 
 
 });

@@ -479,13 +479,15 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="ui grid container typo-section-sq bottom-default">
+                    <div class="row">
 
-                    <div class="sq-slick article-sq-slick fullwidth-sq arrows-top-sq" data-arrows="false"
-                         data-center-mode="true" data-center-padding="0px" data-desktop-center-padding="0px"
-                         data-show-slides="3" data-scroll-slides="3" data-tablet-show-slides="2"
-                         data-tablet-scroll-slides="2" data-mobile-show-slides="1" data-mobile-scroll-slides="1"
-                         data-tablet-center-padding="0px" data-mobile-center-padding="50px">
+                        <div class="sq-slick article-sq-slick" data-arrows="false" data-center-mode="true"
+
+                             data-center-padding="0px" data-desktop-center-padding="0px" data-show-slides="3"
+                             data-scroll-slides="5" data-tablet-show-slides="2" data-tablet-scroll-slides="2"
+                             data-mobile-show-slides="1" data-mobile-scroll-slides="2" data-tablet-center-padding="0px"
+                             data-mobile-center-padding="50px">
 
                         <!-- Slide 01-->
                         <div>
@@ -752,6 +754,7 @@
                         </div>
                     </div>
 
+                </div>
                 </div>
 
             </div>

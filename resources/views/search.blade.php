@@ -398,6 +398,7 @@
                             <div class="row">
 
                             @if(count($venues) != 0)
+                                @for($i =0; $i<10 ; $i++)
 
                                 @foreach ($venues as $venue)
                                     <!-- property item -->
@@ -413,6 +414,12 @@
                                                        data-trigger-for="wishlist">
                                                         <i class="icon icon-heart-line"></i>
                                                     </a>
+                                                    <a class="image-left" href="">
+                                                         <i class="icon icon-arrow-left-12"></i>
+                                                    </a>
+                                                    <a class="image-right" href="">
+                                                        <i class="icon icon-arrow-right-12"></i>
+                                                    </a>
 
                                                     <a class="image-sq" href="{{ url('venue/'.$venue->url) }}"
                                                        target="_blank">
@@ -427,17 +434,17 @@
                                                     </a>
 
                                                     <div class="main-details">
-                                                        <div class="title-row" style="margin-bottom: 5px;">
+                                                        <div class="title-row">
                                                             <a href="{{ url('venue/'.$venue->url) }}" target="_blank"
                                                                class="title-sq">{{ $venue->name }}</a>
 
 
                                                         </div>
-                                                        <div class="asd" style="color:white; margin-bottom: 0px">
-                                                            <i class="icon icon-location-pin-2"></i> {{ $venue->street_address }}
+                                                        <div class="biz-adres">
+                                                             <strong style="padding-right: 10px;">Klub muzycny</strong>| {{ $venue->street_address }}
                                                         </div>
 
-                                                        <div class="icons-row" style="padding-top: 20px;">
+                                                        <div class="icons-row">
                                                             <div class="icons-column">
                                                                 <i class="icon icon-star-2"></i> 8.6
                                                             </div>
@@ -455,6 +462,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+                                @endfor
                                 @else
                                     Nie ma takich lokali
                                 @endif
