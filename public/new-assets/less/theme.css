@@ -3658,6 +3658,49 @@ button .icon + span {
   font-weight: 400;
   font-size: 0.778em;
 }
+.property-item .property-item-inner .image-left{
+  position: absolute;
+  top: 100px;
+
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+}
+.property-item .property-item-inner .image-left > i.icon {
+  font-size: 28px;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  color: white;
+  position: relative;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.property-item .property-item-inner .image-right{
+  position: absolute;
+  top: 100px;
+  right: 1px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+}
+.property-item .property-item-inner .image-right > i.icon {
+  font-size: 28px;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  color: white;
+  position: relative;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
 .property-item .property-item-inner .add-wishlist {
   position: absolute;
   top: 27px;
@@ -3667,7 +3710,7 @@ button .icon + span {
   height: 36px;
 }
 .property-item .property-item-inner .add-wishlist > i.icon {
-  font-size: 36px;
+  font-size: 28px;
   margin: 0;
   width: 36px;
   height: 36px;
@@ -3741,7 +3784,6 @@ button .icon + span {
 }
 .property-item .property-item-inner .main-details .title-row {
   width: 100%;
-  margin-bottom: 25px;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -3781,6 +3823,12 @@ button .icon + span {
   height: 36px;
   pointer-events: auto;
 }
+.property-item .property-item-inner .main-details .biz-adres{
+  color:#4d4d4d;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+}
 .property-item .property-item-inner .main-details .icons-row {
   width: 100%;
   display: -webkit-box;
@@ -3799,12 +3847,12 @@ button .icon + span {
   flex-direction: row;
 }
 .property-item .property-item-inner .main-details .icons-row .icons-column {
-  text-align: center;
+  text-align: right;
   color: #fff;
   font-size: 0.875em;
 }
 .property-item .property-item-inner .main-details .icons-row .icons-column i.icon {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .property-item .property-item-inner .main-details .icons-row .icons-column:first-child {
   -ms-flex-item-align: start;
@@ -3880,8 +3928,10 @@ button .icon + span {
   color: rgba(255, 255, 255, 0.53);
   text-shadow: 0 7px 20px rgba(0, 0, 0, 0.09);
 }
+
+
 .property-item.caption-sq .property-item-inner .price-tag-sq {
-  left: 30px;
+  left: 10px;
   padding: 0 15px;
 }
 .property-item.caption-sq .property-item-inner > .image-sq:before {
@@ -3894,11 +3944,11 @@ button .icon + span {
   position: static;
   height: auto;
   width: auto;
-  padding: 30px;
+  padding: 5px;
 }
 .property-item.caption-sq .property-item-inner .main-details .title-row .title-sq {
   margin-right: 0;
-  height: 52px;
+  height: 30px;
   -webkit-line-clamp: 2;
   color: #262626;
 }
@@ -3910,9 +3960,6 @@ button .icon + span {
   font-size: 0.875rem;
 }
 .property-item.caption-sq .property-item-inner .main-details .icons-row .icons-column:first-child {
-  background: #F57C00;
-  border-radius: 4px;
-  padding: 0 10px 0 5px;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -3923,24 +3970,21 @@ button .icon + span {
   flex-direction: row;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
-  justify-content: center;
+  justify-content: left;
   -ms-flex-align: stretch;
   -webkit-align-items: stretch;
   align-items: stretch;
-  color: #fff;
-  font-weight: 700;
+  color: #F57C00;
+  font-weight: 900;
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
 }
 .property-item.caption-sq .property-item-inner .main-details .icons-row .icons-column:first-child > .icon {
   display: block;
-  border-right: 1px solid #fff;
-  padding-right: 10px;
-  margin-right: 10px;
-  padding-left: 5px;
-  font-size: 12px;
-  color: #fff;
+
+  font-size: 25px;
+  color: #F57C00;
   line-height: 22px;
   height: auto;
   width: auto;
