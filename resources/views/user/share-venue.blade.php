@@ -7,7 +7,7 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
-                <h3 class="complete-sq title-sq">Najwarzniejsze</h3>
+                <h3 class="title-sq">Najwarzniejsze</h3>
 
                 <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
@@ -21,9 +21,11 @@
                 <div class="div-c">
                     <div class="divided-column">
                         <label>Miasto</label>
-                        <select class="dropdown">
-                            <option value="0">Krakow</option>
-                            <option value="1">Warszawa</option>
+                        <select class="ui search dropdown" id="select_city">
+                            <option value="">Miasto</option>
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->name }}">{{ $city->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -110,83 +112,31 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
-                <h3 class="complete-sq title-sq">Kategorje</h3>
+                <h3 class="title-sq">Kategorje</h3>
 
                 <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
                 <div class="div-c">
                     <div class="divided-column">
                         <label>Typ przestrzeni</label>
-                        <select class="dropdown">
-                            <option value="0">Loft</option>
-                            <option value="1">Restauracja/Bar</option>
+                        <select class="ui search dropdown" id="select_city">
+                            <option value="">Wybierz typ przestrzeni</option>
+                            @foreach ($venueTypes as $venueType)
+                                <option value="{{ $venueType->name }}">{{ $venueType->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
 
                 <div class="div-c inline-2 one-label">
-                    <label>Typ wydarzen</label>
+                    <label>Typ wydarzeń</label>
 
-                    <div class="divided-column">
-
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Wireless Internet</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox2">
-                        <label for="checkbox2">Laptop friendly workspace</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox3">
-                        <label for="checkbox3">Iron</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox4">
-                        <label for="checkbox4">Hangers</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox5">
-                        <label for="checkbox5">Hair Dry</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox6">
-                        <label for="checkbox6">Washer</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox7">
-                        <label for="checkbox7">Shampoo</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox8">
-                        <label for="checkbox8">TV</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox9">
-                        <label for="checkbox9">Kitchen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox10">
-                        <label for="checkbox10">Essentials</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox11">
-                        <label for="checkbox11">Heating</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox12">
-                        <label for="checkbox12">Items</label>
-                    </div>
+                    @foreach ($eventTypes as $eventType)
+                        <div class="divided-column">
+                            <input type="checkbox" id="event_type_{{ $eventType->id }}" name="event_types[]" value="{{ $eventType->name }}">
+                            <label for="event_type_{{ $eventType->id }}">{{ $eventType->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
 
@@ -219,199 +169,63 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
-                <h3 class="complete-sq title-sq">O przestrzeni</h3>
+                <h3 class="title-sq">O przestrzeni</h3>
 
                 <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
                         <label>Styl przestrzeni</label>
-                        <select class="dropdown">
-                            <option value="1">Industrial</option>
-                            <option value="2">Modern</option>
+                        <select class="ui search dropdown" id="select_city">
+                            <option value="">Wybierz styl</option>
+                            @foreach ($styles as $style)
+                                <option value="{{ $style->name }}">{{ $style->name }}</option>
+                            @endforeach
                         </select>
+
                     </div>
 
                     <div class="divided-column">
                         <label>Przestrzen m2</label>
-                        <input type="text" placeholder="350">
+                        <input type="number" name="area" min="0" value="{{ old('area') }}">
                     </div>
                 </div>
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
                         <label>Ilośc pokoi</label>
-                        <select class="dropdown">
-                            <option value="0">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                            <option value="1">4</option>
-                            <option value="1">5+</option>
-                        </select>
+                        <input type="number" name="room_number" min="0" value="{{ old('room_number') }}">
                     </div>
+
                     <div class="divided-column">
                         <label>Ilośc lazenek</label>
-                        <select class="dropdown">
-                            <option value="0">1</option>
-                            <option value="1">2</option>
-                            <option value="1">3</option>
-                            <option value="1">4</option>
-                            <option value="1">5+</option>
-                        </select>
+                        <input type="number" name="restroom_number" min="0" value="{{ old('restroom_number') }}">
                     </div>
                 </div>
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
-                        <label>Ilośc gości siedzaco</label>
-                        <input type="text" placeholder="np 50">
-                    </div>
-
-                    <div class="divided-column">
                         <label>Ilośc góści stojąco</label>
-                        <input type="text" placeholder="np 250">
+                        <input type="number" name="guests_standing" min="0" value="{{ old('guests_standing') }}">
+                    </div>
+
+                    <div class="divided-column">
+                        <label>Ilośc gości siedzaco</label>
+                        <input type="number" name="guests_standing" min="0" value="{{ old('guests_seating') }}">
                     </div>
                 </div>
 
 
+                <div class="div-c inline-2 one-label">
+                    <label>Cechy</label>
 
-
-
-                <div class="div-c inline-3 one-label">
-                    <label>Dodatkowo</label>
-
-                    <div class="divided-column">
-
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Ogrodek</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox2">
-                        <label for="checkbox2">Rooftop</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox3">
-                        <label for="checkbox3">Basen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox4">
-                        <label for="checkbox4">Hangers</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox5">
-                        <label for="checkbox5">Hair Dry</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox6">
-                        <label for="checkbox6">Washer</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox7">
-                        <label for="checkbox7">Shampoo</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox8">
-                        <label for="checkbox8">TV</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox9">
-                        <label for="checkbox9">Kitchen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox10">
-                        <label for="checkbox10">Essentials</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox11">
-                        <label for="checkbox11">Heating</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox12">
-                        <label for="checkbox12">Items</label>
-                    </div>
+                    @foreach ($features as $feature)
+                        <div class="divided-column">
+                            <input type="checkbox" id="feature_{{ $feature->id }}" name="features[]" value="{{ $feature->name }}">
+                            <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
-
-                <div class="div-c inline-3 one-label">
-                    <label>Dostep do pomiesczenia</label>
-
-                    <div class="divided-column">
-
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Ogrodek</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox2">
-                        <label for="checkbox2">Rooftop</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox3">
-                        <label for="checkbox3">Basen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox4">
-                        <label for="checkbox4">Hangers</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox5">
-                        <label for="checkbox5">Hair Dry</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox6">
-                        <label for="checkbox6">Washer</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox7">
-                        <label for="checkbox7">Shampoo</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox8">
-                        <label for="checkbox8">TV</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox9">
-                        <label for="checkbox9">Kitchen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox10">
-                        <label for="checkbox10">Essentials</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox11">
-                        <label for="checkbox11">Heating</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox12">
-                        <label for="checkbox12">Items</label>
-                    </div>
-                </div>
-
-
-
-
-
-
             </div>
 
             <!-- <div class="ui six wide computer twelve wide tablet column">
@@ -436,141 +250,31 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
-                <h3 class="complete-sq title-sq">Uslugi</h3>
+                <h3 class="title-sq">Udogodnienia i zasady</h3>
 
                 <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
 
 
 
-                <div class="div-c inline-3 one-label">
-                    <label>Dodatkowo</label>
-
-                    <div class="divided-column">
-
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Ogrodek</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox2">
-                        <label for="checkbox2">Rooftop</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox3">
-                        <label for="checkbox3">Basen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox4">
-                        <label for="checkbox4">Hangers</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox5">
-                        <label for="checkbox5">Hair Dry</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox6">
-                        <label for="checkbox6">Washer</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox7">
-                        <label for="checkbox7">Shampoo</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox8">
-                        <label for="checkbox8">TV</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox9">
-                        <label for="checkbox9">Kitchen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox10">
-                        <label for="checkbox10">Essentials</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox11">
-                        <label for="checkbox11">Heating</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox12">
-                        <label for="checkbox12">Items</label>
-                    </div>
+                <div class="div-c inline-2 one-label">
+                    <label>Udogodnienia</label>
+                    @foreach ($amenities as $amenity)
+                        <div class="divided-column">
+                            <input type="checkbox" id="amenity_{{ $amenity->id }}" name="amenities[]" value="{{ $amenity->name }}">
+                            <label for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
-                <div class="div-c inline-3 one-label">
+                <div class="div-c inline-1 one-label">
                     <label>Zasady</label>
-
-                    <div class="divided-column">
-
-                        <input type="checkbox" id="checkbox1">
-                        <label for="checkbox1">Ogrodek</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox2">
-                        <label for="checkbox2">Rooftop</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox3">
-                        <label for="checkbox3">Basen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox4">
-                        <label for="checkbox4">Hangers</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox5">
-                        <label for="checkbox5">Hair Dry</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox6">
-                        <label for="checkbox6">Washer</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox7">
-                        <label for="checkbox7">Shampoo</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox8">
-                        <label for="checkbox8">TV</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox9">
-                        <label for="checkbox9">Kitchen</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox10">
-                        <label for="checkbox10">Essentials</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox11">
-                        <label for="checkbox11">Heating</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="checkbox" id="checkbox12">
-                        <label for="checkbox12">Items</label>
-                    </div>
+                    @foreach ($rules as $rule)
+                        <div class="divided-column">
+                            <input type="checkbox" id="rule_{{ $rule->id }}" name="rules[]" value="{{ $rule->name }}">
+                            <label for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="div-c">
@@ -579,10 +283,6 @@
                         <textarea  cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
                     </div>
                 </div>
-
-
-
-
             </div>
 
             <!-- <div class="ui six wide computer twelve wide tablet column">
@@ -607,7 +307,7 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui six wide computer twelve wide tablet column">
-                <h3 class="complete-sq title-sq">O rezerwacji</h3>
+                <h3 class="title-sq">O rezerwacji</h3>
 
                 <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
@@ -850,7 +550,7 @@
     <div class="ui grid container">
         <div class="row">
             <div class="ui twelve wide tablet twelve wide computer twelve wide widescreen twelve wide large screen column">
-                <h3 class="complete-sq title-sq">Photos</h3>
+                <h3 class="title-sq">Photos</h3>
             </div>
 
             <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">

@@ -2,16 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\EventType;
+use App\VenueType;
+use App\VenueAmenity;
+use App\VenueRule;
+use App\VenueStyle;
+use App\VenueFeature;
 use Illuminate\Http\Request;
 use App\Venue;
 
-class ShareController extends Controller
+class ShareVenueController extends Controller
 {
+    public function index() {
+
+        $cities = City::all();
+        $eventTypes = EventType::all();
+        $venueTypes = VenueType::all();
+        $amenities = VenueAmenity::all();
+        $rules = VenueRule::all();
+        $styles = VenueStyle::all();
+        $features = VenueFeature::all();
+
+
+
+        $data = array(
+            'cities' => $cities,
+            'eventTypes' => $eventTypes,
+            'venueTypes' => $venueTypes,
+            'amenities' => $amenities,
+            'rules' => $rules,
+            'styles' => $styles,
+            'features' => $features,
+        );
+
+        //dump($data);
+        return view('user.share-venue', $data);
+    }
+
     public function createNewVenue(Request $request)
     {
 
-
-        $validator = Validator::make($request->all(), [
+        /*$validator = Validator::make($request->all(), [
             'first_name' => 'max:191',
             'last_name' => 'max:191',
             'address' => 'max:191',
@@ -43,6 +75,8 @@ class ShareController extends Controller
             //dd($request->all());
         }
 
-        return view('user/profile');
+        return view('user/profile');*/
+
+
     }
 }
