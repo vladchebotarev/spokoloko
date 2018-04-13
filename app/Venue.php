@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Venue extends Model
 {
+    /**
+     * Get the user for the venue.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     /**
      * Get the city for the venue.
