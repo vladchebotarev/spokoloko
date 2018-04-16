@@ -14614,14 +14614,14 @@ select.ui.dropdown {
   height: 0;
 }
 .noUi-horizontal .noUi-handle-lower .noUi-tooltip {
-  top: -1px;
-  right: 30px;
+  top: -25px;
+  right: -10px;
 }
 @media only screen and (min-width: 768px) {
   .noUi-horizontal .noUi-handle-lower .noUi-tooltip {
-    top: -6px;
-    left: initial;
-    right: 20px;
+    top: -25px;
+
+    right: -10px;
   }
 }
 .noUi-horizontal .noUi-handle-lower .noUi-tooltip:before {
@@ -14633,13 +14633,13 @@ select.ui.dropdown {
   border-right: none;
 }
 .noUi-horizontal .noUi-handle-upper .noUi-tooltip {
-  top: -1px;
-  left: 30px;
+  top: -25px;
+  left: -25px;
 }
 @media only screen and (min-width: 768px) {
   .noUi-horizontal .noUi-handle-upper .noUi-tooltip {
-    top: -6px;
-    left: 20px;
+    top: -25px;
+    left: -25px;
   }
 }
 .noUi-horizontal .noUi-handle-upper .noUi-tooltip:before {

@@ -13,7 +13,7 @@
 
                 <div class="div-c">
                     <div class="divided-column">
-                        <label>Nazwa przestrzeni</label>
+                        <label id="searchg">Nazwa przestrzeni</label>
                         <input type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                     </div>
                 </div>
@@ -32,10 +32,16 @@
 
                 <div class="div-c">
                     <div class="divided-column">
-                        <label>Adres</label>
+                        <label id="name">Adres</label>
                         <input type="text" placeholder="ul. Warszawska 1">
                     </div>
                 </div>
+
+                <div style="height:300px;">
+                    <div id="map"></div>
+                </div>
+                <br>
+
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
@@ -97,11 +103,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
-                <div class="map-wrapper map">
-                   <div id="map"></div>
-                </div>
-            </div>
+
 
         </div>
     </div>
@@ -155,11 +157,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
-                <div class="image-inner">
-                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
-                </div>
-            </div>
+
 
         </div>
     </div>
@@ -237,11 +235,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
-                <div class="image-inner">
-                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -294,11 +288,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
-                <div class="image-inner">
-                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
@@ -537,11 +527,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="ui six wide computer twelve wide tablet column image-full-height image-wrapper">
-                <div class="image-inner">
-                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="sticky-img" />
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
