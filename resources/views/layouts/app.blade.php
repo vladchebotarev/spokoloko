@@ -20,23 +20,21 @@
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
-{{--TODO customize--}}
+    {{--TODO customize--}}
     @if(Request::is('venue/*') or Request::is('user/share-venue') or Request::is('user/edit-venue'))
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
-            <script src={{ asset('new-assets/library/map.js') }}></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
+        <script src={{ asset('new-assets/library/map.js') }}></script>
     @endif
-
-
 
 
     <title>Spokoloko @yield('title')</title>
 
 </head>
 <body class="no-transition"
-    @if(Request::is('user/share-venue'))
-        style="overflow: hidden;"
-    @endif>
+      @if(Request::is('user/share-venue'))
+      style="overflow: hidden;"
+        @endif>
 <div id="page-wrapper">
 
 @component('components.header')
@@ -110,8 +108,8 @@
         !Request::is('venues/*') and
         !Request::is('venue/*') and
         !Request::is('user/*'))
-            @component('components.footer')
-            @endcomponent
+        @component('components.footer')
+        @endcomponent
     @endif
 </div><!--end #page-wrapper-->
 <script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>
@@ -148,7 +146,6 @@
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 
 
-
 <!-- Other scripts -->
 {{--TODO--}}
 @guest
@@ -167,11 +164,13 @@
 @endguest
 
 @if(Request::is('user/share-venue'))
+
     <script src={{ asset('js/velocity.min.js')}}></script>
     <script src={{ asset('js/move.min.js')}}></script>
     <script src={{ asset('js/share/steps.js') }}></script>
     <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
     <script src={{ asset('js/share/weekButtons.js') }}></script>
+    <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 

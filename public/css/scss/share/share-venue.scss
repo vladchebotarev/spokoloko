@@ -97,9 +97,16 @@ $grey: #aaa;
             }
         }
         .image-wrapper {
-            img {
+            .bigger-width {
                 width: auto !important;
                 height: 100% !important;
+            }
+            .bigger-height {
+                width: 100% !important;
+                height: auto !important;
+            }
+            img {
+                // position: fixed !important;
                 top: 0 !important;
                 margin-top: 0 !important;
             }

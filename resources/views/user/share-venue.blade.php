@@ -572,56 +572,7 @@
 
         <div class="row photo-upload">
 
-            <div class="ui three wide computer six wide tablet twelve wide mobile column">
-
-                <div class="photo-upload-item">
-                    <div class="image-wrapper">
-                        <img class="image-sq" src="../new-assets/images/host/host_01.jpg" alt="">
-                    </div>
-
-                    <a class="remove"><i class="icon icon-close"></i></a>
-                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
-
-                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
-
-
-                </div>
-            </div>
-
-            <div class="ui three wide computer six wide tablet twelve wide mobile column">
-
-                <div class="photo-upload-item">
-                    <div class="image-wrapper">
-                        <img class="image-sq" src="../new-assets/images/host/host_02.jpg" alt="">
-                    </div>
-
-                    <a class="remove"><i class="icon icon-close"></i></a>
-                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
-
-                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
-
-
-                </div>
-            </div>
-
-            <div class="ui three wide computer six wide tablet twelve wide mobile column">
-
-                <div class="photo-upload-item">
-                    <div class="image-wrapper">
-                        <img class="image-sq" src="../new-assets/images/host/host_03.jpg" alt="">
-                    </div>
-
-                    <a class="remove"><i class="icon icon-close"></i></a>
-                    <!-- <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a> -->
-
-                    <!-- <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea> -->
-
-
-                </div>
-            </div>
-
-
-            <div class="ui three wide computer six wide tablet twelve wide mobile column">
+            <div class="ui three wide computer six wide tablet six wide mobile column">
                 <div class="photo-upload-item" id="add-photo">
                     <label for="file-upload" class="add-photo custom-file-upload" id="new-img">
                         <i class="icon icon-add-wishlist"></i>
