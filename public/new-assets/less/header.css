@@ -1,6 +1,6 @@
 /*
  * Mybnb
- * Header less file 
+ * Header less file
  */
 
 /*-----------------------------
@@ -12,18 +12,18 @@
 
 on .header-item:
 
-.flex-align-left 
+.flex-align-left
 
-.flex-align-mobile-left 
-.flex-align-tablet-left 
-.flex-align-desktop-left 
+.flex-align-mobile-left
+.flex-align-tablet-left
+.flex-align-desktop-left
 .flex-align-large-desktop-left
 
 .flex-align-right
 
-.flex-align-mobile-right 
-.flex-align-tablet-right 
-.flex-align-desktop-right 
+.flex-align-mobile-right
+.flex-align-tablet-right
+.flex-align-desktop-right
 .flex-align-large-desktop-right
 
 .flex-order-mobile-first
@@ -47,7 +47,7 @@ on .header-item:
 
 */
 /*-------------------------------
-    Header Section Default 
+    Header Section Default
 --------------------------------*/
 .header-section {
   position: relative;
@@ -172,19 +172,19 @@ on .header-item:
   }
 }
 /*-------------------------------
-    Header Section Boxed 
+    Header Section Boxed
 --------------------------------*/
 .header-section.header-boxed .header-content {
   background: transparent !important;
 }
 /*-------------------------------
-    Header Section Fullwidth 
+    Header Section Fullwidth
 --------------------------------*/
 .header-section.header-fullwidth .header-content > .ui.container.grid {
   width: 100% !important;
 }
 /*-------------------------------
-    Header Transparent 
+    Header Transparent
 --------------------------------*/
 .header-section.header-transparent.is-transparent .header-content {
   background: transparent;
@@ -259,7 +259,7 @@ on .header-item:
 /* Header Items */
 /* Top Header */
 /*-------------------------------------
-    Top Header Isolated Styles 
+    Top Header Isolated Styles
 --------------------------------------*/
 .header-section {
   /* General Settings*/
@@ -965,7 +965,7 @@ on .header-item:
 }
 /* Middle Header */
 /*-------------------------------------
-    Middle Header Isolated Styles 
+    Middle Header Isolated Styles
 --------------------------------------*/
 .header-section {
   /* General Settings*/
@@ -1715,7 +1715,7 @@ on .header-item:
 }
 /* Bottom Header */
 /*-------------------------------------
-    Bottom Header Isolated Styles 
+    Bottom Header Isolated Styles
 --------------------------------------*/
 .header-section {
   /* General Settings*/
@@ -2596,7 +2596,7 @@ on .header-item:
 }
 /* Special styles */
 /*---------------------------------------------------------
-    Header Hidden on Mobile (special behaviour ) 
+    Header Hidden on Mobile (special behaviour )
 ----------------------------------------------------------*/
 @media only screen and (max-width: 767px) {
   .header-section.header-sticky.header-isnt-mobile .header-content {
@@ -2623,7 +2623,7 @@ on .header-item:
   }
 }
 /*---------------------------------------------------------
-    Half Layout 
+    Half Layout
 ----------------------------------------------------------*/
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-section.ths + .ui.layout .half-layout .ui.column.variable {
@@ -3513,7 +3513,7 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
 }
 /* Burger Default*/
 /* Usual Classes */
-/* 
+/*
 
 .burger-default
 .burger-mobile-default
@@ -3546,7 +3546,7 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
 }
 /* Burger Sidemenu */
 /* Used Classes */
-/* 
+/*
 .burger-sidemenu
 .burger-mbile-sidemenu
 .burger-tablet-sidemenu
@@ -3567,7 +3567,7 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
 
 */
 /*-----------------------------
-    Burger Sidemenu 
+    Burger Sidemenu
 ------------------------------*/
 .menu-default.burger-sidemenu {
   position: fixed;
@@ -3709,7 +3709,7 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
   opacity: .8;
 }
 /*-----------------------------
-    Options 
+    Options
 ------------------------------*/
 .menu-default.burger-sidemenu-styles.profile-priority > ul > li {
   -webkit-box-ordinal-group: 2;
@@ -3959,7 +3959,7 @@ body {
 }
 /* Burger Modal */
 /* Usual Classes */
-/* 
+/*
 
 .burger-modal
 .burger-mobile-modal
@@ -3971,7 +3971,7 @@ body {
 
 */
 /*-----------------------------
-    Burger Modal 
+    Burger Modal
 ------------------------------*/
 .burger-modal-styles:not(body) {
   position: fixed;

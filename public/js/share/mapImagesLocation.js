@@ -12,12 +12,6 @@
 		height: `${mapHeight}px`,
 		bottom: `${footerHeight}`
 	});
-
-	// let image = $('.stucky-img').parent('.image-wrapper');
-	// let image = $('.active-block').find('.sticky-img');
-	// image.css({
-	// 	top: `${height/2}px`
-	// })
 	$('.add-listing-content').scroll(function() {
 		height = window.innerHeight;
 		mapHeight = height - headerHeight - footerHeight - paddingHeight;
