@@ -3372,12 +3372,15 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
   width: 100%;
 }
 .menu-default .has-submenu .item .content {
-  overflow-y: auto;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   flex-grow: 1;
   height: 100%;
 }
+.menu-default .has-submenu .item .content a{
+  display:block;
+}
+
 @media only screen and (min-width: 768px) {
   .menu-default .has-megamenu .item .content {
     padding: 40px 40px 0 40px;

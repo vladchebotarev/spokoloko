@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/base.css') }}>
-    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/header.min.css') }}>
+    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/header.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
@@ -20,11 +20,19 @@
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
+
     {{--TODO customize--}}
-    @if(Request::is('venue/*') or Request::is('user/share-venue') or Request::is('user/edit-venue'))
+    @if(Request::is('venue/*'))
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
         <script src={{ asset('new-assets/library/map.js') }}></script>
+    @endif
+
+{{--TODO customize--}}
+    @if(Request::is('user/edit-venue') or Request::is('user/share-venue'))
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
+            <script src={{ asset('new-assets/library/map_adding.js') }}></script>
     @endif
 
 
@@ -180,6 +188,9 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
     <script src={{ asset('js/search/venues_map.js') }}></script>
 @endif
+
+
+
 </body>
 
 </html>
