@@ -19,7 +19,6 @@ class ShareVenueController extends Controller
 {
     public function index() {
 
-        echo $this->generateUrl('ĘÓĄŚŁŻŹĆŃ  "" ęóąśłżźń  !@#$%^&*()_+=-09/.,');
         $cities = City::all();
         $eventTypes = EventType::all();
         $venueTypes = VenueType::all();
@@ -76,11 +75,11 @@ class ShareVenueController extends Controller
         $url_tmp = $url;
         $n = 1;
 
-        /*while (DB::table('venues')->where('url', $url_tmp)->first() != null){
+        while (DB::table('venues')->where('url', $url_tmp)->first() != null){
             $url_tmp = $url . '-' . $n++;
-        }*/
+        }
 
-        return $url;
+        return $url_tmp;
     }
 
     public function createNewVenue(Request $request)
