@@ -23,6 +23,7 @@ class Photo {
             let that = this;
             reader.onload = function(e) {
                 that.img.attr('src', e.target.result);
+                console.log(parseInt(that.img.css('width').substr(0, that.img.css('width').length - 2)), parseInt(that.img.css('height').substr(0, that.img.css('height').length - 2)));
                 let bool = parseInt(that.img.css('width').substr(0, that.img.css('width').length - 2)) >= parseInt(that.img.css('height').substr(0, that.img.css('height').length - 2)) ?
                     true : false;
                 res({
@@ -101,16 +102,21 @@ Photo.prototype.addPhoto = function(fileUpload) {
 
 Photo.prototype.removePhoto = function(event) {
     event.stopPropagation();
-    this.obj.parent().removeClass('selected').parent().velocity({
+    let that = this;
+    this.obj.find('.image-wrapper').parent().removeClass('selected').parent().velocity({
         opacity: 0,
     }, {
         display: 'none',
         duration: 'fast',
         complete: function() {
-            this.obj.remove();
-            photoArray.forEach(function(el, index) {
-                if (el == this) photoArray.splice(index, 1);
-            });
+            that.obj.remove();
+            that.obj = that.img = that.src = that.select = null;
+            for (let i = 0; i < photoArray.length; ++i) {
+                if (photoArray[i] == that) {
+                    photoArray.splice(i, 1);
+                    break;
+                }
+            }
         }
     });
 }
