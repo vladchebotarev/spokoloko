@@ -7,7 +7,7 @@ class Photo {
         this.select = false;
 
         this.biggerWidth(files, index).then(data => {
-            console.log(data);
+            // console.log(data);
             if (data.isBiggerWidth) {
                 this.img.addClass('bigger-width');
             } else {
@@ -23,14 +23,19 @@ class Photo {
             let that = this;
             reader.onload = function(e) {
                 that.img.attr('src', e.target.result);
-                console.log(parseInt(that.img.css('width').substr(0, that.img.css('width').length - 2)), parseInt(that.img.css('height').substr(0, that.img.css('height').length - 2)));
-                let bool = parseInt(that.img.css('width').substr(0, that.img.css('width').length - 2)) >= parseInt(that.img.css('height').substr(0, that.img.css('height').length - 2)) ?
-                    true : false;
-                res({
-                    isBiggerWidth: bool,
-                    src: e.target.result
-                });
-            }
+                let image = new Image();
+
+                image.onload = function() {
+                    let bool = image.width >= image.height ? true : false;
+                    console.log(`bool = ${bool}`, image.width, image.height);
+                    res({
+                        isBiggerWidth: bool,
+                        src: image.src
+                    });
+                };
+
+                image.src = e.target.result;
+            };
 
             reader.readAsDataURL(input);
         });
