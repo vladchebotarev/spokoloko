@@ -38,7 +38,7 @@
 
 
             <div class="ui card" style="-webkit-box-shadow: none; ">
-                <a class="image" href="share-business">
+                <a class="image" href="share-service">
                     <img src="../new-assets/images/sharing/design.jpg">
                 </a>
                 <div class="content">
@@ -50,23 +50,6 @@
                 </div>
 
             </div>
-
-
-
-
-
-
-
-
-
-                                    <!-- image container -->
-
-
-
-
-
-
-
 
         </div>
 

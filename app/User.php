@@ -42,7 +42,7 @@ class User extends Authenticatable
      * Get the businesses for the user.
      */
     public function businesses(){
-        return $this->hasMany('App\Business');
+        return $this->hasMany('App\Service');
     }
 
     /**

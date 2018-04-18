@@ -25,6 +25,19 @@ Route::post('/venues_map/{city_request}', 'SearchController@getMapMarkers');
 
 Route::get('/venue/{venue_url}', 'VenueController@getVenue');
 
+Route::get('/services', function () {
+    return view('search-services');
+});
+
+Route::get('/service', function () {
+    return view('service');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -77,14 +90,17 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
     Route::get('share-venue', 'ShareVenueController@index')->name('share-venue');
     Route::post('share-venue', 'ShareVenueController@createNewVenue');
 
-    Route::get('share-business', function () {
-        return view('user.share-business');
-    })->name('share-business');
+    Route::get('share-service', function () {
+        return view('user.share-service');
+    })->name('share-service');
 
     Route::get('edit-venue', function () {
         return view('user.edit-venue');
     })->name('edit-venue');
 
+    Route::get('edit-service', function () {
+        return view('user.edit-service');
+    })->name('edit-service');
 
 
 });

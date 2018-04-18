@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Business
+ * Class Service
  * @package App
  */
-class Business extends Model
+class Service extends Model
 {
     //
 

@@ -22,7 +22,7 @@
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 
     {{--TODO customize--}}
-    @if(Request::is('venue/*'))
+    @if(Request::is('venue/*') or Request::is('service'))
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
         <script src={{ asset('new-assets/library/map.js') }}></script>
@@ -115,6 +115,8 @@
         !Request::is('password/*') and
         !Request::is('venues/*') and
         !Request::is('venue/*') and
+        !Request::is('services') and
+        !Request::is('service') and
         !Request::is('user/*'))
         @component('components.footer')
         @endcomponent
