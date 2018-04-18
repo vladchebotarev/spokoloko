@@ -14,16 +14,8 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label id="searchg">Nazwa przestrzeni</label>
-                                <input type="text" name="name"
-                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
-                            </div>
-                        </div>
-
-                        <div class="div-c">
-                            <div class="divided-column">
                                 <label>Miasto</label>
-                                <select name="city" class="ui search dropdown" id="select_city">
+                                <select class="ui search dropdown" id="select_city">
                                     <option value="">Miasto</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city->name }}">{{ $city->name }}</option>
@@ -34,16 +26,30 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label id="name">Adres</label>
-                                <input type="text" placeholder="ul. Warszawska 1">
+                                <label>Wyszukaj na mapie</label>
+                                <input id="searchng" type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
+
 
                         <div style="height:300px;">
                             <div id="map"></div>
                         </div>
                         <br>
 
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Nazwa przestrzeni</label>
+                                <input id="name" type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
+                            </div>
+                        </div>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Adres</label>
+                                <input type="text" id="route" placeholder="ul. Warszawska 1">
+                            </div>
+                        </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
