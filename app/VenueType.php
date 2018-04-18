@@ -25,6 +25,6 @@ class VenueType extends Model
      */
     public function venues()
     {
-        return $this->belongsToMany('App\Venue', 'venue_venuetypes', 'venue_type_id', 'venue_id');
+        return $this->hasMany('App\Venue');
     }
 }

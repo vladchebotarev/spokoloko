@@ -17,6 +17,7 @@ class CreateVenuesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('user_id')->unsigned();
+            $table->integer('venue_type_id')->unsigned();
             $table->string('url');
             $table->text('description');
 
@@ -67,6 +68,7 @@ class CreateVenuesTable extends Migration
 
             //$table->foreign('package_id')->references('id')->on('venue_package');
             //$table->foreign('city_id')->references('id')->on('cities');
+            //$table->foreign('venue_type_id')->references('id')->on('venuetypes');
 
         });
     }

@@ -44,6 +44,13 @@ class ShareVenueController extends Controller
         return view('user.share-venue', $data);
     }
 
+
+    /**
+     * Generate url address for new venue.
+     *
+     * @param $venue_name
+     * @return string
+     */
     private static function generateUrl($venue_name)
     {
         $polish_chars_array = array(
@@ -103,12 +110,14 @@ class ShareVenueController extends Controller
                 ->withInput();
         } else {
 
-            /*$venue = new Venue();
-            $venue->name = $request->get('name');
+            $venue = new Venue();
+
+           /* $venue->name = $request->get('name');
             $venue->user_id = Auth::user()->id;
+            $venue->venue_type_id = $request->get('venue_type');
             $venue->url = $this->generateUrl($venue->name);
             $venue->description = $request->get('description');
-            $venue->city_id = City::where('name', $request->get('city'))->first()->id;
+            $venue->city_id = $request->get('city');
             $venue->street_address = $request->get('street_address');
             $venue->postal_code = $request->get('postal_code');
             $venue->state = $request->get('state');
@@ -117,13 +126,59 @@ class ShareVenueController extends Controller
             $venue->phone = $request->get('phone');
             $venue->phone2 = $request->get('phone2');
             $venue->area = $request->get('area');
+            $venue->room_number = $request->get('room_number');
+            $venue->restroom_number = $request->get('restroom_number');
+            $venue->price_hour = $request->get('price_hour');
+            $venue->price_day = $request->get('price_day');
+            $venue->min_hours = $request->get('min_hours');
+            $venue->price_info = $request->get('price_info');
+            $venue->security_deposit = $request->get('security_deposit');
+            $venue->max_guests_standing = $request->get('max_guests_standing');
+            $venue->max_guests_seating = $request->get('max_guests_seating');
+            $venue->webpage = $request->get('webpage');
+            $venue->facebook = $request->get('facebook');
+            $venue->instagram = $request->get('instagram');
+            $venue->tripadvisor = $request->get('tripadvisor');*/
 
-            $venue->save();*/
-            //dd($request->all());
+            $venue->name = $request->get('name');
+            $venue->user_id = Auth::user()->id;
+            $venue->venue_type_id = $request->get('venue_type');
+            $venue->url = $this->generateUrl($venue->name);
+            $venue->description = $request->get('description');
+            $venue->city_id = $request->get('city');
+            $venue->street_address = $request->get('street_address');
+            $venue->postal_code = '12-345';
+            $venue->state = 'malopolska';
+            $venue->lat = 52.240414;
+            $venue->lng = 21.007986;
+            $venue->phone = $request->get('phone');
+            $venue->phone2 = $request->get('phone2');
+            $venue->area = 100;
+            $venue->room_number = 2;
+            $venue->restroom_number = 2;
+            $venue->price_hour = 500;
+            $venue->price_day = 500;
+            $venue->min_hours = 1;
+           // $venue->price_info = $request->get('price_info');
+            //$venue->security_deposit = $request->get('security_deposit');
+            $venue->max_guests_standing = 100;
+            $venue->max_guests_seating = 100;
+            /*$venue->webpage = $request->get('webpage');
+            $venue->facebook = $request->get('facebook');
+            $venue->instagram = $request->get('instagram');
+            $venue->tripadvisor = $request->get('tripadvisor');*/
+
+            $venue->save();
+
+            $venue->eventTypes()->attach($request->get('event_types'));
+            $venue->amenities()->attach($request->get('amenities'));
+            $venue->rules()->attach($request->get('rules'));
+            $venue->styles()->attach($request->get('styles'));
+            $venue->features()->attach($request->get('features'));
+
+            dump($request->all());
         }
-        dump($request->all());
+
         //return view('user/profile');
-
-
     }
 }

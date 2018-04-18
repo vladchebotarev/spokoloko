@@ -15,10 +15,10 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Miasto</label>
-                                <select class="ui search dropdown" id="select_city">
+                                <select name="city" class="ui search dropdown" id="select_city">
                                     <option value="">Miasto</option>
                                     @foreach ($cities as $city)
-                                        <option value="{{ $city->name }}">{{ $city->name }}</option>
+                                        <option value="{{ $city->id }}">{{ $city->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -40,21 +40,21 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Nazwa przestrzeni</label>
-                                <input id="name" type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
+                                <input type="text" id="name" name="name" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Adres</label>
-                                <input type="text" id="route" placeholder="ul. Warszawska 1">
+                                <input type="text" id="route" name="street_address" placeholder="ul. Warszawska 1">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Telefon 1</label>
-                                <input type="text" name="phone1" placeholder="+48 000 000 000">
+                                <input type="text" name="phone" placeholder="+48 000 000 000">
                             </div>
 
                             <div class="divided-column">
@@ -129,7 +129,7 @@
                                 <select name="venue_type" class="ui search dropdown" id="select_city">
                                     <option value="">Wybierz typ przestrzeni</option>
                                     @foreach ($venueTypes as $venueType)
-                                        <option value="{{ $venueType->name }}">{{ $venueType->name }}</option>
+                                        <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -141,7 +141,7 @@
                             @foreach ($eventTypes as $eventType)
                                 <div class="divided-column">
                                     <input type="checkbox" name="event_types[]" id="event_type_{{ $eventType->id }}"
-                                           value="{{ $eventType->name }}">
+                                           value="{{ $eventType->id }}">
                                     <label for="event_type_{{ $eventType->id }}">{{ $eventType->name }}</label>
                                 </div>
                             @endforeach
@@ -180,7 +180,7 @@
                                 <select name="venue_styles[]" class="ui search dropdown" id="select_city">
                                     <option value="">Wybierz styl</option>
                                     @foreach ($styles as $style)
-                                        <option value="{{ $style->name }}">{{ $style->name }}</option>
+                                        <option value="{{ $style->id }}">{{ $style->name }}</option>
                                     @endforeach
                                 </select>
 
@@ -225,7 +225,7 @@
                             @foreach ($features as $feature)
                                 <div class="divided-column">
                                     <input type="checkbox" name="features[]" id="feature_{{ $feature->id }}"
-                                           value="{{ $feature->name }}">
+                                           value="{{ $feature->id }}">
                                     <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
                                 </div>
                             @endforeach
@@ -261,7 +261,7 @@
                             @foreach ($amenities as $amenity)
                                 <div class="divided-column">
                                     <input type="checkbox" name="amenities[]" id="amenity_{{ $amenity->id }}"
-                                           value="{{ $amenity->name }}">
+                                           value="{{ $amenity->id }}">
                                     <label for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
                                 </div>
                             @endforeach
@@ -272,7 +272,7 @@
                             @foreach ($rules as $rule)
                                 <div class="divided-column">
                                     <input type="checkbox" name="rules[]" id="rule_{{ $rule->id }}"
-                                           value="{{ $rule->name }}">
+                                           value="{{ $rule->id }}">
                                     <label for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
                                 </div>
                             @endforeach

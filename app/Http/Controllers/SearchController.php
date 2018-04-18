@@ -66,7 +66,7 @@ class SearchController extends Controller
             if (Input::get('venue_types') != '') {
                 $current_venue_types = Input::get('venue_types');
 
-                $venues_query .= " LEFT JOIN sl_venue_venuetypes vvt ON (v.id=vvt.venue_id) LEFT JOIN sl_venuetypes vt ON (vvt.venue_type_id=vt.id)";
+                $venues_query .= " LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
                 $current_venue_types_sql_string = implode ( "' ,'" ,$current_venue_types);
                 $venues_query_cond .= " AND vt.name IN ('$current_venue_types_sql_string')";
             } else {
