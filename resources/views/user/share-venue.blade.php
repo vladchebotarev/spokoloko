@@ -83,7 +83,7 @@
                 <div class="div-c inline-2">
                     <div class="divided-column">
                         <label>Strona internetowa</label>
-                        <input type="text" placeholder="https://nazwabiznes.pl">
+                        <input type="text" id="website" placeholder="https://nazwabiznes.pl">
                     </div>
 
                     <div class="divided-column">
