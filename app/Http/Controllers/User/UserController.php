@@ -45,7 +45,7 @@ class UserController extends Controller
             $user->company = $request->get('company');
             $user->job_title = $request->get('job_title');
 
-            $user->save($request->all());
+            $user->save();
             //dd($request->all());
         }
 

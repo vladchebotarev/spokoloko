@@ -13,11 +13,13 @@ use Illuminate\Http\Request;
 use App\Venue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Schema;
 
 class ShareVenueController extends Controller
 {
-    public function index() {
+    public function index()
+    {
 
         $cities = City::all();
         $eventTypes = EventType::all();
@@ -26,7 +28,6 @@ class ShareVenueController extends Controller
         $rules = VenueRule::all();
         $styles = VenueStyle::all();
         $features = VenueFeature::all();
-
 
 
         $data = array(
@@ -66,16 +67,16 @@ class ShareVenueController extends Controller
             'ź' => 'z'
         );
 
-        $url = strtr( $venue_name, $polish_chars_array );
+        $url = strtr($venue_name, $polish_chars_array);
         $url = strtolower($url);
 
-        $url =  preg_replace('/[^a-z0-9\s]+/i', '', $url);
+        $url = preg_replace('/[^a-z0-9\s]+/i', '', $url);
         $url = preg_replace('/\s+/', '-', $url);
 
         $url_tmp = $url;
         $n = 1;
 
-        while (DB::table('venues')->where('url', $url_tmp)->first() != null){
+        while (DB::table('venues')->where('url', $url_tmp)->first() != null) {
             $url_tmp = $url . '-' . $n++;
         }
 
@@ -86,39 +87,42 @@ class ShareVenueController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'max:191',
-            'last_name' => 'max:191',
+            'name' => 'max:191',
+            /*'last_name' => 'max:191',
             'address' => 'max:191',
             'birthday' => 'max:191',
             'sex' => 'max:191',
             'about' => 'max:191',
             'company' => 'max:191',
-            'job_title' => 'max:191'
+            'job_title' => 'max:191'*/
         ]);
 
         if ($validator->fails()) {
-            return redirect('user/profile')
+            return redirect('user/share-venue')
                 ->withErrors($validator)
                 ->withInput();
         } else {
 
-            $venue = new Venue();
-            $venue->user_id = Auth::user()->id;
+            /*$venue = new Venue();
             $venue->name = $request->get('name');
-            $venue->first_name = $request->get('first_name');
-            $venue->last_name = $request->get('last_name');
-            $venue->address = $request->get('address');
-            $venue->birthday = $request->get('birthday');
-            $venue->sex = $request->get('sex');
-            $venue->about = $request->get('about');
-            $venue->company = $request->get('company');
-            $venue->job_title = $request->get('job_title');
+            $venue->user_id = Auth::user()->id;
+            $venue->url = $this->generateUrl($venue->name);
+            $venue->description = $request->get('description');
+            $venue->city_id = City::where('name', $request->get('city'))->first()->id;
+            $venue->street_address = $request->get('street_address');
+            $venue->postal_code = $request->get('postal_code');
+            $venue->state = $request->get('state');
+            $venue->lat = $request->get('lat');
+            $venue->lng = $request->get('lng');
+            $venue->phone = $request->get('phone');
+            $venue->phone2 = $request->get('phone2');
+            $venue->area = $request->get('area');
 
-            $venue->save($request->all());
+            $venue->save();*/
             //dd($request->all());
         }
-
-        return view('user/profile');
+        dump($request->all());
+        //return view('user/profile');
 
 
     }

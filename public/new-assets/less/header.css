@@ -2858,12 +2858,12 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
     Add Listing
 ----------------------------------------------------------*/
 @media only screen and (max-width: 767px) {
-  .header-section.ths ~ .add-listing-content {
+  .header-section.ths ~ form > .add-listing-content {
     height: calc(100% - 60px - 50px);
   }
 }
 @media only screen and (min-width: 768px) {
-  .header-section.ths ~ .add-listing-content {
+  .header-section.ths ~ form > .add-listing-content {
     height: calc(100% - 100px - 70px);
   }
 }
