@@ -1,9 +1,12 @@
 //Google Maps JS
 //Set Map
 
-function bindDataToForm(address,lat,lng){
+function bindDataToForm(address,lat,lng, number, website){
     document.getElementById('name').value = address;
-
+    document.getElementById('lat').value = lat;
+    document.getElementById('lng').value = lng;
+    document.getElementById('phone').value = number;
+    document.getElementById('website').value = website;
 }
 
 
@@ -45,6 +48,8 @@ function initMap() {
 
         var componentForm = {
             route: 'long_name',
+            street_number: 'short_name',
+            postal_code: 'long_name'
 
         };
 
@@ -55,14 +60,18 @@ function initMap() {
                 document.getElementById(addressType).value = val;
             }
         }
+        var phone_number = place.formatted_phone_number;
+        var website = place.website;
 
-        bindDataToForm(place.name,place.geometry.location.lat(),place.geometry.location.lng());
+        bindDataToForm(place.name,place.geometry.location.lat(),place.geometry.location.lng(),phone_number, website);
 
 
         infowindow.setContent(place.formatted_address);
         infowindow.open(map, marker);
 
     });
+
+
 
 
     var marker = new google.maps.Marker({
@@ -76,7 +85,7 @@ function initMap() {
         geocoder.geocode({'latLng': marker.getPosition()}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 if (results[0]) {
-                    bindDataToForm(results[0].formatted_address,marker.getPosition().lat(),marker.getPosition().lng());
+                    bindDataToForm(results[0].formatted_address,marker.getPosition().lat(),marker.getPosition().lng(),'0', '-');
                     infowindow.setContent(results[0].formatted_address);
                     infowindow.open(map, marker);
 

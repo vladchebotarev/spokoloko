@@ -27,7 +27,8 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Wyszukaj na mapie</label>
-                                <input id="searchng" type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
+                                <input id="searchng" type="text"
+                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
 
@@ -40,14 +41,30 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Nazwa przestrzeni</label>
-                                <input type="text" id="name" name="name" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
+                                <input type="text" id="name" name="name"
+                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
+
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Adres</label>
                                 <input type="text" id="route" name="street_address" placeholder="ul. Warszawska 1">
+                                <input type="hidden" id="lat" placeholder="ul. Warszawska 1">
+                                <input type="hidden" id="lng" placeholder="ul. Warszawska 1">
+                            </div>
+                        </div>
+
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label>Numer domu</label>
+                                <input type="text" id="street_number" placeholder="21/2">
+                            </div>
+
+                            <div class="divided-column">
+                                <label>Kod pocztowy</label>
+                                <input type="text" id="postal_code" name="postal_code" placeholder="31-000">
                             </div>
                         </div>
 
@@ -91,24 +108,21 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Listing Description</label>
-                                <textarea name="description" cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
+                                <textarea name="description" cols="30" rows="5"
+                                          placeholder="Be clear and descriptive"></textarea>
                             </div>
                         </div>
 
-
-                    </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
-                        <div class="image-full-height">
-                            <div class="image-wrapper">
-                                <div class="image-inner">
-                                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="image-sq">
+                        {{--<div class="ui six wide computer twelve wide tablet column">
+                            <div class="image-full-height">
+                                <div class="image-wrapper">
+                                    <div class="image-inner">
+                                        <img src="../../new-assets/images/host/host_05.jpg" alt="" class="image-sq">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div> -->
-
-
+                        </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,11 +160,8 @@
                                 </div>
                             @endforeach
                         </div>
-
-
                     </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
+                    {{-- <div class="ui six wide computer twelve wide tablet column">
                         <div class="image-full-height">
                             <div class="image-wrapper">
                                 <div class="image-inner">
@@ -158,12 +169,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
-
+                    </div> --}}
                 </div>
             </div>
         </div>
+
 
         <div class="add-listing-content">
             <div class="ui grid container">
@@ -231,8 +241,7 @@
                             @endforeach
                         </div>
                     </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
+                    {{-- <div class="ui six wide computer twelve wide tablet column">
                         <div class="image-full-height">
                             <div class="image-wrapper">
                                 <div class="image-inner">
@@ -240,11 +249,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
+                    </div> --}}
                 </div>
             </div>
         </div>
+
 
         <div class="add-listing-content">
             <div class="ui grid container">
@@ -254,7 +263,6 @@
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-
 
                         <div class="div-c inline-2 one-label">
                             <label>Udogodnienia</label>
@@ -285,8 +293,7 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
+                    {{-- <div class="ui six wide computer twelve wide tablet column">
                         <div class="image-full-height">
                             <div class="image-wrapper">
                                 <div class="image-inner">
@@ -294,20 +301,19 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
+                    </div> --}}
                 </div>
             </div>
         </div>
 
-        <div class="add-listing-content">
+
+{{--        <div class="add-listing-content">
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
                         <h3 class="title-sq">O rezerwacji</h3>
 
                         <p class="description-sq">Kiedy jest otwarty lokal? </p>
-
 
                         <div class="div-c inline-2 one-label">
                             <div class="divided-column">
@@ -319,9 +325,8 @@
                                 <input type="radio" id="radio2" name="radio-group-01">
                                 <label for="radio2">Tylko dla rezerwacji</label>
                             </div>
-
-
                         </div>
+
 
                         <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
                         <div class="week-group">
@@ -432,17 +437,15 @@
                             </div>
                         </div>
 
-
                         <div class="div-c one-label">
                             <div class="divided-column">
                                 <input type="radio" id="radio3" name="radio-group-01">
                                 <label for="radio3">Godziny moga sie zmieniac</label>
                             </div>
-
-
                         </div>
 
 
+<<<<<<< HEAD
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Cena za godzinę</label>
@@ -452,8 +455,75 @@
                             <div class="divided-column">
                                 <label>Min. ilosc godzin</label>
                                 <input type="text" placeholder="350">
-                            </div>
+=======
+                <h3 class="complete-sq title-sq">O rezerwacji</h3>
+
+                <p class="description-sq">Kiedy jest otwarty lokal? </p>
+
+
+                <div class="div-c inline-2 one-label">
+                    <div class="divided-column">
+                        <input type="radio" id="timeweek" name="radio-group-01">
+                        <label for="timeweek">W ciagu tygodnia</label>
+                    </div>
+
+                    <div class="divided-column">
+                        <input type="radio" id="timeres" name="radio-group-01">
+                        <label for="timeres">Tylko dla rezerwacji</label>
+                    </div>
+
+
+                </div>
+
+                <div id="setweek" style="display:none">
+
+                    <div class="div-c inline-2 one-label">
+                        <div class="divided-column">
+                            <input type="radio" id="timeonce" name="radio-group-02" checked="1">
+                            <label for="timeonce">Staly grafik pracy</label>
                         </div>
+
+                        <div class="divided-column">
+                            <input type="radio" id="timeseven" name="radio-group-02">
+                            <label for="timeseven">Wybierz</label>
+                        </div>
+
+
+                    </div>
+                    <div id="setonce" style="padding-top: 10px;">
+                        <p class="description-sq">Wprowadż godziny pracy:</p>
+
+                        <div class="div-c inline-2">
+
+
+
+                            <div class="divided-column"><strong>Poniedzialek - Niedziela</strong></div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
+                            </div>
+
+                        </div>
+<<<<<<< HEAD
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -464,17 +534,87 @@
                             <div class="divided-column" style="padding-top: 50px;">
                                 <input type="radio" id="radio4" name="radio-group-01">
                                 <label for="radio4">Cena zależy od dnia tygodnia</label>
+=======
+                    </div>
+                    <div id = "setseven" style="display:none">
+
+
+                        <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
+
+                        <div class="div-c inline-2">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_pn" name="radio-group-01">
+                                <label for="radio_pn">Poniedzialek</label>
                             </div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
+                            </div>
+
                         </div>
+<<<<<<< HEAD
+=======
+
+                        <div class="div-c inline-2">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_wt" name="radio-group-01">
+                                <label for="radio_wt">Worek</label>
+                            </div>
+>>>>>>> origin/frontend_search_2
 
                         <div class="div-c">
                             <div class="divided-column">
+<<<<<<< HEAD
                                 <label>Informacja dodatkowa</label>
                                 <textarea cols="30" rows="5"
                                           placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia."></textarea>
+=======
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column">
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
                             </div>
+
                         </div>
 
+<<<<<<< HEAD
 
                         <p class="description-sq">Zasady rezerwacji </p>
 
@@ -487,10 +627,41 @@
                             <div class="divided-column" style="padding-top: 50px;">
                                 <input type="radio" id="radio6" name="radio-group-01">
                                 <label for="radio6">Zaliczka nie wymagana</label>
+=======
+                        <div class="div-c inline-2">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_sr" name="radio-group-01">
+                                <label for="radio_sr">Sroda</label>
                             </div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
+                            </div>
+
                         </div>
 
                         <div class="div-c inline-2">
+<<<<<<< HEAD
                             <div class="divided-column">
                                 <label>Rezerwacja min. N dni do wydarzenia</label>
                                 <input type="text" placeholder="2">
@@ -499,10 +670,40 @@
                             <div class="divided-column" style="padding-top: 50px;">
                                 <input type="radio" id="radio5" name="radio-group-01">
                                 <label for="radio5">Mozna zarezerwowac w dzien wydarzenia</label>
+=======
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_cz" name="radio-group-01">
+                                <label for="radio_cz">Czwartek</label>
                             </div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
+                            </div>
+
                         </div>
 
                         <div class="div-c inline-2">
+<<<<<<< HEAD
                             <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
                                 <input type="text" placeholder="2">
@@ -511,18 +712,151 @@
                             <div class="divided-column" style="padding-top: 50px;">
                                 <input type="radio" id="radio6" name="radio-group-01">
                                 <label for="radio6">Mozna zrezygnowac w dzien wydarzenia</label>
+=======
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_pia" name="radio-group-01">
+                                <label for="radio_pia">Piatek</label>
                             </div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
+                            </div>
+
                         </div>
+<<<<<<< HEAD
+=======
+
+                        <div class="div-c inline-2">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_sb" name="radio-group-01">
+                                <label for="radio_sb">Sobota</label>
+                            </div>
+
+                            <div class="divided-column">
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="div-c inline-2">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio_nd" name="radio-group-01">
+                                <label for="radio_nd">Niedziela</label>
+                            </div>
+>>>>>>> origin/frontend_search_2
 
                         <div class="div-c">
                             <div class="divided-column">
+<<<<<<< HEAD
                                 <label>Informacja dodatkowa</label>
                                 <textarea cols="30" rows="5"
                                           placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia "></textarea>
+=======
+                                <div class="main-infos  div-c inline-2">
+                                    <div class="supadupa calendar-sq divided-column"   >
+
+
+                                        <div class="relative">
+                                            <input type="text" class="filter" value="" required placeholder="od">
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="supadupa calendar-sq divided-column"  >
+
+
+                                        <input type="text" class="filter" value="" required placeholder="do">
+                                    </div>
+
+                                </div>
+
+>>>>>>> origin/frontend_search_2
                             </div>
+
+                        </div>
+<<<<<<< HEAD
+
+
+=======
+
+                        <div class="div-c one-label">
+
+                            <div class="divided-column">
+                                <input type="radio" id="radio3" name="radio-group-01">
+                                <label for="radio3">Godziny moga sie zmieniac</label>
+                            </div>
+
+
                         </div>
 
+                    </div>
+                </div>
 
+
+
+
+                <div class="div-c one-label">
+                    <div class="divided-column">
+                        <input type="radio" id="radio3" name="radio-group-01">
+                        <label for="radio3">Godziny moga sie zmieniac</label>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="div-c inline-2">
+                    <div class="divided-column">
+                        <label>Cena za godzinę</label>
+                        <input type="text" placeholder="350">
+                    </div>
+
+                    <div class="divided-column">
+                        <label>Min. ilosc godzin</label>
+                        <input type="text" placeholder="350">
+>>>>>>> origin/frontend_search_2
                     </div>
 
                     <!-- <div class="ui six wide computer twelve wide tablet column">
@@ -537,7 +871,7 @@
 
                 </div>
             </div>
-        </div>
+        </div>--}}
 
         <div class="add-listing-content">
             <div class="ui grid container">
