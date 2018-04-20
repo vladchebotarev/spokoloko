@@ -307,7 +307,7 @@
         </div>
 
 
-{{--        <div class="add-listing-content">
+        <div class="add-listing-content">
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
@@ -317,549 +317,176 @@
 
                         <div class="div-c inline-2 one-label">
                             <div class="divided-column">
-                                <input type="radio" id="radio1" name="radio-group-01">
-                                <label for="radio1">W ciagu tygodnia</label>
+                                <input type="radio" id="timeweek" name="radio-group-01">
+                                <label for="timeweek">W ciagu tygodnia</label>
                             </div>
 
                             <div class="divided-column">
-                                <input type="radio" id="radio2" name="radio-group-01">
-                                <label for="radio2">Tylko dla rezerwacji</label>
+                                <input type="radio" id="timeres" name="radio-group-01" checked>
+                                <label for="timeres">Tylko dla rezerwacji</label>
                             </div>
                         </div>
 
-
-                        <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
-                        <div class="week-group">
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day1" checked="false"></button>
-                                <div class="label">
-                                    Poniedziałek
+                        <div id="setweek" style="display:none">
+                            <div class="div-c inline-2 one-label">
+                                <div class="divided-column">
+                                    <input type="radio" id="timeonce" name="radio-group-02" checked>
+                                    <label for="timeonce">Staly grafik pracy</label>
                                 </div>
-                                <div class="hours-available">
+
+                                <div class="divided-column">
+                                    <input type="radio" id="timeseven" name="radio-group-02">
+                                    <label for="timeseven">Wybierz</label>
+                                </div>
+                            </div>
+
+                            <div id="setonce" style="padding-top: 10px;">
+                                <p class="description-sq">Wprowadż godziny pracy:</p>
+
+                                <div class="div-c inline-2">
                                     <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
+                                        <strong>Poniedzialek - Niedziela</strong>
                                     </div>
 
                                     <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
+                                        <div class="main-infos  div-c inline-2">
+                                            <div class="supadupa calendar-sq divided-column">
+                                                <div class="relative">
+                                                    <input type="text" class="filter" value="" required
+                                                           placeholder="od">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="supadupa calendar-sq divided-column">
+                                                <input type="text" class="filter" value="" required placeholder="do">
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day2" checked="false"></button>
-                                <div class="label">
-                                    Wtorek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
 
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day3" checked="false"></button>
-                                <div class="label">
-                                    Środa
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
+                            <div id="setseven" style="display:none">
+                                <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day4" checked="false"></button>
-                                <div class="label">
-                                    Czwartek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
+                                @foreach($weekday as $key => $day_title)
+                                    <div class="div-c inline-2">
+                                        <div class="divided-column">
+                                            <input type="checkbox" id="week_day_{{ $key }}">
+                                            <label for="week_day_{{ $key }}">{{ $day_title }}</label>
+                                        </div>
+                                        <div class="divided-column">
+                                            <div class="main-infos  div-c inline-2">
+                                                <div class="supadupa calendar-sq divided-column">
+                                                    <div class="relative">
+                                                        <input type="text" class="filter" name="{{ $key }}_from" value="" required
+                                                               placeholder="od">
+                                                    </div>
+                                                </div>
 
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
+                                                <div class="supadupa calendar-sq divided-column">
+                                                    <input type="text" class="filter" name="{{ $key }}_to" value="" required
+                                                           placeholder="do">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day5" checked="false"></button>
-                                <div class="label">
-                                    Piątek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
+                                @endforeach
 
+                                <div class="div-c one-label">
                                     <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day6" checked="false"></button>
-                                <div class="label">
-                                    Sobota
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day7" checked="false"></button>
-                                <div class="label">
-                                    Niedziela
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
+                                        <input type="checkbox" id="schedule_can_change" name="schedule_can_change">
+                                        <label for="schedule_can_change">Godziny moga sie zmieniac</label>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="div-c one-label">
-                            <div class="divided-column">
-                                <input type="radio" id="radio3" name="radio-group-01">
-                                <label for="radio3">Godziny moga sie zmieniac</label>
-                            </div>
-                        </div>
 
-
-<<<<<<< HEAD
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Cena za godzinę</label>
-                                <input type="text" placeholder="350">
+                                <input type="text" name="price_hour" placeholder="350">
                             </div>
 
                             <div class="divided-column">
                                 <label>Min. ilosc godzin</label>
-                                <input type="text" placeholder="350">
-=======
-                <h3 class="complete-sq title-sq">O rezerwacji</h3>
-
-                <p class="description-sq">Kiedy jest otwarty lokal? </p>
-
-
-                <div class="div-c inline-2 one-label">
-                    <div class="divided-column">
-                        <input type="radio" id="timeweek" name="radio-group-01">
-                        <label for="timeweek">W ciagu tygodnia</label>
-                    </div>
-
-                    <div class="divided-column">
-                        <input type="radio" id="timeres" name="radio-group-01">
-                        <label for="timeres">Tylko dla rezerwacji</label>
-                    </div>
-
-
-                </div>
-
-                <div id="setweek" style="display:none">
-
-                    <div class="div-c inline-2 one-label">
-                        <div class="divided-column">
-                            <input type="radio" id="timeonce" name="radio-group-02" checked="1">
-                            <label for="timeonce">Staly grafik pracy</label>
-                        </div>
-
-                        <div class="divided-column">
-                            <input type="radio" id="timeseven" name="radio-group-02">
-                            <label for="timeseven">Wybierz</label>
-                        </div>
-
-
-                    </div>
-                    <div id="setonce" style="padding-top: 10px;">
-                        <p class="description-sq">Wprowadż godziny pracy:</p>
-
-                        <div class="div-c inline-2">
-
-
-
-                            <div class="divided-column"><strong>Poniedzialek - Niedziela</strong></div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
+                                <input type="number" name="min_hours" placeholder="" min="1">
                             </div>
-
                         </div>
-<<<<<<< HEAD
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Cena za calą dobe</label>
-                                <input type="text" placeholder="350">
+                                <input type="text" name="price_day" placeholder="350">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio4" name="radio-group-01">
-                                <label for="radio4">Cena zależy od dnia tygodnia</label>
-=======
-                    </div>
-                    <div id = "setseven" style="display:none">
-
-
-                        <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
-
-                        <div class="div-c inline-2">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_pn" name="radio-group-01">
-                                <label for="radio_pn">Poniedzialek</label>
+                                <input type="checkbox" id="price_depend_on_weekday" name="price_depend_on_weekday">
+                                <label for="price_depend_on_weekday">Cena zależy od dnia tygodnia</label>
                             </div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
-                            </div>
-
                         </div>
-<<<<<<< HEAD
-=======
-
-                        <div class="div-c inline-2">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_wt" name="radio-group-01">
-                                <label for="radio_wt">Worek</label>
-                            </div>
->>>>>>> origin/frontend_search_2
 
                         <div class="div-c">
                             <div class="divided-column">
-<<<<<<< HEAD
                                 <label>Informacja dodatkowa</label>
                                 <textarea cols="30" rows="5"
                                           placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia."></textarea>
-=======
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column">
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
                             </div>
-
                         </div>
 
-<<<<<<< HEAD
 
                         <p class="description-sq">Zasady rezerwacji </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zaliczka wymagana</label>
-                                <input type="text" placeholder="min. 500zł">
+                                <input type="text" name="security_deposit" placeholder="min. 500zł">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio6" name="radio-group-01">
-                                <label for="radio6">Zaliczka nie wymagana</label>
-=======
-                        <div class="div-c inline-2">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_sr" name="radio-group-01">
-                                <label for="radio_sr">Sroda</label>
+                                <input type="checkbox" id="security_deposit_not_required" name="security_deposit_not_required">
+                                <label for="security_deposit_not_required">Zaliczka nie jest wymagana</label>
                             </div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
-                            </div>
-
                         </div>
 
                         <div class="div-c inline-2">
-<<<<<<< HEAD
                             <div class="divided-column">
                                 <label>Rezerwacja min. N dni do wydarzenia</label>
-                                <input type="text" placeholder="2">
+                                <input type="number" min="0" placeholder="2">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio5" name="radio-group-01">
-                                <label for="radio5">Mozna zarezerwowac w dzien wydarzenia</label>
-=======
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_cz" name="radio-group-01">
-                                <label for="radio_cz">Czwartek</label>
+                                <input type="checkbox" id="book_in_eventday" name="book_in_eventday">
+                                <label for="book_in_eventday">Mozna zarezerwowac w dzien wydarzenia</label>
                             </div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
-                            </div>
-
                         </div>
 
                         <div class="div-c inline-2">
-<<<<<<< HEAD
                             <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="text" placeholder="2">
+                                <input type="number" placeholder="2">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio6" name="radio-group-01">
-                                <label for="radio6">Mozna zrezygnowac w dzien wydarzenia</label>
-=======
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_pia" name="radio-group-01">
-                                <label for="radio_pia">Piatek</label>
+                                <input type="checkbox" id="cancel_book_in_eventday" name="cancel_book_in_eventday">
+                                <label for="cancel_book_in_eventday">Mozna zrezygnować w dzień wydarzenia</label>
                             </div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
-                            </div>
-
                         </div>
-<<<<<<< HEAD
-=======
-
-                        <div class="div-c inline-2">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_sb" name="radio-group-01">
-                                <label for="radio_sb">Sobota</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="div-c inline-2">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio_nd" name="radio-group-01">
-                                <label for="radio_nd">Niedziela</label>
-                            </div>
->>>>>>> origin/frontend_search_2
 
                         <div class="div-c">
                             <div class="divided-column">
-<<<<<<< HEAD
                                 <label>Informacja dodatkowa</label>
                                 <textarea cols="30" rows="5"
                                           placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia "></textarea>
-=======
-                                <div class="main-infos  div-c inline-2">
-                                    <div class="supadupa calendar-sq divided-column"   >
-
-
-                                        <div class="relative">
-                                            <input type="text" class="filter" value="" required placeholder="od">
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="supadupa calendar-sq divided-column"  >
-
-
-                                        <input type="text" class="filter" value="" required placeholder="do">
-                                    </div>
-
-                                </div>
-
->>>>>>> origin/frontend_search_2
                             </div>
-
-                        </div>
-<<<<<<< HEAD
-
-
-=======
-
-                        <div class="div-c one-label">
-
-                            <div class="divided-column">
-                                <input type="radio" id="radio3" name="radio-group-01">
-                                <label for="radio3">Godziny moga sie zmieniac</label>
-                            </div>
-
-
                         </div>
 
-                    </div>
-                </div>
 
-
-
-
-                <div class="div-c one-label">
-                    <div class="divided-column">
-                        <input type="radio" id="radio3" name="radio-group-01">
-                        <label for="radio3">Godziny moga sie zmieniac</label>
                     </div>
 
-
-                </div>
-
-
-
-                <div class="div-c inline-2">
-                    <div class="divided-column">
-                        <label>Cena za godzinę</label>
-                        <input type="text" placeholder="350">
-                    </div>
-
-                    <div class="divided-column">
-                        <label>Min. ilosc godzin</label>
-                        <input type="text" placeholder="350">
->>>>>>> origin/frontend_search_2
-                    </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
+                    {{-- <div class="ui six wide computer twelve wide tablet column">
                         <div class="image-full-height">
                             <div class="image-wrapper">
                                 <div class="image-inner">
@@ -867,11 +494,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
+                    </div> --}}
                 </div>
             </div>
-        </div>--}}
+        </div>
+
 
         <div class="add-listing-content">
             <div class="ui grid container">
@@ -915,24 +542,7 @@
             </div>
         </div>
 
-        {{--<div class="add-listing-footer">
-            <div class="ui grid container">
-                <div class="row">
-                    <div class="ui column">
-                        <a class="button-sq link-sq" href="add_listing_amenities.html">
-                            <i class="icon icon-slim-arrow-left"></i><span>back</span>
-                        </a>
 
-                        <div class="basic-progressbar dashboard-progressbar-sq">
-                            <div class="inner" data-percentage="36%" style="width:36%"></div>
-                        </div>
-
-                        <a class="button-sq next-sq" href="add_listing_location.html"><i
-                                    class="icon icon-slim-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>--}}
 
         <div class="add-listing-footer">
             <div class="ui grid container">

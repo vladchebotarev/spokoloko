@@ -29,6 +29,15 @@ class ShareVenueController extends Controller
         $styles = VenueStyle::all();
         $features = VenueFeature::all();
 
+        $weekday = array(
+            'mon' => 'Poniedziałek',
+            'tue' => 'Wtorek',
+            'wed' => 'Środa',
+            'thu' => 'Czwartek',
+            'fri' => 'Piątek',
+            'sat' => 'Sobota',
+            'sun' => 'Niedziela',
+        );
 
         $data = array(
             'cities' => $cities,
@@ -38,6 +47,7 @@ class ShareVenueController extends Controller
             'rules' => $rules,
             'styles' => $styles,
             'features' => $features,
+            'weekday' => $weekday
         );
 
         //dump($data);
