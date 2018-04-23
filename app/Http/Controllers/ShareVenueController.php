@@ -14,6 +14,7 @@ use App\Venue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Schema;
 
 class ShareVenueController extends Controller
@@ -178,15 +179,23 @@ class ShareVenueController extends Controller
             $venue->instagram = $request->get('instagram');
             $venue->tripadvisor = $request->get('tripadvisor');*/
 
-            $venue->save();
+            //$venue->save();
 
-            $venue->eventTypes()->attach($request->get('event_types'));
+            /*$venue->eventTypes()->attach($request->get('event_types'));
             $venue->amenities()->attach($request->get('amenities'));
             $venue->rules()->attach($request->get('rules'));
             $venue->styles()->attach($request->get('styles'));
-            $venue->features()->attach($request->get('features'));
+            $venue->features()->attach($request->get('features'));*/
 
-            dump($request->all());
+            //dump($request->file('files'));
+            $n=1;
+            foreach ($request->file('images') as $request_image) {
+                $image = Image::make($request_image);
+                $filename = $venue->url . '-' . $n++.'.jpg';
+                $image->save(public_path('/images/venues/' . $filename));
+            }
+
+            //dump($request->all());
         }
 
         //return view('user/profile');

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="" method="post" style="height: 100%">
+    <form action="" method="post" style="height: 100%" enctype="multipart/form-data">
         @csrf
         <div class="add-listing-content active-block">
             <div class="ui grid container">
@@ -352,14 +352,14 @@
                                         <div class="main-infos  div-c inline-2">
                                             <div class="supadupa calendar-sq divided-column">
                                                 <div class="relative">
-                                                    <input type="text" class="filter" value="" required
+                                                    <input type="text" class="filter" value=""
                                                            placeholder="od">
 
                                                 </div>
                                             </div>
 
                                             <div class="supadupa calendar-sq divided-column">
-                                                <input type="text" class="filter" value="" required placeholder="do">
+                                                <input type="text" class="filter" value="" placeholder="do">
                                             </div>
 
                                         </div>
@@ -380,13 +380,13 @@
                                             <div class="main-infos  div-c inline-2">
                                                 <div class="supadupa calendar-sq divided-column">
                                                     <div class="relative">
-                                                        <input type="text" class="filter" name="{{ $key }}_from" value="" required
+                                                        <input type="text" class="filter" name="{{ $key }}_from" value=""
                                                                placeholder="od">
                                                     </div>
                                                 </div>
 
                                                 <div class="supadupa calendar-sq divided-column">
-                                                    <input type="text" class="filter" name="{{ $key }}_to" value="" required
+                                                    <input type="text" class="filter" name="{{ $key }}_to" value=""
                                                            placeholder="do">
                                                 </div>
                                             </div>
@@ -521,8 +521,6 @@
                             Pin the cover photo
                         </p>
                     </div>
-
-
                 </div>
 
                 <div class="row photo-upload">
@@ -533,7 +531,9 @@
                                 <i class="icon icon-add-wishlist"></i>
                                 Add Photo
                             </label>
-                            <input id="file-upload" name="images[]" type="file" multiple accept=".png, .jpg, .jpeg"/>
+                            <input type="file" id="file-upload" name="images[]" multiple accept=".png, .jpg, .jpeg"/>
+
+
                         </div>
                     </div>
 
@@ -568,7 +568,6 @@
                         <button class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
-                        <!-- href="add_listing_location.html" -->
                     </div>
                 </div>
             </div>
