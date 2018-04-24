@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -46,7 +47,18 @@ class UserController extends Controller
             $user->company = $request->get('company');
             $user->job_title = $request->get('job_title');
 
-            $user->save();
+            DB::beginTransaction();
+
+            try {
+                $user->save();
+                DB::commit();
+                // all good
+            } catch (\Exception $e) {
+                DB::rollback();
+                // something went wrong
+            }
+
+
             //dd($request->all());
         }
 

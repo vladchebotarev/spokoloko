@@ -29,7 +29,7 @@
     @endif
 
 {{--TODO customize--}}
-    @if(Request::is('user/edit-venue') or Request::is('user/share-venue'))
+    @if(Request::is('user/edit-venue') or Request::is('user/share-venue') or Request::is('user/share-service'))
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
             <script src={{ asset('new-assets/library/map_adding.js') }}></script>
@@ -40,7 +40,7 @@
 
 </head>
 <body class="no-transition"
-      @if(Request::is('user/share-venue'))
+      @if(Request::is('user/share-venue') or Request::is('user/share-service'))
       style="overflow: hidden;"
         @endif>
 <div id="page-wrapper">
@@ -173,7 +173,7 @@
     @endif
 @endguest
 
-@if(Request::is('user/share-venue'))
+@if(Request::is('user/share-venue') or Request::is('user/share-service'))
 
     <script src={{ asset('js/velocity.min.js')}}></script>
     <script src={{ asset('js/move.min.js')}}></script>
