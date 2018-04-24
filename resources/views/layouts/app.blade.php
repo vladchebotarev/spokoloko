@@ -115,7 +115,7 @@
         !Request::is('password/*') and
         !Request::is('venues/*') and
         !Request::is('venue/*') and
-        !Request::is('services') and
+        !Request::is('services/*') and
         !Request::is('service') and
         !Request::is('user/*'))
         @component('components.footer')
@@ -184,7 +184,11 @@
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 
-@if(Request::is('venues/*') or Request::is('services'))
+@if(Request::is('services/*'))
+    <script src={{ asset('js/search/services.js') }}></script>
+@endif
+
+@if(Request::is('venues/*'))
     <script src={{ asset('js/search/venues.js') }}></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
