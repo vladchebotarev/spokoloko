@@ -4,6 +4,7 @@
 
 @section('content')
     <header class="header-section mhs header-sticky header-isnt-tablet header-isnt-mobile">
+
         <div class="header-content">
             <div class="ui container grid">
                 <div class="header-item header-left">
@@ -25,233 +26,294 @@
                             </span>
                         </a>
 
-                        <ul class="main-menu">
-
+                        <ul>
                             <li>
-                                <div class="fltp item">
-                                    <i class="icon icon-pickup-location"></i>
-                                    <input type="text" value="" required>
-                                    <label class="placeholder" data-big-placeholder="Pickup Location"
-                                           data-little-placeholder="Pickup Location"></label>
+                                <div class="field item">
+                                    <input type="hidden" name="city" id="city" lat="{{ $current_city->lat }}"
+                                           lng="{{ $current_city->lng }}" disabled>
+                                    <select class="ui search dropdown" id="select_city">
+                                        <option value="">Miasto</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->name }}"
+                                                    @if($current_city->name === $city->name) selected @endif>{{ $city->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+
                             </li>
 
                             <li>
-                                <div class="fltp item">
-                                    <i class="icon icon-return-location"></i>
-                                    <input type="text" value="" required>
-                                    <label class="placeholder" data-big-placeholder="Return Location"
-                                           data-little-placeholder="Return Location"></label>
+                                <div class="field item" style="margin-left: 0px;">
+                                    <select class="ui search dropdown" id="select_event_type" name="eventType">
+                                        <option value="">Wydarzenie</option>
+                                        @foreach ($eventTypes as $eventType)
+                                            <option value="{{ $eventType->name }}"
+                                                    @if($current_event_type === $eventType->name) selected @endif>{{ $eventType->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
+
                             </li>
 
-                            <li>
 
-                                <div class="fltp item" id="rangestart">
-                                    <input type="text" class="filter" value="" required placeholder="Enter Date">
-                                    <label class="placeholder" data-big-placeholder="Check In Date"
-                                           data-little-placeholder="Check In"></label>
+                            <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
+                                <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
+                                    <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
+                                    <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
+                                    <label class="placeholder hidden-desktop hidden-large-desktop">Zakres
+                                        cen</label>
+
+                                    <div id="price-range-slider" class="price-range-slider-base"></div>
                                 </div>
-
-                                <i class="icon icon-little-arrow item hidden-mobile hidden-tablet"></i>
-
-                                <div class="fltp item" id="rangeend">
-                                    <input type="text" class="filter" value="" required placeholder="Enter Date">
-                                    <label class="placeholder" data-big-placeholder="Check Out Date"
-                                           data-little-placeholder="Check Out"></label>
-                                </div>
-
                             </li>
 
                             <li class="has-submenu has-megamenu open-inside-modal filters-dropdown overlay-dropdown">
 
                                 <a href="#" class="item hidden-tablet hidden-mobile">
                                     <i class="icon icon-filter"></i>
-                                    <span class="hidden-tablet">Filters</span>
+                                    <span class="">{{ __('Filtry') }}</span>
                                 </a>
 
-                                <ul class="submenu megamenu">
+                                <ul class="submenu megamenu special-sq">
                                     <li class="item">
                                         <div class="content">
 
-
-                                            <div class="price-range-slider mobile-big">
-                                                <a href="#" class="price-range-trigger" id="price-range-trigger"></a>
-
-                                                <span class="price-range-placeholder hidden-desktop hidden-large-desktop">
-												   <span>Price </span><span>Range</span>
-											   </span>
-
-                                                <div id="price-range-slider" class="price-range-slider-base"></div>
-                                            </div>
-
-                                            <div class="div-c inline-2">
-                                                <div class="divided-column">
-                                                    <label>Doors</label>
-                                                    <select name="dropdown" class="dropdown item">
-                                                        <option value="0">3</option>
-                                                        <option value="1">4</option>
-                                                        <option value="2">5</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="divided-column">
-                                                    <label>Fuel</label>
-                                                    <select name="dropdown" class="dropdown item">
-                                                        <option value="0">Diesel</option>
-                                                        <option value="1">Gas</option>
-                                                        <option value="1">GPL</option>
-                                                    </select>
-                                                </div>
-
-
-                                            </div>
-
-                                            <hr>
-
                                             <div class="div-c inline-3">
-
                                                 <div class="divided-column">
-                                                    <label>Instant Booking</label>
-                                                    <input type="checkbox" id="extra01">
-                                                    <label for="extra01">Instant Booking</label>
-                                                </div>
-                                                <div class="divided-column">
-                                                    <label>Super Host</label>
-                                                    <input type="checkbox" id="extra02">
-                                                    <label for="extra02">Super Host</label>
-                                                </div>
-                                            </div>
+                                                    <label>{{ __('Powierzchnia m²') }}</label>
+                                                    <input type="number" name="area" min="0"
+                                                           value="{{$current_area}}">
 
-                                            <hr>
-
-                                            <div class="div-c inline-3 one-label">
-                                                <label>Car's features</label>
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox1">
-                                                    <label for="checkbox1">A/C</label>
                                                 </div>
 
                                                 <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox2">
-                                                    <label for="checkbox2">Bluetooth</label>
+                                                    <label>{{ __('Liczba osób (stojąco)') }}</label>
+                                                    <input type="number" name="guests_standing" min="0"
+                                                           value="{{$current_guests_standing}}">
                                                 </div>
 
                                                 <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox3">
-                                                    <label for="checkbox3">Heated Seats</label>
+                                                    <label>{{ __('Liczba osób (siedząco)') }}</label>
+                                                    <input type="number" name="guests_seating" min="0"
+                                                           value="{{$current_guests_seating}}">
                                                 </div>
-
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox4">
-                                                    <label for="checkbox4">Automatic gearbox</label>
-                                                </div>
-
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox5">
-                                                    <label for="checkbox5">4 x 4</label>
-                                                </div>
-
-
                                             </div>
 
                                             <hr>
 
                                             <div class="ui accordion more-sq">
                                                 <div class="title">
-                                                    <a class="accordion-trigger more-trigger" data-more="More"
-                                                       data-less="Less">
+                                                    <a class="accordion-trigger more-trigger"
+                                                       data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
                                                         <i class="icon icon-arrow-down-122"></i>
                                                     </a>
 
                                                     <div class="div-c inline-3 one-label">
-                                                        <label>Host Language</label>
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang1">
-                                                            <label for="lang1">Afrikanns</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang2">
-                                                            <label for="lang2">Albanian</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang3">
-                                                            <label for="lang3">Arabic</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang4">
-                                                            <label for="lang4">Armenian</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang5">
-                                                            <label for="lang5">Basque</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang6">
-                                                            <label for="lang6">Bengali</label>
-                                                        </div>
-
+                                                        <label>{{ __('Typy mejsc') }}</label>
+                                                        @for ($i = 0; $i < 6; $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="venue_type_{{ $venueTypes[$i]->id }}"
+                                                                       name="venue_types[]"
+                                                                       value="{{ $venueTypes[$i]->name }}"
+                                                                       @if(in_array($venueTypes[$i]->name, $current_venue_types))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="venue_type_{{ $venueTypes[$i]->id }}">{{ $venueTypes[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
                                                     </div>
-
                                                 </div>
                                                 <div class="content">
                                                     <div class="div-c inline-3">
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang7">
-                                                            <label for="lang7">Bulgarian</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang8">
-                                                            <label for="lang8">Catalan</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang9">
-                                                            <label for="lang9">Cambodian</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang10">
-                                                            <label for="lang10">Chinese (Mandarin)</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang11">
-                                                            <label for="lang11">Croation</label>
-                                                        </div>
-
-                                                        <div class="divided-column">
-                                                            <input type="checkbox" id="lang12">
-                                                            <label for="lang12">Czech</label>
-                                                        </div>
+                                                        @for ($i = 6; $i < count($venueTypes); $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="venue_type_{{ $venueTypes[$i]->id }}"
+                                                                       name="venue_types[]"
+                                                                       value="{{ $venueTypes[$i]->name }}"
+                                                                       @if(in_array($venueTypes[$i]->name, $current_venue_types))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="venue_type_{{ $venueTypes[$i]->id }}">{{ $venueTypes[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <hr>
 
-                                            <div class="div-c inline-3 one-label">
-                                                <label>Car Rules</label>
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="rules01">
-                                                    <label for="rules01">Pets allowed</label>
+                                            <div class="ui accordion more-sq">
+                                                <div class="title">
+                                                    <a class="accordion-trigger more-trigger"
+                                                       data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
+                                                        <i class="icon icon-arrow-down-122"></i>
+                                                    </a>
+
+                                                    <div class="div-c inline-3 one-label">
+                                                        <label>{{ __('Udogodnienia') }}</label>
+                                                        @for ($i = 0; $i < 6; $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="amenity_{{ $amenities[$i]->id }}"
+                                                                       name="amenities[]"
+                                                                       value="{{ $amenities[$i]->name }}"
+                                                                       @if(in_array($amenities[$i]->name, $current_amenities))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="amenity_{{ $amenities[$i]->id }}">{{ $amenities[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
                                                 </div>
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="rules02">
-                                                    <label for="rules02">Smoking allowed</label>
-                                                </div>
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="rules03">
-                                                    <label for="rules03">Suitable for trips</label>
+                                                <div class="content">
+                                                    <div class="div-c inline-3">
+                                                        @for ($i = 6; $i < count($amenities); $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="amenity_{{ $amenities[$i]->id }}"
+                                                                       name="amenities[]"
+                                                                       value="{{ $amenities[$i]->name }}"
+                                                                       @if(in_array($amenities[$i]->name, $current_amenities))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="amenity_{{ $amenities[$i]->id }}">{{ $amenities[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
                                                 </div>
                                             </div>
 
+                                            <hr>
+
+                                            <div class="ui accordion more-sq">
+                                                <div class="title">
+                                                    <a class="accordion-trigger more-trigger"
+                                                       data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
+                                                        <i class="icon icon-arrow-down-122"></i>
+                                                    </a>
+
+                                                    <div class="div-c inline-3 one-label">
+                                                        <label>{{ __('Zasasdy') }}</label>
+                                                        @for ($i = 0; $i < 6; $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="rules_{{ $rules[$i]->id }}"
+                                                                       name="rules[]" value="{{ $rules[$i]->name }}"
+                                                                       @if(in_array($rules[$i]->name, $current_rules))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="rules_{{ $rules[$i]->id }}">{{ $rules[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <div class="div-c inline-3">
+                                                        @for ($i = 6; $i < count($rules); $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="rules_{{ $rules[$i]->id }}"
+                                                                       name="rules[]" value="{{ $rules[$i]->name }}"
+                                                                       @if(in_array($rules[$i]->name, $current_rules))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="rules_{{ $rules[$i]->id }}">{{ $rules[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <hr>
+
+                                            <div class="ui accordion more-sq">
+                                                <div class="title">
+                                                    <a class="accordion-trigger more-trigger"
+                                                       data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
+                                                        <i class="icon icon-arrow-down-122"></i>
+                                                    </a>
+
+                                                    <div class="div-c inline-3 one-label">
+                                                        <label>{{ __('Style') }}</label>
+                                                        @for ($i = 0; $i < 6; $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="style_{{ $styles[$i]->id }}"
+                                                                       name="styles[]"
+                                                                       value="{{ $styles[$i]->name }}"
+                                                                       @if(in_array($styles[$i]->name, $current_styles))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="style_{{ $styles[$i]->id }}">{{ $styles[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+
+                                                </div>
+                                                <div class="content">
+                                                    <div class="div-c inline-3">
+                                                        @for ($i = 6; $i < count($styles); $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="style_{{ $styles[$i]->id }}"
+                                                                       name="styles[]"
+                                                                       value="{{ $styles[$i]->name }}"
+                                                                       @if(in_array($styles[$i]->name, $current_styles))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="style_{{ $styles[$i]->id }}">{{ $styles[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr>
+
+                                            <div class="ui accordion more-sq">
+                                                <div class="title">
+                                                    <a class="accordion-trigger more-trigger"
+                                                       data-more="{{ __('Więcej') }}" data-less="{{ __('Mniej') }}">
+                                                        <i class="icon icon-arrow-down-122"></i>
+                                                    </a>
+
+                                                    <div class="div-c inline-3 one-label">
+                                                        <label>{{ __('Cechy') }}</label>
+                                                        @for ($i = 0; $i < 6; $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="feature_{{ $features[$i]->id }}"
+                                                                       name="features[]"
+                                                                       value="{{ $features[$i]->name }}"
+                                                                       @if(in_array($features[$i]->name, $current_features))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="feature_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+
+                                                </div>
+                                                <div class="content">
+                                                    <div class="div-c inline-3">
+                                                        @for ($i = 6; $i < count($features); $i++)
+                                                            <div class="divided-column">
+                                                                <input type="checkbox"
+                                                                       id="feature_{{ $features[$i]->id }}"
+                                                                       name="features[]"
+                                                                       value="{{ $features[$i]->name }}"
+                                                                       @if(in_array($features[$i]->name, $current_features))
+                                                                       checked
+                                                                        @endif>
+                                                                <label for="feature_{{ $features[$i]->id }}">{{ $features[$i]->name }}</label>
+                                                            </div>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </div>
 
@@ -262,21 +324,19 @@
                                                         <div class="filters-icon-container">
                                                             <i class="icon icon-filter"></i>
                                                         </div>
-                                                        <a class="remove-all">
-                                                            Remove All<i class="icon icon-close"></i>
-                                                        </a>
-                                                        <a class="">
-                                                            Applied Filter<i class="icon icon-close"></i>
+                                                        <a class="remove-all" id="clearFilters">
+                                                            Wyczyść filtry<i class="icon icon-close"></i>
                                                         </a>
                                                     </div>
                                                 </div>
 
                                                 <div class="divided-column">
-                                                    <a href=""
-                                                       class="float-right-sq button-sq modal-button font-weight-bold-sq">Apply</a>
+                                                    <button type="submit"
+                                                            class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }} </button>
+                                                    {{--<a href=""
+                                                       class="float-right-sq button-sq modal-button font-weight-bold-sq">{{ __('Zastosuj') }}</a>--}}
 
-                                                    <a class="float-right-sq button-sq cancel-sq hidden-tablet hidden-mobile"
-                                                       href="">Cancel</a>
+                                                    {{--<a class="item float-right-sq button-sq cancel-sq hidden-tablet hidden-mobile" href="#">{{ __('Zamknij') }}</a>--}}
 
                                                 </div>
                                             </div>
@@ -295,6 +355,7 @@
                 </div>
             </div>
         </div>
+
     </header>
 
     <div class="ui layout">

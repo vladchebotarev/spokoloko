@@ -184,7 +184,7 @@
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 
-@if(Request::is('venues/*'))
+@if(Request::is('venues/*') or Request::is('services'))
     <script src={{ asset('js/search/venues.js') }}></script>
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>

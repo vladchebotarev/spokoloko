@@ -19,6 +19,8 @@ Route::get('/b2b', function () {
     return view('b2b');
 });
 
+Route::get('/services', 'SearchServiceController@index');
+
 Route::get('/venues/{city_request}', 'SearchController@index');
 
 Route::post('/venues_map/{city_request}', 'SearchController@getMapMarkers');

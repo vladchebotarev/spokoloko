@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
-class SearchController extends Controller
+class SearchServiceController extends Controller
 {
     //
     public function index($city_request)
@@ -159,7 +159,7 @@ class SearchController extends Controller
 
 
             //dump($data);
-            return view('search', $data);
+            return view('search-services', $data);
 
         }
 
