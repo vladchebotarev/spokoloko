@@ -1,0 +1,9 @@
+.required {
+    &::after{
+        content: "*";
+        color: #c93710;
+        margin-left: 1%;
+        font-size: 1.3rem;
+        font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    }
+}

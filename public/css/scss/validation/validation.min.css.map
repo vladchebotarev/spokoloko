@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "validation.min.css",
+	"sources": [
+		"validation.scss"
+	],
+	"names": [],
+	"mappings": "2EAAA,AACI,SADK,AACL,OAAQ,AAAA,CACJ,OAAO,CAAE,GAAG,CACZ,KAAK,CAAE,OAAO,CACd,WAAW,CAAE,EAAE,CACf,SAAS,CAAE,MAAM,CACjB,WAAW,CAAE,sDAAsD,CACtE"
+}
