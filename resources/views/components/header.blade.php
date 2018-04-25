@@ -105,7 +105,7 @@ Default Header with a White Background & Dark text.
                                         <li class="profile-item has-submenu">
                                             <a href="#" class="item">
                                                 <span>{{ Auth::user()->first_name }}</span>
-                                                <img src="{{ asset('/images/avatar/'.Auth::user()->avatar) }}" alt="">
+                                                <img src="https://res.cloudinary.com/spokoloko/image/upload/c_lfill,d_profileimage.png,g_face,h_30,w_30/avatars/{{ Auth::user()->avatar }}" alt="">
                                             </a>
                                             <ul class="submenu">
                                                 <li><a href="{{ url('user/profile') }}"

@@ -1,18 +1,39 @@
 @extends('user.layouts.user')
 
 @section('user_content')
+
+
     <div class="typo-header-sq">
         <div class="ui grid">
             <div class="row">
-                {{--@if (session('status'))
-                    <div class="ui positive message transition hidden">
-                        <i class="close icon"></i>
 
-                        <p>{{ session('status') }}</p>
+                @if ($errors->any())
+                    <div class="ui twelve wide computer column"">
+                        <div class="ui negative message" style="margin-bottom: 30px;>
+                            <i class="close icon"></i>
+                            <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                            <div class="header">
+                                Popraw następujące blędy
+                            </div>
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
                     </div>
+                @endif
 
-                @endif--}}
-
+                @if (session('status'))
+                    <div class="ui twelve wide computer column">
+                        <div class="ui positive message" style="margin-bottom: 30px;">
+                            <i class="close icon"></i>
+                            <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                            <div class="header">
+                                Powodzenie
+                            </div>
+                            <p>{{ session('status') }}</p>
+                        </div>
+                    </div>
+                @endif
 
                 <div class="ui twelve wide computer column">
                     <h2>{{ __('Mój Profil') }}</h2>
@@ -41,9 +62,8 @@
 
                 <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
                     <div class="my-profile-avatar-container">
-                        <a class="avatar-sq extreme-avatar-sq verified-sq upload-sq modal-ui-trigger"
-                           data-trigger-for="uipicturemodal">
-                            <img src="{{ asset('/images/avatar/'.Auth::user()->avatar) }}" alt="">
+                        <a class="avatar-sq extreme-avatar-sq verified-sq upload-sq" id="uploadAvatar">
+                            <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,f_auto,e_improve,g_auto,f_auto,g_face,w_150,h_150/avatars/{{ Auth::user()->avatar }}" alt="">
                         </a>
                     </div>
                 </div>
@@ -199,9 +219,10 @@
 
     </form>
 
-    <form method="POST" id="formUpdateImage" action="{{ route('profile.image') }}">
+    <form method="POST" id="formUpdateImage" action="{{ route('profile.image') }}" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="image" id="imageBase64input">
+        {{--<input type="hidden" name="image" id="imageBase64input">--}}
+        <input type="file" accept="image/*" name="image" id="inputImage" style="display: none;">
     </form>
 
 

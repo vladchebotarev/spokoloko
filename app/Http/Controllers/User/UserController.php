@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use JD\Cloudder\Facades\Cloudder;
 
 class UserController extends Controller
 {
@@ -19,14 +20,14 @@ class UserController extends Controller
 
 
         $validator = Validator::make($request->all(), [
-            'first_name' => 'max:255',
-            'last_name' => 'max:255',
-            'address' => 'max:255',
-            'birthday' => 'max:255',
-            'sex' => 'max:255',
-            'about' => 'max:255',
-            'company' => 'max:255',
-            'job_title' => 'max:255'
+            'first_name' => 'max:150',
+            'last_name' => 'max:150',
+            'address' => 'max:150',
+            'birthday' => 'max:150',
+            'sex' => 'max:150',
+            'about' => 'max:150',
+            'company' => 'max:150',
+            'job_title' => 'max:150'
             // TODO user validation
         ]);
 
@@ -52,17 +53,15 @@ class UserController extends Controller
             try {
                 $user->save();
                 DB::commit();
+                return redirect('user/profile')->with('status', 'Dane zostały zaktualizowane!');
                 // all good
             } catch (\Exception $e) {
                 DB::rollback();
+                return redirect('user/profile')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
                 // something went wrong
             }
-
-
             //dd($request->all());
         }
-
-        return view('user/profile');
     }
 
     public function updateProfileImage(Request $request)
@@ -70,14 +69,41 @@ class UserController extends Controller
         // Handle the user upload of avatar
         if ($request->has('image')) {
 
-            $image = Image::make($request->get('image'));
-            $filename = time() . '.jpg';
-            $image->save(public_path('/images/avatar/' . $filename));
+            $validator = Validator::make($request->all(), [
+                'image' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 1000'
+            ]);
 
-            $user = Auth::user();
-            $user->avatar = $filename;
-            $user->save();
+            if ($validator->fails()) {
+                return redirect('user/profile')
+                    ->withErrors($validator);
+            } else {
+                $user = Auth::user();
+                if($user->avatar != 'default-avatar.jpg'){
+                    Cloudder::destroyImage('avatars/'.$user->avatar);
+                }
+                $image = $request->file('image')->getRealPath();
+                $image_name = substr(md5($user->id . time()), 0, 15);
+                Cloudder::upload($image, 'avatars/'.$image_name, array("format" => "jpg"));
+
+/*              $image = Image::make($request->get('image'));
+                $filename = time() . '.jpg';
+                $image->save(public_path('/images/avatar/' . $filename));*/
+
+                $user->avatar = $image_name;
+
+                DB::beginTransaction();
+                try {
+                    $user->save();
+                    DB::commit();
+                    return redirect('user/profile')->with('status', 'Zdjęcie zostało zaktualizowane!');
+                    // all good
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/profile')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
+                    // something went wrong
+                }
+            }
         }
-        return redirect('user/profile');
+        //return redirect('user/profile');
     }
 }

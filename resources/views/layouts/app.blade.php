@@ -17,6 +17,8 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -109,6 +111,9 @@
 
     </div>
 
+    <div class="ui active page dimmer" id="dimmer" style="display: none;">
+        <div class="ui loader"></div>
+    </div>
 
     @if(!Request::is('login') and
         !Request::is('register') and
@@ -191,7 +196,31 @@
     <script src={{ asset('js/search/venues_map.js') }}></script>
 @endif
 
+<script>
+    $( "#uploadAvatar" ).click(function() {
+        $('#inputImage').trigger('click');
+    });
 
+    $('#inputImage').change(function() {
+        $('#formUpdateImage').submit();
+    });
+
+    $('.message .close')
+        .on('click', function() {
+            $(this)
+                .closest('.message')
+                .transition('fade')
+            ;
+        })
+    ;
+
+    $("form").submit(function (e) {
+        e.preventDefault();
+        $('button[type=submit], input[type=submit]').prop('disabled',true);
+        $("#dimmer").show();
+        this.submit();
+    });
+</script>
 
 </body>
 
