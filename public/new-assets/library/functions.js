@@ -233,7 +233,7 @@ var SQ = SQ || {};
               }
             });
 
-            $('.supadupa').calendar({
+            $('.timecalendar').calendar({
                 type: 'time',
                 ampm:false,
                 className: {

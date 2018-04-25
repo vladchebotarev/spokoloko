@@ -181,10 +181,10 @@
 @if(Request::is('user/share-venue') or Request::is('user/share-service'))
 
     <script src={{ asset('js/velocity.min.js')}}></script>
-    <script src={{ asset('js/move.min.js')}}></script>
+    {{--<script src={{ asset('js/move.min.js')}}></script>--}}
     <script src={{ asset('js/share/steps.js') }}></script>
-    <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
-    <script src={{ asset('js/share/weekButtons.js') }}></script>
+    {{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}
+    {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif

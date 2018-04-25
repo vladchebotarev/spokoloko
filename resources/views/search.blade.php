@@ -398,7 +398,7 @@
                             <div class="row">
 
                             @if(count($venues) != 0)
-                                @for($i =0; $i<10 ; $i++)
+                                {{--@for($i =0; $i<10 ; $i++)--}}
 
                                 @foreach ($venues as $venue)
                                     <!-- property item -->
@@ -462,7 +462,7 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                @endfor
+                                {{--@endfor--}}
                                 @else
                                     Nie ma takich lokali
                                 @endif

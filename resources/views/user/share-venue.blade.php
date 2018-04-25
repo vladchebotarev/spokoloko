@@ -51,15 +51,15 @@
                             <div class="divided-column">
                                 <label>Adres</label>
                                 <input type="text" id="route" name="street_address" placeholder="ul. Warszawska 1">
-                                <input type="hidden" id="lat" placeholder="ul. Warszawska 1">
-                                <input type="hidden" id="lng" placeholder="ul. Warszawska 1">
+                                <input type="hidden" id="lat" name="lat">
+                                <input type="hidden" id="lng" name="lng">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Numer domu</label>
-                                <input type="text" id="street_number" placeholder="21/2">
+                                <input type="text" id="street_number" name="street_number" placeholder="21/2">
                             </div>
 
                             <div class="divided-column">
@@ -187,7 +187,7 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Styl przestrzeni</label>
-                                <select name="venue_styles[]" class="ui search dropdown" id="select_city">
+                                <select name="venue_style" class="ui search dropdown" id="select_city">
                                     <option value="">Wybierz styl</option>
                                     @foreach ($styles as $style)
                                         <option value="{{ $style->id }}">{{ $style->name }}</option>
@@ -218,13 +218,13 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Ilośc góści stojąco</label>
-                                <input type="number" name="guests_standing" min="0"
-                                       value="{{ old('guests_standing') }}">
+                                <input type="number" name="max_guests_standing" min="0"
+                                       value="{{ old('max_guests_standing') }}">
                             </div>
 
                             <div class="divided-column">
                                 <label>Ilośc gości siedzaco</label>
-                                <input type="number" name="guests_standing" min="0" value="{{ old('guests_seating') }}">
+                                <input type="number" name="max_guests_seating" min="0" value="{{ old('max_guests_seating') }}">
                             </div>
                         </div>
 
@@ -289,7 +289,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Dodatkowo zasady</label>
-                                <textarea cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
+                                <textarea cols="30" rows="5" name="additional_rules" placeholder="Be clear and descriptive"></textarea>
                             </div>
                         </div>
                     </div>
@@ -317,12 +317,12 @@
 
                         <div class="div-c inline-2 one-label">
                             <div class="divided-column">
-                                <input type="radio" id="timeweek" name="radio-group-01">
+                                <input type="radio" id="timeweek" name="availability" value="Week">
                                 <label for="timeweek">W ciagu tygodnia</label>
                             </div>
 
                             <div class="divided-column">
-                                <input type="radio" id="timeres" name="radio-group-01" checked>
+                                <input type="radio" id="timeres" name="availability" value="Reservation" checked>
                                 <label for="timeres">Tylko dla rezerwacji</label>
                             </div>
                         </div>
@@ -330,12 +330,12 @@
                         <div id="setweek" style="display:none">
                             <div class="div-c inline-2 one-label">
                                 <div class="divided-column">
-                                    <input type="radio" id="timeonce" name="radio-group-02" checked>
+                                    <input type="radio" id="timeonce" name="week_availability" value="all" checked>
                                     <label for="timeonce">Staly grafik pracy</label>
                                 </div>
 
                                 <div class="divided-column">
-                                    <input type="radio" id="timeseven" name="radio-group-02">
+                                    <input type="radio" id="timeseven" name="week_availability" value="custom">
                                     <label for="timeseven">Wybierz</label>
                                 </div>
                             </div>
@@ -350,16 +350,16 @@
 
                                     <div class="divided-column">
                                         <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column">
+                                            <div class="timecalendar calendar-sq divided-column">
                                                 <div class="relative">
-                                                    <input type="text" class="filter" value=""
+                                                    <input type="text" name="week_from" class="filter" value=""
                                                            placeholder="od">
 
                                                 </div>
                                             </div>
 
-                                            <div class="supadupa calendar-sq divided-column">
-                                                <input type="text" class="filter" value="" placeholder="do">
+                                            <div class="timecalendar calendar-sq divided-column">
+                                                <input type="text" name="week_to" class="filter" value="" placeholder="do">
                                             </div>
 
                                         </div>
@@ -373,19 +373,19 @@
                                 @foreach($weekday as $key => $day_title)
                                     <div class="div-c inline-2">
                                         <div class="divided-column">
-                                            <input type="checkbox" id="week_day_{{ $key }}">
+                                            <input type="checkbox" id="week_day_{{ $key }}" name="week_day_{{ $key }}">
                                             <label for="week_day_{{ $key }}">{{ $day_title }}</label>
                                         </div>
                                         <div class="divided-column">
                                             <div class="main-infos  div-c inline-2">
-                                                <div class="supadupa calendar-sq divided-column">
+                                                <div class="timecalendar calendar-sq divided-column">
                                                     <div class="relative">
                                                         <input type="text" class="filter" name="{{ $key }}_from" value=""
                                                                placeholder="od">
                                                     </div>
                                                 </div>
 
-                                                <div class="supadupa calendar-sq divided-column">
+                                                <div class="timecalendar calendar-sq divided-column">
                                                     <input type="text" class="filter" name="{{ $key }}_to" value=""
                                                            placeholder="do">
                                                 </div>
@@ -394,12 +394,6 @@
                                     </div>
                                 @endforeach
 
-                                <div class="div-c one-label">
-                                    <div class="divided-column">
-                                        <input type="checkbox" id="schedule_can_change" name="schedule_can_change">
-                                        <label for="schedule_can_change">Godziny moga sie zmieniac</label>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -423,15 +417,15 @@
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="price_depend_on_weekday" name="price_depend_on_weekday">
-                                <label for="price_depend_on_weekday">Cena zależy od dnia tygodnia</label>
+                                <input type="checkbox" id="price_depends_on_weekday" name="price_depends_on_weekday">
+                                <label for="price_depends_on_weekday">Cena zależy od dnia tygodnia</label>
                             </div>
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Informacja dodatkowa</label>
-                                <textarea cols="30" rows="5"
+                                <textarea cols="30" rows="5" name="price_info"
                                           placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia."></textarea>
                             </div>
                         </div>
@@ -453,20 +447,8 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Rezerwacja min. N dni do wydarzenia</label>
-                                <input type="number" min="0" placeholder="2">
-                            </div>
-
-                            <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="book_in_eventday" name="book_in_eventday">
-                                <label for="book_in_eventday">Mozna zarezerwowac w dzien wydarzenia</label>
-                            </div>
-                        </div>
-
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" placeholder="2">
+                                <input type="number" name="days_full_refund" min="1" placeholder="1">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -478,7 +460,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Informacja dodatkowa</label>
-                                <textarea cols="30" rows="5"
+                                <textarea cols="30" rows="5" name="cancellation_information" value=""
                                           placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia "></textarea>
                             </div>
                         </div>
