@@ -45,7 +45,20 @@
                             <li>
                                 <div class="field item" style="margin-left: 0px;">
                                     <select class="ui search dropdown" id="select_event_type" name="eventType">
-                                        <option value="">Wydarzenie</option>
+                                        <option value="">Typ uslugi</option>
+                                        @foreach ($eventTypes as $eventType)
+                                            <option value="{{ $eventType->name }}"
+                                                    @if($current_event_type === $eventType->name) selected @endif>{{ $eventType->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                            </li>
+
+                            <li>
+                                <div class="field item" style="margin-left: 0px;">
+                                    <select class="ui search dropdown" id="select_event_type" name="eventType">
+                                        <option value="">Podtyp</option>
                                         @foreach ($eventTypes as $eventType)
                                             <option value="{{ $eventType->name }}"
                                                     @if($current_event_type === $eventType->name) selected @endif>{{ $eventType->name }}</option>
@@ -56,16 +69,9 @@
                             </li>
 
 
-                            <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
-                                <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
-                                    <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
-                                    <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
-                                    <label class="placeholder hidden-desktop hidden-large-desktop">Zakres
-                                        cen</label>
 
-                                    <div id="price-range-slider" class="price-range-slider-base"></div>
-                                </div>
-                            </li>
+
+
 
                             <li class="has-submenu has-megamenu open-inside-modal filters-dropdown overlay-dropdown">
 
@@ -77,6 +83,17 @@
                                 <ul class="submenu megamenu special-sq">
                                     <li class="item">
                                         <div class="content">
+
+
+                                        <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
+                                            <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
+                                            <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
+                                            <label class="placeholder hidden-desktop hidden-large-desktop">Zakres
+                                                cen</label>
+
+                                            <div id="price-range-slider" class="price-range-slider-base"></div>
+                                        </div>
+
 
                                             <div class="div-c inline-3">
                                                 <div class="divided-column">
@@ -373,40 +390,48 @@
 
             @for($i=0; $i<9; $i++)
                 <div class="ui twelve wide mobile six wide tablet four wide computer column">
-                    <div class="property-item caption-sq shadow-sq small-sq">
+                    <div class="property-item caption-sq ">
                         <div class="property-item-inner">
 
-                            <div class="price-tag-sq">16 &euro; <span>/ hour</span></div>
-                            <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                <i class="icon icon-add-wishlist"></i>
+                            <div class="price-tag-sq">
+                                <span>od </span>300
+                                PLN <span>/1 godz</span>
+                            </div>
+                            <a class="add-wishlist modal-ui-trigger" href=""
+                               data-trigger-for="wishlist">
+                                <i class="icon icon-heart-line"></i>
                             </a>
 
-                            <a class="image-sq" href="{{ url('service') }}" target="_blank">
-                                <div class="image-wrapper">
-									<span class="image-inner">
-										<img src="{{ asset('/images/venues/after-beng-club-3.jpg') }}" alt="" class="">
-									</span>
-                                </div>
+
+                            <a class="image-sq" href="#"
+                               target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
                             </a>
 
                             <div class="main-details">
                                 <div class="title-row">
-                                    <a href="{{ url('service') }}" class="title-sq" target="_blank">VW Golf 7 1.6 TDI - DSG</a>
+                                    <a href="#" target="_blank"
+                                       class="title-sq">Usluga takajato</a>
+
+
+                                </div>
+                                <div class="biz-adres">
+                                    <strong style="padding-right: 10px;">Dj</strong>| Skarzynskiego 5
                                 </div>
 
                                 <div class="icons-row">
                                     <div class="icons-column">
-                                        <i class="icon icon-heart"></i> 8.7
+                                        <i class="icon icon-star-2"></i> 8.6
                                     </div>
-                                    <div class="icons-column">
-                                        <i class="icon icon-ac"></i> A/C
-                                    </div>
-                                    <div class="icons-column">
-                                        <i class="icon icon-gearbox"></i> A
-                                    </div>
-                                    <div class="icons-column">
-                                        <i class="icon icon-user-circle"></i> x 4
-                                    </div>
+
+
                                 </div>
                             </div>
 

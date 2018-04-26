@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -178,6 +179,7 @@
     <script src={{ asset('js/velocity.min.js')}}></script>
     <script src={{ asset('js/move.min.js')}}></script>
     <script src={{ asset('js/share/steps.js') }}></script>
+    <script src="{{ asset('js/checkbox.js') }}"></script>
     <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
     <script src={{ asset('js/share/weekButtons.js') }}></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>

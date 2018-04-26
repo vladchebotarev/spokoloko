@@ -264,6 +264,8 @@ var SQ = SQ || {};
             });
 
 
+
+
             $('#sticky-box-rangestart').calendar({
                 type: 'time',
                 ampm: false,

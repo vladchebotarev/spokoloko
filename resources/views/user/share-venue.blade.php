@@ -70,20 +70,36 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Telefon 1</label>
-                                <input type="text" name="phone" placeholder="+48 000 000 000">
+                            <label>Telefon</label>
+                            <div class="ui labeled input">
+                                <div class="ui label">
+                                    +48
+                                </div>
+                                <input type="text" name="phone" id="phone" placeholder="730 000 000">
+                            </div>
                             </div>
 
                             <div class="divided-column">
-                                <label>Telefon 2 (jeżeli istneje)</label>
-                                <input type="text" name="phone2" placeholder="+48 000 000 000">
+                        <label>Telefon 2(Jeżeli istneje)</label>
+
+                        <div class="ui labeled input">
+                            <div class="ui label">
+                                +48
+                            </div>
+                                <input type="text" name="phone2" placeholder="+730 000 000">
+                        </div>
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Strona internetowa</label>
-                                <input type="text" name="webpage" placeholder="https://nazwabiznes.pl">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        https://
+                                    </div>
+                                      <input type="text" name="webpage" id="website" placeholder="https://nazwabiznes.pl">
+                                </div>
                             </div>
 
                             <div class="divided-column">
@@ -95,12 +111,22 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Facebook</label>
-                                <input type="text" name="facebook" placeholder="facebook.com/spokolokoeu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        fb.com/
+                                    </div>
+                                <input type="text" name="facebook" placeholder="spokolokoeu">
+                                </div>
                             </div>
 
                             <div class="divided-column">
                                 <label>Instagram</label>
-                                <input type="text" name="instagram" placeholder="instagram.com/spokoloko.eu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        @
+                                    </div>
+                                <input type="text" name="instagram" placeholder="spokoloko.eu">
+                                </div>
                             </div>
                         </div>
 
@@ -373,20 +399,21 @@
                                 @foreach($weekday as $key => $day_title)
                                     <div class="div-c inline-2">
                                         <div class="divided-column">
-                                            <input type="checkbox" id="week_day_{{ $key }}">
-                                            <label for="week_day_{{ $key }}">{{ $day_title }}</label>
+                                            <input type="checkbox" id="week_day_{{ $key }}" onClick="handleChange(this);">
+
+                                            <label for="week_day_{{ $key }}" >{{ $day_title }}</label>
                                         </div>
                                         <div class="divided-column">
                                             <div class="main-infos  div-c inline-2">
                                                 <div class="supadupa calendar-sq divided-column">
                                                     <div class="relative">
-                                                        <input type="text" class="filter" name="{{ $key }}_from" value=""
+                                                        <input type="text" disabled class="filter" id="from_week_day_{{ $key  }}" name="{{ $key }}_from" value=""
                                                                placeholder="od">
                                                     </div>
                                                 </div>
 
                                                 <div class="supadupa calendar-sq divided-column">
-                                                    <input type="text" class="filter" name="{{ $key }}_to" value=""
+                                                    <input type="text" disabled class="filter" id="to_week_day_{{ $key }}" name="{{ $key }}_to" value=""
                                                            placeholder="do">
                                                 </div>
                                             </div>
@@ -442,11 +469,11 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zaliczka wymagana</label>
-                                <input type="text" name="security_deposit" placeholder="min. 500zł">
+                                <input type="text" id="to_security_deposit_not_required" name="security_deposit" placeholder="min. 500zł">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="security_deposit_not_required" name="security_deposit_not_required">
+                                <input type="checkbox" id="security_deposit_not_required" onclick="handleChange2(this)" name="security_deposit_not_required">
                                 <label for="security_deposit_not_required">Zaliczka nie jest wymagana</label>
                             </div>
                         </div>
@@ -454,11 +481,11 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Rezerwacja min. N dni do wydarzenia</label>
-                                <input type="number" min="0" placeholder="2">
+                                <input type="number" id="to_book_in_eventday" min="0" placeholder="2">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="book_in_eventday" name="book_in_eventday">
+                                <input type="checkbox" id="book_in_eventday" onclick="handleChange2(this)"  name="book_in_eventday">
                                 <label for="book_in_eventday">Mozna zarezerwowac w dzien wydarzenia</label>
                             </div>
                         </div>
@@ -466,11 +493,11 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" placeholder="2">
+                                <input type="number" placeholder="2" id="to_cancel_book_in_eventday">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="cancel_book_in_eventday" name="cancel_book_in_eventday">
+                                <input type="checkbox" id="cancel_book_in_eventday" onclick="handleChange2(this)" name="cancel_book_in_eventday">
                                 <label for="cancel_book_in_eventday">Mozna zrezygnować w dzień wydarzenia</label>
                             </div>
                         </div>

@@ -3032,6 +3032,9 @@ select::-ms-expand {
   width: 100%;
   margin-bottom: 0;
 }
+.div-c.inline-2 .divided-column input[type="text"]:disabled{
+  border-color: #ffc6c6;
+}
 .div-c.inline-3.no-padding .divided-column {
   margin-bottom: 0;
   border: none;
