@@ -133,9 +133,17 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Listing Description</label>
+                                <label>Opis lokalu(krótki)</label>
                                 <textarea name="description" cols="30" rows="5"
-                                          placeholder="Be clear and descriptive"></textarea>
+                                          placeholder="Max 750 symb"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Opis lokalu(długi)</label>
+                                <textarea name="description_full" cols="30" rows="10"
+                                          placeholder="Max 7000 symb."></textarea>
                             </div>
                         </div>
 
