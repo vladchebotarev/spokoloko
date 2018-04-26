@@ -337,7 +337,7 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">O rezerwacji</h3>
+                        <h3 class="title-sq">Dostępnośc lokalu</h3>
 
                         <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
@@ -430,6 +430,9 @@
                             </div>
                         </div>
 
+                        <h3 class="title-sq">Informacja cenowa</h3>
+
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -463,8 +466,9 @@
                             </div>
                         </div>
 
+                        <h3 class="title-sq">Zaliczka oraz zasady anulowania</h3>
 
-                        <p class="description-sq">Zasady rezerwacji </p>
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
