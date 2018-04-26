@@ -19,15 +19,17 @@ Route::get('/b2b', function () {
     return view('b2b');
 });
 
+
+
 Route::get('/venues/{city_request}', 'SearchController@index');
 
 Route::post('/venues_map/{city_request}', 'SearchController@getMapMarkers');
 
 Route::get('/venue/{venue_url}', 'VenueController@getVenue');
 
-Route::get('/services', function () {
-    return view('search-services');
-});
+
+Route::get('/services/{city_request}', 'SearchServiceController@index');
+
 
 Route::get('/service', function () {
     return view('service');

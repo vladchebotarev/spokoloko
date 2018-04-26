@@ -5,8 +5,12 @@ function bindDataToForm(address,lat,lng, number, website){
     document.getElementById('name').value = address;
     document.getElementById('lat').value = lat;
     document.getElementById('lng').value = lng;
-    document.getElementById('phone').value = number;
-    document.getElementById('website').value = website;
+    var nphone = number.replace("+48","");
+    document.getElementById('phone').value = nphone;
+    var nwebsite = website.replace("http://","");
+    var nwebsite = nwebsite.replace("https://","");
+
+    document.getElementById('website').value = nwebsite;
 }
 
 

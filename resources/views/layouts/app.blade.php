@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
+
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
@@ -120,7 +122,7 @@
         !Request::is('password/*') and
         !Request::is('venues/*') and
         !Request::is('venue/*') and
-        !Request::is('services') and
+        !Request::is('services/*') and
         !Request::is('service') and
         !Request::is('user/*'))
         @component('components.footer')
@@ -185,8 +187,13 @@
     <script src={{ asset('js/share/steps.js') }}></script>
     {{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}
     {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
+    <script src="{{ asset('js/share/checkbox.js') }}"></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
+@endif
+
+@if(Request::is('services/*'))
+    <script src={{ asset('js/search/services.js') }}></script>
 @endif
 
 @if(Request::is('venues/*'))

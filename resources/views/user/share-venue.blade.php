@@ -70,20 +70,36 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Telefon 1</label>
-                                <input type="text" name="phone" placeholder="+48 000 000 000">
+                            <label>Telefon</label>
+                            <div class="ui labeled input">
+                                <div class="ui label">
+                                    +48
+                                </div>
+                                <input type="text" name="phone" id="phone" placeholder="730 000 000">
+                            </div>
                             </div>
 
                             <div class="divided-column">
-                                <label>Telefon 2 (jeżeli istneje)</label>
-                                <input type="text" name="phone2" placeholder="+48 000 000 000">
+                        <label>Telefon 2(Jeżeli istneje)</label>
+
+                        <div class="ui labeled input">
+                            <div class="ui label">
+                                +48
+                            </div>
+                                <input type="text" name="phone2" placeholder="+730 000 000">
+                        </div>
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Strona internetowa</label>
-                                <input type="text" name="webpage" placeholder="https://nazwabiznes.pl">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        https://
+                                    </div>
+                                      <input type="text" name="webpage" id="website" placeholder="https://nazwabiznes.pl">
+                                </div>
                             </div>
 
                             <div class="divided-column">
@@ -95,21 +111,39 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Facebook</label>
-                                <input type="text" name="facebook" placeholder="facebook.com/spokolokoeu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        fb.com/
+                                    </div>
+                                <input type="text" name="facebook" placeholder="spokolokoeu">
+                                </div>
                             </div>
 
                             <div class="divided-column">
                                 <label>Instagram</label>
-                                <input type="text" name="instagram" placeholder="instagram.com/spokoloko.eu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        @
+                                    </div>
+                                <input type="text" name="instagram" placeholder="spokoloko.eu">
+                                </div>
                             </div>
                         </div>
 
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Listing Description</label>
+                                <label>Opis lokalu(krótki)</label>
                                 <textarea name="description" cols="30" rows="5"
-                                          placeholder="Be clear and descriptive"></textarea>
+                                          placeholder="Max 750 symb"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Opis lokalu(długi)</label>
+                                <textarea name="full_description" cols="30" rows="10"
+                                          placeholder="Max 7000 symb."></textarea>
                             </div>
                         </div>
 
@@ -311,7 +345,7 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">O rezerwacji</h3>
+                        <h3 class="title-sq">Dostępnośc lokalu</h3>
 
                         <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
@@ -373,21 +407,20 @@
                                 @foreach($weekday as $key => $day_title)
                                     <div class="div-c inline-2">
                                         <div class="divided-column">
-                                            <input type="checkbox" id="week_day_{{ $key }}" name="week_day_{{ $key }}">
+                                            <input type="checkbox" id="week_day_{{ $key }}" name="week_day_{{ $key }}" onClick="handleChange(this);">
                                             <label for="week_day_{{ $key }}">{{ $day_title }}</label>
                                         </div>
                                         <div class="divided-column">
                                             <div class="main-infos  div-c inline-2">
                                                 <div class="timecalendar calendar-sq divided-column">
                                                     <div class="relative">
-                                                        <input type="text" class="filter" name="{{ $key }}_from" value=""
-                                                               placeholder="od">
+                                                        <input type="text" class="filter" id="from_week_day_{{ $key  }}" name="{{ $key }}_from" value=""
+                                                               placeholder="od" disabled>
                                                     </div>
                                                 </div>
 
                                                 <div class="timecalendar calendar-sq divided-column">
-                                                    <input type="text" class="filter" name="{{ $key }}_to" value=""
-                                                           placeholder="do">
+                                                    <input type="text" class="filter" name="{{ $key }}_to" id="to_week_day_{{ $key }}" value="" placeholder="do" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -397,6 +430,9 @@
                             </div>
                         </div>
 
+                        <h3 class="title-sq">Informacja cenowa</h3>
+
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -430,17 +466,18 @@
                             </div>
                         </div>
 
+                        <h3 class="title-sq">Zaliczka oraz zasady anulowania</h3>
 
-                        <p class="description-sq">Zasady rezerwacji </p>
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zaliczka wymagana</label>
-                                <input type="text" name="security_deposit" placeholder="min. 500zł">
+                                <input type="text" id="to_security_deposit_not_required" name="security_deposit" placeholder="min. 500zł">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="security_deposit_not_required" name="security_deposit_not_required">
+                                <input type="checkbox" id="security_deposit_not_required" onclick="handleChange2(this)" name="security_deposit_not_required">
                                 <label for="security_deposit_not_required">Zaliczka nie jest wymagana</label>
                             </div>
                         </div>
@@ -448,11 +485,11 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" name="days_full_refund" min="1" placeholder="1">
+                                <input type="number" placeholder="2" id="to_cancel_book_in_eventday">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="checkbox" id="cancel_book_in_eventday" name="cancel_book_in_eventday">
+                                <input type="checkbox" id="cancel_book_in_eventday" onclick="handleChange2(this)" name="cancel_book_in_eventday">
                                 <label for="cancel_book_in_eventday">Mozna zrezygnować w dzień wydarzenia</label>
                             </div>
                         </div>

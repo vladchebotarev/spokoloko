@@ -7,7 +7,65 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">Najwarzniejsze</h3>
+                        <h3 class="title-sq">Kategorje</h3>
+
+                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Typ biznesu</label>
+                                <select name="venue_type" class="ui search dropdown" id="select_city">
+                                    <option value="">Wybierz typ przestrzeni</option>
+                                    @foreach ($venueTypes as $venueType)
+                                        <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Podtyp biznesu</label>
+                                <select name="venue_type" class="ui search dropdown" id="select_city">
+                                    <option value="">Wybierz typ przestrzeni</option>
+                                    @foreach ($venueTypes as $venueType)
+                                        <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+                    <!-- <div class="ui six wide computer twelve wide tablet column">
+                        <div class="image-full-height">
+                            <div class="image-wrapper">
+                                <div class="image-inner">
+                                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="image-sq">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="add-listing-content">
+            <div class="ui grid container">
+                <div class="row">
+                    <div class="ui six wide computer twelve wide tablet column">
+
+                        <h3 class="title-sq">O usludze</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -24,22 +82,11 @@
                             </div>
                         </div>
 
-                        <div class="div-c">
-                            <div class="divided-column">
-                                <label>Wyszukaj na mapie</label>
-                                <input id="searchng" type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
-                            </div>
-                        </div>
 
-
-                        <div style="height:300px;">
-                            <div id="map"></div>
-                        </div>
-                        <br>
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Nazwa przestrzeni</label>
+                                <label>Nazwa serwisu</label>
                                 <input type="text" id="name" name="name" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
@@ -63,16 +110,13 @@
                             </div>
                         </div>
 
-                        <div class="div-c inline-2">
+                        <div class="div-c">
                             <div class="divided-column">
                                 <label>Strona internetowa</label>
                                 <input type="text" name="webpage" placeholder="https://nazwabiznes.pl">
                             </div>
 
-                            <div class="divided-column">
-                                <label>Tripadvisor</label>
-                                <input type="text" name="tripadvisor" placeholder="tripadwisor link">
-                            </div>
+
                         </div>
 
                         <div class="div-c inline-2">
@@ -90,7 +134,7 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Listing Description</label>
+                                <label>Opisz swoja firme/dzialalnosc</label>
                                 <textarea name="description" cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
                             </div>
                         </div>
@@ -113,30 +157,17 @@
             </div>
         </div>
 
-
         <div class="add-listing-content">
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">Kategorje</h3>
+                        <h3 class="title-sq">Wydarzenia</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
-                        <div class="div-c">
-                            <div class="divided-column">
-                                <label>Typ przestrzeni</label>
-                                <select name="venue_type" class="ui search dropdown" id="select_city">
-                                    <option value="">Wybierz typ przestrzeni</option>
-                                    @foreach ($venueTypes as $venueType)
-                                        <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="div-c inline-2 one-label">
-                            <label>Typ wydarzeń</label>
+                            <label>Typ obsługiwanych wydarzeń(można zaznaczyc wielie)</label>
 
                             @foreach ($eventTypes as $eventType)
                                 <div class="divided-column">
@@ -146,90 +177,6 @@
                                 </div>
                             @endforeach
                         </div>
-
-
-                    </div>
-
-                    <!-- <div class="ui six wide computer twelve wide tablet column">
-                        <div class="image-full-height">
-                            <div class="image-wrapper">
-                                <div class="image-inner">
-                                    <img src="../../new-assets/images/host/host_05.jpg" alt="" class="image-sq">
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-
-                </div>
-            </div>
-        </div>
-
-        <div class="add-listing-content">
-            <div class="ui grid container">
-                <div class="row">
-                    <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">O przestrzeni</h3>
-
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Styl przestrzeni</label>
-                                <select name="venue_styles[]" class="ui search dropdown" id="select_city">
-                                    <option value="">Wybierz styl</option>
-                                    @foreach ($styles as $style)
-                                        <option value="{{ $style->id }}">{{ $style->name }}</option>
-                                    @endforeach
-                                </select>
-
-                            </div>
-
-                            <div class="divided-column">
-                                <label>Przestrzen m2</label>
-                                <input type="number" name="area" min="0" value="{{ old('area') }}">
-                            </div>
-                        </div>
-
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Ilośc pokoi</label>
-                                <input type="number" name="room_number" min="0" value="{{ old('room_number') }}">
-                            </div>
-
-                            <div class="divided-column">
-                                <label>Ilośc lazenek</label>
-                                <input type="number" name="restroom_number" min="0"
-                                       value="{{ old('restroom_number') }}">
-                            </div>
-                        </div>
-
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Ilośc góści stojąco</label>
-                                <input type="number" name="guests_standing" min="0"
-                                       value="{{ old('guests_standing') }}">
-                            </div>
-
-                            <div class="divided-column">
-                                <label>Ilośc gości siedzaco</label>
-                                <input type="number" name="guests_standing" min="0" value="{{ old('guests_seating') }}">
-                            </div>
-                        </div>
-
-
-                        <div class="div-c inline-2 one-label">
-                            <label>Cechy</label>
-
-                            @foreach ($features as $feature)
-                                <div class="divided-column">
-                                    <input type="checkbox" name="features[]" id="feature_{{ $feature->id }}"
-                                           value="{{ $feature->id }}">
-                                    <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
-                                </div>
-                            @endforeach
-                        </div>
                     </div>
 
                     <!-- <div class="ui six wide computer twelve wide tablet column">
@@ -250,37 +197,15 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">Udogodnienia i zasady</h3>
+                        <h3 class="title-sq">Uslugi</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
-
-                        <div class="div-c inline-2 one-label">
-                            <label>Udogodnienia</label>
-                            @foreach ($amenities as $amenity)
-                                <div class="divided-column">
-                                    <input type="checkbox" name="amenities[]" id="amenity_{{ $amenity->id }}"
-                                           value="{{ $amenity->id }}">
-                                    <label for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
-                                </div>
-                            @endforeach
-                        </div>
-
-                        <div class="div-c inline-1 one-label">
-                            <label>Zasady</label>
-                            @foreach ($rules as $rule)
-                                <div class="divided-column">
-                                    <input type="checkbox" name="rules[]" id="rule_{{ $rule->id }}"
-                                           value="{{ $rule->id }}">
-                                    <label for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
-                                </div>
-                            @endforeach
-                        </div>
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Dodatkowo zasady</label>
+                                <label>Tu opisz swiadczaca usluge oraz propozycje cenowe, promocje i td.</label>
                                 <textarea cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
                             </div>
                         </div>
@@ -306,158 +231,55 @@
                     <div class="ui six wide computer twelve wide tablet column">
                         <h3 class="title-sq">O rezerwacji</h3>
 
-                        <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
 
+                        <p class="description-sq">Wybierz dni tygodnia dostępne dla rezerwacji:</p>
                         <div class="div-c inline-2 one-label">
                             <div class="divided-column">
-                                <input type="radio" id="radio1" name="radio-group-01">
-                                <label for="radio1">W ciagu tygodnia</label>
+                                <input type="radio" id="timeweek" name="radio-group-01">
+                                <label for="timeweek">Wybierz dni</label>
                             </div>
 
                             <div class="divided-column">
-                                <input type="radio" id="radio2" name="radio-group-01">
-                                <label for="radio2">Tylko dla rezerwacji</label>
-                            </div>
-
-
-                        </div>
-
-                        <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
-                        <div class="week-group">
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day1" checked="false"></button>
-                                <div class="label">
-                                    Poniedziałek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day2" checked="false"></button>
-                                <div class="label">
-                                    Wtorek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day3" checked="false"></button>
-                                <div class="label">
-                                    Środa
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day4" checked="false"></button>
-                                <div class="label">
-                                    Czwartek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day5" checked="false"></button>
-                                <div class="label">
-                                    Piątek
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day6" checked="false"></button>
-                                <div class="label">
-                                    Sobota
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="day">
-                                <button type="button" name="button" class="day-btn" id="day7" checked="false"></button>
-                                <div class="label">
-                                    Niedziela
-                                </div>
-                                <div class="hours-available">
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="7:00">
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <input type="text" placeholder="19:00">
-                                    </div>
-                                </div>
+                                <input type="radio" id="timeres" name="radio-group-01" checked>
+                                <label for="timeres">Proszę kontaktowac się</label>
                             </div>
                         </div>
 
 
-                        <div class="div-c one-label">
-                            <div class="divided-column">
-                                <input type="radio" id="radio3" name="radio-group-01">
-                                <label for="radio3">Godziny moga sie zmieniac</label>
+
+
+                            <div id="setweek" style="display:none">
+                                <p class="description-sq">Wybierz dni tygodnia:</p>
+
+                                @foreach($weekday as $key => $day_title)
+                                    <div class="div-c inline-2">
+                                        <div class="divided-column">
+                                            <input type="checkbox" id="week_day_{{ $key }}">
+                                            <label for="week_day_{{ $key }}">{{ $day_title }}</label>
+                                        </div>
+
+                                    </div>
+                                @endforeach
+
+                                <div class="div-c one-label">
+                                    <div class="divided-column">
+                                        <input type="checkbox" id="schedule_can_change" name="schedule_can_change">
+                                        <label for="schedule_can_change">Godziny moga sie zmieniac</label>
+                                    </div>
+                                </div>
                             </div>
 
 
-                        </div>
+
+
+
+
 
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Cena za godzinę</label>
-                                <input type="text" placeholder="350">
-                            </div>
-
-                            <div class="divided-column">
-                                <label>Min. ilosc godzin</label>
-                                <input type="text" placeholder="350">
-                            </div>
-                        </div>
-
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Cena za calą dobe</label>
+                                <label>Minimalna cena rezerwacji</label>
                                 <input type="text" placeholder="350">
                             </div>
 
@@ -485,8 +307,8 @@
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio6" name="radio-group-01">
-                                <label for="radio6">Zaliczka nie wymagana</label>
+                                <input type="checkbox" id="zal_wym">
+                                <label for="zal_wym">Zaliczka nie wymagana</label>
                             </div>
                         </div>
 
@@ -497,8 +319,8 @@
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio5" name="radio-group-01">
-                                <label for="radio5">Mozna zarezerwowac w dzien wydarzenia</label>
+                                <input type="checkbox" id="moz_rez">
+                                <label for="moz_rez">Mozna zarezerwowac w dzien wydarzenia</label>
                             </div>
                         </div>
 
@@ -509,8 +331,8 @@
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
-                                <input type="radio" id="radio6" name="radio-group-01">
-                                <label for="radio6">Mozna zrezygnowac w dzien wydarzenia</label>
+                                <input type="checkbox" id="moz_zre">
+                                <label for="moz_zre">Mozna zrezygnowac w dzien wydarzenia</label>
                             </div>
                         </div>
 
