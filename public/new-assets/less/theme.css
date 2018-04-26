@@ -146,7 +146,7 @@ button:focus,
 input[type="button"]:focus,
 input[type="submit"]:focus {
   color: #fff;
-  background-color: #df0841;
+  background-color: #dc4600;
 }
 .button-sq span,
 button span {
