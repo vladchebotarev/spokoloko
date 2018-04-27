@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class VenueStyle extends Model
+class ServiceSubtype extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'venuestyles';
+    protected $table = 'servicesubtypes';
 
     /**
      * Indicates if the model should be timestamped.
@@ -21,10 +21,18 @@ class VenueStyle extends Model
     public $timestamps = false;
 
     /**
-     * Get the venues for the style.
+     * Get the services for the type.
      */
-    public function venues()
+    public function services()
     {
         return $this->hasMany('App\Venue');
+    }
+
+    /**
+     * Get the subtypes for the type.
+     */
+    public function types()
+    {
+        return $this->belongsTo('App\ServiceType');
     }
 }

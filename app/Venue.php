@@ -64,11 +64,11 @@ class Venue extends Model
     }
 
     /**
-     * Get the venue styles for the venue.
+     * Get the venue style for the venue.
      */
-    public function styles()
+    public function style()
     {
-        return $this->belongsToMany('App\VenueStyle', 'venue_venuestyles', 'venue_id', 'venue_style_id');
+        return $this->belongsTo('App\VenueStyle');
     }
 
     /**
@@ -78,7 +78,5 @@ class Venue extends Model
     {
         return $this->belongsToMany('App\VenueFeature', 'venue_venuefeatures', 'venue_id', 'venue_feature_id');
     }
-
-
 
 }
