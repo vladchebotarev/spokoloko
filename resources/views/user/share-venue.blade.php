@@ -15,7 +15,7 @@
             <div class="div-c">
               <div class="divided-column">
                 <label class="required">Miasto</label>
-                <select name="city" class="ui search dropdown" id="select_city">
+                <select name="city" class="ui search dropdown req-select" id="select_city">
                   <option value="">Miasto</option>
                   @foreach ($cities as $city)
                   <option value="{{ $city->id }}">{{ $city->name }}</option>
@@ -140,7 +140,7 @@
               <div class="div-c">
                 <div class="divided-column">
                   <label class="required">Typ przestrzeni</label>
-                  <select name="venue_type" class="ui search dropdown" id="select_venue_type">
+                  <select name="venue_type" class="ui search dropdown req-select" id="select_venue_type">
                     <option value="">Wybierz typ przestrzeni</option>
                     @foreach ($venueTypes as $venueType)
                     <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
@@ -187,7 +187,7 @@
                 <div class="div-c inline-2">
                   <div class="divided-column">
                     <label class="required">Styl przestrzeni</label>
-                    <select name="venue_styles[]" class="ui search dropdown" id="select_venue_style">
+                    <select name="venue_styles[]" class="ui search dropdown req-select" id="select_venue_style">
                       <option value="">Wybierz styl</option>
                       @foreach ($styles as $style)
                       <option value="{{ $style->id }}">{{ $style->name }}</option>
@@ -442,8 +442,8 @@
 
                   <div class="div-c inline-2">
                     <div class="divided-column">
-                      <label>Zaliczka wymagana</label>
-                      <input type="text" name="security_deposit" placeholder="min. 500zł">
+                      <label class="required">Zaliczka wymagana</label>
+                      <input type="text" name="security_deposit" placeholder="min. 500zł" class="req-check">
                     </div>
 
                     <div class="divided-column" style="padding-top: 50px;">
@@ -454,8 +454,8 @@
 
                   <div class="div-c inline-2">
                     <div class="divided-column">
-                      <label>Rezerwacja min. N dni do wydarzenia</label>
-                      <input type="number" min="0" placeholder="2">
+                      <label class="required">Rezerwacja min. N dni do wydarzenia</label>
+                      <input type="number" min="0" placeholder="2" class="req-check">
                     </div>
 
                     <div class="divided-column" style="padding-top: 50px;">
@@ -466,8 +466,8 @@
 
                   <div class="div-c inline-2">
                     <div class="divided-column">
-                      <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                      <input type="number" placeholder="2">
+                      <label class="required">Zwrot zaliczki za N dni do wydarzenia</label>
+                      <input type="number" placeholder="2" class="req-check">
                     </div>
 
                     <div class="divided-column" style="padding-top: 50px;">
@@ -534,7 +534,7 @@
                           <i class="icon icon-add-wishlist"></i>
                           Add Photo
                         </label>
-                        <input id="file-upload" name="images[]" type="file" multiple accept=".png, .jpg, .jpeg"/>
+                        <input class="req-check" id="file-upload" name="images[]" type="file" multiple accept=".png, .jpg, .jpeg"/>
                       </div>
                     </div>
 

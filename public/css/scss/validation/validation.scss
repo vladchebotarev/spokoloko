@@ -1,9 +1,17 @@
 .required {
-    &::after{
-        content: "*";
-        color: #c93710;
-        margin-left: 1%;
-        font-size: 1.3rem;
-        font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
+  &::after{
+    content: "*";
+    color: #c93710;
+    margin-left: 1%;
+    font-size: 1.3rem;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  }
+}
+
+.warning {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #d72121 !important;
+}
+
+.req-check, .req-select {
+  transition: box-shadow 400ms ease !important;
 }

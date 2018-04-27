@@ -1,78 +1,126 @@
 function validate() {
-  let required = $('.active-block .req-check');
+  let required = $('.active-block .req-check, .active-block .req-select');
+  required.removeClass('warning');
+  $('#setseven input:checkbox').first().parent().parent().parent().removeClass('warning');
+  required = $('.active-block .req-check');
   let values = required.map(function() {
-    // console.log(this.value, $(this), $(this).val());
-    return $(this).val();
+    if (!$(this).val()) return $(this);
   }).get();
-  if ($('.active-block').find('#select_city').length) values.unshift(parseInt($('.active-block').find('#select_city').val()));
+  if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
   else if ($('.active-block').find('#select_venue_type').length) {
-    values.unshift(eventType());
-    values.unshift(parseInt($('.active-block').find('#select_venue_type').val()));
-  } else if ($('.active-block').find('#select_venue_style').length) values.unshift(parseInt($('.active-block').find('#select_venue_style').val()));
-  else if ($('.active-block').find('input:radio[name="radio-group-01"]').length) values.unshift(...days());
-  console.log(values);
-  for (let i = 0; i < values.length; ++i) {
-    if (typeof values[i] === 'string') values[i] = values[i].trim();
-    if (!values[i]) {
-      // console.log(i, values[i], required[i], $(required[i]).val());
-      // console.log($(required[i]).val());
-      return i;
-    }
+    if (eventType()) values.unshift(eventType());
+    if (!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
+  } else if ($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
+  else if ($('.active-block').find('input:radio[name="radio-group-01"]').length) {
+    if (days()) values.unshift(...days());
+  } else if ($('.active-block').find('.photo-upload').length) {
+    if (submitForm()) values.unshift(submitForm());
   }
+  console.log('Values: ', values);
+  let indexes = [];
+  // for (let i = 0; i < values.length; ++i) {
+  //   if (typeof values[i] === 'string') values[i] = values[i].trim();
+  //   if (typeof values[i] !== 'number' && values[i] == false || (typeof values[i] === 'object' | 'string' && !values[i].length)) {
+  //     indexes.push(i);
+  //     // console.log(i, values[i], required[i], $(required[i]).val());
+  //     // console.log($(required[i]).val());
+  //   }
+  // }
+  // if (indexes.length) return indexes;
+  if (values.length) return values;
   return true;
 }
 
-function submitForm() {
-
+function displayWarning($array) {
+  for (let i = 0; i < $array.length; ++i) {
+    $array[i].addClass('warning');
+  }
+  $('.active-block').animate({
+    scrollTop: $array[0].offset().top
+  }, 500);
 }
 
-function displayWarning(index) {
-  let required = $('.active-block .req-check');
-  // console.log(required, required[index]);
-  $('.active-block').velocity('scroll', {
-    begin: function() {
-      console.log('zaczynamy');
-    },
-    complete: function() {
-      console.log('konczymy');
-    },
-    container: $(required[index]),
-    duration: 'fast',
-    easing: 'ease-in-out'
-  });
+
+function submitForm() {
+  // let submit = $('.add-listing-footer .next-sq');
+  // submit.attr('type', 'submit');
+  let data = Photo.fetchData();
+  console.log(data);
+  let check = false;
+  if (data.srcArray.length < 5 || data.srcArray.length > 10) {
+    console.log('Nie może być mniej niż 5 zdjęć i więcej niż 10.');
+    check = true;
+  }
+  if (data.selected) {
+    console.log(data.selected.width, data.selected.height);
+    if (data.selected.width < 1200 || data.selected.height < 750) {
+      console.log('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
+      check = true;
+    }
+  } else {
+    console.log('Zdjęcie główne nie zostało wybrane.');
+    check = true;
+  }
+  if (check) return $('.active-block .photo-upload');
+  console.log('Submit me!!');
 }
 
 function eventType() {
-  let types = $('input:checkbox:checked[name="event_types[]"]');
+  let types = $('.active-block input:checkbox:checked');
   let checked = [];
   types.each(function(i, el) {
     checked.push(parseInt($(el).val()));
   });
-  return checked;
+  if (checked === []) {
+    return $('.active-block input:checkbox').first().parent().parent();
+  }
 }
 
 function days() {
   let array = [];
   let radio = $('input:radio:checked[name="radio-group-01"]');
   if (radio.is('#timeweek')) {
-    $('#setres input').removeClass('req-check').val('');
     let hours = $('input:radio:checked[name="radio-group-02"]');
     if (hours.is('#timeonce')) {
       $('#setonce .filter').addClass('req-check');
       $('#setseven input:checkbox:checked').parent().next().find('.filter').removeClass('req-check').val('');
-      $('#setseven input:checkbox:checked').prop('checked',false);
+      $('#setseven input:checkbox:checked').prop('checked', false);
     } else {
       $('#setonce .filter').removeClass('req-check').val('');
-      if($('#setseven input:checkbox:checked').length) $('#setseven input:checkbox:checked').parent().next().find('.filter').addClass('req-check');
-      else array.push(undefined);
+      if ($('#setseven input:checkbox:checked').length) $('#setseven input:checkbox:checked').parent().next().find('.filter').addClass('req-check');
+      else array.push($('#setseven input:checkbox').first().parent().parent().parent());
     }
   } else {
     $('#setonce input, #setseven input:not(:checkbox)').removeClass('req-check').val('');
-    $('#setseven input:checkbox:checked').prop('checked',false);
+    $('#setseven input:checkbox:checked').prop('checked', false);
   }
   $('#setres input:not(:checkbox)').addClass('req-check');
   $('.active-block').find('.req-check').each(function(i, el) {
-    array.push($(el).val());
+    if (!$(el).val()) array.push($(el));
   });
   return array;
+}
+
+$('#security_deposit_not_required').change(function() {
+  notRequired($(this));
+});
+
+$('#book_in_eventday').change(function() {
+  notRequired($(this));
+});
+
+$('#cancel_book_in_eventday').change(function() {
+  notRequired($(this));
+});
+
+function notRequired(checkbox) {
+  let input = checkbox.parent().prev().find('input');
+  let label = checkbox.parent().prev().find('label');
+  if (checkbox.is(':checked')) {
+    input.removeClass('req-check');
+    label.removeClass('required');
+  } else {
+    input.addClass('req-check');
+    label.addClass('required');
+  }
 }

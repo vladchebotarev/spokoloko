@@ -7,13 +7,14 @@ class Photo {
     this.select = false;
 
     this.biggerWidth(files, index).then(data => {
-      // console.log(data);
       if (data.isBiggerWidth) {
         this.img.addClass('bigger-width');
       } else {
         this.img.addClass('bigger-height');
       }
       this.src = data.src;
+      this.width = data.width;
+      this.height = data.height;
     });
   }
 
@@ -30,7 +31,9 @@ class Photo {
           console.log(`bool = ${bool}`, image.width, image.height);
           res({
             isBiggerWidth: bool,
-            src: image.src
+            src: image.src,
+            height: image.height,
+            width: image.width
           });
         };
 
@@ -69,21 +72,15 @@ class Photo {
   static selected() {
     for (let i = 0; i < photoArray.length; ++i) {
       if (photoArray[i].select == true) {
-        return {
-          img: photoArray[i],
-          exists: true
-        };
+        return photoArray[i];
       }
     }
-    return {
-      img: undefined,
-      exists: false
-    };
+    return undefined;
   }
 
   static fetchData() {
     let srcArray = [];
-    let selected = Photo.selected().img ? Photo.selected().img.src : undefined;
+    let selected = Photo.selected() ? Photo.selected() : undefined;
     for (let i = 0; i < photoArray.length; ++i) srcArray.push(photoArray[i].src);
     return {
       srcArray,
@@ -131,9 +128,9 @@ Photo.prototype.selectPhoto = function() {
   if (this.obj.find('.photo-upload-item').hasClass('selected')) {
     this.obj.find('.photo-upload-item').removeClass('selected');
     this.select = false;
-  } else if (currentlySelected.exists) {
-    currentlySelected.img.obj.find('.photo-upload-item').removeClass('selected');
-    currentlySelected.img.select = false;
+  } else if (currentlySelected) {
+    currentlySelected.obj.find('.photo-upload-item').removeClass('selected');
+    currentlySelected.select = false;
     this.obj.find('.photo-upload-item').addClass('selected');
     this.select = true;
   } else {
