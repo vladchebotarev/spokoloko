@@ -16,10 +16,15 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
+
+    @if(Request::is('user/share-venue'))
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.css') }}">
+        {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">--}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
+    @endif
 
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
@@ -189,6 +194,8 @@
     {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
     <script src="{{ asset('js/share/checkbox.js') }}"></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
+    <script src={{ asset('js/share/validation.js') }}></script>
+    <script src={{ asset('js/share/steps.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 
