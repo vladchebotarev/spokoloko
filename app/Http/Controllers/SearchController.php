@@ -28,7 +28,7 @@ class SearchController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
+            $venues_query = "SELECT DISTINCT v.name, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'

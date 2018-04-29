@@ -21,7 +21,7 @@
 
     @if(Request::is('user/share-venue'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
-        {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">--}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     @endif
 
@@ -193,7 +193,7 @@
     {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
     <script src="{{ asset('js/share/checkbox.js') }}"></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
-    {{--<script src={{ asset('js/share/validation.js') }}></script>--}}
+    <script src={{ asset('js/share/validation.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 

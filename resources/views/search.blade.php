@@ -425,7 +425,7 @@
                                                        target="_blank">
                                                 <span class="image-wrapper">
                                                     <span class="image-inner">
-                                                        <img src="{{ asset('/images/venues/'.$venue->image_url) }}"
+                                                        <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
                                                              alt="" class="" style="height: 100%">
                                                         {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
                                                              alt="" class="">--}}

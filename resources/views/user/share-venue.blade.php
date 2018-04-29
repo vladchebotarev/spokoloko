@@ -33,16 +33,6 @@
                             </div>
                         </div>
 
-
-                        <div class="div-c">
-                            <div class="divided-column">
-                                <label>Wyszukaj na mapie</label>
-                                <input id="searchng" type="text"
-                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
-                            </div>
-                        </div>
-
-
                         <div style="height:300px;">
                             <div id="map"></div>
                         </div>
@@ -587,6 +577,9 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui column">
+                        <button type=button class="button-sq link-sq">
+                            <i class="icon icon-slim-arrow-left"></i>
+                        </button>
                         <nav id="pagination">
                             <ul class="pagination-list">
                                 <li class="pagination-active"></li>
@@ -597,7 +590,7 @@
                                 <li></li>
                             </ul>
                         </nav>
-                        <button class="button-sq next-sq">
+                        <button type=button class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
                     </div>

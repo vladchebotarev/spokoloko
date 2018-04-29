@@ -256,7 +256,7 @@ class ShareVenueController extends Controller
             foreach ($request->file('images') as $request_image) {
                 $image = $request_image->getRealPath();
                 $image_name = $venue->url . '-' . $n++;
-                Cloudder::upload($image, $venue->url.'/'.$image_name, array("format" => "jpg"));
+                Cloudder::upload($image, 'venues/'.$venue->url.'/'.$image_name, array("format" => "jpg"));
                 $images_insert[] = [
                     'venue_id' => $venue->id,
                     'image_url' => $image_name,
