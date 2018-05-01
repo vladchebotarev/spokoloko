@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
 
-    @if(Request::is('user/share-venue'))
+    @if(Request::is('user/share-venue') or Request::is('user/edit-venue'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
@@ -184,7 +184,7 @@
     @endif
 @endguest
 
-@if(Request::is('user/share-venue') or Request::is('user/share-service'))
+@if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/edit-venue'))
 
     <script src={{ asset('js/velocity.min.js')}}></script>
     {{--<script src={{ asset('js/move.min.js')}}></script>--}}

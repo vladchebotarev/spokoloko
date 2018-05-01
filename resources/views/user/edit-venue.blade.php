@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="location-sq">
-                            <a class="anchor-sq" href="#section-05"><i class="icon icon-location-pin-2"></i>
+                            <a class="anchor-sq" href="#section-01"><i class="icon icon-location-pin-2"></i>
                                 Romania, Bucuresti</a>
                         </div>
 
@@ -62,7 +62,7 @@
                                         </div>
 
 
-                                        <a class="button-sq fullwidth-sq font-weight-extrabold-sq" href="">Apply Updates</a>
+                                        <a class="button-sq fullwidth-sq font-weight-extrabold-sq" onclick="getElementById('button_submit').click()">Apply Updates</a>
 
                                     </div>
 
@@ -79,6 +79,7 @@
 
     <header class="header-section mhs header-sticky header-is-bottom is-half">
         <div class="header-content">
+
             <div class="ui container stackable grid">
 
                 <div class="header-item header-left">
@@ -94,37 +95,37 @@
                         <ul class="main-menu anchor-menu">
 
                             <li class="active"><a href="#section-01" class="item">
-                                    <span>The Space</span>
+                                    <span>Głowne</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-02" class="item">
-                                    <span>Description</span>
+                                    <span>Kategorje</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-03" class="item">
-                                    <span>Amenities</span>
+                                    <span>O przestrzeni</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-04" class="item">
-                                    <span>Home Safety</span>
+                                    <span>Udogodnienia i zasady</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-05" class="item">
-                                    <span>Location</span>
+                                    <span>Dostępnośc i ceny</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-06" class="item">
-                                    <span>Photos</span>
+                                    <span>Foto</span>
                                 </a>
                             </li>
 
                             <li><a href="#section-06" class="item">
-                                    <span>Prices</span>
+                                    <span>Pakiet</span>
                                 </a>
                             </li>
 
@@ -137,6 +138,7 @@
         </div>
     </header>
 
+    <form action="" method="post" style="height: 100%" enctype="multipart/form-data">
     <!-- grid -->
     <div class="ui grid container stackable app layout right side editable">
         <div class="stretched row">
@@ -152,78 +154,126 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Nazwa przestrzeni</label>
-                                <input type="text" placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
-                            </div>
-                        </div>
-
-                        <div style="height:300px;">
-                            <div id="map"></div>
-                        </div>
-                        <br>
-
-                        <div class="div-c">
-                            <div class="divided-column">
-                                <label>Miasto</label>
-                                <select class="dropdown">
-                                    <option value="0">Krakow</option>
-                                    <option value="1">Warszawa</option>
-                                </select>
+                                <label class="required">Nazwa przestrzeni</label>
+                                <input type="text" name="name" class="req-check"
+                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna' ">
                             </div>
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Adres</label>
-                                <input type="text" placeholder="ul. Warszawska 1">
+                            <label class="required">Ustaw położenie na Mapie</label>
+                            <div style="height:300px;">
+
+                                <div id="map"></div>
+                            </div></div>
+                        </div>
+
+
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label class="required">Adres</label>
+                                <input type="text" class="req-check" id="route" name="street_address"
+                                       placeholder="ul. Warszawska 1">
+                                <input type="hidden" id="lat" name="lat">
+                                <input type="hidden" id="lng" name="lng">
                             </div>
                         </div>
 
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label class="required">Numer domu</label>
+                                <input type="text" class="req-check"  name="street_number"
+                                       placeholder="21/2">
+                            </div>
+
+
+                            <div class="divided-column">
+                                <label class="required">Kod pocztowy</label>
+                                <input class="req-check" type="text"  name="postal_code"
+                                       placeholder="31-000">
+                            </div>
+                        </div>
 
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Telefon 1</label>
-                                <input type="text" placeholder="+48 000 000 000">
+                                <label class="required">Telefon</label>
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        +48
+                                    </div>
+                                    <input type="text" class="req-check" name="phone"
+                                           placeholder="730 000 000">
+                                </div>
                             </div>
 
                             <div class="divided-column">
-                                <label>Telefon 2 (jeżeli istneje)</label>
-                                <input type="text" placeholder="+48 000 000 000">
+                                <label>Telefon 2(Jeżeli istneje)</label>
+
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        +48
+                                    </div>
+                                    <input type="text" name="phone2" placeholder="730 000 000">
+                                </div>
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Strona internetowa</label>
-                                <input type="text" placeholder="https://nazwabiznes.pl">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        https://
+                                    </div>
+                                    <input type="text" name="webpage"  placeholder="nazwabiznesu.pl">
+                                </div>
                             </div>
 
                             <div class="divided-column">
-                                <label>Instagram</label>
-                                <input type="text" placeholder="tripadwisor link">
+                                <label>Tripadvisor</label>
+                                <input type="text" name="tripadvisor" placeholder="tripadwisor link">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Facebook</label>
-                                <input type="text" placeholder="facebook.com/spokolokoeu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        fb.com/
+                                    </div>
+                                    <input type="text" name="facebook" placeholder="spokolokoeu">
+                                </div>
                             </div>
 
                             <div class="divided-column">
                                 <label>Instagram</label>
-                                <input type="text" placeholder="instagram.com/spokoloko.eu">
+                                <div class="ui labeled input">
+                                    <div class="ui label">
+                                        @
+                                    </div>
+                                    <input type="text" name="instagram" placeholder="spokoloko.eu">
+                                </div>
                             </div>
                         </div>
 
 
-
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label class="required">Opis lokalu(krótki)</label>
+                                <textarea name="description" class="req-check" cols="30" rows="5"
+                                          placeholder="Max 750 symb"></textarea>
+                            </div>
+                        </div>
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Listing Description</label>
-                                <textarea  cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
+                                <label class="required">Opis lokalu(długi)</label>
+                                <textarea name="full_description" class="req-check" cols="30" rows="10"
+                                          placeholder="Max 7000 symb."></textarea>
                             </div>
                         </div>
 
@@ -242,80 +292,32 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Typ przestrzeni</label>
-                                <select class="dropdown">
-                                    <option value="0">Loft</option>
-                                    <option value="1">Restauracja/Bar</option>
+                                <label class="required">Typ przestrzeni</label>
+                                <select name="venue_type" class="ui search dropdown req-select" id="select_venue_type">
+                                    <option value="">Wybierz typ przestrzeni</option>
+                                {{--    @foreach ($venueTypes as $venueType)
+                                        <option value="{{ $venueType->id }}">{{ $venueType->name }}</option>
+                                    @endforeach  --}}
                                 </select>
                             </div>
                         </div>
 
                         <div class="div-c inline-2 one-label">
-                            <label>Typ wydarzen</label>
+                            <label class="required">Typ wydarzeń</label>
 
-                            <div class="divided-column">
+                            {{-- @foreach ($eventTypes as $eventType)
+                                <div class="divided-column">
 
-                                <input type="checkbox" id="checkbox1">
-                                <label for="checkbox1">Wireless Internet</label>
-                            </div>
+                                    <input type="checkbox" name="event_types[]" id="event_type_{{ $eventType->id }}"
+                                           value="{{ $eventType->id }}">
+                                    <label for="event_type_{{ $eventType->id }}">{{ $eventType->name }}</label>
 
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox2">
-                                <label for="checkbox2">Laptop friendly workspace</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox3">
-                                <label for="checkbox3">Iron</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox4">
-                                <label for="checkbox4">Hangers</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox5">
-                                <label for="checkbox5">Hair Dry</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox6">
-                                <label for="checkbox6">Washer</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox7">
-                                <label for="checkbox7">Shampoo</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox8">
-                                <label for="checkbox8">TV</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox9">
-                                <label for="checkbox9">Kitchen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox10">
-                                <label for="checkbox10">Essentials</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox11">
-                                <label for="checkbox11">Heating</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox12">
-                                <label for="checkbox12">Items</label>
-                            </div>
+                                </div>
+                            @endforeach --}}
                         </div>
 
-                        <p>You can add more details to tell travelers about your space and hosting style.</p>
+
+
 
                     </div>
                 </div>
@@ -328,187 +330,63 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Styl przestrzeni</label>
-                                <select class="dropdown">
-                                    <option value="1">Industrial</option>
-                                    <option value="2">Modern</option>
-                                </select>
-                            </div>
+                                <label class="required">Styl przestrzeni</label>
+                                <select name="venue_style" class="ui search dropdown req-select"
+                                        id="select_venue_style">
+                                    <option value="">Wybierz styl</option>
+                                {{--  @foreach ($styles as $style)
+                                      <option value="{{ $style->id }}">{{ $style->name }}</option>
+                                  @endforeach --}}
+                              </select>
 
-                            <div class="divided-column">
-                                <label>Przestrzen m2</label>
-                                <input type="text" placeholder="350">
-                            </div>
-                        </div>
+                          </div>
 
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Ilośc pokoi</label>
-                                <select class="dropdown">
-                                    <option value="0">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="1">5+</option>
-                                </select>
-                            </div>
-                            <div class="divided-column">
-                                <label>Ilośc lazenek</label>
-                                <select class="dropdown">
-                                    <option value="0">1</option>
-                                    <option value="1">2</option>
-                                    <option value="1">3</option>
-                                    <option value="1">4</option>
-                                    <option value="1">5+</option>
-                                </select>
-                            </div>
-                        </div>
+                          <div class="divided-column">
+                              <label class="required">Przestrzen m2</label>
+                              <input class="req-check" type="number" name="area" min="0" value="{{ old('area') }}">
+                          </div>
+                      </div>
 
-                        <div class="div-c inline-2">
-                            <div class="divided-column">
-                                <label>Ilośc gości siedzaco</label>
-                                <input type="text" placeholder="np 50">
-                            </div>
+                      <div class="div-c inline-2">
+                          <div class="divided-column">
+                              <label class="required">Ilośc pokoi</label>
+                              <input class="req-check" type="number" name="room_number" min="0"
+                                     value="{{ old('room_number') }}">
+                          </div>
 
-                            <div class="divided-column">
-                                <label>Ilośc góści stojąco</label>
-                                <input type="text" placeholder="np 250">
-                            </div>
-                        </div>
+                          <div class="divided-column">
+                              <label class="required">Ilośc lazenek</label>
+                              <input class="req-check" type="number" name="restroom_number" min="0"
+                                     value="{{ old('restroom_number') }}">
+                          </div>
+                      </div>
 
+                      <div class="div-c inline-2">
+                          <div class="divided-column">
+                              <label class="required">Ilośc góści stojąco</label>
+                              <input class="req-check" type="number" name="max_guests_standing" min="0"
+                                     value="{{ old('max_guests_standing') }}">
+                          </div>
 
+                          <div class="divided-column">
+                              <label class="required">Ilośc gości siedzaco</label>
+                              <input class="req-check" type="number" name="max_guests_seating" min="0"
+                                     value="{{ old('max_guests_seating') }}">
+                          </div>
+                      </div>
 
+                      <div class="div-c inline-2 one-label">
+                          <label>Cechy</label>
 
-
-                        <div class="div-c inline-3 one-label">
-                            <label>Dodatkowo</label>
-
-                            <div class="divided-column">
-
-                                <input type="checkbox" id="checkbox1">
-                                <label for="checkbox1">Ogrodek</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox2">
-                                <label for="checkbox2">Rooftop</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox3">
-                                <label for="checkbox3">Basen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox4">
-                                <label for="checkbox4">Hangers</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox5">
-                                <label for="checkbox5">Hair Dry</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox6">
-                                <label for="checkbox6">Washer</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox7">
-                                <label for="checkbox7">Shampoo</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox8">
-                                <label for="checkbox8">TV</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox9">
-                                <label for="checkbox9">Kitchen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox10">
-                                <label for="checkbox10">Essentials</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox11">
-                                <label for="checkbox11">Heating</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox12">
-                                <label for="checkbox12">Items</label>
-                            </div>
-                        </div>
-
-                        <div class="div-c inline-3 one-label">
-                            <label>Dostep do pomiesczenia</label>
-
-                            <div class="divided-column">
-
-                                <input type="checkbox" id="checkbox1">
-                                <label for="checkbox1">Ogrodek</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox2">
-                                <label for="checkbox2">Rooftop</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox3">
-                                <label for="checkbox3">Basen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox4">
-                                <label for="checkbox4">Hangers</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox5">
-                                <label for="checkbox5">Hair Dry</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox6">
-                                <label for="checkbox6">Washer</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox7">
-                                <label for="checkbox7">Shampoo</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox8">
-                                <label for="checkbox8">TV</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox9">
-                                <label for="checkbox9">Kitchen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox10">
-                                <label for="checkbox10">Essentials</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox11">
-                                <label for="checkbox11">Heating</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox12">
-                                <label for="checkbox12">Items</label>
-                            </div>
-                        </div>
+                          {{--@foreach ($features as $feature)
+                              <div class="divided-column">
+                                  <input type="checkbox" name="features[]" id="feature_{{ $feature->id }}"
+                                         value="{{ $feature->id }}">
+                                  <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
+                              </div>
+                          @endforeach --}}
+                      </div>
+                      </div>
 
 
 
@@ -518,147 +396,40 @@
 
                 <div class="section-container" id="section-04">
                     <div class="typo-section-sq bottom-default">
-                        <h3 class="complete-sq title-sq">Uslugi</h3>
+                        <h3 class="complete-sq title-sq">Udogodnienia i zasady</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
 
 
 
 
-                        <div class="div-c inline-3 one-label">
-                            <label>Dodatkowo</label>
-
-                            <div class="divided-column">
-
-                                <input type="checkbox" id="checkbox1">
-                                <label for="checkbox1">Ogrodek</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox2">
-                                <label for="checkbox2">Rooftop</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox3">
-                                <label for="checkbox3">Basen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox4">
-                                <label for="checkbox4">Hangers</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox5">
-                                <label for="checkbox5">Hair Dry</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox6">
-                                <label for="checkbox6">Washer</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox7">
-                                <label for="checkbox7">Shampoo</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox8">
-                                <label for="checkbox8">TV</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox9">
-                                <label for="checkbox9">Kitchen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox10">
-                                <label for="checkbox10">Essentials</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox11">
-                                <label for="checkbox11">Heating</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox12">
-                                <label for="checkbox12">Items</label>
-                            </div>
+                        <div class="div-c inline-2 one-label">
+                            <label>Udogodnienia</label>
+                            {{-- @foreach ($amenities as $amenity)
+                                <div class="divided-column">
+                                    <input type="checkbox" name="amenities[]" id="amenity_{{ $amenity->id }}"
+                                           value="{{ $amenity->id }}">
+                                    <label for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
+                                </div>
+                            @endforeach --}}
                         </div>
 
-                        <div class="div-c inline-3 one-label">
+                        <div class="div-c inline-1 one-label">
                             <label>Zasady</label>
-
-                            <div class="divided-column">
-
-                                <input type="checkbox" id="checkbox1">
-                                <label for="checkbox1">Ogrodek</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox2">
-                                <label for="checkbox2">Rooftop</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox3">
-                                <label for="checkbox3">Basen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox4">
-                                <label for="checkbox4">Hangers</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox5">
-                                <label for="checkbox5">Hair Dry</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox6">
-                                <label for="checkbox6">Washer</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox7">
-                                <label for="checkbox7">Shampoo</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox8">
-                                <label for="checkbox8">TV</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox9">
-                                <label for="checkbox9">Kitchen</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox10">
-                                <label for="checkbox10">Essentials</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox11">
-                                <label for="checkbox11">Heating</label>
-                            </div>
-
-                            <div class="divided-column">
-                                <input type="checkbox" id="checkbox12">
-                                <label for="checkbox12">Items</label>
-                            </div>
+                            {{-- @foreach ($rules as $rule)
+                                <div class="divided-column">
+                                    <input type="checkbox" name="rules[]" id="rule_{{ $rule->id }}"
+                                           value="{{ $rule->id }}">
+                                    <label for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
+                                </div>
+                            @endforeach --}}
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label>Dodatkowo zasady</label>
-                                <textarea  cols="30" rows="5" placeholder="Be clear and descriptive"></textarea>
+                                <textarea cols="30" rows="5" name="additional_rules"
+                                          placeholder="Be clear and descriptive"></textarea>
                             </div>
                         </div>
 
@@ -669,388 +440,174 @@
                 <div class="section-container" id="section-05">
                     <div class="typo-section-sq bottom-default">
 
-                            <h3 class="complete-sq title-sq">O rezerwacji</h3>
+                            <h3 class="complete-sq title-sq">Dostępnośc lokalu</h3>
 
                             <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
 
-                            <div class="div-c inline-2 one-label">
-                                <div class="divided-column">
-                                    <input type="radio" id="timeweek" name="radio-group-01">
-                                    <label for="timeweek">W ciagu tygodnia</label>
-                                </div>
-
-                                <div class="divided-column">
-                                    <input type="radio" id="timeres" name="radio-group-01">
-                                    <label for="timeres">Tylko dla rezerwacji</label>
-                                </div>
-
-
+                        <div class="div-c inline-2 one-label">
+                            <div class="divided-column">
+                                <input type="radio" id="timeweek" name="availability" value="Week">
+                                <label for="timeweek">W ciagu tygodnia</label>
                             </div>
 
-                        <div id="setweek" style="display:none">
+                            <div class="divided-column">
+                                <input type="radio" id="timeres" name="availability" value="Reservation" checked>
+                                <label for="timeres">Tylko dla rezerwacji</label>
+                            </div>
+                        </div>
 
+                        <div id="setweek" style="display:none">
                             <div class="div-c inline-2 one-label">
                                 <div class="divided-column">
-                                    <input type="radio" id="timeonce" name="radio-group-02" checked="1">
+                                    <input type="radio" id="timeonce" name="week_availability" value="all" checked>
                                     <label for="timeonce">Staly grafik pracy</label>
                                 </div>
 
                                 <div class="divided-column">
-                                    <input type="radio" id="timeseven" name="radio-group-02">
+                                    <input type="radio" id="timeseven" name="week_availability" value="custom">
                                     <label for="timeseven">Wybierz</label>
                                 </div>
-
-
                             </div>
+
                             <div id="setonce" style="padding-top: 10px;">
                                 <p class="description-sq">Wprowadż godziny pracy:</p>
 
                                 <div class="div-c inline-2">
-
-
-
-                                    <div class="divided-column"><strong>Poniedzialek - Niedziela</strong></div>
+                                    <div class="divided-column">
+                                        <strong>Poniedzialek - Niedziela</strong>
+                                    </div>
 
                                     <div class="divided-column">
                                         <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
+                                            <div class="timecalendar calendar-sq divided-column">
                                                 <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
+                                                    <input type="text" name="week_from" class="filter" value=""
+                                                           placeholder="od">
 
                                                 </div>
-
                                             </div>
 
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
+                                            <div class="timecalendar calendar-sq divided-column">
+                                                <input type="text" name="week_to" class="filter" value=""
+                                                       placeholder="do">
                                             </div>
 
                                         </div>
-
                                     </div>
-
                                 </div>
                             </div>
-                            <div id = "setseven" style="display:none">
 
-
+                            <div id="setseven" style="display:none">
                                 <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_pn" name="radio-group-01">
-                                        <label for="radio_pn">Poniedzialek</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
+                              {{--  @foreach($weekday as $key => $day_title)
+                                    <div class="div-c inline-2">
+                                        <div class="divided-column">
+                                            <input type="checkbox" id="week_day_{{ $key }}" name="week_day_{{ $key }}"
+                                                   onClick="handleChange(this);">
+                                            <label for="week_day_{{ $key }}">{{ $day_title }}</label>
+                                        </div>
+                                        <div class="divided-column">
+                                            <div class="main-infos  div-c inline-2">
+                                                <div class="timecalendar calendar-sq divided-column">
+                                                    <div class="relative">
+                                                        <input type="text" class="filter" id="from_week_day_{{ $key  }}"
+                                                               name="{{ $key }}_from" value=""
+                                                               placeholder="od" disabled>
+                                                    </div>
                                                 </div>
 
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_wt" name="radio-group-01">
-                                        <label for="radio_wt">Worek</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
+                                                <div class="timecalendar calendar-sq divided-column">
+                                                    <input type="text" class="filter" name="{{ $key }}_to"
+                                                           id="to_week_day_{{ $key }}" value="" placeholder="do"
+                                                           disabled>
                                                 </div>
-
                                             </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
                                         </div>
-
                                     </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_sr" name="radio-group-01">
-                                        <label for="radio_sr">Sroda</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_cz" name="radio-group-01">
-                                        <label for="radio_cz">Czwartek</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_pia" name="radio-group-01">
-                                        <label for="radio_pia">Piatek</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_sb" name="radio-group-01">
-                                        <label for="radio_sb">Sobota</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c inline-2">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio_nd" name="radio-group-01">
-                                        <label for="radio_nd">Niedziela</label>
-                                    </div>
-
-                                    <div class="divided-column">
-                                        <div class="main-infos  div-c inline-2">
-                                            <div class="supadupa calendar-sq divided-column"   >
-
-
-                                                <div class="relative">
-                                                    <input type="text" class="filter" value="" required placeholder="od">
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="supadupa calendar-sq divided-column"  >
-
-
-                                                <input type="text" class="filter" value="" required placeholder="do">
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="div-c one-label">
-
-                                    <div class="divided-column">
-                                        <input type="radio" id="radio3" name="radio-group-01">
-                                        <label for="radio3">Godziny moga sie zmieniac</label>
-                                    </div>
-
-
-                                </div>
+                                @endforeach  --}}
 
                             </div>
                         </div>
 
 
+                        <h3 class="complete-sq title-sq">Informacja cenowa</h3>
 
 
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
 
-                            <div class="div-c inline-2">
-                                <div class="divided-column">
-                                    <label>Cena za godzinę</label>
-                                    <input type="text" placeholder="350">
-                                </div>
-
-                                <div class="divided-column">
-                                    <label>Min. ilosc godzin</label>
-                                    <input type="text" placeholder="350">
-                                </div>
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label>Cena za godzinę</label>
+                                <input type="text" name="price_hour" placeholder="350">
                             </div>
 
-                            <div class="div-c inline-2">
-                                <div class="divided-column">
-                                    <label>Cena za calą dobe</label>
-                                    <input type="text" placeholder="350">
-                                </div>
+                            <div class="divided-column">
+                                <label>Min. ilosc godzin</label>
+                                <input type="number" name="min_hours" placeholder="" min="1">
+                            </div>
+                        </div>
 
-                                <div class="divided-column" style="padding-top: 50px;">
-                                    <input type="radio" id="radio4" name="radio-group-01">
-                                    <label for="radio4">Cena zależy od dnia tygodnia</label>
-                                </div>
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label>Cena za calą dobe</label>
+                                <input type="text" name="price_day" placeholder="350">
                             </div>
 
-                            <div class="div-c">
-                                <div class="divided-column">
-                                    <label>Informacja dodatkowa</label>
-                                    <textarea  cols="30" rows="5" placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia."></textarea>
-                                </div>
+                            <div class="divided-column" style="padding-top: 50px;">
+                                <input type="checkbox" id="price_depends_on_weekday" name="price_depends_on_weekday">
+                                <label for="price_depends_on_weekday">Cena zależy od dnia tygodnia</label>
+                            </div>
+                        </div>
+
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Informacja dodatkowa</label>
+                                <textarea cols="30" rows="5" name="price_info"
+                                          placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia."></textarea>
+                            </div>
+                        </div>
+
+
+                        <h3 class="complete-sq title-sq">Zaliczka oraz zasady rezerwacji</h3>
+
+                        <p class="description-sq">Lorem ipsum dolor it sit </p>
+
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label>Zaliczka wymagana</label>
+                                <input type="text" id="to_security_deposit_not_required" name="security_deposit"
+                                       placeholder="min. 500zł">
                             </div>
 
+                            <div class="divided-column" style="padding-top: 50px;">
+                                <input type="checkbox" id="security_deposit_not_required" onclick="handleChange2(this)"
+                                       name="security_deposit_not_required">
+                                <label for="security_deposit_not_required">Zaliczka nie jest wymagana</label>
+                            </div>
+                        </div>
 
-                            <p class="description-sq">Zasady rezerwacji </p>
-
-                            <div class="div-c inline-2">
-                                <div class="divided-column">
-                                    <label>Zaliczka wymagana</label>
-                                    <input type="text" placeholder="min. 500zł">
-                                </div>
-
-                                <div class="divided-column" style="padding-top: 50px;">
-                                    <input type="radio" id="radio6" name="radio-group-01">
-                                    <label for="radio6">Zaliczka nie wymagana</label>
-                                </div>
+                        <div class="div-c inline-2">
+                            <div class="divided-column">
+                                <label>Zwrot zaliczki za N dni do wydarzenia</label>
+                                <input type="number" placeholder="2" id="to_cancel_book_in_eventday">
                             </div>
 
-                            <div class="div-c inline-2">
-                                <div class="divided-column">
-                                    <label>Rezerwacja min. N dni do wydarzenia</label>
-                                    <input type="text" placeholder="2">
-                                </div>
-
-                                <div class="divided-column" style="padding-top: 50px;">
-                                    <input type="radio" id="radio5" name="radio-group-01">
-                                    <label for="radio5">Mozna zarezerwowac w dzien wydarzenia</label>
-                                </div>
+                            <div class="divided-column" style="padding-top: 50px;">
+                                <input type="checkbox" id="cancel_book_in_eventday" onclick="handleChange2(this)"
+                                       name="cancel_book_in_eventday">
+                                <label for="cancel_book_in_eventday">Mozna zrezygnować w dzień wydarzenia</label>
                             </div>
+                        </div>
 
-                            <div class="div-c inline-2">
-                                <div class="divided-column">
-                                    <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                    <input type="text" placeholder="2">
-                                </div>
-
-                                <div class="divided-column" style="padding-top: 50px;">
-                                    <input type="radio" id="radio6" name="radio-group-01">
-                                    <label for="radio6">Mozna zrezygnowac w dzien wydarzenia</label>
-                                </div>
+                        <div class="div-c">
+                            <div class="divided-column">
+                                <label>Informacja dodatkowa</label>
+                                <textarea cols="30" rows="5" name="cancellation_information" value=""
+                                          placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia "></textarea>
                             </div>
-
-                            <div class="div-c">
-                                <div class="divided-column">
-                                    <label>Informacja dodatkowa</label>
-                                    <textarea  cols="30" rows="5" placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia "></textarea>
-                                </div>
-                            </div>
+                        </div>
 
 
 
@@ -1080,50 +637,21 @@
 
                         <div class="ui grid">
                             <div class="row photo-upload">
-                                <div class="ui four wide computer six wide tablet twelve wide mobile column">
-
-                                    <div class="photo-upload-item">
-                                        <div class="image-wrapper">
-                                            <img class="image-sq" src="assets/images/host/host_01.jpg" alt="">
-                                        </div>
-
-                                        <a href="" class="remove"><i class="icon icon-close2"></i></a>
-                                        <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a>
-
-                                        <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="ui four wide computer six wide tablet twelve wide mobile column">
-
-                                    <div class="photo-upload-item">
-                                        <div class="image-wrapper">
-                                            <img class="image-sq" src="assets/images/host/host_02.jpg" alt="">
-                                        </div>
-
-                                        <a href="" class="remove"><i class="icon icon-close2"></i></a>
-                                        <a href="" class="cover-photo-sq"><i class="icon icon-pin1"></i></a>
-
-                                        <textarea  cols="30" rows="2" placeholder="What are the highlights of this photo?"></textarea>
-
-
-                                    </div>
-                                </div>
-
-                                <div class="ui four wide computer six wide tablet twelve wide mobile column">
-                                    <div class="photo-upload-item">
-                                        <a href="" class="add-photo">
+                                <div class="ui three wide computer six wide tablet six wide mobile column">
+                                    <div class="photo-upload-item" id="add-photo">
+                                        <label for="file-upload" class="add-photo custom-file-upload" id="new-img">
                                             <i class="icon icon-add-wishlist"></i>
                                             Add Photo
-                                        </a>
+                                        </label>
+                                        <input type="file" class="req-check" id="file-upload" name="images[]" multiple
+                                               accept=".png, .jpg, .jpeg"/>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
-
+                        <div hidden>
+                        <button type="submit"  id="button_submit">Wyślij</button>
+                        </div>
                     </div>
                 </div>
 
@@ -1136,8 +664,9 @@
             </div>
 
         </div>
+    </form>
 
-    </div>
+
 
 
 
