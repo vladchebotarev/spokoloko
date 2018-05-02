@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
 
-    @if(Request::is('user/share-venue') or Request::is('user/edit-venue'))
+    @if(Request::is('user/share-venue') or Request::is('user/update-venue'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
@@ -37,7 +37,7 @@
     @endif
 
 {{--TODO customize--}}
-    @if(Request::is('user/edit-venue') or Request::is('user/share-venue') or Request::is('user/share-service'))
+    @if(Request::is('user/update-venue') or Request::is('user/share-venue') or Request::is('user/share-service'))
             <script async defer
                     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
             <script src={{ asset('new-assets/library/map_adding.js') }}></script>
@@ -184,7 +184,7 @@
     @endif
 @endguest
 
-@if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/edit-venue'))
+@if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue'))
 
     <script src={{ asset('js/velocity.min.js')}}></script>
     {{--<script src={{ asset('js/move.min.js')}}></script>--}}
