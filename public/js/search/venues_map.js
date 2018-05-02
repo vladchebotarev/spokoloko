@@ -31,7 +31,7 @@ function initMap() {
             infowincontent.style.color = '#333';
 
             var oImg = document.createElement('img');
-            oImg.setAttribute('src', '../../images/venues/'+image_url);
+            oImg.setAttribute('src', 'https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/'+url_local+'/'+image_url);
             oImg.setAttribute('alt', 'picture');
             oImg.setAttribute('width', '200px');
             infowincontent.appendChild(oImg);

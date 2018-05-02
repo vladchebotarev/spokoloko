@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
-class SearchController extends Controller
+class SearchVenueController extends Controller
 {
     //
     public function index($city_request)
@@ -28,7 +28,7 @@ class SearchController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id)";
+            $venues_query = "SELECT DISTINCT v.name, v.url, vt.name as venue_type, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'
@@ -66,7 +66,7 @@ class SearchController extends Controller
             if (Input::get('venue_types') != '') {
                 $current_venue_types = Input::get('venue_types');
 
-                $venues_query .= " LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
+                //$venues_query .= " LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
                 $current_venue_types_sql_string = implode ( "' ,'" ,$current_venue_types);
                 $venues_query_cond .= " AND vt.name IN ('$current_venue_types_sql_string')";
             } else {
@@ -186,7 +186,7 @@ class SearchController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v INNER JOIN sl_venue_images vi";
+            $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, vt.name as venue_type, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'
@@ -224,7 +224,6 @@ class SearchController extends Controller
             if (Input::get('venue_types') != '') {
                 $current_venue_types = Input::get('venue_types');
 
-                $venues_query .= " LEFT JOIN sl_venue_venuetypes vvt ON (v.id=vvt.venue_id) LEFT JOIN sl_venuetypes vt ON (vvt.venue_type_id=vt.id)";
                 $current_venue_types_sql_string = implode ( "' ,'" ,$current_venue_types);
                 $venues_query_cond .= " AND vt.name IN ('$current_venue_types_sql_string')";
             }

@@ -21,9 +21,9 @@ Route::get('/b2b', function () {
 
 
 
-Route::get('/venues/{city_request}', 'SearchController@index');
+Route::get('/venues/{city_request}', 'SearchVenueController@index');
 
-Route::post('/venues_map/{city_request}', 'SearchController@getMapMarkers');
+Route::post('/venues_map/{city_request}', 'SearchVenueController@getMapMarkers');
 
 Route::get('/venue/{venue_url}', 'VenueController@getVenue');
 
@@ -76,9 +76,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('settings', 'User\UserSettingsController@index')->name('settings');
 
-    Route::get('listings', function () {
-        return view('user.listings');
-    })->name('listings');
+    Route::get('listings', 'User\UserListingsController@index')->name('listings');
 
     Route::get('messages', function () {
         return view('user.messages');
@@ -89,18 +87,13 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
         return view('user.share');
     })->name('share');
 
-    Route::get('share-venue', 'ShareVenueController@index')->name('share-venue');
-    Route::post('share-venue', 'ShareVenueController@createNewVenue');
+    Route::get('share-venue', 'User\ShareVenueController@index')->name('share-venue');
+    Route::post('share-venue', 'User\ShareVenueController@createNewVenue');
 
-    Route::get('share-service', 'ShareServiceController@index')->name('share-service');
+    Route::get('share-service', 'User\ShareServiceController@index')->name('share-service');
 
-    Route::get('edit-venue', function () {
-        return view('user.edit-venue');
-    })->name('edit-venue');
-
-    Route::get('edit-service', function () {
-        return view('user.edit-service');
-    })->name('edit-service');
+    Route::get('update-venue/{venue_url}', 'User\UpdateVenueController@getVenue')->name('update-venue');
+    Route::get('update-service/{service_url}', 'User\UpdateServiceController@index')->name('update-service');
 
 
 });
