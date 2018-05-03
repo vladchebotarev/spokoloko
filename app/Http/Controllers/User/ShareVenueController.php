@@ -169,6 +169,10 @@ class ShareVenueController extends Controller
 
             $venue->availability_type = $request->get('availability');
 
+            if ($request->get('availability') === 'Week') {
+                $venue->week_availability = $request->get('week_availability');
+            }
+
 
             $venue->price_hour = $request->get('price_hour');
             $venue->price_day = $request->get('price_day');
@@ -206,8 +210,6 @@ class ShareVenueController extends Controller
                 return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
                 // something went wrong
             }
-
-
 
 
             /**
@@ -253,12 +255,12 @@ class ShareVenueController extends Controller
 
             }
 
-            $n=1;
+            $n = 1;
             $images_insert = [];
             foreach ($request->file('images') as $request_image) {
                 $image = $request_image->getRealPath();
                 $image_name = $venue->url . '-' . $n++;
-                Cloudder::upload($image, 'venues/'.$venue->url.'/'.$image_name, array("format" => "jpg"));
+                Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
                 $images_insert[] = [
                     'venue_id' => $venue->id,
                     'image_url' => $image_name,
@@ -279,7 +281,6 @@ class ShareVenueController extends Controller
                 DB::rollback();
                 return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
             }
-
 
 
 //            $venue->name = $request->get('name');

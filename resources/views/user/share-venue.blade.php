@@ -502,7 +502,7 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" placeholder="2" id="to_cancel_book_in_eventday">
+                                <input type="number" min="1" name="days_full_refund" placeholder="2" id="to_cancel_book_in_eventday">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">

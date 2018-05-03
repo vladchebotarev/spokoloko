@@ -57,7 +57,7 @@
                                 <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
                                 PLN <span>/{{ $venue->min_hours }} h</span>
                             </div>--}}
-                            <a class="add-wishlist modal-ui-trigger" href="{{ url('user/update-venue/'.$venue->url) }}"
+                            <a class="add-wishlist" href="{{ url('user/update-venue/'.$venue->url) }}"
                                target="_blank">
                                 <i class="icon icon-cog2"></i>
                             </a>

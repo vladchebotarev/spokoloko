@@ -93,7 +93,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
     Route::get('share-service', 'User\ShareServiceController@index')->name('share-service');
 
     Route::get('update-venue/{venue_url}', 'User\UpdateVenueController@getVenue')->name('update-venue');
-    Route::get('update-service/{service_url}', 'User\UpdateServiceController@index')->name('update-service');
+    Route::get('update-service', 'User\UpdateServiceController@getService')->name('update-service');
 
 
 });

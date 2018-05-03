@@ -159,7 +159,7 @@ class SearchVenueController extends Controller
 
 
             //dump($data);
-            return view('search', $data);
+            return view('search-venues', $data);
 
         }
 

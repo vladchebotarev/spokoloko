@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class UpdateServiceController extends Controller
 {
-    //
+    public function getService()
+    {
+        return view('user.update-service');
+    }
 }
