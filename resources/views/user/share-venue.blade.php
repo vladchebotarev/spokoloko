@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="" method="post" style="height: 100%" enctype="multipart/form-data">
+    <form action="" method="post" style="height: 100%" enctype="multipart/form-data" class="venue-form">
         @csrf
         <div class="add-listing-content active-block">
             <div class="ui grid container">
@@ -593,7 +593,7 @@
                         <button type=button class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
-                        <button type="submit" class="button-submit">Wyślij</button>
+                        <button type="button" class="button-submit">Wyślij</button>
                     </div>
                 </div>
             </div>
