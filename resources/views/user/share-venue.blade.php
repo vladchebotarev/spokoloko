@@ -568,7 +568,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit">Wyślij</button>
+                <input type="hidden" id="main-image" />
             </div>
         </div>
 
@@ -577,7 +577,7 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui column">
-                        <button type=button class="button-sq link-sq">
+                        <button type=button class="button-sq prev-btn">
                             <i class="icon icon-slim-arrow-left"></i>
                         </button>
                         <nav id="pagination">
@@ -593,6 +593,7 @@
                         <button type=button class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
+                        <button class="button-submit">Wyślij</button>
                     </div>
                 </div>
             </div>
