@@ -3,7 +3,7 @@ function validate() {
   required.removeClass('warning');
   $('#setseven input:checkbox').first().parent().parent().parent().removeClass('warning');
   required = $('.active-block .req-check');
-  let values = required.map(function() {
+  let values = required.map(function () {
     if (!$(this).val()) return $(this);
   }).get();
   if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
@@ -11,39 +11,46 @@ function validate() {
     if (eventType()) values.unshift(eventType());
     if (!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
   } else if ($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
-  else if ($('.active-block').find('input:radio[name="radio-group-01"]').length) {
-    if (days()) values.unshift(...days());
+  else if ($('.active-block').find('input:radio[name="availability"]').length) {
+    if (days()) {
+      values.unshift(...days());
+      if (!values.length) {
+        $('.next-sq').velocity({
+          opacity: 0
+        }, {
+          display: 'none',
+          duration: animationTime,
+          easing: 'ease'
+        });
+        $('.button-submit').velocity({
+          opacity: 1
+        }, {
+          delay: animationTime,
+          duration: animationTime,
+          easing: 'ease',
+          display: 'flex'
+        });
+      }
+    }
   } else if ($('.active-block').find('.photo-upload').length) {
     if (submitForm()) values.unshift(submitForm());
   }
   console.log('Values: ', values);
-  let indexes = [];
-  // for (let i = 0; i < values.length; ++i) {
-  //   if (typeof values[i] === 'string') values[i] = values[i].trim();
-  //   if (typeof values[i] !== 'number' && values[i] == false || (typeof values[i] === 'object' | 'string' && !values[i].length)) {
-  //     indexes.push(i);
-  //     // console.log(i, values[i], required[i], $(required[i]).val());
-  //     // console.log($(required[i]).val());
-  //   }
-  // }
-  // if (indexes.length) return indexes;
   if (values.length) return values;
   return true;
 }
 
 function displayWarning($array) {
   for (let i = 0; i < $array.length; ++i) {
-    $array[i].addClass('warning');
+    $array[ i ].addClass('warning');
   }
   $('.active-block').animate({
-    scrollTop: $array[0].offset().top
+    scrollTop: $array[ 0 ].offset().top
   }, 500);
 }
 
 
 function submitForm() {
-  // let submit = $('.add-listing-footer .next-sq');
-  // submit.attr('type', 'submit');
   let data = Photo.fetchData();
   console.log(data);
   let check = false;
@@ -62,13 +69,16 @@ function submitForm() {
     check = true;
   }
   if (check) return $('.active-block .photo-upload');
-  console.log('Submit me!!');
+  else {
+    console.log('Submit me!!');
+    // $('.button-submit').submit();
+  }
 }
 
 function eventType() {
   let types = $('.active-block input:checkbox:checked');
   let checked = [];
-  types.each(function(i, el) {
+  types.each(function (i, el) {
     checked.push(parseInt($(el).val()));
   });
   if (checked === []) {
@@ -78,9 +88,9 @@ function eventType() {
 
 function days() {
   let array = [];
-  let radio = $('input:radio:checked[name="radio-group-01"]');
+  let radio = $('input:radio:checked[name="availability"]');
   if (radio.is('#timeweek')) {
-    let hours = $('input:radio:checked[name="radio-group-02"]');
+    let hours = $('input:radio:checked[name="week_availability"]');
     if (hours.is('#timeonce')) {
       $('#setonce .filter').addClass('req-check');
       $('#setseven input:checkbox:checked').parent().next().find('.filter').removeClass('req-check').val('');
@@ -95,21 +105,21 @@ function days() {
     $('#setseven input:checkbox:checked').prop('checked', false);
   }
   $('#setres input:not(:checkbox)').addClass('req-check');
-  $('.active-block').find('.req-check').each(function(i, el) {
+  $('.active-block').find('.req-check').each(function (i, el) {
     if (!$(el).val()) array.push($(el));
   });
   return array;
 }
 
-$('#security_deposit_not_required').change(function() {
+$('#security_deposit_not_required').change(function () {
   notRequired($(this));
 });
 
-$('#book_in_eventday').change(function() {
+$('#book_in_eventday').change(function () {
   notRequired($(this));
 });
 
-$('#cancel_book_in_eventday').change(function() {
+$('#cancel_book_in_eventday').change(function () {
   notRequired($(this));
 });
 
