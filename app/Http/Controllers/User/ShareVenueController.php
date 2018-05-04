@@ -104,6 +104,10 @@ class ShareVenueController extends Controller
         return $url_tmp;
     }
 
+    public function check(){
+        echo "Dziala";
+    }
+
 
     /**
      * Create new venue in system.
@@ -259,7 +263,7 @@ class ShareVenueController extends Controller
             foreach ($request->file('images') as $request_image) {
                 $image = $request_image->getRealPath();
                 $image_name = $venue->url . '-' . $n++;
-                Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                //Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
                 $images_insert[] = [
                     'venue_id' => $venue->id,
                     'image_url' => $image_name,
@@ -273,7 +277,7 @@ class ShareVenueController extends Controller
 
             try {
                 DB::table('venue_images')->insert($images_insert);
-                DB::commit();
+                //DB::commit();
                 //return redirect('user/profile')->with('status', 'Przes!');
                 echo 'Success';
             } catch (\Exception $e) {

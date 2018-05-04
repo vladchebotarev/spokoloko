@@ -593,7 +593,7 @@
                         <button type=button class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
-                        <button class="button-submit">Wyślij</button>
+                        <button type="submit" class="button-submit">Wyślij</button>
                     </div>
                 </div>
             </div>
