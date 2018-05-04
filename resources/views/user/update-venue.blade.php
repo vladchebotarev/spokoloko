@@ -3,7 +3,6 @@
 @section('content')
 
     <div class="property-section-default anchor editable-sq">
-
         <div class="ui grid container stackable change-cover">
             <a href="#section-06" class="">
                 Zmien tło
@@ -13,7 +12,9 @@
 
         <div class="image-wrapper">
             <div class="image-inner">
-                <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}" alt="">
+                <img class="image-sq"
+                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     alt="">
             </div>
         </div>
 
@@ -46,6 +47,7 @@
                                 <div class="property-sticky-box">
 
                                     <div class="sticky-box-content">
+
                                         <div class="main-infos">
 
                                             <div class="completed-percentage">
@@ -78,7 +80,7 @@
 
     </div>
 
-    <header class="header-section mhs header-sticky header-is-bottom is-half">
+    <header class="header-section mhs header-sticky header-is-bottom is-half" id="section-header">
         <div class="header-content">
 
             <div class="ui container stackable grid">
@@ -140,16 +142,43 @@
     </header>
 
     <form action="" method="post" enctype="multipart/form-data">
-        <!-- grid -->
+    @csrf
+    <!-- grid -->
         <div class="ui grid container stackable app layout right side editable">
             <div class="stretched row">
                 <div class="ui column main-column" role="main">
+
+                    @if ($errors->any())
+                        <div class="ui twelve wide computer column">
+                            <div class="ui negative message">
+                                <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                                <div class="header">
+                                    Popraw następujące blędy
+                                </div>
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+
+                    @if (session('status'))
+                        <div class="ui twelve wide computer column">
+                            <div class="ui positive message">
+                                <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                                <div class="header">
+                                    Powodzenie
+                                </div>
+                                <p>{{ session('status') }}</p>
+                            </div>
+                        </div>
+                    @endif
 
                     <div class="section-container" id="section-01">
 
                         <div class="typo-section-sq top-default bottom-default">
 
-                            <h3 class="complete-sq title-sq">Najwarzniejsze</h3>
+                            <h3 class="title-sq">Najwarzniejsze</h3>
 
                             <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                                 faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -290,7 +319,7 @@
 
                     <div class="section-container" id="section-02">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="complete-sq title-sq">Kategorje</h3>
+                            <h3 class="title-sq">Kategorje</h3>
 
                             <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                                 faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -312,10 +341,11 @@
                             <div class="div-c inline-2 one-label">
                                 <label>Typ wydarzeń</label>
 
-                                 @foreach ($eventTypes as $eventType)
+                                @foreach ($eventTypes as $eventType)
                                     <div class="divided-column">
                                         <input type="checkbox" name="event_types[]" id="event_type_{{ $eventType->id }}"
-                                               value="{{ $eventType->id }}" @if(in_array($eventType->id, $venue_eventTypes)) checked @endif>
+                                               value="{{ $eventType->id }}"
+                                               @if(in_array($eventType->id, $venue_eventTypes)) checked @endif>
                                         <label for="event_type_{{ $eventType->id }}">{{ $eventType->name }}</label>
                                     </div>
                                 @endforeach
@@ -327,7 +357,7 @@
 
                     <div class="section-container" id="section-03">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="complete-sq title-sq">O przestrzeni</h3>
+                            <h3 class="title-sq">O przestrzeni</h3>
 
                             <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                                 faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -338,10 +368,10 @@
                                     <select name="venue_style" class="ui search dropdown"
                                             id="select_venue_style">
                                         <option value="">Wybierz styl</option>
-                                          @foreach ($styles as $style)
-                                              <option value="{{ $style->id }}"
-                                                      @if($venue->venue_style_id === $style->id) selected @endif>{{ $style->name }}</option>
-                                          @endforeach
+                                        @foreach ($styles as $style)
+                                            <option value="{{ $style->id }}"
+                                                    @if($venue->venue_style_id === $style->id) selected @endif>{{ $style->name }}</option>
+                                        @endforeach
                                     </select>
 
                                 </div>
@@ -387,7 +417,8 @@
                                 @foreach ($features as $feature)
                                     <div class="divided-column">
                                         <input type="checkbox" name="features[]" id="feature_{{ $feature->id }}"
-                                               value="{{ $feature->id }}" @if(in_array($feature->id, $venue_features)) checked @endif>
+                                               value="{{ $feature->id }}"
+                                               @if(in_array($feature->id, $venue_features)) checked @endif>
                                         <label for="feature_{{ $feature->id }}">{{ $feature->name }}</label>
                                     </div>
                                 @endforeach
@@ -397,7 +428,7 @@
 
                     <div class="section-container" id="section-04">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="complete-sq title-sq">Udogodnienia i zasady</h3>
+                            <h3 class="title-sq">Udogodnienia i zasady</h3>
 
                             <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                                 faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -405,10 +436,11 @@
 
                             <div class="div-c inline-2 one-label">
                                 <label>Udogodnienia</label>
-                                 @foreach ($amenities as $amenity)
+                                @foreach ($amenities as $amenity)
                                     <div class="divided-column">
                                         <input type="checkbox" name="amenities[]" id="amenity_{{ $amenity->id }}"
-                                               value="{{ $amenity->id }}" @if(in_array($amenity->id, $venue_amenities)) checked @endif>
+                                               value="{{ $amenity->id }}"
+                                               @if(in_array($amenity->id, $venue_amenities)) checked @endif>
                                         <label for="amenity_{{ $amenity->id }}">{{ $amenity->name }}</label>
                                     </div>
                                 @endforeach
@@ -416,10 +448,11 @@
 
                             <div class="div-c inline-1 one-label">
                                 <label>Zasady</label>
-                                 @foreach ($rules as $rule)
+                                @foreach ($rules as $rule)
                                     <div class="divided-column">
                                         <input type="checkbox" name="rules[]" id="rule_{{ $rule->id }}"
-                                               value="{{ $rule->id }}" @if(in_array($rule->id, $venue_rules)) checked @endif>
+                                               value="{{ $rule->id }}"
+                                               @if(in_array($rule->id, $venue_rules)) checked @endif>
                                         <label for="rule_{{ $rule->id }}">{{ $rule->name }}</label>
                                     </div>
                                 @endforeach
@@ -439,7 +472,7 @@
                     <div class="section-container" id="section-05">
                         <div class="typo-section-sq bottom-default">
 
-                            <h3 class="complete-sq title-sq">Dostępnośc lokalu</h3>
+                            <h3 class="title-sq">Dostępnośc lokalu</h3>
 
                             <p class="description-sq">Kiedy jest otwarty lokal? </p>
 
@@ -447,7 +480,7 @@
                             <div class="div-c inline-2 one-label">
                                 <div class="divided-column">
                                     <input type="radio" id="timeweek" name="availability" value="Week"
-                                    @if($venue->availability_type == 'Week') checked @endif>
+                                           @if($venue->availability_type == 'Week') checked @endif>
                                     <label for="timeweek">W ciagu tygodnia</label>
                                 </div>
 
@@ -473,7 +506,8 @@
                                     </div>
                                 </div>
 
-                                <div id="setonce" style="padding-top: 10px;" @if($venue->week_availability == 'Custom' ) hidden @endif>
+                                <div id="setonce" style="padding-top: 10px;"
+                                     @if($venue->week_availability == 'Custom' ) hidden @endif>
                                     <p class="description-sq">Wprowadż godziny pracy:</p>
 
                                     <div class="div-c inline-2">
@@ -485,14 +519,18 @@
                                             <div class="main-infos  div-c inline-2">
                                                 <div class="timecalendar calendar-sq divided-column">
                                                     <div class="relative">
-                                                        <input type="text" name="week_from" class="filter" @if($venue->week_availability == 'All' ) value="{{ $venue_availability->time_from }}" @endif
+                                                        <input type="text" name="week_from" class="filter"
+                                                               @if($venue->week_availability == 'All' ) value="{{ $venue_availability->time_from }}"
+                                                               @endif
                                                                placeholder="od">
 
                                                     </div>
                                                 </div>
 
                                                 <div class="timecalendar calendar-sq divided-column">
-                                                    <input type="text" name="week_to" class="filter" @if($venue->week_availability == 'All' ) value="{{ $venue_availability->time_to }}" @endif
+                                                    <input type="text" name="week_to" class="filter"
+                                                           @if($venue->week_availability == 'All' ) value="{{ $venue_availability->time_to }}"
+                                                           @endif
                                                            placeholder="do">
                                                 </div>
 
@@ -504,38 +542,42 @@
                                 <div id="setseven" @if($venue->week_availability == 'All' ) hidden @endif>
                                     <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
-                                      @foreach($weekday as $key => $day_title)
-                                          <div class="div-c inline-2">
-                                              <div class="divided-column">
-                                                  <input type="checkbox" id="week_day_{{ $key }}" name="week_day_{{ $key }}" onClick="handleChange(this);"
-                                                  @if(array_key_exists($key, $venue_availability)) checked @endif>
-                                                  <label for="week_day_{{ $key }}">{{ $day_title }}</label>
-                                              </div>
-                                              <div class="divided-column">
-                                                  <div class="main-infos  div-c inline-2">
-                                                      <div class="timecalendar calendar-sq divided-column">
-                                                          <div class="relative">
-                                                              <input type="text" class="filter" id="from_week_day_{{ $key  }}"
-                                                                     name="{{ $key }}_from" placeholder="od"
-                                                                     @if(array_key_exists($key, $venue_availability)) value="{{ $venue_availability[$key]['time_from'] }}" @else disabled @endif>
-                                                          </div>
-                                                      </div>
+                                    @foreach($weekday as $key => $day_title)
+                                        <div class="div-c inline-2">
+                                            <div class="divided-column">
+                                                <input type="checkbox" id="week_day_{{ $key }}"
+                                                       name="week_day_{{ $key }}" onClick="handleChange(this);"
+                                                       @if(array_key_exists($key, $venue_availability)) checked @endif>
+                                                <label for="week_day_{{ $key }}">{{ $day_title }}</label>
+                                            </div>
+                                            <div class="divided-column">
+                                                <div class="main-infos  div-c inline-2">
+                                                    <div class="timecalendar calendar-sq divided-column">
+                                                        <div class="relative">
+                                                            <input type="text" class="filter"
+                                                                   id="from_week_day_{{ $key  }}"
+                                                                   name="{{ $key }}_from" placeholder="od"
+                                                                   @if(array_key_exists($key, $venue_availability)) value="{{ $venue_availability[$key]['time_from'] }}"
+                                                                   @else disabled @endif>
+                                                        </div>
+                                                    </div>
 
-                                                      <div class="timecalendar calendar-sq divided-column">
-                                                          <input type="text" class="filter" name="{{ $key }}_to"
-                                                                 id="to_week_day_{{ $key }}" placeholder="do"
-                                                                 @if(array_key_exists($key, $venue_availability)) value="{{ $venue_availability[$key]['time_to'] }}" @else disabled @endif>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      @endforeach
+                                                    <div class="timecalendar calendar-sq divided-column">
+                                                        <input type="text" class="filter" name="{{ $key }}_to"
+                                                               id="to_week_day_{{ $key }}" placeholder="do"
+                                                               @if(array_key_exists($key, $venue_availability)) value="{{ $venue_availability[$key]['time_to'] }}"
+                                                               @else disabled @endif>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
 
                                 </div>
                             </div>
 
 
-                            <h3 class="complete-sq title-sq">Informacja cenowa</h3>
+                            <h3 class="title-sq">Informacja cenowa</h3>
 
 
                             <p class="description-sq">Lorem ipsum dolor it sit </p>
@@ -543,24 +585,28 @@
                             <div class="div-c inline-2">
                                 <div class="divided-column">
                                     <label>Cena za godzinę</label>
-                                    <input type="text" name="price_hour" value="{{ $venue->price_hour }}" placeholder="350" required>
+                                    <input type="text" name="price_hour" value="{{ $venue->price_hour }}"
+                                           placeholder="350" required>
                                 </div>
 
                                 <div class="divided-column">
                                     <label>Min. ilosc godzin</label>
-                                    <input type="number" name="min_hours" value="{{ $venue->min_hours }}" placeholder="" min="1" required>
+                                    <input type="number" name="min_hours" value="{{ $venue->min_hours }}" placeholder=""
+                                           min="1" required>
                                 </div>
                             </div>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
                                     <label>Cena za calą dobe</label>
-                                    <input type="text" name="price_day" value="{{ $venue->price_day }}" placeholder="350" required>
+                                    <input type="text" name="price_day" value="{{ $venue->price_day }}"
+                                           placeholder="350" required>
                                 </div>
 
                                 <div class="divided-column" style="padding-top: 50px;">
                                     <input type="checkbox" id="price_depends_on_weekday"
-                                           name="price_depends_on_weekday" @if($venue->price_depends_on_weekday == true) checked @endif>
+                                           name="price_depends_on_weekday"
+                                           @if($venue->price_depends_on_weekday == true) checked @endif>
                                     <label for="price_depends_on_weekday">Cena zależy od dnia tygodnia</label>
                                 </div>
                             </div>
@@ -574,7 +620,7 @@
                             </div>
 
 
-                            <h3 class="complete-sq title-sq">Zaliczka oraz zasady rezerwacji</h3>
+                            <h3 class="title-sq">Zaliczka oraz zasady rezerwacji</h3>
 
                             <p class="description-sq">Lorem ipsum dolor it sit </p>
 
@@ -582,14 +628,15 @@
                                 <div class="divided-column">
                                     <label>Zaliczka wymagana</label>
                                     <input type="text" id="to_security_deposit_not_required" name="security_deposit"
-                                           value="{{ $venue->security_deposit }}" @if($venue->security_deposit == null) disabled @endif
+                                           value="{{ $venue->security_deposit }}"
+                                           @if($venue->security_deposit == null) disabled @endif
                                            placeholder="min. 500zł">
                                 </div>
 
                                 <div class="divided-column" style="padding-top: 50px;">
                                     <input type="checkbox" id="security_deposit_not_required"
                                            onclick="handleChange2(this)" name="security_deposit_not_required"
-                                    @if($venue->security_deposit == null) checked @endif>
+                                           @if($venue->security_deposit == null) checked @endif>
                                     <label for="security_deposit_not_required">Zaliczka nie jest wymagana</label>
                                 </div>
                             </div>
@@ -598,12 +645,14 @@
                                 <div class="divided-column">
                                     <label>Zwrot zaliczki za N dni do wydarzenia</label>
                                     <input type="number" id="to_cancel_book_in_eventday" name="days_full_refund" min="1"
-                                           value="{{ $venue->days_full_refund }}" @if($venue->days_full_refund == null) disabled @endif
+                                           value="{{ $venue->days_full_refund }}"
+                                           @if($venue->days_full_refund == null) disabled @endif
                                            placeholder="2">
                                 </div>
 
                                 <div class="divided-column" style="padding-top: 50px;">
-                                    <input type="checkbox" id="cancel_book_in_eventday" onclick="handleChange2(this)" name="cancel_book_in_eventday"
+                                    <input type="checkbox" id="cancel_book_in_eventday" onclick="handleChange2(this)"
+                                           name="cancel_book_in_eventday"
                                            @if($venue->cancel_book_in_eventday == null) checked @endif>
                                     <label for="cancel_book_in_eventday">Mozna zrezygnować w dzień wydarzenia</label>
                                 </div>
@@ -621,7 +670,7 @@
 
                     <div class="section-container" id="section-06">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="complete-sq title-sq">Photos</h3>
+                            <h3 class="title-sq">Photos</h3>
                             <p>Every space on MyBNB is unique. Highlight what makes your listing welcoming so that it
                                 stands
                                 out to guests who want to stay in your area.</p><br>
@@ -638,7 +687,9 @@
                                         <div class="ui four wide computer six wide tablet six wide mobile column">
                                             <div class="photo-upload-item">
                                                 <div class="image-wrapper">
-                                                    <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image}}" alt="">
+                                                    <img class="image-sq"
+                                                         src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image}}"
+                                                         alt="">
                                                 </div>
                                                 <a class="remove"><i class="icon icon-close"></i></a>
                                             </div>

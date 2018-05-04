@@ -568,7 +568,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit">Wyślij</button>
+
             </div>
         </div>
 

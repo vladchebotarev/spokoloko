@@ -229,7 +229,6 @@ class ShareVenueController extends Controller
                             'created_at' => date('Y-m-d H:i:s')
                         ];
                     }
-                    DB::table('venue_availability')->insert($availability_insert);
                 } elseif ($request->get('week_availability') === 'custom') {
                     foreach ($week as $day) {
                         if ($request->get('week_day_' . $day) === 'on') {
