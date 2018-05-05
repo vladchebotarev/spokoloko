@@ -33,7 +33,7 @@
 
                         <div class="location-sq">
                             <a class="anchor-sq" href="#section-01"><i class="icon icon-location-pin-2"></i>
-                                Romania, Bucuresti</a>
+                                Polska, {{ $venue_city->name }}</a>
                         </div>
 
 
@@ -682,6 +682,16 @@
 
                             <div class="ui grid">
                                 <div class="row photo-upload">
+
+                                    <div class="ui twelve wide computer column">
+                                        <div class="ui negative message">
+                                            <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                                            <div class="header">
+                                                Uwaga
+                                            </div>
+                                            Aktualizacja zdjęć chwilowo jest niedostępna
+                                        </div>
+                                    </div>
 
                                     @foreach($venue_images as $image)
                                         <div class="ui four wide computer six wide tablet six wide mobile column">

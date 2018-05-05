@@ -73,6 +73,7 @@ class UpdateVenueController extends Controller
                 'features' => $features,
                 'weekday' => $weekday,
                 'venue' => $venue,
+                'venue_city' => $cities->find($venue->city_id),
                 'venue_eventTypes' => $venue->eventTypes()->pluck('id')->toArray(),
                 'venue_amenities' => $venue->amenities()->pluck('id')->toArray(),
                 'venue_rules' => $venue->rules()->pluck('id')->toArray(),
@@ -201,6 +202,7 @@ class UpdateVenueController extends Controller
                     $venue->rules()->sync($request->get('rules'));
                     $venue->features()->sync($request->get('features'));
 
+                    DB::table('venue_availability')->where('venue_id', $venue->id)->delete(); //TODO optimize venue availability
                     // all good
                 } catch (\Exception $e) {
                     DB::rollback();
@@ -213,6 +215,8 @@ class UpdateVenueController extends Controller
                  * Insert venue week availability.
                  *
                  */
+
+
                 if ($request->get('availability') === 'Week') {
                     $week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
                     $availability_insert = [];
@@ -241,6 +245,7 @@ class UpdateVenueController extends Controller
 
                     }
                     try {
+                        //DB::table('venue_availability')->where('venue_id', $venue->id)->delete();
                         DB::table('venue_availability')->insert($availability_insert);
 
                     } catch (\Exception $e) {
@@ -276,8 +281,8 @@ class UpdateVenueController extends Controller
                     return redirect('user/update-venue/' . $venue_url . '#section-header')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
                 }*/
                 DB::commit();
-                //return redirect('user/update-venue/' . $venue_url . '#section-header')->with('status', 'Dane zostały zaktualizowane!');
-                echo 'Success';
+                return redirect('user/update-venue/' . $venue_url . '#section-header')->with('status', 'Dane zostały zaktualizowane!');
+                //echo 'Success';
             }
         }
     }
