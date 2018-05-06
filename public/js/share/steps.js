@@ -91,7 +91,7 @@ $('.add-listing-footer .next-sq').click(function (e) {
       easing: 'ease'
     });
   }
-  e.stopPropagation();
+  e.stopImmediatePropagation();
   let unfilled = validate();
   if (unfilled === true) goToNext(true);
   else displayWarning(unfilled);
@@ -126,4 +126,12 @@ $('.add-listing-footer .prev-btn').click(function () {
     });
   }
   goToNext(false);
+});
+
+// SUBMIT BUTTON
+$('.add-listing-footer .button-submit').click(function(e){
+  e.stopImmediatePropagation();
+  let unfilled = validate();
+  if (unfilled === true) goToNext(true);
+  else displayWarning(unfilled);
 });

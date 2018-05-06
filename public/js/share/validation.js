@@ -33,8 +33,16 @@ function validate() {
       }
     }
   } else if ($('.active-block').find('.photo-upload').length) {
-    if (submitForm()) values.unshift(submitForm());
+    let result = submitForm();
+    if (result) {
+      values.unshift(result);
+    }
+    else {
+      $('.venue-form').submit();
+    }
   }
+  
+  
   console.log('Values: ', values);
   if (values.length) return values;
   return true;
@@ -52,7 +60,6 @@ function displayWarning($array) {
 
 function submitForm() {
   let data = Photo.fetchData();
-  console.log(data);
   let check = false;
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
     console.log('Nie może być mniej niż 5 zdjęć i więcej niż 10.');
@@ -69,10 +76,6 @@ function submitForm() {
     check = true;
   }
   if (check) return $('.active-block .photo-upload');
-  else {
-    console.log('Submit me!!');
-    // $('.button-submit').submit();
-  }
 }
 
 function eventType() {
