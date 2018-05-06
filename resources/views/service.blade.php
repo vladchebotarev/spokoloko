@@ -11,14 +11,14 @@
 
                     <br>
 
-                    <div class="white-section shadow-sq">
+                    <div class="white-section" style="border-style: solid; border-width: 1px; border-color: #DCDDDE">
                         <div class="inner-section">
 
                             <div class="ui grid">
                                 <div class="row">
 
                                     <!-- Left-->
-                                    <div class="ui twelve wide mobile six wide computer column">
+                                    <div class="ui twelve wide mobile eight wide computer column">
 
                                         <!-- Slick aici-->
 
@@ -71,18 +71,10 @@
 
                                             </div>
 
-                                            <a class="host-sq" href="vendor_details.html">
-                                                <span class="avatar-sq">
-                                                    <img src="{{ asset('new-assets/images/avatar/avatar_04.jpg') }} " alt="">
-                                                </span>
-                                                <p class="host-name-sq">
-                                                    Dustin Porter
-                                                </p>
 
-                                            </a>
                                         </div>
 
-                                        <h1 class="title-sq">Audi A3 2.0 TDI</h1>
+                                        <h1 class="title-sq">Catering Krakow Dragon</h1>
 
                                         <div class="icons-row">
                                             <div class="icons-column">
@@ -92,14 +84,12 @@
                                                 </div>
                                             </div>
                                             <div class="icons-column">
-                                                <i class="icon icon-ac"></i> A/C
+                                                <i class="icon icon-ac"></i> Catering
                                             </div>
                                             <div class="icons-column">
-                                                <i class="icon icon-gearbox"></i> A
+                                                <i class="icon icon-gearbox"></i> Polska kuchnia
                                             </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-user-circle"></i> x 4
-                                            </div>
+
                                         </div>
 
                                         <p class="description-sq">
@@ -109,32 +99,31 @@
                                     </div>
 
                                     <!-- Right -->
-                                    <div class="ui twelve wide mobile six wide computer column">
+                                    <div class="ui twelve wide mobile four wide computer column">
 
                                         <div class="property-checkout-container main-infos">
 
-                                            <div class="div-c">
-                                                <label>Pick up location</label>
-                                                <input type="text" placeholder=" ">
-                                            </div>
 
                                             <div class="div-c">
-                                                <label>Return location</label>
-                                                <input type="text" placeholder=" ">
+                                                <label>Data wydarzenia</label>
+                                                <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px; width: 100%">
+                                                    <input type="text" value="" required placeholder="Wybierz...">
+                                                </div>
                                             </div>
                                             <div class="div-c">
-                                                <input type="checkbox" id="checkbox1">
-                                                <label for="checkbox1">Return car to the same location</label>
+                                                <input type="checkbox" id="price_hours" name="price_hours" onclick="handleChange3(this)"
+                                                name = "price_hours" checked>
+                                                <label  for="price_hours" >Rezerwacja na cały dzień lub kilka dni</label>
                                             </div>
 
 
-                                            <div class="div-c inline-2 inline-check-in">
+                                            <div class="div-c inline-2 inline-check-in hidden-desktop hidden-large-desktop hidden-mobile hidden-tablet" id="to_price_hours">
 
                                                 <div class="divided-column calendar-sq" id="sticky-box-rangestart">
-                                                    <label class="placeholder">Check in</label>
+                                                    <label class="placeholder">Od</label>
 
                                                     <div class="relative-sq">
-                                                        <input type="text" class="filter" value="" required placeholder="date">
+                                                        <input type="text" class="filter" value="" required placeholder="00:00">
 
                                                         <i class="icon icon-little-arrow filters-arrow"></i>
                                                     </div>
@@ -143,56 +132,160 @@
 
                                                 <div class="divided-column calendar-sq" id="sticky-box-rangeend">
 
-                                                    <label class="placeholder">Check Out</label>
+                                                    <label class="placeholder">Do</label>
 
-                                                    <input type="text" class="filter" value="" required placeholder="date">
+                                                    <input type="text" class="filter" value="" required placeholder="24:00">
 
                                                 </div>
                                             </div>
+
 
                                             <div class="div-c extras-sq">
-                                                <label class="placeholder">Extras</label>
+                                                <ul class="description-list" style="font-size:10pt; width:100%">
+                                                    <!--     <li>
+                                                        <div>
+                                                            <p>Cena za godzine:</p>
+                                                            <strong style="float: right">100 PLN</strong>
+                                                        </div>
+                                                    </li>
 
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox2">
-                                                    <label for="checkbox2">Child Seat</label>
 
-                                                    <span class="value-sq">$10</span>
-                                                </div>
 
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox3">
-                                                    <label for="checkbox3">Driver</label>
+                                                    <li>
+                                                        <div><p>Cena za dzien:</p>
+                                                            <strong style="float: right">1200 PLN</strong></div>
+                                                    </li>
 
-                                                    <span class="value-sq">$13</span>
-                                                </div>
+                                                    <li>
+                                                        <div><p>Kaucja:</p>
+                                                            <strong style="float: right">500zl</strong></div>
+                                                    </li>  -->
+                                                    <a class="button-sq fullwidth-sq font-weight-bold-sq" href="">Sprawdz dostepnosc</a>
 
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox4">
-                                                    <label for="checkbox4">Neque consequa es nterdum erat consequa es nterdum erat</label>
 
-                                                    <span class="value-sq">$10</span>
-                                                </div>
+                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
 
-                                                <div class="divided-column">
-                                                    <input type="checkbox" id="checkbox5">
-                                                    <label for="checkbox5">Phasellus sed neque consequa es nterdum erat</label>
+                                                    <li>
+                                                        <div class="ui internally celled grid">
+                                                            <div class="row"
+                                                                 style="padding-right: 20px; padding-left: 20px;">
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:0%;">
+                                                                    <button onclick="open('#')"
+                                                                            class="social_icons facebook"><i
+                                                                                class="fa fa-facebook"></i>
+                                                                    </button>
+                                                                </div>
 
-                                                    <span class="value-sq">$10</span>
-                                                </div>
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:1%;">
+                                                                    <button class="column social_icons instagram"><i
+                                                                                class="fa fa-instagram"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 0%;  padding-left:1%;">
+                                                                    <button class="column social_icons tripadvisor"><i
+                                                                                class="fa fa-tripadvisor"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+
+
+                                                    <style>
+                                                        div.calendar_title {
+                                                            font-size: 14px;
+                                                            padding-bottom: 10px;
+                                                            font-family: 'Lato';
+                                                            line-height: 1.2142em;
+                                                            color: #4d4d4d;
+                                                        !important;
+                                                        }
+
+                                                        div.soc_buttons {
+                                                            width: 100%;
+                                                        }
+
+                                                        button.social_icons {
+                                                            font-size: 15px;
+                                                            width: 100%;
+
+                                                            border: 1px;
+                                                            border-style: inset;
+                                                            background-color: white;
+
+                                                        }
+
+                                                        button.social_icons.facebook {
+                                                            border-color: dodgerblue;
+                                                            color: dodgerblue;
+                                                        }
+
+                                                        button.social_icons.instagram {
+                                                            border-color: deeppink;
+                                                            color: deeppink;
+                                                        }
+
+                                                        button.social_icons.tripadvisor {
+                                                            border-color: forestgreen;
+                                                            color: forestgreen;
+                                                        }
+
+                                                        button.button_call {
+                                                            width: 100%;
+                                                            border: 1px;
+                                                            border-style: solid;
+
+                                                            background-color: white;
+                                                            color: orangered;
+                                                            border-bottom-color: orangered;
+                                                        }
+
+                                                        button.button_message {
+                                                            width: 100%;
+                                                            border: 1px;
+                                                            border-style: solid;
+
+                                                            background-color: white;
+                                                            color: dodgerblue;
+                                                            border-bottom-color: dodgerblue;
+                                                        }
+
+
+                                                    </style>
+
+
+                                                    <li>
+                                                        <div>
+                                                            <button class="button_call"><i class="fa fa-phone"
+                                                                                           style="padding-right: 10px;"></i>
+                                                                Zadzwon do nas
+                                                            </button>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <button class="button_message"><i class="fa fa-commenting"
+                                                                                              style="padding-right: 10px;"></i>
+                                                                Czat s nami
+                                                            </button>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                              {{--  <div class="button-sq link-sq small-sq float-right-sq">
+                                                    <i class="icon icon-share"></i>
+                                                    share
+                                                </div> --}}
 
                                             </div>
 
 
-                                            <div class="div-c total-sq">
-                                                <div class="divided-column">
-                                                    <label class="placeholder">Total</label>
-                                                    <span class="value-sq">$200</span>
 
-                                                </div>
-                                            </div>
 
-                                            <a class="button-sq fullwidth-sq font-weight-bold-sq" href="">Instant Booking</a>
+
 
                                         </div>
 
@@ -205,13 +298,175 @@
                         </div>
                     </div>
 
-                    <h3>Location</h3>
+
+                        <h3 style="text-align: left; margin: 20px 0;">O usłudze</h3>
+
+                        <p>Our house is a wood and glass house, built in the 21th century's first years. A large living
+                            room widely glazed with a fireplace, two large sofas and the "chief's armchair" and a
+                            kitchen corner (washdishes).
+                            <br><br>
+                            Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
+                            bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
+                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.</p>
+
+
+                    <div class="typo-section-sq bottom-default" style="padding-top: 30px;">
+                        <h5>Cena i zasady rezerwacji</h5>
+                        <div class="ui grid moved">
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Cena za godzine:</p>
+                                            <strong>100 PLN</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Min. ilosc godzin:</p>
+                                            <strong>3</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Cena za dzien:</p>
+                                            <strong>1200 PLN</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>W dni powszednie taniej:</p>
+                                            <strong><i class="fa fa-check"></i></strong></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Kaucja:</p>
+                                            <strong>400 PLN</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Rezerwacja za 3 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
+                                            </strong></div>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide column" style="padding-top:20px;">
+                                <strong>Informacja od wlasciciela:</strong>
+                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
+                                        rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
+                                        barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
+                                        wydarzenia.
+                                        Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana
+                                        wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Wydarzenia</h5>
+                        <p>Ta przestrzen jest swietnym miejscem na
+                        </p>
+
+                        <div class="ui grid moved">
+                            <div class="ui column">
+                                <div class="ui accordion more-sq">
+                                    <div class="title">
+                                        <div class="ui grid">
+                                            <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                                <i class="icon icon-arrow-down-122"></i>
+                                            </a>
+
+                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
+                                                <ul class="description-list">
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+
+
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <div class="ui grid">
+                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
+                                                <ul class="description-list">
+
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+                                                    <div class="ui label">Impreza firmowa</div>
+                                                    <div class="ui label">Konferenja</div>
+                                                    <div class="ui label">Urodziny</div>
+                                                    <div class="ui label">Prezentacja</div>
+                                                    <div class="ui label">Zdjecia</div>
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <style>
+                        .ui.label {
+                            margin-bottom: 10px;
+                            background-color: white;
+                            border-style: solid;
+                            border-width: 1px;
+                            border-color: orange;
+                            color: darkorange;
+
+                        }
+                    </style>
+
+
+
+
+                    <h3 style="text-align: left">Location</h3>
 
                     <div class="map-wrapper shadow-sq">
                         <div id="map"></div>
                     </div>
 
-                    <h3>Reviews</h3>
+                    <h3 style="text-align: left">Reviews</h3>
 
                     <div class="reviews-header">
                         <div class="rating-big">

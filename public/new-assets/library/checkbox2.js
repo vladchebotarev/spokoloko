@@ -18,10 +18,10 @@ function handleChange2(checkbox) {
 }
 
 function handleChange3(checkbox) {
-    if(checkbox.checked == false){
+    if(checkbox.checked !== false){
         document.getElementById("to_"+checkbox.id).classList.add("hidden-desktop", "hidden-large-desktop", "hidden-tablet", "hidden-mobile");
     }else{
-        document.getElementById("to_"+checkbox.id).classList.remove("hidden-desktop", "hidden-large-desktop", "hidden-tablet", "hidden-mobile"));
+        document.getElementById("to_"+checkbox.id).classList.remove("hidden-desktop", "hidden-large-desktop", "hidden-tablet", "hidden-mobile");
 
     }
 }
