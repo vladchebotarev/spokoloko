@@ -544,6 +544,18 @@
                         <h3 class="title-sq">Photos</h3>
                     </div>
 
+                    <div class="ui error message hide">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Napotkaliśmy błąd! Sprawdź czy:
+                        </div>
+                        <ul class="list">
+                            <li>Zaznaczyłeś nie mniej niż 5 i nie więcej niż 10 zdjęć.</li>
+                            <li>Zdjęcie główne zostało wybrane.</li>
+                            <li>Zdjęcie główne ma minimalne wymiary 1200 x 750.</li>
+                        </ul>
+                    </div>
+
                     <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>

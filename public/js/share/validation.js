@@ -48,9 +48,11 @@ function validate() {
   return true;
 }
 
-function displayWarning($array) {
-  for (let i = 0; i < $array.length; ++i) {
-    $array[ i ].addClass('warning');
+function displayWarning($array, bool) {
+  if(bool) {
+    for (let i = 0; i < $array.length; ++i) {
+      $array[ i ].addClass('warning');
+    }
   }
   $('.active-block').animate({
     scrollTop: $array[ 0 ].offset().top
@@ -59,23 +61,24 @@ function displayWarning($array) {
 
 
 function submitForm() {
+  $('.active-block').find('.error').addClass('hide');
   let data = Photo.fetchData();
   let check = false;
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
-    console.log('Nie może być mniej niż 5 zdjęć i więcej niż 10.');
     check = true;
   }
   if (data.selected) {
     console.log(data.selected.width, data.selected.height);
     if (data.selected.width < 1200 || data.selected.height < 750) {
-      console.log('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
       check = true;
     }
   } else {
-    console.log('Zdjęcie główne nie zostało wybrane.');
     check = true;
   }
-  if (check) return $('.active-block .photo-upload');
+  if (check) {
+    $('.active-block').find('.error').removeClass('hide');
+    return $('.active-block .photo-upload');
+  }
 }
 
 function eventType() {

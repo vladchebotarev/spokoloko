@@ -94,7 +94,7 @@ $('.add-listing-footer .next-sq').click(function (e) {
   e.stopImmediatePropagation();
   let unfilled = validate();
   if (unfilled === true) goToNext(true);
-  else displayWarning(unfilled);
+  else displayWarning(unfilled, true);
 });
 
 // PREV BUTTON
@@ -133,5 +133,5 @@ $('.add-listing-footer .button-submit').click(function(e){
   e.stopImmediatePropagation();
   let unfilled = validate();
   if (unfilled === true) goToNext(true);
-  else displayWarning(unfilled);
+  else displayWarning([$('.active-block').find('.error')], false);
 });
