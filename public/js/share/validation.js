@@ -46,8 +46,6 @@ function validate() {
     }
   }
   
-  
-  console.log('Values: ', values);
   if (values.length) return values;
   return true;
 }
@@ -75,10 +73,12 @@ function submitForm() {
     check = true;
   }
   if (data.selected) {
-    console.log(data.selected.width, data.selected.height);
     if (data.selected.width < 1200 || data.selected.height < 750) {
       messages.push('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
       check = true;
+    }
+    else {
+      $('#main_image').val(`${data.selected.name}`);
     }
   } else {
     messages.push('Zdjęcie główne nie zostało wybrane.');

@@ -586,7 +586,7 @@
                         </div>
                     </div>
                 </div>
-                <input type="hidden" id="main-image" />
+                <input type="hidden" id="main_image" />
             </div>
         </div>
 
