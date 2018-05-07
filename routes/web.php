@@ -88,7 +88,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
     })->name('share');
 
     Route::get('share-venue', 'User\ShareVenueController@index')->name('share-venue');
-    Route::post('share-venue', 'User\ShareVenueController@check');
+    Route::post('share-venue', 'User\ShareVenueController@createNewVenue');
 
     Route::get('share-service', 'User\ShareServiceController@index')->name('share-service');
 
