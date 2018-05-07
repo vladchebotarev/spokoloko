@@ -556,12 +556,9 @@
                     <div class="ui error message hide">
                         <i class="close icon"></i>
                         <div class="header">
-                            Napotkaliśmy błąd! Sprawdź czy:
+                            Napotkano następujące błędy:
                         </div>
                         <ul class="list">
-                            <li>Zaznaczyłeś nie mniej niż 5 i nie więcej niż 10 zdjęć.</li>
-                            <li>Zdjęcie główne zostało wybrane.</li>
-                            <li>Zdjęcie główne ma minimalne wymiary 1200 x 750.</li>
                         </ul>
                     </div>
 

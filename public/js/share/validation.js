@@ -66,21 +66,29 @@ function displayWarning($array, bool) {
 
 function submitForm() {
   $('.active-block').find('.error').addClass('hide');
+  $('.active-block').find('.error').find('.list').find('li').empty();
   let data = Photo.fetchData();
   let check = false;
+  let messages = [];
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
+    messages.push('Zaznaczyłeś mniej niż 5 lub więcej niż 10 zdjęć.');
     check = true;
   }
   if (data.selected) {
     console.log(data.selected.width, data.selected.height);
     if (data.selected.width < 1200 || data.selected.height < 750) {
+      messages.push('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
       check = true;
     }
   } else {
+    messages.push('Zdjęcie główne nie zostało wybrane.');
     check = true;
   }
   if (check) {
     $('.active-block').find('.error').removeClass('hide');
+    for (let i = 0; i < messages.length; ++i) {
+      $('.active-block').find('.error').find('.list').append(`<li>${messages[ i ]}</li>`);
+    }
     return $('.active-block .photo-upload');
   }
 }
