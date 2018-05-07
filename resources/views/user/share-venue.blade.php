@@ -400,7 +400,7 @@
                                         <div class="main-infos  div-c inline-2">
                                             <div class="timecalendar calendar-sq divided-column">
                                                 <div class="relative">
-                                                    <input type="text" name="week_from" class="filter req-check" value=""
+                                                    <input type="text" name="week_from" class="filter" value=""
                                                            placeholder="od" data-mask="09:00"
                                                            data-mask-clearifnotmatch="true">
 
@@ -408,7 +408,7 @@
                                             </div>
 
                                             <div class="timecalendar calendar-sq divided-column">
-                                                <input type="text" name="week_to" class="filter req-check" value=""
+                                                <input type="text" name="week_to" class="filter" value=""
                                                        placeholder="do" data-mask="09:00" data-mask-clearifnotmatch="true">
                                             </div>
 

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
   $('#security_deposit_not_required, #book_in_eventday, #cancel_book_in_eventday').attr('checked', false);
   $('#timeres, #timeonce').prop('checked', true);
 });
@@ -17,25 +17,24 @@ function validate() {
     if (!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
   } else if ($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
   else if ($('.active-block').find('input:radio[name="availability"]').length) {
-    if (days()) {
-      values.unshift(...days());
-      if (!values.length) {
-        $('.next-sq').velocity({
-          opacity: 0
-        }, {
-          display: 'none',
-          duration: animationTime,
-          easing: 'ease'
-        });
-        $('.button-submit').velocity({
-          opacity: 1
-        }, {
-          delay: animationTime,
-          duration: animationTime,
-          easing: 'ease',
-          display: 'flex'
-        });
-      }
+    values.unshift(...days());
+    
+    if (!values.length) {
+      $('.next-sq').velocity({
+        opacity: 0
+      }, {
+        display: 'none',
+        duration: animationTime,
+        easing: 'ease'
+      });
+      $('.button-submit').velocity({
+        opacity: 1
+      }, {
+        delay: animationTime,
+        duration: animationTime,
+        easing: 'ease',
+        display: 'flex'
+      });
     }
   } else if ($('.active-block').find('.photo-upload').length) {
     let result = submitForm();
@@ -112,7 +111,7 @@ function days() {
       else array.push($('#setseven input:checkbox').first().parent().parent().parent());
     }
   } else {
-    $('#setonce input, #setseven input:not(:checkbox)').removeClass('req-check').val('');
+    $('#setonce input, #setseven input:not(:checkbox)').removeClass('req-check').removeClass('warning').val('').attr('disabled', true);
     $('#setseven input:checkbox:checked').prop('checked', false);
   }
   $('#setres input:not(:checkbox)').addClass('req-check');

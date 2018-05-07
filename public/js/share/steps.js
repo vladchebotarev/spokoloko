@@ -16,11 +16,11 @@ function enableButtons(boolean) {
   return new Promise((resolve, reject) => {
     let buttons = $('.add-listing-footer button');
     if (boolean) {
-      buttons.each(function (button) {
+      buttons.each(function(button) {
         buttons[ button ].disabled = false;
       });
     } else {
-      buttons.each(function (button) {
+      buttons.each(function(button) {
         buttons[ button ].disabled = true;
       });
     }
@@ -39,15 +39,11 @@ async function goToNext(direction) {
     current = $('.active-block');
     next = direction ? current.next('.add-listing-content') : current.prev(
       '.add-listing-content');
-    // console.log(current, next);
     
     // change nav
     let currentNav = $('.pagination-active');
     let nextNav = direction ? currentNav.next('li') : currentNav.prev('li');
     
-    // currentNav.velocity({
-    // 	color: '#aaa'
-    // }, fastAndEase);
     currentNav.removeClass('pagination-active');
     nextNav.velocity({
       backgroundColor: direction ? '#F57C00' : '#aaa'
@@ -61,7 +57,7 @@ async function goToNext(direction) {
     }, {
       duration: animationTime,
       easing: 'ease',
-      complete: function () {
+      complete: function() {
         // display the next div
         current.removeClass('active-block');
         next.velocity({
@@ -69,7 +65,7 @@ async function goToNext(direction) {
         }, {
           duration: animationTime,
           easing: 'ease',
-          complete: function () {
+          complete: function() {
             enableButtons(true);
           }
         });
@@ -81,7 +77,7 @@ async function goToNext(direction) {
 
 
 // NEXT BUTTON
-$('.add-listing-footer .next-sq').click(function (e) {
+$('.add-listing-footer .next-sq').click(function(e) {
   if ($('.prev-btn').css('visibility') === 'hidden') {
     $('.prev-btn').velocity({
       opacity: 1
@@ -98,8 +94,8 @@ $('.add-listing-footer .next-sq').click(function (e) {
 });
 
 // PREV BUTTON
-$('.add-listing-footer .prev-btn').click(function () {
-  if($('.prev-btn').css('visibility') === 'visible' && counter === 2) {
+$('.add-listing-footer .prev-btn').click(function() {
+  if ($('.prev-btn').css('visibility') === 'visible' && counter === 2) {
     $('.prev-btn').velocity({
       opacity: 0
     }, {
@@ -129,9 +125,9 @@ $('.add-listing-footer .prev-btn').click(function () {
 });
 
 // SUBMIT BUTTON
-$('.add-listing-footer .button-submit').click(function(e){
+$('.add-listing-footer .button-submit').click(function(e) {
   e.stopImmediatePropagation();
   let unfilled = validate();
   if (unfilled === true) goToNext(true);
-  else displayWarning([$('.active-block').find('.error')], false);
+  else displayWarning([ $('.active-block').find('.error') ], false);
 });
