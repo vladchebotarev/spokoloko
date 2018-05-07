@@ -186,6 +186,7 @@
 
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
+    <script src={{ asset('js/jquery.mask.min.js') }}></script>
     <script src={{ asset('js/velocity.min.js')}}></script>
     {{--<script src={{ asset('js/move.min.js')}}></script>--}}
     <script src={{ asset('js/share/steps.js') }}></script>

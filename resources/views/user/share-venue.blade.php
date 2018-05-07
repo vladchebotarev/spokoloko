@@ -52,7 +52,7 @@
                             <div class="divided-column">
                                 <label class="required">Adres</label>
                                 <input type="text" class="req-check" id="route" name="street_address"
-                                       placeholder="ul. Warszawska 1">
+                                       placeholder="Warszawska">
                                 <input type="hidden" id="lat" name="lat">
                                 <input type="hidden" id="lng" name="lng">
                             </div>
@@ -62,14 +62,14 @@
                             <div class="divided-column">
                                 <label class="required">Numer domu</label>
                                 <input type="text" class="req-check" id="street_number" name="street_number"
-                                       placeholder="21/2">
+                                       data-mask="009/09S" placeholder="21/2b">
                             </div>
 
 
                             <div class="divided-column">
                                 <label class="required">Kod pocztowy</label>
                                 <input class="req-check" type="text" id="postal_code" name="postal_code"
-                                       placeholder="31-000">
+                                       placeholder="31-059" data-mask="00-000" data-mask-clearifnotmatch="true">
                             </div>
                         </div>
 
@@ -81,8 +81,8 @@
                                     <div class="ui label">
                                         +48
                                     </div>
-                                    <input type="text" class="req-check" name="phone" id="phone"
-                                           placeholder="730 000 000">
+                                    <input type="text" class="req-check" name="phone" id="phone" data-mask-clearifnotmatch="true"
+                                           data-mask="000 000 000" placeholder="730 000 000">
                                 </div>
                             </div>
 
@@ -93,7 +93,8 @@
                                     <div class="ui label">
                                         +48
                                     </div>
-                                    <input type="text" name="phone2" placeholder="730 000 000">
+                                    <input type="text" name="phone2" placeholder="730 000 000" data-mask-clearifnotmatch="true"
+                                           data-mask="000 000 000">
                                 </div>
                             </div>
                         </div>
@@ -142,15 +143,17 @@
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(krótki)</label>
                                 <textarea name="description" class="req-check" cols="30" rows="5" maxlength="750"
-                                          placeholder="Max 750 symb"></textarea>
+                                          minlength="100"
+                                          placeholder="Min 100 max 750 symb."></textarea>
                             </div>
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(długi)</label>
-                                <textarea name="full_description" class="req-check" cols="30" rows="10" maxlength="7000"
-                                          placeholder="Max 7000 symb."></textarea>
+                                <textarea name="full_description" class="req-check" cols="30" rows="10"
+                                          maxlength="7000" minlength="1000"
+                                          placeholder="min 1000 max 7000 symb."></textarea>
                             </div>
                         </div>
                         {{--<div class="ui six wide computer twelve wide tablet column">
@@ -239,35 +242,36 @@
 
                             <div class="divided-column">
                                 <label class="required">Przestrzen m2</label>
-                                <input class="req-check" type="number" name="area" min="0" value="{{ old('area') }}">
+                                <input class="req-check" type="text" name="area" min="0" value="{{ old('area') }}"
+                                       data-mask="0#">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Ilośc pokoi</label>
-                                <input class="req-check" type="number" name="room_number" min="0"
-                                       value="{{ old('room_number') }}">
+                                <input class="req-check" type="text" name="room_number" min="0"
+                                       value="{{ old('room_number') }}" data-mask="0#">
                             </div>
 
                             <div class="divided-column">
                                 <label class="required">Ilośc lazenek</label>
-                                <input class="req-check" type="number" name="restroom_number" min="0"
-                                       value="{{ old('restroom_number') }}">
+                                <input class="req-check" type="text" name="restroom_number" min="0"
+                                       value="{{ old('restroom_number') }}" data-mask="0#">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Ilośc góści stojąco</label>
-                                <input class="req-check" type="number" name="max_guests_standing" min="0"
-                                       value="{{ old('max_guests_standing') }}">
+                                <input class="req-check" type="text" name="max_guests_standing" min="0"
+                                       value="{{ old('max_guests_standing') }}" data-mask="0#">
                             </div>
 
                             <div class="divided-column">
                                 <label class="required">Ilośc gości siedzaco</label>
-                                <input class="req-check" type="number" name="max_guests_seating" min="0"
-                                       value="{{ old('max_guests_seating') }}">
+                                <input class="req-check" type="text" name="max_guests_seating" min="0"
+                                       value="{{ old('max_guests_seating') }}" data-mask="0#">
                             </div>
                         </div>
 
@@ -385,7 +389,7 @@
                             </div>
 
                             <div id="setonce" style="padding-top: 10px;">
-                                <p class="description-sq">Wprowadż godziny pracy:</p>
+                                <p class="description-sq required">Wprowadż godziny pracy:</p>
 
                                 <div class="div-c inline-2">
                                     <div class="divided-column">
@@ -396,15 +400,16 @@
                                         <div class="main-infos  div-c inline-2">
                                             <div class="timecalendar calendar-sq divided-column">
                                                 <div class="relative">
-                                                    <input type="text" name="week_from" class="filter" value=""
-                                                           placeholder="od">
+                                                    <input type="text" name="week_from" class="filter req-check" value=""
+                                                           placeholder="od" data-mask="09:00"
+                                                           data-mask-clearifnotmatch="true">
 
                                                 </div>
                                             </div>
 
                                             <div class="timecalendar calendar-sq divided-column">
-                                                <input type="text" name="week_to" class="filter" value=""
-                                                       placeholder="do">
+                                                <input type="text" name="week_to" class="filter req-check" value=""
+                                                       placeholder="do" data-mask="09:00" data-mask-clearifnotmatch="true">
                                             </div>
 
                                         </div>
@@ -413,7 +418,7 @@
                             </div>
 
                             <div id="setseven" style="display:none">
-                                <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
+                                <p class="description-sq required">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
                                 @foreach($weekday as $key => $day_title)
                                     <div class="div-c inline-2">
@@ -428,14 +433,14 @@
                                                     <div class="relative">
                                                         <input type="text" class="filter" id="from_week_day_{{ $key  }}"
                                                                name="{{ $key }}_from" value=""
-                                                               placeholder="od" disabled>
+                                                               placeholder="od" disabled data-mask="09:00" data-mask-clearifnotmatch="true">
                                                     </div>
                                                 </div>
 
                                                 <div class="timecalendar calendar-sq divided-column">
                                                     <input type="text" class="filter" name="{{ $key }}_to"
                                                            id="to_week_day_{{ $key }}" value="" placeholder="do"
-                                                           disabled>
+                                                           disabled data-mask="09:00" data-mask-clearifnotmatch="true">
                                                 </div>
                                             </div>
                                         </div>
@@ -451,20 +456,22 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Cena za godzinę</label>
-                                <input type="text" name="price_hour" placeholder="350">
+                                <label class="required">Cena za godzinę</label>
+                                <input type="text" name="price_hour" placeholder="350" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
                             </div>
 
                             <div class="divided-column">
-                                <label>Min. ilosc godzin</label>
-                                <input type="number" name="min_hours" placeholder="" min="1">
+                                <label class="required">Min. ilosc godzin</label>
+                                <input type="text" name="min_hours" placeholder="" min="1" data-mask="0#" class="req-check">
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Cena za calą dobe</label>
-                                <input type="text" name="price_day" placeholder="350">
+                                <label class="required">Cena za calą dobe</label>
+                                <input type="text" name="price_day" placeholder="350" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -487,9 +494,10 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Zaliczka wymagana</label>
+                                <label class="required">Zaliczka wymagana</label>
                                 <input type="text" id="to_security_deposit_not_required" name="security_deposit"
-                                       placeholder="min. 500zł">
+                                       placeholder="min. 500zł" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -501,8 +509,9 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label>Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" min="1" name="days_full_refund" placeholder="2" id="to_cancel_book_in_eventday">
+                                <label class="required">Zwrot zaliczki za N dni do wydarzenia</label>
+                                <input type="text" min="1" name="days_full_refund" placeholder="2"
+                                       id="to_cancel_book_in_eventday" data-mask="0#" class="req-check">
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">

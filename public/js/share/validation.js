@@ -1,31 +1,16 @@
+$(document).ready(function(){
+  $('#security_deposit_not_required, #book_in_eventday, #cancel_book_in_eventday').attr('checked', false);
+  $('#timeres, #timeonce').prop('checked', true);
+});
+
 function validate() {
   let required = $('.active-block .req-check, .active-block .req-select');
   required.removeClass('warning');
   $('#setseven input:checkbox').first().parent().parent().parent().removeClass('warning');
   required = $('.active-block .req-check');
-  let values = required.map(function () {
+  let values = required.map(function() {
     if (!$(this).val()) return $(this);
   }).get();
-  // if($('.active-block').find('textarea[name="description"]').length) {
-  //   let short = $('.active-block').find('textarea[name="description"]');
-  //   let full = $('.active-block').find('textarea[name="full_description"]');
-  //   let checkShort, checkFull;
-  //   checkShort = checkFull = false;
-  //   values.forEach(function(el){
-  //     if(!checkShort && el.is(short)) checkShort = true;
-  //     if(!checkFull && el.is(full)) checkFull = true;
-  //   });
-  //   if(!checkShort) {
-  //     let shortMax = short.attr('maxlength');
-  //     let shortCurrent = short.val().length;
-  //     if(shortCurrent > shortMax) values.unshift(short);
-  //   }
-  //   if(!checkFull) {
-  //     let fullMax = full.attr('maxlength');
-  //     let fullCurrent = full.val().length;
-  //     if(fullCurrent > fullMax) values.unshift(full);
-  //   }
-  // }
   if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
   else if ($('.active-block').find('#select_venue_type').length) {
     if (eventType()) values.unshift(eventType());
@@ -69,7 +54,7 @@ function validate() {
 }
 
 function displayWarning($array, bool) {
-  if(bool) {
+  if (bool) {
     for (let i = 0; i < $array.length; ++i) {
       $array[ i ].addClass('warning');
     }
@@ -104,7 +89,7 @@ function submitForm() {
 function eventType() {
   let types = $('.active-block input:checkbox:checked');
   let checked = [];
-  types.each(function (i, el) {
+  types.each(function(i, el) {
     checked.push(parseInt($(el).val()));
   });
   if (checked === []) {
@@ -131,21 +116,21 @@ function days() {
     $('#setseven input:checkbox:checked').prop('checked', false);
   }
   $('#setres input:not(:checkbox)').addClass('req-check');
-  $('.active-block').find('.req-check').each(function (i, el) {
+  $('.active-block').find('.req-check').each(function(i, el) {
     if (!$(el).val()) array.push($(el));
   });
   return array;
 }
 
-$('#security_deposit_not_required').change(function () {
+$('#security_deposit_not_required').change(function() {
   notRequired($(this));
 });
 
-$('#book_in_eventday').change(function () {
+$('#book_in_eventday').change(function() {
   notRequired($(this));
 });
 
-$('#cancel_book_in_eventday').change(function () {
+$('#cancel_book_in_eventday').change(function() {
   notRequired($(this));
 });
 
@@ -153,7 +138,7 @@ function notRequired(checkbox) {
   let input = checkbox.parent().prev().find('input');
   let label = checkbox.parent().prev().find('label');
   if (checkbox.is(':checked')) {
-    input.removeClass('req-check');
+    input.removeClass('req-check').removeClass('warning');
     label.removeClass('required');
   } else {
     input.addClass('req-check');
