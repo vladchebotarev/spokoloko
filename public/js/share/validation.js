@@ -6,6 +6,26 @@ function validate() {
   let values = required.map(function () {
     if (!$(this).val()) return $(this);
   }).get();
+  // if($('.active-block').find('textarea[name="description"]').length) {
+  //   let short = $('.active-block').find('textarea[name="description"]');
+  //   let full = $('.active-block').find('textarea[name="full_description"]');
+  //   let checkShort, checkFull;
+  //   checkShort = checkFull = false;
+  //   values.forEach(function(el){
+  //     if(!checkShort && el.is(short)) checkShort = true;
+  //     if(!checkFull && el.is(full)) checkFull = true;
+  //   });
+  //   if(!checkShort) {
+  //     let shortMax = short.attr('maxlength');
+  //     let shortCurrent = short.val().length;
+  //     if(shortCurrent > shortMax) values.unshift(short);
+  //   }
+  //   if(!checkFull) {
+  //     let fullMax = full.attr('maxlength');
+  //     let fullCurrent = full.val().length;
+  //     if(fullCurrent > fullMax) values.unshift(full);
+  //   }
+  // }
   if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
   else if ($('.active-block').find('#select_venue_type').length) {
     if (eventType()) values.unshift(eventType());

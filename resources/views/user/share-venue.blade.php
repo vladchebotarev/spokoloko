@@ -141,7 +141,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(krótki)</label>
-                                <textarea name="description" class="req-check" cols="30" rows="5"
+                                <textarea name="description" class="req-check" cols="30" rows="5" maxlength="750"
                                           placeholder="Max 750 symb"></textarea>
                             </div>
                         </div>
@@ -149,7 +149,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(długi)</label>
-                                <textarea name="full_description" class="req-check" cols="30" rows="10"
+                                <textarea name="full_description" class="req-check" cols="30" rows="10" maxlength="7000"
                                           placeholder="Max 7000 symb."></textarea>
                             </div>
                         </div>
