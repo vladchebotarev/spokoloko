@@ -49,7 +49,7 @@
                                 <label class="required">Nazwa przestrzeni</label>
                                 <input type="text" id="name" name="name"
                                        class="req-check {{ $errors->has('name') ? 'warning' : '' }}"
-                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna'"
+                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna'" maxlength="150"
                                        value="{{ old('name') }}">
                                 @if ($errors->has('name'))
                                     <small class="small-display-has-error">{{ $errors->first('name') }}</small>
@@ -64,7 +64,7 @@
                                 <input type="text"
                                        class="req-check {{ $errors->has('street_address') ? 'warning' : '' }}"
                                        id="route" name="street_address"
-                                       placeholder="Warszawska" value="{{ old('street_address') }}">
+                                       placeholder="Warszawska" value="{{ old('street_address') }}" maxlength="150">
                                 @if ($errors->has('street_address'))
                                     <small class="small-display-has-error">{{ $errors->first('street_address') }}</small>
                                 @endif
@@ -79,7 +79,7 @@
                                 <input type="text"
                                        class="req-check {{ $errors->has('street_number') ? 'warning' : '' }}"
                                        id="street_number" name="street_number"
-                                       data-mask="009/09S" placeholder="21/2b" value="{{ old('street_number') }}">
+                                       data-mask="009/09S" placeholder="21/2b" value="{{ old('street_number') }}" maxlength="20">
                                 @if ($errors->has('street_number'))
                                     <small class="small-display-has-error">{{ $errors->first('street_number') }}</small>
                                 @endif
@@ -705,13 +705,15 @@
                         <h3 class="title-sq">Photos</h3>
                     </div>
 
-                    <div class="ui error message hide">
-                        <i class="close icon"></i>
-                        <div class="header">
-                            Napotkano następujące błędy:
+                    <div class="ui twelve wide computer column">
+                        <div class="ui negative message hide">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                Napotkano następujące błędy:
+                            </div>
+                            <ul class="list">
+                            </ul>
                         </div>
-                        <ul class="list">
-                        </ul>
                     </div>
 
                     <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
