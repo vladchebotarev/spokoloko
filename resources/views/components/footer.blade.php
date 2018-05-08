@@ -11,7 +11,7 @@
                     <ul class="list-default-sq">
                         <li><a href="">Eventy </a></li>
                         <li><a href="">Blog </a></li>
-                        <li><a href="">Karta serwisu</a></li>
+                        <li><a href="{{ url('/sitemap') }}">Karta serwisu</a></li>
                         <li><a href="">Kontakt</a></li>
                     </ul>
 

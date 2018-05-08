@@ -35,6 +35,7 @@
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
         <script src={{ asset('new-assets/library/map.js') }}></script>
         <script src="{{ asset('new-assets/library/checkbox2.js') }}"></script>
+
     @endif
 
 {{--TODO customize--}}

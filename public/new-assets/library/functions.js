@@ -12,8 +12,6 @@ var SQ = SQ || {};
 
 	SQ.responsiveClassesAdded = false;
 
-
-
     function imageResize() {
         var photoContainer = $(".image-wrapper");
 
@@ -232,7 +230,63 @@ var SQ = SQ || {};
               className: {
                  prevIcon: "icon icon-arrow-left-122",
                  nextIcon: "icon icon-arrow-right-122"
-              }
+              },
+                formatter: {
+                    date: function (date, settings) {
+                        if (!date) return '';
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        if (month < 9) {
+                            if (day < 9){
+                                return year + ' - 0' + month + ' - 0' + day;
+                            }
+                            else {
+                                return year + ' - 0' + month + ' - ' + day;
+                            }
+                        } else {
+                            if (day < 9){
+                                return year + ' - ' + month + ' - 0' + day;
+                            }
+                            else {
+                                return year + ' - ' + month + ' - ' + day;
+                            }
+                        }
+
+                    }
+                }
+            });
+
+            $('#examplecalendar2').calendar({
+                type: 'date',
+                className: {
+                    prevIcon: "icon icon-arrow-left-122",
+                    nextIcon: "icon icon-arrow-right-122"
+                },
+                formatter: {
+                    date: function (date, settings) {
+                        if (!date) return '';
+                        var day = date.getDate();
+                        var month = date.getMonth() + 1;
+                        var year = date.getFullYear();
+                        if (month < 9) {
+                            if (day < 9){
+                                return year +  ' - 0' + month + ' - 0' + day;
+                            }
+                            else {
+                                return year +  ' - 0' + month + ' - ' + day;
+                            }
+                        } else {
+                            if (day < 9){
+                                return year  + ' - ' + month + ' - 0' + day;
+                            }
+                            else {
+                                return year  + ' - ' + month + ' - ' + day;
+                            }
+                        }
+
+                    }
+                }
             });
 
             $('.timecalendar').calendar({
@@ -277,20 +331,7 @@ var SQ = SQ || {};
                     nextIcon: "icon icon-arrow-right-122"
                 },
                 monthFirst: false,
-                formatter: {
-                    date: function (date, settings) {
-                        if (!date) return '';
-                        var day = date.getDate();
-                        var month = date.getMonth() + 1;
-                        var year = date.getFullYear();
 
-                        if (month < 9) {
-                            return day + ' - 0' + month;
-                        } else {
-                            return day + ' - ' + month;
-                        }
-                    }
-                }
             });
 
             $('#sticky-box-rangeend').calendar({
@@ -302,20 +343,31 @@ var SQ = SQ || {};
                     nextIcon: "icon icon-arrow-right-122"
                 },
                 monthFirst: false,
-                formatter: {
-                    date: function (date, settings) {
-                        if (!date) return '';
-                        var day = date.getDate();
-                        var month = date.getMonth() + 1;
-                        var year = date.getFullYear();
-                        if (month < 9) {
-                            return day + ' - 0' + month;
-                        } else {
-                            return day + ' - ' + month;
-                        }
 
-                    }
-                }
+            });
+
+            $('#sticky-box-rangestart1').calendar({
+                type: 'time',
+                ampm: false,
+                endCalendar: $('#sticky-box-rangeend'),
+                className: {
+                    prevIcon: "icon icon-arrow-left-122",
+                    nextIcon: "icon icon-arrow-right-122"
+                },
+                monthFirst: false,
+
+            });
+
+            $('#sticky-box-rangeend1').calendar({
+                type: 'time',
+                ampm:false,
+                startCalendar: $('#sticky-box-rangestart'),
+                className: {
+                    prevIcon: "icon icon-arrow-left-122",
+                    nextIcon: "icon icon-arrow-right-122"
+                },
+                monthFirst: false,
+
             });
 
             $("#timeres").click(function(){
@@ -336,6 +388,12 @@ var SQ = SQ || {};
             });
 
 
+
+            $("#sender_dates").on('click', function() {
+                $("#event_date_new").val($("#event_date").val());
+                $("#from_hour_new").val($("#from_hour").val());
+                $("#to_hour_new").val($("#to_hour").val());
+            });
 
 
 
