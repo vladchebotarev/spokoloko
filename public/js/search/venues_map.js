@@ -51,7 +51,7 @@ function initMap() {
 
             var marker = new google.maps.Marker({
                 map: map,
-                icon: 'https://spokoloko.eu/img/logos/pin_map.png',
+                icon: 'https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map.png',
                 animation: google.maps.Animation.DROP,
                 position: point
             });
@@ -64,19 +64,19 @@ function initMap() {
 
 
             google.maps.event.addListener(marker, 'mouseover', function() {
-                marker.setIcon('https://spokoloko.eu/img/logos/pin_map_hover.png');
+                marker.setIcon('https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map_hover.png');
             });
 
             google.maps.event.addListener(marker, 'mouseout', function() {
-                marker.setIcon('https://spokoloko.eu/img/logos/pin_map.png');
+                marker.setIcon('https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map.png');
             });
 
             $('#local_'+id_local).mouseover(function() {
-                marker.setIcon('https://spokoloko.eu/img/logos/pin_map_hover.png');
+                marker.setIcon('https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map_hover.png');
             });
 
             $('#local_'+id_local).mouseout(function() {
-                marker.setIcon('https://spokoloko.eu/img/logos/pin_map.png');
+                marker.setIcon('https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map.png');
             });
 
             google.maps.event.addListener(marker, 'click', function() {

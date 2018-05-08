@@ -16,7 +16,7 @@ function bindDataToForm(address,lat,lng, number, website){
 
 function initMap() {
     var myLatlng = new google.maps.LatLng(50.0615991, 19.9373312);
-    var imagePath = 'https://spokoloko.eu/img/logos/pin_map_hover.png';
+    var imagePath = 'https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map.png';
     var mapOptions = {
         zoom: 13,
         center: myLatlng
@@ -81,6 +81,7 @@ function initMap() {
     var marker = new google.maps.Marker({
         map: map,
         position: myLatlng,
+        icon: 'https://res.cloudinary.com/spokoloko/image/upload/v1/app/map/pin_map.png',
         draggable: true,
         anchorPoint: new google.maps.Point(0, -29)
     });
