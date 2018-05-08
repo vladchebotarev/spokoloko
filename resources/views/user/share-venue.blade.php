@@ -61,6 +61,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Adres</label>
+<<<<<<< HEAD
                                 <input type="text"
                                        class="req-check {{ $errors->has('street_address') ? 'warning' : '' }}"
                                        id="route" name="street_address"
@@ -70,12 +71,19 @@
                                 @endif
                                 <input type="hidden" id="lat" name="lat" value="{{ old('lat') }}">
                                 <input type="hidden" id="lng" name="lng" value="{{ old('lng') }}">
+=======
+                                <input type="text" class="req-check" id="route" name="street_address"
+                                       placeholder="Warszawska">
+                                <input type="hidden" id="lat" name="lat">
+                                <input type="hidden" id="lng" name="lng">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Numer domu</label>
+<<<<<<< HEAD
                                 <input type="text"
                                        class="req-check {{ $errors->has('street_number') ? 'warning' : '' }}"
                                        id="street_number" name="street_number"
@@ -83,17 +91,26 @@
                                 @if ($errors->has('street_number'))
                                     <small class="small-display-has-error">{{ $errors->first('street_number') }}</small>
                                 @endif
+=======
+                                <input type="text" class="req-check" id="street_number" name="street_number"
+                                       data-mask="009/09S" placeholder="21/2b">
+>>>>>>> origin/val-mat
                             </div>
 
 
                             <div class="divided-column">
                                 <label class="required">Kod pocztowy</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('postal_code') ? 'warning' : '' }}" type="text"
                                        id="postal_code" name="postal_code"
                                        placeholder="31-000" value="{{ old('postal_code') }}">
                                 @if ($errors->has('postal_code'))
                                     <small class="small-display-has-error">{{ $errors->first('postal_code') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" id="postal_code" name="postal_code"
+                                       placeholder="31-059" data-mask="00-000" data-mask-clearifnotmatch="true">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
@@ -105,6 +122,7 @@
                                     <div class="ui label">
                                         +48
                                     </div>
+<<<<<<< HEAD
                                     <input type="text" class="req-check {{ $errors->has('phone') ? 'warning' : '' }}"
                                            name="phone" id="phone"
                                            placeholder="730 000 000" value="{{ old('phone') }}">
@@ -112,6 +130,11 @@
                                 @if ($errors->has('phone'))
                                     <small class="small-display-has-error">{{ $errors->first('phone') }}</small>
                                 @endif
+=======
+                                    <input type="text" class="req-check" name="phone" id="phone" data-mask-clearifnotmatch="true"
+                                           data-mask="000 000 000" placeholder="730 000 000">
+                                </div>
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column">
@@ -121,8 +144,13 @@
                                     <div class="ui label">
                                         +48
                                     </div>
+<<<<<<< HEAD
                                     <input type="text" class="{{ $errors->has('phone2') ? 'warning' : '' }}"
                                            name="phone2" placeholder="730 000 000" value="{{ old('phone2') }}">
+=======
+                                    <input type="text" name="phone2" placeholder="730 000 000" data-mask-clearifnotmatch="true"
+                                           data-mask="000 000 000">
+>>>>>>> origin/val-mat
                                 </div>
                                 @if ($errors->has('phone2'))
                                     <small class="small-display-has-error">{{ $errors->first('phone2') }}</small>
@@ -193,6 +221,7 @@
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(krótki)</label>
+<<<<<<< HEAD
                                 <textarea name="description"
                                           class="req-check {{ $errors->has('instagram') ? 'warning' : '' }}" cols="30"
                                           rows="5"
@@ -200,12 +229,18 @@
                                 @if ($errors->has('description'))
                                     <small class="small-display-has-error">{{ $errors->first('description') }}</small>
                                 @endif
+=======
+                                <textarea name="description" class="req-check" cols="30" rows="5" maxlength="750"
+                                          minlength="100"
+                                          placeholder="Min 100 max 750 symb."></textarea>
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
                         <div class="div-c">
                             <div class="divided-column">
                                 <label class="required">Opis lokalu(długi)</label>
+<<<<<<< HEAD
                                 <textarea name="full_description"
                                           class="req-check {{ $errors->has('full_description') ? 'warning' : '' }}"
                                           cols="30" rows="10"
@@ -213,6 +248,11 @@
                                 @if ($errors->has('full_description'))
                                     <small class="small-display-has-error">{{ $errors->first('full_description') }}</small>
                                 @endif
+=======
+                                <textarea name="full_description" class="req-check" cols="30" rows="10"
+                                          maxlength="7000" minlength="1000"
+                                          placeholder="min 1000 max 7000 symb."></textarea>
+>>>>>>> origin/val-mat
                             </div>
                         </div>
                         {{--<div class="ui six wide computer twelve wide tablet column">
@@ -318,55 +358,80 @@
 
                             <div class="divided-column">
                                 <label class="required">Przestrzen m2</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('area') ? 'warning' : '' }}" type="number"
                                        name="area" min="0" value="{{ old('area') }}">
                                 @if ($errors->has('area'))
                                     <small class="small-display-has-error">{{ $errors->first('area') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" name="area" min="0" value="{{ old('area') }}"
+                                       data-mask="0#">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Ilośc pokoi</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('room_number') ? 'warning' : '' }}"
                                        type="number" name="room_number" min="0"
                                        value="{{ old('room_number') }}">
                                 @if ($errors->has('room_number'))
                                     <small class="small-display-has-error">{{ $errors->first('room_number') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" name="room_number" min="0"
+                                       value="{{ old('room_number') }}" data-mask="0#">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column">
                                 <label class="required">Ilośc lazenek</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('restroom_number') ? 'warning' : '' }}"
                                        type="number" name="restroom_number" min="0"
                                        value="{{ old('restroom_number') }}">
                                 @if ($errors->has('restroom_number'))
                                     <small class="small-display-has-error">{{ $errors->first('restroom_number') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" name="restroom_number" min="0"
+                                       value="{{ old('restroom_number') }}" data-mask="0#">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Ilośc góści stojąco</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('max_guests_standing') ? 'warning' : '' }}"
                                        type="number" name="max_guests_standing" min="0"
                                        value="{{ old('max_guests_standing') }}">
                                 @if ($errors->has('max_guests_standing'))
                                     <small class="small-display-has-error">{{ $errors->first('max_guests_standing') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" name="max_guests_standing" min="0"
+                                       value="{{ old('max_guests_standing') }}" data-mask="0#">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column">
                                 <label class="required">Ilośc gości siedzaco</label>
+<<<<<<< HEAD
                                 <input class="req-check {{ $errors->has('max_guests_seating') ? 'warning' : '' }}"
                                        type="number" name="max_guests_seating" min="0"
                                        value="{{ old('max_guests_seating') }}">
                                 @if ($errors->has('max_guests_seating'))
                                     <small class="small-display-has-error">{{ $errors->first('max_guests_seating') }}</small>
                                 @endif
+=======
+                                <input class="req-check" type="text" name="max_guests_seating" min="0"
+                                       value="{{ old('max_guests_seating') }}" data-mask="0#">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
@@ -493,7 +558,7 @@
                             </div>
 
                             <div id="setonce" style="padding-top: 10px;">
-                                <p class="description-sq">Wprowadż godziny pracy:</p>
+                                <p class="description-sq required">Wprowadż godziny pracy:</p>
 
                                 <div class="div-c inline-2">
                                     <div class="divided-column">
@@ -504,17 +569,28 @@
                                         <div class="main-infos  div-c inline-2">
                                             <div class="timecalendar calendar-sq divided-column">
                                                 <div class="relative">
+<<<<<<< HEAD
                                                     <input type="text" name="week_from" class="filter"
                                                            value="{{ old('week_from') }}"
                                                            placeholder="od">
+=======
+                                                    <input type="text" name="week_from" class="filter" value=""
+                                                           placeholder="od" data-mask="09:00"
+                                                           data-mask-clearifnotmatch="true">
+>>>>>>> origin/val-mat
 
                                                 </div>
                                             </div>
 
                                             <div class="timecalendar calendar-sq divided-column">
+<<<<<<< HEAD
                                                 <input type="text" name="week_to" class="filter"
                                                        value="{{ old('week_to') }}"
                                                        placeholder="do">
+=======
+                                                <input type="text" name="week_to" class="filter" value=""
+                                                       placeholder="do" data-mask="09:00" data-mask-clearifnotmatch="true">
+>>>>>>> origin/val-mat
                                             </div>
 
                                         </div>
@@ -523,7 +599,7 @@
                             </div>
 
                             <div id="setseven" style="display:none">
-                                <p class="description-sq">Wybierz dni tygodnia oraz godziny otwarcia:</p>
+                                <p class="description-sq required">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
                                 @foreach($weekday as $key => $day_title)
                                     <div class="div-c inline-2">
@@ -537,16 +613,26 @@
                                                 <div class="timecalendar calendar-sq divided-column">
                                                     <div class="relative">
                                                         <input type="text" class="filter" id="from_week_day_{{ $key  }}"
+<<<<<<< HEAD
                                                                name="{{ $key }}_from" value="{{ old($key.'_from') }}"
                                                                placeholder="od" {{ old($key.'_from') == null ? 'disabled' : '' }}>
+=======
+                                                               name="{{ $key }}_from" value=""
+                                                               placeholder="od" disabled data-mask="09:00" data-mask-clearifnotmatch="true">
+>>>>>>> origin/val-mat
                                                     </div>
                                                 </div>
 
                                                 <div class="timecalendar calendar-sq divided-column">
                                                     <input type="text" class="filter" name="{{ $key }}_to"
+<<<<<<< HEAD
                                                            id="to_week_day_{{ $key }}" value="{{ old($key.'_to') }}"
                                                            placeholder="do"
                                                             {{ old($key.'_to') == null ? 'disabled' : '' }}>
+=======
+                                                           id="to_week_day_{{ $key }}" value="" placeholder="do"
+                                                           disabled data-mask="09:00" data-mask-clearifnotmatch="true">
+>>>>>>> origin/val-mat
                                                 </div>
                                             </div>
                                         </div>
@@ -563,33 +649,47 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Cena za godzinę</label>
+<<<<<<< HEAD
                                 <input type="text" class="req-check {{ $errors->has('price_hour') ? 'warning' : '' }}"
                                        name="price_hour" placeholder="350"
                                        value="{{ old('price_hour') }}">
                                 @if ($errors->has('price_hour'))
                                     <small class="small-display-has-error">{{ $errors->first('price_hour') }}</small>
                                 @endif
+=======
+                                <input type="text" name="price_hour" placeholder="350" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column">
                                 <label class="required">Min. ilosc godzin</label>
+<<<<<<< HEAD
                                 <input type="number" class="req-check {{ $errors->has('min_hours') ? 'warning' : '' }}"
                                        name="min_hours" placeholder="" min="1" value="{{ old('min_hours') }}">
                                 @if ($errors->has('min_hours'))
                                     <small class="small-display-has-error">{{ $errors->first('min_hours') }}</small>
                                 @endif
 
+=======
+                                <input type="text" name="min_hours" placeholder="" min="1" data-mask="0#" class="req-check">
+>>>>>>> origin/val-mat
                             </div>
                         </div>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Cena za calą dobe</label>
+<<<<<<< HEAD
                                 <input type="text" class="req-check {{ $errors->has('price_day') ? 'warning' : '' }}"
                                        name="price_day" placeholder="350" value="{{ old('price_day') }}">
                                 @if ($errors->has('price_day'))
                                     <small class="small-display-has-error">{{ $errors->first('price_day') }}</small>
                                 @endif
+=======
+                                <input type="text" name="price_day" placeholder="350" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -617,6 +717,7 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
+<<<<<<< HEAD
                                 <label>Zaliczka wymagana</label>
                                 <input type="text" class="{{ $errors->has('security_deposit') ? 'warning' : '' }}"
                                        id="to_security_deposit_not_required" name="security_deposit"
@@ -625,6 +726,12 @@
                                 @if ($errors->has('security_deposit'))
                                     <small class="small-display-has-error">{{ $errors->first('security_deposit') }}</small>
                                 @endif
+=======
+                                <label class="required">Zaliczka wymagana</label>
+                                <input type="text" id="to_security_deposit_not_required" name="security_deposit"
+                                       placeholder="min. 500zł" data-mask="#.##0,00"
+                                       data-mask-reverse="true" class="req-check">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -636,6 +743,7 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
+<<<<<<< HEAD
                                 <label>Zwrot zaliczki za N dni do wydarzenia</label>
                                 <input type="number" class="{{ $errors->has('days_full_refund') ? 'warning' : '' }}"
                                        min="1" name="days_full_refund" placeholder="2"
@@ -644,6 +752,11 @@
                                 @if ($errors->has('days_full_refund'))
                                     <small class="small-display-has-error">{{ $errors->first('days_full_refund') }}</small>
                                 @endif
+=======
+                                <label class="required">Zwrot zaliczki za N dni do wydarzenia</label>
+                                <input type="text" min="1" name="days_full_refund" placeholder="2"
+                                       id="to_cancel_book_in_eventday" data-mask="0#" class="req-check">
+>>>>>>> origin/val-mat
                             </div>
 
                             <div class="divided-column" style="padding-top: 50px;">
@@ -688,6 +801,15 @@
                         <h3 class="title-sq">Photos</h3>
                     </div>
 
+                    <div class="ui error message hide">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Napotkano następujące błędy:
+                        </div>
+                        <ul class="list">
+                        </ul>
+                    </div>
+
                     <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -712,7 +834,11 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
                 <input type="hidden" name="cover_image" id="main-image"/>
+=======
+                <input type="hidden" id="main_image" />
+>>>>>>> origin/val-mat
             </div>
         </div>
 
