@@ -726,14 +726,20 @@
                         </div>
                     </div>
 
-                        <div class="section-container" id="section-07">
-                            <div class="typo-section-sq bottom-default">
-                                <h3 class="preview-sq title-sq">Facebook Messager</h3>
-                                <p>Wlacz integracje z Facebook aby ...</p><br>
-
-
+                    <div class="section-container" id="section-07">
+                        <div class="typo-section-sq bottom-default">
+                            <h3 class="preview-sq title-sq">Facebook Messager</h3>
+                            <p>Wlacz integracje z Facebook aby ...</p><br>
+                            <div class="div-c">
+                                <div class="divided-column">
+                                    <label>Facebook Page ID</label>
+                                    <input type="number" id="facebook_page_id" name="facebook_page_id"
+                                           value="{{ $venue->facebook_page_id }}" placeholder="">
+                                </div>
                             </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

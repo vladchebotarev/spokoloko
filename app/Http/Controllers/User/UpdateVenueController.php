@@ -119,6 +119,7 @@ class UpdateVenueController extends Controller
                 'security_deposit' => 'regex:/^\d*(\.\d{1,2})?$/',
                 'days_full_refund' => 'nullable|digits_between:1,3',
                 'cancellation_information' => 'max:7000',
+                'facebook_page_id' => 'nullable|digits_between:1,25',
             ]);
 
             if ($validator->fails()) {
@@ -143,6 +144,8 @@ class UpdateVenueController extends Controller
                 $venue->facebook = $request->get('facebook');
                 $venue->instagram = $request->get('instagram');
                 $venue->tripadvisor = $request->get('tripadvisor');
+
+                $venue->facebook_page_id = $request->get('facebook_page_id');
 
                 $venue->description = $request->get('description');
                 $venue->full_description = $request->get('full_description');

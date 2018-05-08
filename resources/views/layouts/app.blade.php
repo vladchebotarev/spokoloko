@@ -173,6 +173,7 @@
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 <script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
+<script src={{ asset('js/facebook_messenger.js') }}></script>
 
 
 <!-- Other scripts -->
