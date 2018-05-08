@@ -12,6 +12,8 @@ var SQ = SQ || {};
 
 	SQ.responsiveClassesAdded = false;
 
+
+
     function imageResize() {
         var photoContainer = $(".image-wrapper");
 

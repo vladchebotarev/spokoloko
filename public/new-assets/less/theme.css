@@ -14603,16 +14603,7 @@ select.ui.dropdown {
   min-width: inherit;
   white-space: nowrap;
 }
-.noUi-horizontal .noUi-tooltip:before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 50%;
-  margin-top: -4px;
-  left: initial;
-  width: 0;
-  height: 0;
-}
+
 .noUi-horizontal .noUi-handle-lower .noUi-tooltip {
   top: -25px;
   right: -10px;

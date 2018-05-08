@@ -807,3 +807,5 @@ $.fn.checkbox.settings = {
 };
 
 })( jQuery, window, document );
+
+

@@ -85,9 +85,8 @@
                                         <div class="sticky-box-content">
                                             <div class="calendar_title"><p>Data wydarzenia:</p></div>
 
-                                            <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px;">
-                                                <input type="text" value="" required placeholder="Wybierz...">
-                                            </div>
+                                            <input type="checkbox" id="price_depends_on_weekday" name="price_depends_on_weekday" >
+                                            <label for="price_depends_on_weekday">Cena zależy od dnia tygodnia</label>
 
                                             <form action="checkout_page.html">
                                                 <div class="main-infos inline-check-in">

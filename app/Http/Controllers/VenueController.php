@@ -24,8 +24,9 @@ class VenueController extends Controller
             $venue_array['eventTypes'] = $venue->eventTypes->toArray();
             $venue_array['amenities'] = $venue->amenities->toArray();
             $venue_array['rules'] = $venue->rules->toArray();
+
             $venue_array['style'] = $venue->style;
-            $venue_array['rules'] = $venue->features->toArray();
+
 
             //dump($venue->toArray());
             return view('venue', $venue->toArray());

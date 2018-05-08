@@ -127,8 +127,8 @@
                                 </a>
                             </li>
 
-                            <li><a href="#section-06" class="item">
-                                    <span>Pakiet</span>
+                            <li><a href="#section-07" class="item">
+                                    <span>Facebook</span>
                                 </a>
                             </li>
 
@@ -726,9 +726,14 @@
                         </div>
                     </div>
 
-                    <div class="section-container" id="section-07">
+                        <div class="section-container" id="section-07">
+                            <div class="typo-section-sq bottom-default">
+                                <h3 class="preview-sq title-sq">Facebook Messager</h3>
+                                <p>Wlacz integracje z Facebook aby ...</p><br>
 
-                    </div>
+
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
