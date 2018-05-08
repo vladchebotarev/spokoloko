@@ -8,7 +8,6 @@
                 @if (session('status'))
                     <div class="ui twelve wide computer column">
                         <div class="ui positive message" style="margin-bottom: 30px;">
-                            <i class="close icon"></i>
                             <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
                             <div class="header">
                                 Powodzenie
@@ -58,7 +57,7 @@
                                 PLN <span>/{{ $venue->min_hours }} h</span>
                             </div>--}}
                             <a class="add-wishlist" href="{{ url('user/update-venue/'.$venue->url) }}"
-                               target="_blank">
+                                   target="_blank" data-inverted="" data-tooltip="Edytuj" data-position="left center">
                                 <i class="icon icon-cog2"></i>
                             </a>
 
@@ -79,7 +78,7 @@
                                 </div>
 
                                 <div class="biz-adres">
-                                    <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }}
+                                    <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }} {{ $venue->street_number }}
                                 </div>
 
                                 {{--<div class="icons-row">

@@ -216,7 +216,7 @@
                             <div class="div-c inline-2">
                                 <div class="divided-column">
                                     <label>Numer domu</label>
-                                    <input type="text" name="street_number"
+                                    <input type="text" name="street_number" value="{{ $venue->street_number }}"
                                            placeholder="" disabled>
                                 </div>
 

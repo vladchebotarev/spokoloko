@@ -16,8 +16,13 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
+
+    @if(Request::is('user/*'))
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
+    @endif
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
@@ -37,11 +42,11 @@
         <script src="{{ asset('new-assets/library/checkbox2.js') }}"></script>
     @endif
 
-{{--TODO customize--}}
+    {{--TODO customize--}}
     @if(Request::is('user/update-venue/*') or Request::is('user/share-venue') or Request::is('user/share-service'))
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
-            <script src={{ asset('new-assets/library/map_adding.js') }}></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
+        <script src={{ asset('new-assets/library/map_adding.js') }}></script>
     @endif
 
 
@@ -166,6 +171,7 @@
 
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
+<script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
 
 
 <!-- Other scripts -->
@@ -180,10 +186,15 @@
     @endif--}}
 @else
     @if(Request::is('user/profile'))
-        <script src={{ asset('js/profile-avatar.js') }}></script>
-        <script src={{ asset('js/profile-form.js') }}></script>
+        <script src={{ asset('js/user/profile-form.js') }}></script>
     @endif
 @endguest
+
+@if(Request::is('user/*'))
+    <script src={{ asset('js/semantic-ui/message.js') }}></script>
+    <script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
+@endif
+
 
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
@@ -210,32 +221,5 @@
     <script src={{ asset('js/search/venues_map.js') }}></script>
 @endif
 
-<script>
-    $( "#uploadAvatar" ).click(function() {
-        $('#inputImage').trigger('click');
-    });
-
-    $('#inputImage').change(function() {
-        $('#formUpdateImage').submit();
-    });
-
-    $('.message .close')
-        .on('click', function() {
-            $(this)
-                .closest('.message')
-                .transition('fade')
-            ;
-        })
-    ;
-
-    $("form").submit(function (e) {
-        e.preventDefault();
-        $('button[type=submit], input[type=submit]').prop('disabled',true);
-        $("#dimmer").show();
-        this.submit();
-    });
-</script>
-
 </body>
-
 </html>

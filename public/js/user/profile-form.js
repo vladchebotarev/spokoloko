@@ -22,3 +22,11 @@ $("#mycalendar").calendar({
         }
     }
 });
+
+$("#uploadAvatar").click(function () {
+    $('#inputImage').trigger('click');
+});
+
+$('#inputImage').change(function () {
+    $('#formUpdateImage').submit();
+});

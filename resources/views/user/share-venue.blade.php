@@ -8,6 +8,29 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
+
+                        @if ($errors->any())
+                            <div class="ui twelve wide computer column">
+                                <div class="ui negative message">
+                                    <div class="header">
+                                        Popraw następujące blędy
+                                    </div>
+                                    <p>Popraw wszystkie blędy w spróbuj ponownie</p>
+                                </div>
+                            </div>
+                        @endif
+
+                            @if (session('SaveError'))
+                                <div class="ui twelve wide computer column">
+                                    <div class="ui negative message">
+                                        <div class="header">
+                                            Błąd
+                                        </div>
+                                        <p>{{ session('SaveError') }}</p>
+                                    </div>
+                                </div>
+                            @endif
+
                         <h3 class="title-sq">Najwarzniejsze</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
@@ -323,8 +346,8 @@
 
                             <div class="divided-column">
                                 <label class="required">Przestrzen m2</label>
-                                <input class="req-check {{ $errors->has('area') ? 'warning' : '' }}" type="number"
-                                       name="area" min="0" value="{{ old('area') }}">
+                                <input class="req-check {{ $errors->has('area') ? 'warning' : '' }}" type="text"
+                                       name="area" value="{{ old('area') }}" data-mask="0#" maxlength="9">
                                 @if ($errors->has('area'))
                                     <small class="small-display-has-error">{{ $errors->first('area') }}</small>
                                 @endif
@@ -335,8 +358,8 @@
                             <div class="divided-column">
                                 <label class="required">Ilośc pokoi</label>
                                 <input class="req-check {{ $errors->has('room_number') ? 'warning' : '' }}"
-                                       type="number" name="room_number" min="0"
-                                       value="{{ old('room_number') }}">
+                                       type="text" name="room_number" min="0"
+                                       value="{{ old('room_number') }}" data-mask="0#" maxlength="3">
                                 @if ($errors->has('room_number'))
                                     <small class="small-display-has-error">{{ $errors->first('room_number') }}</small>
                                 @endif
@@ -345,8 +368,8 @@
                             <div class="divided-column">
                                 <label class="required">Ilośc lazenek</label>
                                 <input class="req-check {{ $errors->has('restroom_number') ? 'warning' : '' }}"
-                                       type="number" name="restroom_number" min="0"
-                                       value="{{ old('restroom_number') }}">
+                                       type="text" name="restroom_number" min="0"
+                                       value="{{ old('restroom_number') }}" data-mask="0#" maxlength="3">
                                 @if ($errors->has('restroom_number'))
                                     <small class="small-display-has-error">{{ $errors->first('restroom_number') }}</small>
                                 @endif
@@ -357,8 +380,8 @@
                             <div class="divided-column">
                                 <label class="required">Ilośc góści stojąco</label>
                                 <input class="req-check {{ $errors->has('max_guests_standing') ? 'warning' : '' }}"
-                                       type="number" name="max_guests_standing" min="0"
-                                       value="{{ old('max_guests_standing') }}">
+                                       type="text" name="max_guests_standing" min="0"
+                                       value="{{ old('max_guests_standing') }}" data-mask="0#" maxlength="6">
                                 @if ($errors->has('max_guests_standing'))
                                     <small class="small-display-has-error">{{ $errors->first('max_guests_standing') }}</small>
                                 @endif
@@ -367,8 +390,8 @@
                             <div class="divided-column">
                                 <label class="required">Ilośc gości siedzaco</label>
                                 <input class="req-check {{ $errors->has('max_guests_seating') ? 'warning' : '' }}"
-                                       type="number" name="max_guests_seating" min="0"
-                                       value="{{ old('max_guests_seating') }}">
+                                       type="text" name="max_guests_seating" min="0"
+                                       value="{{ old('max_guests_seating') }}" data-mask="0#" maxlength="6">
                                 @if ($errors->has('max_guests_seating'))
                                     <small class="small-display-has-error">{{ $errors->first('max_guests_seating') }}</small>
                                 @endif
@@ -482,7 +505,7 @@
                             </div>
                         </div>
 
-                        <div id="setweek" style="display:none">
+                        <div id="setweek" {{ old('availability') == 'Week' ? '' : 'hidden' }}>
                             <div class="div-c inline-2 one-label">
                                 <div class="divided-column">
                                     <input type="radio" id="timeonce" name="week_availability"
@@ -497,7 +520,7 @@
                                 </div>
                             </div>
 
-                            <div id="setonce" style="padding-top: 10px;">
+                            <div id="setonce" {{ old('week_availability') != 'Custom' ? '' : 'hidden' }}>
                                 <p class="description-sq required">Wprowadż godziny pracy:</p>
 
                                 <div class="div-c inline-2">
@@ -528,7 +551,7 @@
                                 </div>
                             </div>
 
-                            <div id="setseven" style="display:none">
+                            <div id="setseven" {{ old('week_availability') == 'Custom' ? '' : 'hidden' }}>
                                 <p class="description-sq required">Wybierz dni tygodnia oraz godziny otwarcia:</p>
 
                                 @foreach($weekday as $key => $day_title)
@@ -583,8 +606,8 @@
 
                             <div class="divided-column">
                                 <label class="required">Min. ilosc godzin</label>
-                                <input type="number" class="req-check {{ $errors->has('min_hours') ? 'warning' : '' }}"
-                                       name="min_hours" placeholder="" min="1" data-mask="0#"
+                                <input type="text" class="req-check {{ $errors->has('min_hours') ? 'warning' : '' }}"
+                                       name="min_hours" placeholder="" data-mask="0#" maxlength="2"
                                        value="{{ old('min_hours') }}">
                                 @if ($errors->has('min_hours'))
                                     <small class="small-display-has-error">{{ $errors->first('min_hours') }}</small>
@@ -632,7 +655,7 @@
                             <div class="divided-column">
                                 <label class="required">Zaliczka wymagana</label>
                                 <input type="text"
-                                       class="req-check {{ $errors->has('security_deposit') ? 'warning' : '' }}"
+                                       class="{{ old('security_deposit_not_required') == 'on' ? '' : 'req-check ' }} {{ $errors->has('security_deposit') ? 'warning' : '' }}"
                                        id="to_security_deposit_not_required" name="security_deposit"
                                        placeholder="min. 500zł" data-mask="#.##0,00"
                                        data-mask-reverse="true" value="{{ old('security_deposit') }}"
@@ -652,10 +675,10 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="number" class="req-check {{ $errors->has('days_full_refund') ? 'warning' : '' }}"
-                                       min="1" name="days_full_refund" placeholder="2"
+                                <input type="text" class="{{ old('security_deposit_not_required') == 'on' ? '' : 'req-check ' }} {{ $errors->has('days_full_refund') ? 'warning' : '' }}"
+                                       name="days_full_refund" placeholder="2"
                                        id="to_cancel_book_in_eventday" value="{{ old('days_full_refund') }}"
-                                        {{ old('cancel_book_in_eventday') == 'on' ? 'disabled' : '' }} data-mask="0#">
+                                        {{ old('cancel_book_in_eventday') == 'on' ? 'disabled' : '' }} data-mask="0#" maxlength="3">
                                 @if ($errors->has('days_full_refund'))
                                     <small class="small-display-has-error">{{ $errors->first('days_full_refund') }}</small>
                                 @endif
@@ -705,9 +728,25 @@
                         <h3 class="title-sq">Photos</h3>
                     </div>
 
-                    <div class="ui twelve wide computer column">
-                        <div class="ui negative message hide">
-                            <i class="close icon"></i>
+                    <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
+                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
+                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                    </div>
+
+                    @if ($errors->has('images.*'))
+                        <div class="ui twelve wide computer column">
+                            <div class="ui negative message">
+                                <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
+                                <div class="header">
+                                    Popraw następujące blędy
+                                </div>
+                                <p>{{ __("Zdjęcia muszą być w plikami jpeg, jpg, png, bmp. Oraz nie przekraczać 4MB.") }}</p>
+                            </div>
+                        </div>
+                    @endif
+
+                    <div class="ui twelve wide computer column error hide">
+                        <div class="ui negative message">
                             <div class="header">
                                 Napotkano następujące błędy:
                             </div>
@@ -716,12 +755,7 @@
                         </div>
                     </div>
 
-                    <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
-                    </div>
-
-                    <div class="ui twelve wide tablet four wide computer four wide widescreen four wide large screen column">
+                    <div class="ui twelve wide computer column">
                         <p class="description-sq alert-message">
                             <i class="icon icon-pin1"></i>
                             Pin the cover photo
@@ -740,9 +774,7 @@
                         </div>
                     </div>
                 </div>
-
-                <input type="hidden" name="cover_image" id="main-image"/>
-
+                <input type="hidden" name="cover_image" id="main_image">
             </div>
         </div>
 

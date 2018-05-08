@@ -1,8 +1,3 @@
-$(document).ready(function() {
-  $('#security_deposit_not_required, #book_in_eventday, #cancel_book_in_eventday').attr('checked', false);
-  $('#timeres, #timeonce').prop('checked', true);
-});
-
 function validate() {
   let required = $('.active-block .req-check, .active-block .req-select');
   required.removeClass('warning');

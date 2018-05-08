@@ -127,8 +127,7 @@ class ShareVenueController extends Controller
             'postal_code' => 'required',
             'lat' => 'required',
             'lng' => 'required',
-            'phone' => 'required|digits:9',
-            'phone2' => 'nullable|digits:9',
+            'phone' => 'required',
             'webpage' => 'max:150',
             'tripadvisor' => 'max:190',
             'facebook' => 'max:150',
@@ -143,13 +142,15 @@ class ShareVenueController extends Controller
             'max_guests_standing' => 'required|digits_between:1,6',
             'max_guests_seating' => 'required|digits_between:1,6',
             'additional_rules' => 'max:7000',
-            'price_hour' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'price_hour' => 'required|regex:/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})/',
             'min_hours' => 'required|digits_between:1,2',
-            'price_day' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'price_day' => 'required|regex:/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})/',
             'price_info' => 'max:7000',
-            'security_deposit' => 'regex:/^\d*(\.\d{1,2})?$/',
+            'security_deposit' => 'regex:/\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})/',
             'days_full_refund' => 'nullable|digits_between:1,3',
             'cancellation_information' => 'max:7000',
+            'images.*' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 4000',
+            'cover_image' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -157,7 +158,7 @@ class ShareVenueController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-            //$venue = Venue::find(1);
+
             $venue = new Venue();
 
             $venue->name = $request->get('name');
@@ -165,7 +166,8 @@ class ShareVenueController extends Controller
             $venue->url = $this->generateUrl($venue->name);
 
             $venue->city_id = $request->get('city');
-            $venue->street_address = $request->get('street_address') . ' ' . $request->get('street_number');
+            $venue->street_address = $request->get('street_address');
+            $venue->street_number = $request->get('street_number');
             $venue->postal_code = $request->get('postal_code');
             $venue->lat = $request->get('lat');
             $venue->lng = $request->get('lng');
@@ -179,7 +181,7 @@ class ShareVenueController extends Controller
             $venue->tripadvisor = $request->get('tripadvisor');
 
             $venue->description = $request->get('description');
-            //$venue->full_description = $request->get('full_description');
+            $venue->full_description = $request->get('full_description');
 
             $venue->venue_type_id = $request->get('venue_type');
             $venue->venue_style_id = $request->get('venue_style');
@@ -199,9 +201,8 @@ class ShareVenueController extends Controller
                 $venue->week_availability = $request->get('week_availability');
             }
 
-
-            $venue->price_hour = $request->get('price_hour');
-            $venue->price_day = $request->get('price_day');
+            $venue->price_hour = str_replace(',', '.', str_replace('.', '', $request->get('price_hour')));
+            $venue->price_day = str_replace(',', '.', str_replace('.', '', $request->get('price_day')));
             $venue->min_hours = $request->get('min_hours');
 
             if ($request->get('price_depends_on_weekday') === 'on') {
@@ -211,7 +212,7 @@ class ShareVenueController extends Controller
             $venue->price_info = $request->get('price_info');
 
             if ($request->get('security_deposit_not_required') != 'on') {
-                $venue->security_deposit = $request->get('security_deposit');
+                $venue->security_deposit = str_replace(',', '.', str_replace('.', '', $request->get('security_deposit')));
             }
 
             if ($request->get('cancel_book_in_eventday') != 'on') {
@@ -229,12 +230,11 @@ class ShareVenueController extends Controller
                 $venue->amenities()->attach($request->get('amenities'));
                 $venue->rules()->attach($request->get('rules'));
                 $venue->features()->attach($request->get('features'));
-
-                // all good
             } catch (\Exception $e) {
                 DB::rollback();
-                return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
-                // something went wrong
+                return redirect('user/share-venue')
+                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                    ->withInput();
             }
 
 
@@ -245,7 +245,7 @@ class ShareVenueController extends Controller
             if ($request->get('availability') === 'Week') {
                 $week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
                 $availability_insert = [];
-                if ($request->get('week_availability') === 'all') {
+                if ($request->get('week_availability') === 'All') {
                     foreach ($week as $day) {
                         $availability_insert[] = [
                             'venue_id' => $venue->id,
@@ -255,7 +255,7 @@ class ShareVenueController extends Controller
                             'created_at' => date('Y-m-d H:i:s')
                         ];
                     }
-                } elseif ($request->get('week_availability') === 'custom') {
+                } elseif ($request->get('week_availability') === 'Custom') {
                     foreach ($week as $day) {
                         if ($request->get('week_day_' . $day) === 'on') {
                             $availability_insert[] = [
@@ -267,102 +267,60 @@ class ShareVenueController extends Controller
                             ];
                         }
                     }
-
                 }
 
                 try {
                     DB::table('venue_availability')->insert($availability_insert);
-
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
+                    return redirect('user/share-venue')
+                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                        ->withInput();
                 }
-
             }
 
-            $n = 1;
+
             $images_insert = [];
+            $coverImageSelected = false;
             foreach ($request->file('images') as $request_image) {
-                $image = $request_image->getRealPath();
-                $image_name = $venue->url . '-' . $n++;
-                //Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+
+                $image_name = $venue->url . '-' . str_random(6);
+
+                try {
+                    Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/share-venue')
+                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                        ->withInput();
+                }
+
+                $cover_on = 0;
+                if($request_image->getClientOriginalName() == $request->get('cover_image') && !$coverImageSelected) {
+                    $cover_on = 1;
+                    $coverImageSelected = true;
+                }
+
                 $images_insert[] = [
                     'venue_id' => $venue->id,
                     'image_url' => $image_name,
-                    'cover_on' => 0,
+                    'cover_on' => $cover_on,
                     'created_at' => date('Y-m-d H:i:s')
                 ];
-                /*$image = Image::make($request_image);
-                $filename = $venue->url . '-' . $n++.'.jpg';
-                $image->save(public_path('/images/venues/' . $filename));*/
             }
 
             try {
                 DB::table('venue_images')->insert($images_insert);
-                //DB::commit();
-                //return redirect('user/profile')->with('status', 'Przes!');
-                echo 'Success';
+                DB::commit();
+                return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
             } catch (\Exception $e) {
                 DB::rollback();
-                return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
+                return redirect('user/share-venue')
+                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                    ->withInput();
             }
 
-
-//            $venue->name = $request->get('name');
-//            $venue->user_id = Auth::user()->id;
-//            $venue->venue_type_id = $request->get('venue_type');
-//            $venue->url = $this->generateUrl($venue->name);
-//            $venue->description = $request->get('description');
-//            $venue->city_id = $request->get('city');
-//            $venue->street_address = $request->get('street_address');
-//            $venue->postal_code = '12-345';
-//            $venue->state = 'malopolska';
-//            $venue->lat = 52.240414;
-//            $venue->lng = 21.007986;
-//            $venue->phone = $request->get('phone');
-//            $venue->phone2 = $request->get('phone2');
-//            $venue->area = 100;
-//            $venue->room_number = 2;
-//            $venue->restroom_number = 2;
-//            $venue->price_hour = 500;
-//            $venue->price_day = 500;
-//            $venue->min_hours = 1;
-//            $venue->price_info = $request->get('price_info');
-//            $venue->security_deposit = $request->get('security_deposit');
-//            $venue->max_guests_standing = 100;
-//            $venue->max_guests_seating = 100;
-            /*$venue->webpage = $request->get('webpage');
-            $venue->facebook = $request->get('facebook');
-            $venue->instagram = $request->get('instagram');
-            $venue->tripadvisor = $request->get('tripadvisor');*/
-
-            //$venue->save();
-
-//            if ($request->get('availability') === 'Week') {
-//                if ($request->get('week_availability') === 'all') {
-//
-//                } elseif ($request->get('week_availability') === 'custom') {
-//
-//                }
-//            }
-
-            /*$venue->eventTypes()->attach($request->get('event_types'));
-            $venue->amenities()->attach($request->get('amenities'));
-            $venue->rules()->attach($request->get('rules'));
-            $venue->styles()->attach($request->get('styles'));
-            $venue->features()->attach($request->get('features'));*/
-
-
-//            $n=1;
-//            foreach ($request->file('images') as $request_image) {
-//                $image = Image::make($request_image);
-//                $filename = $venue->url . '-' . $n++.'.jpg';
-//                $image->save(public_path('/images/venues/' . $filename));
-//            }
-
-            //dump($request->all());
         }
 
-        //return view('user/profile');
     }
 }

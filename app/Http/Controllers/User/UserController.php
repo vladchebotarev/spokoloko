@@ -82,7 +82,7 @@ class UserController extends Controller
                     Cloudder::destroyImage('avatars/'.$user->avatar);
                 }
                 $image = $request->file('image')->getRealPath();
-                $image_name = substr(md5($user->id . time()), 0, 15);
+                $image_name = str_random(15);
                 Cloudder::upload($image, 'avatars/'.$image_name, array("format" => "jpg"));
 
 /*              $image = Image::make($request->get('image'));
