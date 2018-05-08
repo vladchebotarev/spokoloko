@@ -1,8 +1,3 @@
-$(document).ready(function() {
-  $('#security_deposit_not_required, #book_in_eventday, #cancel_book_in_eventday').attr('checked', false);
-  $('#timeres, #timeonce').prop('checked', true);
-});
-
 function validate() {
   let required = $('.active-block .req-check, .active-block .req-select');
   required.removeClass('warning');
@@ -13,7 +8,8 @@ function validate() {
   }).get();
   if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
   else if ($('.active-block').find('#select_venue_type').length) {
-    if (eventType()) values.unshift(eventType());
+    let checkboxes = eventType();
+    if (checkboxes) values.unshift(checkboxes);
     if (!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
   } else if ($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
   else if ($('.active-block').find('input:radio[name="availability"]').length) {
@@ -45,7 +41,7 @@ function validate() {
       $('.venue-form').submit();
     }
   }
-  
+  console.log('Values:', values);
   if (values.length) return values;
   return true;
 }
@@ -63,29 +59,27 @@ function displayWarning($array, bool) {
 
 
 function submitForm() {
-  $('.active-block').find('.error').addClass('hide');
   $('.active-block').find('.error').find('.list').find('li').empty();
+  if($('.active-block').find('.error').hasClass('hide')){
+    console.log('second removeClass');
+    $('.active-block').find('.error').removeClass('hide');
+  }
   let data = Photo.fetchData();
-  let check = false;
   let messages = [];
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
     messages.push('Zaznaczyłeś mniej niż 5 lub więcej niż 10 zdjęć.');
-    check = true;
   }
   if (data.selected) {
     if (data.selected.width < 1200 || data.selected.height < 750) {
       messages.push('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
-      check = true;
     }
     else {
       $('#main_image').val(`${data.selected.name}`);
     }
   } else {
     messages.push('Zdjęcie główne nie zostało wybrane.');
-    check = true;
   }
-  if (check) {
-    $('.active-block').find('.error').removeClass('hide');
+  if (messages.length !== 0) {
     for (let i = 0; i < messages.length; ++i) {
       $('.active-block').find('.error').find('.list').append(`<li>${messages[ i ]}</li>`);
     }
@@ -96,10 +90,10 @@ function submitForm() {
 function eventType() {
   let types = $('.active-block input:checkbox:checked');
   let checked = [];
-  types.each(function(i, el) {
+  types.each(function(i ,el) {
     checked.push(parseInt($(el).val()));
   });
-  if (checked === []) {
+  if (!checked.length) {
     return $('.active-block input:checkbox').first().parent().parent();
   }
 }

@@ -706,8 +706,8 @@
                     </div>
 
                     <div class="ui twelve wide computer column">
-                        <div class="ui negative message hide">
-                            <i class="close icon"></i>
+                        <div class="ui negative error message hide">
+                            {{--<i class="close icon"></i>--}}
                             <div class="header">
                                 Napotkano następujące błędy:
                             </div>
@@ -736,12 +736,12 @@
                                 Add Photo
                             </label>
                             <input type="file" class="req-check" id="file-upload" name="images[]" multiple
-                                   accept=".png, .jpg, .jpeg"/>
+                                   accept=".png, .jpg, .jpeg .bmp"/>
                         </div>
                     </div>
                 </div>
 
-                <input type="hidden" name="cover_image" id="main-image"/>
+                <input type="hidden" name="cover_image" id="main_image"/>
 
             </div>
         </div>
