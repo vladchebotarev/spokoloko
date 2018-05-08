@@ -12496,7 +12496,7 @@ select.ui.dropdown {
 }
 .calendar-sq .ui.table tbody tr td.link.range:before,
 .calendar-sq .ui.table tbody tr td.link.range.focus:before {
-  border-color: #F57C00;
+  color: #f5b02b;
 }
 .calendar-sq .ui.table tbody tr td.link.today,
 .calendar-sq .ui.table tbody tr td.link.today.focus {
@@ -12504,8 +12504,7 @@ select.ui.dropdown {
 }
 .calendar-sq .ui.table tbody tr td.link.today:before,
 .calendar-sq .ui.table tbody tr td.link.today.focus:before {
-  background: #262626;
-  border-color: #262626;
+
 }
 .calendar-sq .ui.table th > *,
 .calendar-sq .ui.table td > * {

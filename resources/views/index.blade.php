@@ -491,36 +491,51 @@
 
                         <!-- Slide 01-->
                         <div>
-                            <div class="property-item caption-sq small-sq">
+                            <div class="property-item caption-sq">
                                 <div class="property-item-inner">
 
-                                    <div class="price-tag-sq">31 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
+                                    <div class="price-tag-sq">
+                                        <span>od </span>200
+                                        PLN <span>/1 godz</span>
+                                    </div>
+                                    <a class="add-wishlist modal-ui-trigger" href=""
+                                       data-trigger-for="wishlist">
+                                        <i class="icon icon-heart-line"></i>
                                     </a>
 
-                                    <a class="image-sq" href="property_page.html">
-								<span class="image-wrapper">
-									<span class="image-inner">
-										<img src="new-assets/images/property/property_little_01.jpg" alt="" class="">
-									</span>
-								</span>
+
+                                    <a class="image-sq" href="venue/after-beng-club"
+                                       target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_01.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
                                     </a>
 
                                     <div class="main-details">
                                         <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">Big Summer Tent</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_01.jpg" alt="">
-                                            </a>
+                                            <a href="venue/after-beng-club" target="_blank"
+                                               class="title-sq">After Beng</a>
+
+
+                                        </div>
+                                        <div class="biz-adres">
+                                            <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
                                         </div>
 
                                         <div class="icons-row">
                                             <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 8.4
+                                                <i class="icon icon-star-2"></i> 8.6
                                             </div>
                                             <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 10
+                                                <i class="icon icon-account-group-5"></i> 200
+                                            </div>
+                                            <div class="icons-column">
+                                                <i class="icon icon-home-3"></i> 100m²
                                             </div>
 
                                         </div>
@@ -530,219 +545,283 @@
                             </div>
                         </div>
 
-                        <!-- Slide 02-->
-                        <div>
-                            <div class="property-item caption-sq small-sq">
-                                <div class="property-item-inner">
+                            <div>
+                                <div class="property-item caption-sq">
+                                    <div class="property-item-inner">
 
-                                    <div class="price-tag-sq">11 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
-                                    </a>
-
-
-                                    <a class="image-sq" href="property_page.html">
-							<span class="image-wrapper">
-								<span class="image-inner">
-									<img src="new-assets/images/property/property_little_02.jpg" alt="" class="">
-								</span>
-							</span>
-                                    </a>
-
-                                    <div class="main-details">
-
-                                        <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">3 Persons - Best Choice</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_02.jpg" alt="">
-                                            </a>
+                                        <div class="price-tag-sq">
+                                            <span>od </span>200
+                                            PLN <span>/1 godz</span>
                                         </div>
+                                        <a class="add-wishlist modal-ui-trigger" href=""
+                                           data-trigger-for="wishlist">
+                                            <i class="icon icon-heart-line"></i>
+                                        </a>
 
-                                        <div class="icons-row">
-                                            <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 9.7
+
+                                        <a class="image-sq" href="venue/after-beng-club"
+                                           target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_02.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
+                                        </a>
+
+                                        <div class="main-details">
+                                            <div class="title-row">
+                                                <a href="venue/after-beng-club" target="_blank"
+                                                   class="title-sq">After Beng</a>
+
+
                                             </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 3
+                                            <div class="biz-adres">
+                                                <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
                                             </div>
-                                        </div>
 
-                                    </div>
+                                            <div class="icons-row">
+                                                <div class="icons-column">
+                                                    <i class="icon icon-star-2"></i> 8.6
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-account-group-5"></i> 200
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-home-3"></i> 100m²
+                                                </div>
 
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 03-->
-                        <div>
-                            <div class="property-item caption-sq small-sq">
-                                <div class="property-item-inner">
-
-                                    <div class="price-tag-sq">15 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
-                                    </a>
-
-                                    <a class="image-sq" href="property_page.html">
-							<span class="image-wrapper">
-								<span class="image-inner">
-									<img src="new-assets/images/property/property_little_03.jpg" alt="" class="">
-								</span>
-							</span>
-                                    </a>
-
-                                    <div class="main-details">
-                                        <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">Simple camping tent</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_03.jpg"
-                                                     alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="icons-row">
-                                            <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 9.2
-                                            </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 4
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 04-->
-                        <div>
-                            <div class="property-item caption-sq small-sq">
-                                <div class="property-item-inner">
-
-                                    <div class="price-tag-sq">21 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
-                                    </a>
-
-                                    <a class="image-sq" href="property_page.html">
-							<span class="image-wrapper">
-								<span class="image-inner">
-									<img src="new-assets/images/property/property_little_04.jpg" alt="" class="">
-								</span>
-							</span>
-                                    </a>
-
-
-                                    <div class="main-details">
-                                        <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">Group tent</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_04.jpg" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="icons-row">
-                                            <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 8.7
-                                            </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 6
-                                            </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-bed-double"></i> x 12
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Slide 05-->
-                        <div>
-                            <div class="property-item caption-sq small-sq">
-                                <div class="property-item-inner">
-
-                                    <div class="price-tag-sq">9 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
-                                    </a>
-
-                                    <a class="image-sq" href="property_page.html">
-							<span class="image-wrapper">
-								<span class="image-inner">
-									<img src="new-assets/images/property/property_little_05.jpg" alt="" class="">
-								</span>
-							</span>
-                                    </a>
-
-                                    <div class="main-details">
-
-                                        <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">Couple tent in sweet
-                                                camping</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_05.jpg" alt="">
-                                            </a>
-                                        </div>
-
-                                        <div class="icons-row">
-                                            <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 9.5
-                                            </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 2
                                             </div>
                                         </div>
 
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Slide 06-->
-                        <div>
-                            <div class="property-item caption-sq small-sq">
-                                <div class="property-item-inner">
+                            <div>
+                                <div class="property-item caption-sq">
+                                    <div class="property-item-inner">
 
-                                    <div class="price-tag-sq">10 &euro; <span>/ night</span></div>
-                                    <a class="add-wishlist modal-ui-trigger" href="" data-trigger-for="wishlist">
-                                        <i class="icon icon-add-wishlist"></i>
-                                    </a>
-
-
-                                    <a class="image-sq" href="property_page.html">
-							<span class="image-wrapper">
-								<span class="image-inner">
-									<img src="new-assets/images/property/property_little_06.jpg" alt="" class="">
-								</span>
-							</span>
-                                    </a>
-
-                                    <div class="main-details">
-
-                                        <div class="title-row">
-                                            <a href="property_page.html" class="title-sq">Camping on the beach</a>
-                                            <a href="vendor_details.html" class="avatar-sq">
-                                                <img src="new-assets/images/avatar/avatar_06.jpg" alt="">
-                                            </a>
+                                        <div class="price-tag-sq">
+                                            <span>od </span>200
+                                            PLN <span>/1 godz</span>
                                         </div>
+                                        <a class="add-wishlist modal-ui-trigger" href=""
+                                           data-trigger-for="wishlist">
+                                            <i class="icon icon-heart-line"></i>
+                                        </a>
 
-                                        <div class="icons-row">
-                                            <div class="icons-column">
-                                                <i class="icon icon-heart"></i> 9.1
+
+                                        <a class="image-sq" href="venue/after-beng-club"
+                                           target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_03.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
+                                        </a>
+
+                                        <div class="main-details">
+                                            <div class="title-row">
+                                                <a href="venue/after-beng-club" target="_blank"
+                                                   class="title-sq">After Beng</a>
+
+
                                             </div>
-                                            <div class="icons-column">
-                                                <i class="icon icon-account-group-5"></i> x 4
+                                            <div class="biz-adres">
+                                                <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
                                             </div>
 
+                                            <div class="icons-row">
+                                                <div class="icons-column">
+                                                    <i class="icon icon-star-2"></i> 8.6
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-account-group-5"></i> 200
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-home-3"></i> 100m²
+                                                </div>
+
+                                            </div>
                                         </div>
 
                                     </div>
-
                                 </div>
                             </div>
-                        </div>
+
+                            <div>
+                                <div class="property-item caption-sq">
+                                    <div class="property-item-inner">
+
+                                        <div class="price-tag-sq">
+                                            <span>od </span>200
+                                            PLN <span>/1 godz</span>
+                                        </div>
+                                        <a class="add-wishlist modal-ui-trigger" href=""
+                                           data-trigger-for="wishlist">
+                                            <i class="icon icon-heart-line"></i>
+                                        </a>
+
+
+                                        <a class="image-sq" href="venue/after-beng-club"
+                                           target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_01.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
+                                        </a>
+
+                                        <div class="main-details">
+                                            <div class="title-row">
+                                                <a href="venue/after-beng-club" target="_blank"
+                                                   class="title-sq">After Beng</a>
+
+
+                                            </div>
+                                            <div class="biz-adres">
+                                                <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
+                                            </div>
+
+                                            <div class="icons-row">
+                                                <div class="icons-column">
+                                                    <i class="icon icon-star-2"></i> 8.6
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-account-group-5"></i> 200
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-home-3"></i> 100m²
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="property-item caption-sq">
+                                    <div class="property-item-inner">
+
+                                        <div class="price-tag-sq">
+                                            <span>od </span>200
+                                            PLN <span>/1 godz</span>
+                                        </div>
+                                        <a class="add-wishlist modal-ui-trigger" href=""
+                                           data-trigger-for="wishlist">
+                                            <i class="icon icon-heart-line"></i>
+                                        </a>
+
+
+                                        <a class="image-sq" href="venue/after-beng-club"
+                                           target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_02.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
+                                        </a>
+
+                                        <div class="main-details">
+                                            <div class="title-row">
+                                                <a href="venue/after-beng-club" target="_blank"
+                                                   class="title-sq">After Beng</a>
+
+
+                                            </div>
+                                            <div class="biz-adres">
+                                                <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
+                                            </div>
+
+                                            <div class="icons-row">
+                                                <div class="icons-column">
+                                                    <i class="icon icon-star-2"></i> 8.6
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-account-group-5"></i> 200
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-home-3"></i> 100m²
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="property-item caption-sq">
+                                    <div class="property-item-inner">
+
+                                        <div class="price-tag-sq">
+                                            <span>od </span>200
+                                            PLN <span>/1 godz</span>
+                                        </div>
+                                        <a class="add-wishlist modal-ui-trigger" href=""
+                                           data-trigger-for="wishlist">
+                                            <i class="icon icon-heart-line"></i>
+                                        </a>
+
+
+                                        <a class="image-sq" href="venue/after-beng-club"
+                                           target="_blank">
+                                                <span class="image-wrapper">
+                                                    <span class="image-inner">
+                                                        <img src="new-assets/images/property/property_little_03.jpg"
+                                                             alt="" class="" style="height: 100%">
+                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
+                                                             alt="" class="">--}}
+                                                    </span>
+                                                </span>
+                                        </a>
+
+                                        <div class="main-details">
+                                            <div class="title-row">
+                                                <a href="venue/after-beng-club" target="_blank"
+                                                   class="title-sq">After Beng</a>
+
+
+                                            </div>
+                                            <div class="biz-adres">
+                                                <strong style="padding-right: 10px;">Klub muzycny</strong>| Rynek głowny 28
+                                            </div>
+
+                                            <div class="icons-row">
+                                                <div class="icons-column">
+                                                    <i class="icon icon-star-2"></i> 8.6
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-account-group-5"></i> 200
+                                                </div>
+                                                <div class="icons-column">
+                                                    <i class="icon icon-home-3"></i> 100m²
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
 
                     </div>
 

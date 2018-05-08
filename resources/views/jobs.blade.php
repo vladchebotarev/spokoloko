@@ -59,6 +59,7 @@
 
             </div>
 
+            <h3 style="padding-bottom: 20px;">Poszukujemy ludzi na następne stanowiska:</h3>
 
             <div class="ui three stackable cards" style="padding-bottom: 40px;">
                 <div class="ui card">
@@ -133,89 +134,7 @@
 
 
 
-                <div class="ui card">
-                    <div class="image">
-                        <img src="new-assets/images/jobs/code.jpg">
-                    </div>
-                    <div class="content">
-                        <a class="header">Android developer</a>
-                        <div class="meta">
-                            <span class="date">Do 23.05.2017</span>
-                        </div>
-                        <div class="description">
-                            Android Studio, Linux, MacOS, Database
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="user icon"></i>
-                            do 10.000 zł brutto
-                        </a>
-                    </div>
-                </div>
 
-                <div class="ui card">
-                    <div class="image">
-                        <img src="new-assets/images/jobs/design.jpg">
-                    </div>
-                    <div class="content">
-                        <a class="header">Web designer</a>
-                        <div class="meta">
-                            <span class="date">Do 23.05.2017</span>
-                        </div>
-                        <div class="description">
-                            Illustrator, Photoshop
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="user icon"></i>
-                            do 7.000 zł brutto
-                        </a>
-                    </div>
-                </div>
-
-                <div class="ui card">
-                    <div class="image">
-                        <img src="new-assets/images/jobs/design.jpg">
-                    </div>
-                    <div class="content">
-                        <a class="header">Web designer</a>
-                        <div class="meta">
-                            <span class="date">Do 23.05.2017</span>
-                        </div>
-                        <div class="description">
-                            Illustrator, Photoshop
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="user icon"></i>
-                            do 7.000 zł brutto
-                        </a>
-                    </div>
-                </div>
-
-                <div class="ui card">
-                    <div class="image">
-                        <img src="new-assets/images/jobs/design.jpg">
-                    </div>
-                    <div class="content">
-                        <a class="header">Web designer</a>
-                        <div class="meta">
-                            <span class="date">Do 23.05.2017</span>
-                        </div>
-                        <div class="description">
-                            Illustrator, Photoshop
-                        </div>
-                    </div>
-                    <div class="extra content">
-                        <a>
-                            <i class="user icon"></i>
-                            do 7.000 zł brutto
-                        </a>
-                    </div>
-                </div>
 
 
             </div>

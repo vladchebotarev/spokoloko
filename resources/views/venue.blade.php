@@ -83,12 +83,14 @@
 
                                     <div class="mobile-fixed-section">
                                         <div class="sticky-box-content">
+                                            <div class="mobile hidden">
                                             <div class="calendar_title"><p>Data wydarzenia:</p></div>
 
-                                            <input type="checkbox" id="price_depends_on_weekday" name="price_depends_on_weekday" >
-                                            <label for="price_depends_on_weekday">Cena zależy od dnia tygodnia</label>
+                                            <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px;">
+                                                <input type="text" id="event_date" value="" required placeholder="Wybierz date">
+                                            </div>
 
-                                            <form action="checkout_page.html">
+
                                                 <div class="main-infos inline-check-in">
 
 
@@ -96,7 +98,7 @@
 
 
                                                         <div class="relative">
-                                                            <input type="text" class="filter" value="" required
+                                                            <input type="text" id="from_hour" class="filter" value="" required
                                                                    placeholder="od">
                                                             <i class="icon icon-little-arrow filters-arrow"></i>
                                                         </div>
@@ -107,15 +109,15 @@
                                                          style="border-right: 1px;">
 
 
-                                                        <input type="text" class="filter" value="" required
+                                                        <input type="text" class="filter" id="to_hour" value="" required
                                                                placeholder="do">
 
                                                     </div>
 
 
                                                 </div>
-                                            </form>
 
+                                            </div>
 
                                             <div class="twelve wide column">
                                                 <ul class="description-list" style="font-size:10pt">
@@ -137,39 +139,12 @@
                                                         <div><p>Kaucja:</p>
                                                             <strong style="float: right">500zl</strong></div>
                                                     </li>  -->
-                                                    <button class="button-sq fullwidth-sq font-weight-extrabold-sq">
+                                                    <button class="button-sq fullwidth-sq font-weight-extrabold-sq  modal-ui-trigger" data-trigger-for="contact" id="sender_dates">
                                                         Sprawdz dostepnosc
                                                     </button>
 
                                                     <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
 
-                                                    <li>
-                                                        <div class="ui internally celled grid">
-                                                            <div class="row"
-                                                                 style="padding-right: 20px; padding-left: 20px;">
-                                                                <div class="four wide column"
-                                                                     style="padding-right: 1%; padding-left:0%;">
-                                                                    <button onclick="open('#')"
-                                                                            class="social_icons facebook"><i
-                                                                                class="fa fa-facebook"></i>
-                                                                    </button>
-                                                                </div>
-
-                                                                <div class="four wide column"
-                                                                     style="padding-right: 1%; padding-left:1%;">
-                                                                    <button class="column social_icons instagram"><i
-                                                                                class="fa fa-instagram"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="four wide column"
-                                                                     style="padding-right: 0%;  padding-left:1%;">
-                                                                    <button class="column social_icons tripadvisor"><i
-                                                                                class="fa fa-tripadvisor"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
 
 
                                                     <style>
@@ -191,7 +166,7 @@
                                                             width: 100%;
 
                                                             border: 1px;
-                                                            border-style: inset;
+                                                            border-style: solid;
                                                             background-color: white;
 
                                                         }
@@ -251,6 +226,44 @@
                                                             </button>
                                                         </div>
                                                     </li>
+
+                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
+
+                                                    <div class="calendar_title"><p>Obserwuj nas:</p></div>
+
+                                                    <li>
+                                                        <div class="ui internally celled grid">
+                                                            <div class="row"
+                                                                 style="padding-right: 20px; padding-left: 20px;">
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:0%;">
+                                                                    <button onclick="open('#')"
+                                                                            class="social_icons facebook"><i
+                                                                                class="fa fa-facebook"></i>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 1%; padding-left:1%;">
+                                                                    <button class="column social_icons instagram"><i
+                                                                                class="fa fa-instagram"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="four wide column"
+                                                                     style="padding-right: 0%;  padding-left:1%;">
+                                                                    <button class="column social_icons tripadvisor"><i
+                                                                                class="fa fa-tripadvisor"></i>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div style="width: 100%">
+                                                        <div style="text-align: center">afterbeng.pl</div>
+                                                        </div>
+                                                    </li>
+
 
                                                 </ul>
                                             </div>
@@ -351,7 +364,7 @@
                         <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
                             Cena
                         </div>
-                        <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
+                        <div class="button-sq small-sq ">
                             Kontakty
                         </div>
 
@@ -426,6 +439,7 @@
                     </div>
 
 
+
                     <div class="typo-section-sq bottom-default">
                         <h5>Cena i zasady rezerwacji</h5>
                         <div class="ui grid moved">
@@ -487,6 +501,71 @@
                                         wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p>
                                 </div>
                             </div>
+                        </div>
+
+                    </div>
+
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Kontakty</h5>
+                        <div class="ui grid moved">
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Adres:</p>
+                                            <strong>Kraków, Rynek Głowny 28, 31-010</strong>
+                                        </div>
+                                    </li>
+
+
+                                    <li>
+                                        <div>
+                                            <p>Telefon:</p>
+                                            <strong>730 035 946</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Telefon 2:</p>
+                                            <strong>730 035 946</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Strona internetowa:</p>
+                                            <strong>afterbeng.pl</strong></div>
+                                    </li>
+
+
+
+
+                                </ul>
+                            </div>
+                            <div class="twelve wide mobile six wide tablet six wide computer column">
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Facebook:</p>
+                                            <strong>facebook.com/stronapl</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div>
+                                            <p>Instagram</p>
+                                            <strong>instagram.com/lolkek
+                                            </strong></div>
+                                    </li>
+
+
+
+                                    <li>
+                                        <div><p>Opinia Tripadvisor:</p>
+                                            <strong>tripadvisor.com/kokoko</strong></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
                         </div>
 
                     </div>
@@ -803,6 +882,61 @@
                     </div>
                 </div>
 
+                <div class="typo-section-sq bottom-default">
+                    <h5>Dostępnośc</h5>
+                    <div class="ui grid moved">
+                        <div class="twelve wide mobile six wide tablet six wide computer column">
+                            <ul class="description-list">
+                                <li>
+                                    <div>
+                                        <p>Poniedziałek:</p>
+                                        <strong style="float: right">18:00 - 20:00</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Wtorek:</p>
+                                        <strong style="float: right">18:00 - 20:00</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Sroda:</p>
+                                        <strong style="float: right">18:00 - 20:00</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Czwartek:</p>
+                                        <strong style="float: right">18:00 - 20:00</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Piątek:</p>
+                                        <strong style="float: right">18:00 - 20:00</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Sobota:</p>
+                                        <strong style="float: right">Niedostępne</strong>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <p>Niedziela:</p>
+                                        <strong style="float: right">Niedostępne</strong>
+                                    </div>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="section-container" id="section-02">
                     <div class="typo-section-sq bottom-default">
                         <h3>Photos</h3>
@@ -858,6 +992,8 @@
         </div>
 
     </div>
+
+
 
     <div class="section-container" id="section-03">
         <div class="ui grid container stackable app layout right side">
@@ -1023,36 +1159,73 @@
     <!-- Contact -->
     <div class="ui modal small" data-for="contact">
         <i class="icon icon-close close-modal"></i>
-        <div class="header center">
-            <h3>Contact Form</h3>
+        <div class="header center" style="padding-top: 30px;">
+            <h3>Sprawdż dostępnosc</h3>
         </div>
+
 
         <div class="content">
             <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
                 consectetur, porta ultrices sapien.</p>
+
+            <form>
+
+            <div id="examplecalendar2" class="calendar-sq" style="padding-bottom: 10px;">
+                <input type="text" id="event_date_new" value="" placeholder="Wybierz date" >
+            </div>
+
+
+            <div class="main-infos  div-c inline-2">
+                    <div class="timecalendar calendar-sq divided-column">
+                        <div class="relative">
+                            <input type="text" class="filter" id="from_hour_new"
+                                   name="from_hour_new" value=""
+                                   placeholder="od">
+                        </div>
+                    </div>
+
+                    <div class="timecalendar calendar-sq divided-column">
+                        <input type="text" class="filter" name="to_hour"
+                               id="to_hour_new" value="" placeholder="do"
+                              >
+                    </div>
+                </div>
+
+
             <div class="div-c inline-2">
                 <div class="divided-column">
-                    <label>Name</label>
-                    <input type="text" placeholder=" ">
+                    <label>Imie</label>
+                    <input type="text" autofocus placeholder=" ">
                 </div>
 
                 <div class="divided-column">
-                    <label>Title</label>
+                    <label>Nazwisko</label>
                     <input type="text" placeholder=" ">
                 </div>
             </div>
+
+                <div class="div-c inline-2">
+                    <div class="divided-column">
+                        <label>Telefon</label>
+                        <input type="number" autofocus placeholder=" ">
+                    </div>
+
+                    <div class="divided-column">
+                        <label>Email</label>
+                        <input type="text" placeholder=" ">
+                    </div>
+                </div>
 
             <div class="div-c">
                 <label>Message</label>
                 <textarea cols="30" rows="10" placeholder=" "></textarea>
             </div>
+            </form>
         </div>
 
         <div class="actions">
-            <div class="div-c inline-2">
-                <div class="divided-column">
-                    <div class="button-sq cancel-sq fullwidth-sq">Cancel</div>
-                </div>
+            <div class="div-c ">
+
 
                 <div class="divided-column">
                     <div class="button-sq fullwidth-sq">Send</div>
@@ -1060,5 +1233,7 @@
             </div>
 
         </div>
+
     </div>
+
 @endsection

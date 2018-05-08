@@ -48,6 +48,9 @@ Route::get('/jobs', function () {
     return view('jobs');
 });
 
+Route::get('/sitemap', function () {
+    return view('sitemap');
+});
 
 Auth::routes();
 
