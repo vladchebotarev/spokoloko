@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
+
+use App\Http\Controllers\Controller;
 use App\City;
 use App\EventType;
 use App\VenueType;
@@ -102,6 +104,10 @@ class ShareVenueController extends Controller
         return $url_tmp;
     }
 
+    public function check(){
+        echo "Dziala";
+    }
+
 
     /**
      * Create new venue in system.
@@ -114,14 +120,36 @@ class ShareVenueController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'max:191',
-            /*'last_name' => 'max:191',
-            'address' => 'max:191',
-            'birthday' => 'max:191',
-            'sex' => 'max:191',
-            'about' => 'max:191',
-            'company' => 'max:191',
-            'job_title' => 'max:191'*/
+            'name' => 'required|max:150',
+            'city' => 'required',
+            'street_address' => 'required|max:150',
+            'street_number' => 'max:20',
+            'postal_code' => 'required',
+            'lat' => 'required',
+            'lng' => 'required',
+            'phone' => 'required|digits:9',
+            'phone2' => 'nullable|digits:9',
+            'webpage' => 'max:150',
+            'tripadvisor' => 'max:190',
+            'facebook' => 'max:150',
+            'instagram' => 'max:150',
+            'description' => 'required|max:750',
+            'full_description' => 'required|max:7000',
+            'venue_type' => 'required',
+            'event_types' => 'required',
+            'area' => 'required|digits_between:1,9',
+            'room_number' => 'required|digits_between:1,3',
+            'restroom_number' => 'required|digits_between:1,3',
+            'max_guests_standing' => 'required|digits_between:1,6',
+            'max_guests_seating' => 'required|digits_between:1,6',
+            'additional_rules' => 'max:7000',
+            'price_hour' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'min_hours' => 'required|digits_between:1,2',
+            'price_day' => 'required|regex:/^\d*(\.\d{1,2})?$/',
+            'price_info' => 'max:7000',
+            'security_deposit' => 'regex:/^\d*(\.\d{1,2})?$/',
+            'days_full_refund' => 'nullable|digits_between:1,3',
+            'cancellation_information' => 'max:7000',
         ]);
 
         if ($validator->fails()) {
@@ -167,6 +195,10 @@ class ShareVenueController extends Controller
 
             $venue->availability_type = $request->get('availability');
 
+            if ($request->get('availability') === 'Week') {
+                $venue->week_availability = $request->get('week_availability');
+            }
+
 
             $venue->price_hour = $request->get('price_hour');
             $venue->price_day = $request->get('price_day');
@@ -206,8 +238,6 @@ class ShareVenueController extends Controller
             }
 
 
-
-
             /**
              * Insert venue week availability.
              *
@@ -225,7 +255,6 @@ class ShareVenueController extends Controller
                             'created_at' => date('Y-m-d H:i:s')
                         ];
                     }
-                    DB::table('venue_availability')->insert($availability_insert);
                 } elseif ($request->get('week_availability') === 'custom') {
                     foreach ($week as $day) {
                         if ($request->get('week_day_' . $day) === 'on') {
@@ -251,12 +280,12 @@ class ShareVenueController extends Controller
 
             }
 
-            $n=1;
+            $n = 1;
             $images_insert = [];
             foreach ($request->file('images') as $request_image) {
                 $image = $request_image->getRealPath();
                 $image_name = $venue->url . '-' . $n++;
-                Cloudder::upload($image, 'venues/'.$venue->url.'/'.$image_name, array("format" => "jpg"));
+                //Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
                 $images_insert[] = [
                     'venue_id' => $venue->id,
                     'image_url' => $image_name,
@@ -270,14 +299,13 @@ class ShareVenueController extends Controller
 
             try {
                 DB::table('venue_images')->insert($images_insert);
-                DB::commit();
+                //DB::commit();
                 //return redirect('user/profile')->with('status', 'Przes!');
                 echo 'Success';
             } catch (\Exception $e) {
                 DB::rollback();
                 return redirect('user/share-venue')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
             }
-
 
 
 //            $venue->name = $request->get('name');

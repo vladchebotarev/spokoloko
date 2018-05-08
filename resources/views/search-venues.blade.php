@@ -338,20 +338,13 @@
 
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </li>
                                     </ul>
-
-
                                 </li>
-
                             </ul>
-
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </form>
@@ -408,7 +401,7 @@
 
                                                     <div class="price-tag-sq">
                                                         <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
-                                                        PLN <span>/{{ $venue->min_hours }} godz</span>
+                                                        PLN <span>/{{ $venue->min_hours }} h</span>
                                                     </div>
                                                     <a class="add-wishlist modal-ui-trigger" href=""
                                                        data-trigger-for="wishlist">
@@ -427,8 +420,6 @@
                                                     <span class="image-inner">
                                                         <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
                                                     </span>
                                                 </span>
                                                     </a>
@@ -441,7 +432,7 @@
 
                                                         </div>
                                                         <div class="biz-adres">
-                                                             <strong style="padding-right: 10px;">Klub muzycny</strong>| {{ $venue->street_address }}
+                                                             <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }}
                                                         </div>
 
                                                         <div class="icons-row">

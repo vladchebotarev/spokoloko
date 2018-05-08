@@ -8,9 +8,8 @@
             <div class="row">
 
                 @if ($errors->any())
-                    <div class="ui twelve wide computer column"">
-                        <div class="ui negative message" style="margin-bottom: 30px;>
-                            <i class="close icon"></i>
+                    <div class="ui twelve wide computer column">
+                        <div class="ui negative message" style="margin-bottom: 30px;">
                             <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
                             <div class="header">
                                 Popraw następujące blędy
