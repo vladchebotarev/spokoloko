@@ -8,6 +8,7 @@ use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\User;
 
 class LoginController extends Controller
 {
