@@ -78,6 +78,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
 
     Route::get('settings', 'User\UserSettingsController@index')->name('settings');
+    Route::post('settings/password', 'User\UserSettingsController@changePassword')->name('settings.password');
 
     Route::get('listings', 'User\UserListingsController@index')->name('listings');
 

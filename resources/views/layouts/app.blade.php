@@ -19,12 +19,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
 
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     @endif
 
     <link rel="icon" href={{ asset('favicon.ico') }}>

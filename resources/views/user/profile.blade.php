@@ -43,9 +43,9 @@
                         <li class="active">
                             <a href="">{{ __('Edytuj profil') }}</a>
                         </li>
-                        <li class="">
+                        {{--<li class="">
                             <a href="{{ route('verification') }}">{{ __('Weryfikacja') }}</a>
-                        </li>
+                        </li>--}}
                     </ul>
                 </div>
 
@@ -99,11 +99,8 @@
                 <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
                     <div class="div-c">
                         <div class="divided-column">
-                            <label>{{ __('Adres') }}</label>
-                            <input type="text" name="address" class="{{ $errors->has('address') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz adres') }}" value="{{ Auth::user()->address }}">
-                            @if ($errors->has('address'))
-                                <small class="small-display-has-error">{{ $errors->first('address') }}</small>
-                            @endif
+                            <label>{{ __('Email') }}</label>
+                            <input type="text" name="Email" placeholder="{{ __('Email') }}" value="{{ Auth::user()->email }}" style="background-color: #eaeaea" disabled>
                         </div>
                     </div>
                 </div>
@@ -112,9 +109,10 @@
                     <div class="div-c">
                         <div class="divided-column">
                             <label>{{ __('Telefon') }}</label>
-                            <input type="text" placeholder="" value="{{ Auth::user()->phone }}"
-                                   style="background-color: #d4d4d4" disabled>
-                            <small style="font-size: 12px;">{{ __('W celu zmiany telefonu przejdź do rożdziału Weryfikacja') }}</small>
+                            <input type="text" placeholder="" value="+48 {{ Auth::user()->phone }}"
+                                   style="background-color: #eaeaea" disabled>
+                            <small style="font-size: 12px;">{{ __('W celu zmiany telefonu przejdź do rożdziału ') }}<a
+                                        href="{{ route('settings') }}">{{ __('Ustawienia') }}</a></small>
                         </div>
                     </div>
                 </div>
@@ -147,6 +145,18 @@
                             @endif
                         </div>
 
+                    </div>
+                </div>
+
+                <div class="ui twelve wide tablet twelve wide computer twelve wide widescreen twelve wide large screen column">
+                    <div class="div-c">
+                        <div class="divided-column">
+                            <label>{{ __('Adres') }}</label>
+                            <input type="text" name="address" class="{{ $errors->has('address') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz adres') }}" value="{{ Auth::user()->address }}">
+                            @if ($errors->has('address'))
+                                <small class="small-display-has-error">{{ $errors->first('address') }}</small>
+                            @endif
+                        </div>
                     </div>
                 </div>
 
