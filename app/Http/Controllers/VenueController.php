@@ -12,7 +12,6 @@ class VenueController extends Controller
 
     public function getVenue($venue_url, Request $request){
 
-
         $venue = Venue::where('url', $venue_url)->first();
 
         if ($venue === null) {

@@ -16,13 +16,10 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
 
-    @if(Request::is('user/*'))
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
-    @endif
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
@@ -174,6 +171,8 @@
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 <script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
 <script src={{ asset('js/facebook_messenger.js') }}></script>
+<script src={{ asset('js/semantic-ui/message.js') }}></script>
+<script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
 
 
 <!-- Other scripts -->
@@ -191,11 +190,6 @@
         <script src={{ asset('js/user/profile-form.js') }}></script>
     @endif
 @endguest
-
-@if(Request::is('user/*'))
-    <script src={{ asset('js/semantic-ui/message.js') }}></script>
-    <script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
-@endif
 
 
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))

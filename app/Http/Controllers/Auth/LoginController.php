@@ -61,7 +61,12 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        try {
+            $user = Socialite::driver($provider)->user();
+        } catch (\Exception $e) {
+            return redirect('login')
+                ->withErrors('Logowanie za pomocą ' . $provider . 'nie powiodło się. Spróbuj później.');
+        }
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
@@ -81,11 +86,24 @@ class LoginController extends Controller
         if ($authUser) {
             return $authUser;
         }
+
+        $authUser = User::where('provider_id', null)->where('email', $user->email)->first();
+        if ($authUser) {
+            $authUser->provider = $provider;
+            $authUser->provider_id = $user->id;
+            $authUser->save();
+
+            return $authUser;
+        }
+
+        $userNameArray = explode(' ', $user->name);
         return User::create([
-            'first_name'     => $user->first_name,
-            'email'    => $user->email,
+            'first_name' => $userNameArray[0],
+            'last_name' => $userNameArray[1],
+            'email' => $user->email,
             'provider' => $provider,
-            'provider_id' => $user->id
+            'provider_id' => $user->id,
+            'confirmed' => 1
         ]);
     }
 

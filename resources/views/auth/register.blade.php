@@ -5,14 +5,15 @@
         <div class="ui centered grid container">
             <div class="row">
                 <div class="ui twelve wide tablet five wide computer five wide widescreen five wide large screen column">
-
+                    <br>
                     @if (session('confirmation-success'))
-                        <div class="alert alert-success">
-                            {{ session('confirmation-success') }}
+                        <div class="ui twelve wide computer column">
+                            <div class="ui positive message">
+                                <p>{{ session('confirmation-success') }}</p>
+                            </div>
                         </div>
                     @endif
 
-                    <br>
                     <h3 class="text-align-center-sq">
                         {{ __('Zarejestruj się') }}
                     </h3>
