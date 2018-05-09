@@ -62,7 +62,7 @@
                 <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column">
                     <div class="my-profile-avatar-container">
                         <a class="avatar-sq extreme-avatar-sq verified-sq upload-sq" id="uploadAvatar">
-                            <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,f_auto,e_improve,g_auto,f_auto,g_face,w_150,h_150/avatars/{{ Auth::user()->avatar }}" alt="">
+                            <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,f_auto,g_auto,f_auto,g_face,w_150,h_150/avatars/{{ Auth::user()->avatar }}" alt="">
                         </a>
                     </div>
                 </div>
