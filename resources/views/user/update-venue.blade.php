@@ -697,8 +697,8 @@
                                         <div class="ui four wide computer six wide tablet six wide mobile column">
                                             <div class="photo-upload-item">
                                                 <div class="image-wrapper">
-                                                    <img class="image-sq"
-                                                         src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image}}"
+                                                    <img class="image-sq" id="{{$image->id}}"
+                                                         src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image->image_url}}"
                                                          alt="">
                                                 </div>
                                                 <a class="remove"><i class="icon icon-close"></i></a>
@@ -745,5 +745,10 @@
                 </div>
             </div>
         </div>
+    </form>
+
+    <form action="{{ route('delete-venue', $venue->url) }}" method="post">
+        @csrf
+        <button class="button-sq small-sq see-through-sq" type="submit">{{ __('Usuń przestrzeń') }}</button>
     </form>
 @endsection

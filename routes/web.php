@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('index');
-})->name('index');
+    return view('welcome');
+})->name('welcome');
 
 Route::get('/b2b', function () {
     return view('b2b');
@@ -104,6 +104,11 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('update-venue/{venue_url}', 'User\UpdateVenueController@getVenue')->name('update-venue');
     Route::post('update-venue/{venue_url}', 'User\UpdateVenueController@updateVenue');
+    Route::post('update-venue/{venue_url}/delete', 'User\UpdateVenueController@deleteVenue')->name('delete-venue');
+
+    Route::get('update-venue/{venue_url}/cover-image/{image_id}', 'User\UpdateVenueController@setCoverImage');
+    Route::post('update-venue/{venue_url}/image', 'User\UpdateVenueController@uploadImages');
+    Route::delete('update-venue/{venue_url}/image/{image_id}', 'User\UpdateVenueController@deleteImage');
 
     Route::get('update-service', 'User\UpdateServiceController@getService')->name('update-service');
 

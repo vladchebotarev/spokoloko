@@ -6,6 +6,7 @@ use App\City;
 use App\EventType;
 use Illuminate\Http\Request;
 use App\Venue;
+use Illuminate\Support\Facades\DB;
 
 class VenueController extends Controller
 {
@@ -17,19 +18,47 @@ class VenueController extends Controller
         if ($venue === null) {
             return abort(404);
         } else {
-            $venue_array = $venue->toArray();
-            $venue_array['city'] = $venue->city->name;
-            $venue_array['images'] = $venue->images->toArray();
-            $venue_array['eventTypes'] = $venue->eventTypes->toArray();
-            $venue_array['amenities'] = $venue->amenities->toArray();
-            $venue_array['rules'] = $venue->rules->toArray();
+            $weekday = array(
+                'mon' => 'Poniedziałek',
+                'tue' => 'Wtorek',
+                'wed' => 'Środa',
+                'thu' => 'Czwartek',
+                'fri' => 'Piątek',
+                'sat' => 'Sobota',
+                'sun' => 'Niedziela',
+            );
 
-            $venue_array['style'] = $venue->style;
+            $venue_availability = [];
 
+            if ($venue->availability_type == 'Week') {
+                if ($venue->week_availability == 'All') {
+                    $venue_availability = DB::table('venue_availability')->where('venue_id', $venue->id)
+                        ->select('time_from', 'time_to')->first();
+                } elseif ($venue->week_availability == 'Custom') {
+                    $availability_query = DB::table('venue_availability')->where('venue_id', $venue->id)
+                        ->select('day_week', 'time_from', 'time_to')->get();
+                    foreach ($availability_query as $row) {
+                        $venue_availability[$row->day_week] = [
+                            'time_from' => $row->time_from,
+                            'time_to' => $row->time_to
+                        ];
+                    }
+                }
+            }
 
-            //dump($venue->toArray());
-            return view('venue', $venue->toArray());
-            //dump($venue_array);
+            $data = array(
+                'weekday' => $weekday,
+                'venue' => $venue,
+                'venue_city' => City::find($venue->city_id),
+                'venue_eventTypes' => $venue->eventTypes()->pluck('id')->toArray(),
+                'venue_amenities' => $venue->amenities()->pluck('id')->toArray(),
+                'venue_rules' => $venue->rules()->pluck('id')->toArray(),
+                'venue_features' => $venue->features()->pluck('id')->toArray(),
+                'venue_cover_image' => $venue->images()->where('cover_on', true)->pluck('image_url')->first(),
+                'venue_images' => $venue->images,
+                'venue_availability' => $venue_availability
+            );
+            return view('venue', $data);
         }
 
 
