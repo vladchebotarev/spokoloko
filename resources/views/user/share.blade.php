@@ -28,7 +28,7 @@
 
                 </a>
                 <div class="content">
-                    <a class="header">Przestrzen eventowa</a>
+                    <a class="header">Przestrzeń eventowa</a>
 
                     <div class="description">
                         Restauracje, kluby muzyczne, sale konferencyjne, koncertowe i inne

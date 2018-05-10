@@ -99,11 +99,10 @@ class UserController extends Controller
                     // all good
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect('user/profile')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
+                    return redirect('user/profile')->withErrors(__('messages.db_error'));
                     // something went wrong
                 }
             }
         }
-        //return redirect('user/profile');
     }
 }

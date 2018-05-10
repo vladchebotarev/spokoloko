@@ -120,6 +120,7 @@ return [
     'attributes' => [
         'email' => 'Email',
         'password' => 'Hasło',
+        'current_password' => 'Aktualne hasło',
         'name' => 'Nazwa',
         'city' => 'Miasto',
         'street_address' => 'Adres',

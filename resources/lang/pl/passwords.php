@@ -18,5 +18,8 @@ return [
     'sent' => 'Przypomnienie hasła zostało wysłane!',
     'token' => 'Token resetowania hasła jest nieprawidłowy.',
     'user' => 'Nie znaleziono użytkownika z takim adresem e-mail.',
+    'changed' => 'Hasło zostało zmienione!',
+    'passwords_not_matches' => 'Aktualne hasło nie jest zgodne z podanym hasłem.',
+    'new_password_same' => 'Nowe hasło nie może być takie samo, jak aktualne hasło.',
 
 ];
