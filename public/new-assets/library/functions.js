@@ -224,6 +224,10 @@ var SQ = SQ || {};
             });
 
 
+
+
+
+
             /* Datepicker */
             $('#examplecalendar').calendar({
               type: 'date',
@@ -394,6 +398,12 @@ var SQ = SQ || {};
                 $("#from_hour_new").val($("#from_hour").val());
                 $("#to_hour_new").val($("#to_hour").val());
             });
+
+            $("#send_request_availability").on('click', function() {
+                $('#icon_succes_send').transition('fly left' , '2000ms');
+            });
+
+
 
 
 

@@ -71,7 +71,7 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
-                                        <span class="price-sq">od {{number_format($price_hour*$min_hours, 0, '', '')}}
+                                        <span class="price-sq" style="font-size: 18px;">od {{number_format($price_hour*$min_hours, 0, '', '')}}
                                             PLN</span>
                                         <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$min_hours}}
                                             g</span>
@@ -292,51 +292,7 @@
 
     </div>
 
-    <header class="header-section mhs header-sticky header-is-bottom is-half">
-        <div class="header-content">
-            <div class="ui container stackable grid">
 
-                <div class="header-item header-left">
-                </div>
-
-                <div class="header-item header-center ">
-                </div>
-
-                <div class="header-item header-right flex-align-left flex-grow-true">
-
-                    <div class="menu-default menu-mobile-vertical" data-burger="menu02">
-
-                        <ul class="main-menu anchor-menu">
-
-                            <li class="active"><a href="#section-01" class="item">
-                                    <span>O przestrzeni</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-02" class="item">
-                                    <span>Zdjęcia</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-03" class="item">
-                                    <span>Lokalizacja</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-04" class="item">
-                                    <span>Opinie</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </header>
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">
@@ -1157,14 +1113,14 @@
     <!--end ui container-->
 
     <!-- Contact -->
-    <div class="ui modal small" data-for="contact">
+    <div class="ui modal small" data-for="contact" id="infos_request">
         <i class="icon icon-close close-modal"></i>
         <div class="header center" style="padding-top: 30px;">
             <h3>Sprawdż dostępnosc</h3>
         </div>
 
 
-        <div class="content">
+        <div class="content" >
             <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
                 consectetur, porta ultrices sapien.</p>
 
@@ -1228,12 +1184,17 @@
 
 
                 <div class="divided-column">
-                    <div class="button-sq fullwidth-sq">Send</div>
+                    <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success" id="send_request_availability">Send</div>
                 </div>
             </div>
 
         </div>
 
+    </div>
+    <div class="ui modal small" style="background: none; box-shadow: none; text-align: center; color: white" data-for="success" id="icon_succes_send">
+        <p><i style="color:#F57C00; font-size: 50px;"
+                    class="fa fa-check-circle"></i></p>
+        <p>Wiadosośc zostanie dostarczona</p>
     </div>
 
     <div class="fb-customerchat"

@@ -52,6 +52,10 @@ Route::get('/sitemap', function () {
     return view('sitemap');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 Auth::routes();
 
 
