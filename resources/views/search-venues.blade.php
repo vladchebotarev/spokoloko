@@ -13,6 +13,17 @@
                     <div class="header-item header-center ">
                     </div>
 
+                    <style>
+                        .burger-modal-styles:not(body) {
+                            overflow:visible;
+                        }
+
+                        .burger-modal-styles.search-visible.modal-is-visible {
+                            min-height: 100% !important;
+                            height: auto !important;
+                        }
+                    </style>
+
                     <div class="header-item header-right flex-align-left flex-grow-true">
 
                         <div class="item menu-default burger-mobile-modal burger-tablet-modal search-visible flex-grow-true"

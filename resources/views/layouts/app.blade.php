@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/transition.css') }}">
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
@@ -30,7 +31,7 @@
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 
     {{--TODO customize--}}
-    @if(Request::is('venue/*') or Request::is('service'))
+    @if(Request::is('venue/*') or Request::is('service') or Request::is('contact'))
         <script async defer
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
         <script src={{ asset('new-assets/library/map.js') }}></script>
@@ -143,6 +144,8 @@
 
 <script src={{ asset('new-assets/library/jrespond.min.js') }}></script>
 <script src={{ asset('new-assets/library/scrollspy.min.js') }}></script>
+
+<script src={{ asset('js/transition.js') }}></script>
 
 <script src={{ asset('new-assets/library/visibility.js') }}></script>
 

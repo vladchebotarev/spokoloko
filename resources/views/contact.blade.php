@@ -4,33 +4,9 @@
 
 @section('content')
     <div class="ui layout">
-        <div class="promo-section" style="max-height: 600px;">
 
-            <!-- content -->
-            <div class="ui container grid centered">
-                <div class="row">
-                    <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
-                        <div class="promo-content style-02" style="background-color: rgba(255,140,0,0.9); borderborder-radius: 30px;">
-                            <h2>Czym jest Spokoloko</h2>
-                            <p>Jestesmy aby pomagac tworzyc wydarzenia. Laczymy uslugodawcow i ogranizatorow wydarzen</p>
 
-                            <a href="/b2b" class="button-sq see-through-sq"> Znajdz uslugodawcow </a>
-                            <br><br>
 
-                            <a href="/b2b" class="button-sq see-through-sq" > Dodaj swoj biznes </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- picture -->
-            <div class="image-wrapper">
-
-                    <div id="map"></div>
-
-            </div>
-        </div>
 
         <div class="ui centered grid container" >
 
@@ -40,218 +16,204 @@
 
 
                     <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Zwiększaj uznawalność</h3>
-                        <p>Spokoloko to pierwszy portal w Polsce poswiecony organizatoram i organizacj eventów. Znajdując pokazujesz że jesteś czlonkiem naszej ekipy. </p>
-                        <p>Średnio twoją ofertę zauwarzy 10.000 odbiorców miesięcznie. </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
-                    </div>
+                        <h3 style="padding-bottom: 20px">Kontakty</h3>
+                        <div class="content">
+                            <p>Jetemy do twojej dyspozycji. Zadzwoń, napisz lub umów sie na spotkanie w naszym biurze. </p>
 
 
-                </div>
+                                <ul class="description-list">
+                                    <li>
+                                        <div>
+                                            <p>Adres:</p>
+                                            <strong style="float: right">Jasło, ul.T.Kościuszki 31/5, 38-200</strong>
+                                        </div>
+                                    </li>
 
-                <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
+                                    <li>
+                                        <div>
+                                            <p>Odział Krakow:</p>
+                                            <strong style="float: right">Kraków, ul.Dekerta 2/21, 31-000</strong>
+                                        </div>
+                                    </li>
 
-                    <div class="image-full-height">
-                        <div class="image-wrapper">
-                            <div class="image-inner">
-                                <img  src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
-                            </div>
+                                    <li>
+                                        <div>
+                                            <p>Telefon:</p>
+                                            <strong style="float: right">+ 48 730 035 936</strong>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div><p>Mail:</p>
+                                            <strong style="float: right">mail@spokoloko.me</strong></div>
+                                    </li>
+
+                                    <li>
+                                        <div class="ui internally celled grid">
+                                            <div class="row"
+                                                 style="padding-right: 20px; padding-left: 20px;">
+                                                <div class="four wide column"
+                                                     style="padding-right: 1%; padding-left:0%;">
+                                                    <button onclick="open('#')"
+                                                            class="social_icons facebook"><i
+                                                                class="fa fa-facebook"></i>
+                                                    </button>
+                                                </div>
+
+                                                <div class="four wide column"
+                                                     style="padding-right: 1%; padding-left:1%;">
+                                                    <button class="column social_icons instagram"><i
+                                                                class="fa fa-instagram"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="four wide column"
+                                                     style="padding-right: 0%;  padding-left:1%;">
+                                                    <button class="column social_icons twitter"><i
+                                                                class="fa fa-twitter"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <div class="map-wrapper" style="padding-top: 20px; max-height: 360px;">
+                                        <div id="map" ></div>
+                                    </div>
+
+
+
+
+                                </ul>
+
+
+
                         </div>
                     </div>
 
+                    <style>
+                        div.calendar_title {
+                            font-size: 14px;
+                            padding-bottom: 10px;
+                            font-family: 'Lato';
+                            line-height: 1.2142em;
+                            color: #4d4d4d;
+                        !important;
+                        }
+
+                        div.soc_buttons {
+                            width: 100%;
+                        }
+
+                        button.social_icons {
+                            font-size: 15px;
+                            width: 100%;
+
+                            border: 1px;
+                            border-style: solid;
+                            background-color: white;
+
+                        }
+
+                        button.social_icons.facebook {
+                            border-color: dodgerblue;
+                            color: dodgerblue;
+                        }
+
+                        button.social_icons.instagram {
+                            border-color: deeppink;
+                            color: deeppink;
+                        }
+
+                        button.social_icons.tripadvisor {
+                            border-color: forestgreen;
+                            color: forestgreen;
+                        }
+
+                        button.social_icons.twitter {
+                            border-color: #00ACED;
+                            color: #00aced;
+                        }
+
+                        button.button_call {
+                            width: 100%;
+                            border: 1px;
+                            border-style: solid;
+
+                            background-color: white;
+                            color: orangered;
+                            border-bottom-color: orangered;
+                        }
+
+                        button.button_message {
+                            width: 100%;
+                            border: 1px;
+                            border-style: solid;
+
+                            background-color: white;
+                            color: dodgerblue;
+                            border-bottom-color: dodgerblue;
+                        }
+
+
+                    </style>
+
+
+
+
+
                 </div>
-
-            </div>
-
-
-            <div class="row become-dashboard-description">
-                <div class="ui tablet computer widescreen large screen only twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
-
-                    <div class="image-full-height">
-                        <div class="image-wrapper">
-                            <div class="image-inner">
-                                <img src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
 
                 <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
 
 
                     <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Zyskuj klientow i zarabiaj</h3>
-                        <p>Za pomocą narzędzi Spokoloko można zwiększyć zysk lokalu nawet kilkokrotnie.
-                        </p>
-                        <p>Nigdy wcześnie interakcja z klientami nie była taka prosta. Zostaw  </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-            <div class="row become-dashboard-description">
-                <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
-
-
-                    <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Bądż na bierząco</h3>
-                        <p>Spokoloko to pierwszy portal w Polsce poswiecony organizatoram i organizacj eventów. Znajdując pokazujesz że jesteś czlonkiem naszej ekipy. </p>
-                        <p>Średnio twoją ofertę zauwarzy 10.000 odbiorców miesięcznie. </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
-                    </div>
-
-
-                </div>
-
-                <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
-
-                    <div class="image-full-height">
-                        <div class="image-wrapper">
-                            <div class="image-inner">
-                                <img  src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-            <div class="ui container text" style="padding-top: 50px;">
-                <h3 class="text-align-center-sq" style="padding:10px; ">Dostępne pakiety</h3>
-
-                <div class="ui link cards three stackable grid" style = "padding: 20px;">
-                    <div class="ui card">
+                        <h3 style="padding-bottom: 20px">Napisz do nas</h3>
                         <div class="content">
-                            <div class="header center aligned">Free</div>
-                            <div class="meta center aligned">free and unlimited</div>
-                            <div class="ui divider horizontal">$0 / month</div>
-                            <div class="ui list">
-                                <div class="item"><i class="icon checkmark"></i> <div class="content">
-                                        Do things
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark"></i> <div class="content">
-                                        <b>25.000</b> of stuff
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark"></i> <div class="content">
-                                        <b>30</b> days of history
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark"></i> <div class="content">
-                                        <b>20</b> is just a number
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark"></i> <div class="content">
-                                        <b>15</b> is another number
-                                    </div></div>
-                                <div class="item"><i class="icon minus"></i> <div class="content">
-                                        <b>Default</b> Server
-                                        <br><small>(50 Petaflops/s)</small>
-                                    </div></div>
+                            <p>Masz pytania? Skontaktuj sie z nami używajac formularza poniżej.</p>
+
+                            <form>
+
+
+
+
+                                <div class="div-c ">
+                                    <div class="divided-column">
+                                        <label>Imie</label>
+                                        <input type="text" autofocus placeholder=" ">
+                                    </div>
+
+
+                                </div>
+
+                                <div class="div-c inline-2">
+                                    <div class="divided-column">
+                                        <label>Telefon</label>
+                                        <input type="number" autofocus placeholder=" ">
+                                    </div>
+
+                                    <div class="divided-column">
+                                        <label>Email</label>
+                                        <input type="text" placeholder=" ">
+                                    </div>
+                                </div>
+
+                                <div class="div-c">
+                                    <label>Message</label>
+                                    <textarea cols="30" rows="10" placeholder=" "></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="actions" style="padding-top: 10px;">
+                            <div class="div-c ">
+
+
+                                <div class="divided-column">
+                                    <div class="button-sq fullwidth-sq" >Send</div>
+                                </div>
                             </div>
+
                         </div>
-                        <div class="extra content">
-                            <button class="ui button fluid grey disabled">Default</button>
-                        </div>
-                    </div>
-                    <div class="ui card raised">
-                        <div class="content">
 
-                            <div class="header center aligned">Premium</div>
-                            <div class="meta center aligned">prio ressources</div>
-                            <div class="ui divider horizontal">$2 / month</div>
-                            <div class="ui list" style="padding-top: 20px;">
-                                <div class="item"><i class="icon icon-check-2 blue"></i> <div class="content">
-                                        Do <b>all</b> things
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>60.000</b> of stuff
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>120</b> days of history
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>100</b> is just a number
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>60</b> is another number
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>Awesome</b> Server
-                                        <br><small>(50 Petaflops/s)</small>
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>Support</b> the development
-                                    </div></div>
-                            </div>
-                        </div>
-                        <div class="extra content">
-                            <button class="ui button fluid blue">Order now</button>
-                        </div>
-                    </div>
-                    <div class="ui card raised">
-                        <div class="content">
-                            <a class="ui label left corner blue">
-                                <i class="icon plus"></i>
-                            </a>
-                            <div class="header center aligned">Premium</div>
-                            <div class="meta center aligned">prio ressources</div>
-                            <div class="ui divider horizontal">$2 / month</div>
-                            <div class="ui list">
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        Do <b>all</b> things
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>60.000</b> of stuff
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>120</b> days of history
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>100</b> is just a number
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>60</b> is another number
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>Awesome</b> Server
-                                        <br><small>(50 Petaflops/s)</small>
-                                    </div></div>
-                                <div class="item"><i class="icon checkmark blue"></i> <div class="content">
-                                        <b>Support</b> the development
-                                    </div></div>
-                            </div>
-                        </div>
-                        <div class="extra content">
-                            <button class="ui button fluid blue">Order now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row" style="padding-top: 40px; padding-bottom: 20px;">
-                <div class="ui twelve wide tablet six wide computer six wide widescreen six wide large screen column" >
-
-                    <h3 class="text-align-center-sq">
-                        Nie pasuje żaden Pakiet?
-                    </h3>
-                    <br>
-
-                    <p class="text-align-center-sq">   Skontaktuj się z nami i skomponuj swój własny Pakiet <br>
-
-
-                    </p>
-                    <br>
-                    <div class="text-align-center-sq">
-                        <a class="button-sq font-weight-bold-sq" href="add_listing.html">Zacznij</a>
                     </div>
 
 
@@ -259,6 +221,17 @@
                 </div>
 
             </div>
+
+
+
+
+
+
+
+
+
+
+
 
         </div>
     </div>
