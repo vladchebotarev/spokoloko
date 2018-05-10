@@ -20,16 +20,16 @@
                             </div>
                         @endif
 
-                            @if (session('SaveError'))
-                                <div class="ui twelve wide computer column">
-                                    <div class="ui negative message">
-                                        <div class="header">
-                                            Błąd
-                                        </div>
-                                        <p>{{ session('SaveError') }}</p>
+                        @if (session('SaveError'))
+                            <div class="ui twelve wide computer column">
+                                <div class="ui negative message">
+                                    <div class="header">
+                                        Błąd
                                     </div>
+                                    <p>{{ session('SaveError') }}</p>
                                 </div>
-                            @endif
+                            </div>
+                        @endif
 
                         <h3 class="title-sq">Najwarzniejsze</h3>
 
@@ -72,7 +72,8 @@
                                 <label class="required">Nazwa przestrzeni</label>
                                 <input type="text" id="name" name="name"
                                        class="req-check {{ $errors->has('name') ? 'warning' : '' }}"
-                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna'" maxlength="150"
+                                       placeholder="np: 'HardRock music club' lub 'Sala konferencyjna Anna'"
+                                       maxlength="150"
                                        value="{{ old('name') }}">
                                 @if ($errors->has('name'))
                                     <small class="small-display-has-error">{{ $errors->first('name') }}</small>
@@ -102,7 +103,8 @@
                                 <input type="text"
                                        class="req-check {{ $errors->has('street_number') ? 'warning' : '' }}"
                                        id="street_number" name="street_number"
-                                       data-mask="009/09S" placeholder="21/2b" value="{{ old('street_number') }}" maxlength="20">
+                                       data-mask="009/09S" placeholder="21/2b" value="{{ old('street_number') }}"
+                                       maxlength="20">
                                 @if ($errors->has('street_number'))
                                     <small class="small-display-has-error">{{ $errors->first('street_number') }}</small>
                                 @endif
@@ -660,7 +662,7 @@
                                        placeholder="min. 500zł" data-mask="#.##0,00"
                                        data-mask-reverse="true" value="{{ old('security_deposit') }}"
                                         {{ old('security_deposit_not_required') == 'on' ? 'disabled' : '' }}>
-                            @if ($errors->has('security_deposit'))
+                                @if ($errors->has('security_deposit'))
                                     <small class="small-display-has-error">{{ $errors->first('security_deposit') }}</small>
                                 @endif
                             </div>
@@ -675,10 +677,12 @@
                         <div class="div-c inline-2">
                             <div class="divided-column">
                                 <label class="required">Zwrot zaliczki za N dni do wydarzenia</label>
-                                <input type="text" class="{{ old('security_deposit_not_required') == 'on' ? '' : 'req-check ' }} {{ $errors->has('days_full_refund') ? 'warning' : '' }}"
+                                <input type="text"
+                                       class="{{ old('security_deposit_not_required') == 'on' ? '' : 'req-check ' }} {{ $errors->has('days_full_refund') ? 'warning' : '' }}"
                                        name="days_full_refund" placeholder="2"
                                        id="to_cancel_book_in_eventday" value="{{ old('days_full_refund') }}"
-                                        {{ old('cancel_book_in_eventday') == 'on' ? 'disabled' : '' }} data-mask="0#" maxlength="3">
+                                       {{ old('cancel_book_in_eventday') == 'on' ? 'disabled' : '' }} data-mask="0#"
+                                       maxlength="3">
                                 @if ($errors->has('days_full_refund'))
                                     <small class="small-display-has-error">{{ $errors->first('days_full_refund') }}</small>
                                 @endif
@@ -728,6 +732,7 @@
                         <h3 class="title-sq">Photos</h3>
                     </div>
 
+
                     <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -745,8 +750,8 @@
                         </div>
                     @endif
 
-                    <div class="ui twelve wide computer column error hide">
-                        <div class="ui negative message">
+                    <div class="ui twelve wide computer column">
+                        <div class="ui negative error message hide">
                             <div class="header">
                                 Napotkano następujące błędy:
                             </div>
@@ -770,7 +775,7 @@
                                 Add Photo
                             </label>
                             <input type="file" class="req-check" id="file-upload" name="images[]" multiple
-                                   accept=".png, .jpg, .jpeg"/>
+                                   accept=".png, .jpg, .jpeg .bmp"/>
                         </div>
                     </div>
                 </div>
