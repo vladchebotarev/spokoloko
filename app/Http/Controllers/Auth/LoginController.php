@@ -9,6 +9,7 @@ use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -98,14 +99,32 @@ class LoginController extends Controller
         }
 
         $userNameArray = explode(' ', $user->name);
-        return User::create([
+        $authUser = new User();
+        $authUser->first_name = $userNameArray[0];
+        $authUser->last_name = $userNameArray[1];
+        $authUser->email = $user->email;
+        $authUser->provider = $provider;
+        $authUser->provider_id = $user->id;
+        $authUser->confirmed = 1;
+
+        DB::beginTransaction();
+        try {
+            $authUser->save();
+            $authUser->notifications()->sync([1]);
+            DB::commit();
+            return $authUser;
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+
+        /*return User::create([
             'first_name' => $userNameArray[0],
             'last_name' => $userNameArray[1],
             'email' => $user->email,
             'provider' => $provider,
             'provider_id' => $user->id,
             'confirmed' => 1
-        ]);
+        ]);*/
     }
 
 }
