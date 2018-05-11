@@ -193,7 +193,6 @@
     @endif
 @endguest
 
-
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
@@ -206,6 +205,10 @@
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
+@endif
+
+@if(Request::is('user/update-venue'))
+    <script src={{ asset('js/share/addModifyPhotos.js') }}></script>
 @endif
 
 @if(Request::is('services/*'))

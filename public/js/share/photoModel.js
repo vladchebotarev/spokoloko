@@ -21,7 +21,7 @@ class Photo {
   
   readURL(input) {
     return new Promise(res => {
-      var reader = new FileReader();
+      let reader = new FileReader();
       let that = this;
       reader.onload = function(e) {
         that.img.attr('src', e.target.result);
@@ -72,20 +72,18 @@ class Photo {
   
   static selected() {
     for (let i = 0; i < photoArray.length; ++i) {
-      if (photoArray[ i ].select == true) {
+      if (photoArray[ i ].select === true) {
         return photoArray[ i ];
       }
     }
-    return undefined;
   }
   
   static fetchData() {
     let srcArray = [];
-    let selected = Photo.selected() ? Photo.selected() : undefined;
     for (let i = 0; i < photoArray.length; ++i) srcArray.push(photoArray[ i ].src);
     return {
       srcArray,
-      selected
+      selected: Photo.selected()
     };
   }
 }

@@ -24,7 +24,6 @@ $('#file-upload').change(function() {
     }
   }
   if(check) {
-    console.log('not allowed');
     $('.active-block').find('.error').removeClass('hide');
     $('.active-block').find('.error').find('.list').append(`<li>Dozwolone formaty: .jpeg, .jpg, .png, .bmp.</li>`);
   }
