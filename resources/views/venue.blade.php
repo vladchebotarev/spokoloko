@@ -380,7 +380,7 @@
 
                                     <li>
                                         <i class="icon icon-house"></i>
-                                        <div><p>Ilosc pokoi</p>
+                                        <div><p>Ilość pokoi:</p>
                                             <strong>{{ $venue->room_number }}</strong></div>
                                     </li>
 
@@ -416,7 +416,7 @@
                                     @if($venue->price_depends_on_weekday)
                                         <li>
                                             <div>
-                                                <p>W dni powszednie taniej:</p>
+                                                <p>Cena zależy od dnia tygodnia:</p>
                                                 <strong><i class="fa fa-check"></i></strong>
                                             </div>
                                         </li>
@@ -425,37 +425,50 @@
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Kaucja:</p>
-                                            <strong>400 PLN</strong>
-                                        </div>
-                                    </li>
+                                    @if($venue->security_deposit)
+                                        <li>
+                                            <div>
+                                                <p>Kaucja:</p>
+                                                <strong>{{ $venue->security_deposit }} PLN</strong>
+                                            </div>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <div><strong>Kaucja nie jest wymagana.</strong></div>
+                                        </li>
+                                    @endif
 
-                                    <li>
+                                    {{--<li>
                                         <div><strong>Rezerwacja za 3 dni do wydarzenia
                                             </strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
-                                            </strong></div>
-                                    </li>
+                                    </li>--}}
+                                    @if($venue->days_full_refund)
+                                        <li>
+                                            <div><strong>Rezygnacja za {{ $venue->days_full_refund }} dni do
+                                                    wydarzenia.</strong></div>
+                                        </li>
+                                    @endif
 
 
                                 </ul>
                             </div>
-                            <div class="twelve wide column" style="padding-top:20px;">
-                                <strong>Informacja od właściciela:</strong>
-                                <div class="extra-text">
-                                    <p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
-                                        rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
-                                        barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
-                                        wydarzenia.
-                                        Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana
-                                        wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p>
+                            @if($venue->price_info)
+                                <div class="twelve wide column" style="padding-top:20px;">
+                                    <strong>Dodatkowa informacja cenowa:</strong>
+                                    <div class="extra-text">
+                                        <p>{{ $venue->price_info }}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
+
+                            @if($venue->cancellation_information)
+                                <div class="twelve wide column" style="padding-top:20px;">
+                                    <strong>Dodatkowe zasady rezygnacji:</strong>
+                                    <div class="extra-text">
+                                        <p>{{ $venue->cancellation_information }}</p>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
 
                     </div>
@@ -468,7 +481,8 @@
                                     <li>
                                         <div>
                                             <p>Adres:</p>
-                                            <strong>Kraków, Rynek Głowny 28, 31-010</strong>
+                                            <strong>{{ $venue->street_address }} {{ $venue->street_number }}
+                                                , {{ $venue_city }}, {{ $venue->postal_code }}</strong>
                                         </div>
                                     </li>
 
@@ -476,50 +490,62 @@
                                     <li>
                                         <div>
                                             <p>Telefon:</p>
-                                            <strong>730 035 946</strong>
+                                            <strong>{{ $venue->phone }}</strong>
                                         </div>
                                     </li>
 
-                                    <li>
-                                        <div><p>Telefon 2:</p>
-                                            <strong>730 035 946</strong></div>
-                                    </li>
+                                    @if($venue->phone2)
+                                        <li>
+                                            <div>
+                                                <p>Telefon 2:</p>
+                                                <strong>{{ $venue->phone2 }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-                                    <li>
-                                        <div><p>Strona internetowa:</p>
-                                            <strong>afterbeng.pl</strong></div>
-                                    </li>
-
+                                    @if($venue->webpage)
+                                        <li>
+                                            <div>
+                                                <p>Strona internetowa:</p>
+                                                <strong>{{ $venue->webpage }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Facebook:</p>
-                                            <strong>facebook.com/stronapl</strong>
-                                        </div>
-                                    </li>
+                                    @if($venue->facebook)
+                                        <li>
+                                            <div>
+                                                <p>Facebook:</p>
+                                                <strong>facebook.com/{{ $venue->facebook }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-                                    <li>
-                                        <div>
-                                            <p>Instagram</p>
-                                            <strong>instagram.com/lolkek
-                                            </strong></div>
-                                    </li>
+                                    @if($venue->instagram)
+                                        <li>
+                                            <div>
+                                                <p>Instagram</p>
+                                                <strong>instagram.com/{{ $venue->instagram }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-
-                                    <li>
-                                        <div><p>Opinia Tripadvisor:</p>
-                                            <strong>tripadvisor.com/kokoko</strong></div>
-                                    </li>
+                                    {{--@if($venue->tripadvisor)
+                                        <li>
+                                            <div>
+                                                <p>Opinia Tripadvisor:</p>
+                                                <strong>tripadvisor.com/{{ $venue->tripadvisor }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif--}}
 
                                 </ul>
                             </div>
-
                         </div>
-
                     </div>
 
 
@@ -545,29 +571,15 @@
                                 <div class="ui accordion more-sq">
                                     <div class="title">
                                         <div class="ui grid">
-                                            <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                            {{--<a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
                                                 <i class="icon icon-arrow-down-122"></i>
-                                            </a>
+                                            </a>--}}
 
                                             <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
                                                 <ul class="description-list">
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-
-
+                                                    @foreach($venue_eventTypes as $eventType)
+                                                        <div class="ui label">{{ $eventType }}</div>
+                                                    @endforeach
                                                 </ul>
                                             </div>
 
@@ -575,30 +587,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="content">
+                                    {{--<div class="content">
                                         <div class="ui grid">
                                             <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
                                                 <ul class="description-list">
-
                                                     <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-
-
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         </div>
