@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', 'WelcomeController')->name('welcome');
 
 Route::get('/b2b', function () {
     return view('b2b');

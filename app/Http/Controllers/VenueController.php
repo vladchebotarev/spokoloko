@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\City;
-use App\EventType;
+use App\VenueStyle;
+use App\VenueType;
 use Illuminate\Http\Request;
 use App\Venue;
 use Illuminate\Support\Facades\DB;
@@ -49,7 +50,9 @@ class VenueController extends Controller
             $data = array(
                 'weekday' => $weekday,
                 'venue' => $venue,
-                'venue_city' => City::find($venue->city_id),
+                'venue_city' => City::find($venue->city_id)->name,
+                'venue_type' => VenueType::find($venue->venue_type_id)->name,
+                'venue_style' => VenueStyle::find($venue->venue_style_id)->name,
                 'venue_eventTypes' => $venue->eventTypes()->pluck('id')->toArray(),
                 'venue_amenities' => $venue->amenities()->pluck('id')->toArray(),
                 'venue_rules' => $venue->rules()->pluck('id')->toArray(),

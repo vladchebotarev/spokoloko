@@ -31,14 +31,14 @@
 
                         <div class="location-sq">
                             <i class="icon icon-location-pin-2"></i>
-                            {{ $venue->street_address }}
+                            {{ $venue->street_address }} {{ $venue->street_number }}, {{ $venue_city }}
                         </div>
 
                         <div class="icons-row">
-                            {{--<div class="icons-column">
+                            <div class="icons-column">
                                 <i class="icon icon-account-group-5"></i>
-                                do {{ $max_guests }} osób
-                            </div>--}}
+                                do {{ $venue->max_guests_standing }} osób
+                            </div>
                             <div class="icons-column">
                                 <i class="icon icon-home-3"></i>
                                 {{ $venue->area }} m²
@@ -77,7 +77,7 @@
                                               style="font-size: 18px;">od {{number_format($venue->price_hour*$venue->min_hours, 0, '', '')}}
                                             PLN</span>
                                         <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$venue->min_hours}}
-                                            g</span>
+                                            h</span>
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
@@ -302,38 +302,28 @@
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">
-
         <div class="row">
-
             <div class="ui column main-column" role="main">
-
                 <div class="section-container" id="section-01">
-
                     <div class="typo-section-sq top-default bottom-default">
                         <h3>O przestrzeni</h3>
 
-                        <p>Our house is a wood and glass house, built in the 21th century's first years. A large living
-                            room widely glazed with a fireplace, two large sofas and the "chief's armchair" and a
-                            kitchen corner (washdishes).
-                            <br><br>
-                            Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
-                            bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
-                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a
-                                    href="#section-cena">
-                                Czytac więcej
-                            </a></p>
+                        <p>
+                            {{ $venue->description }}
+                            <a href="#section-cena">Więcej</a>
+                        </p>
 
-                        <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
+                        <div class="button-sq small-sq see-through-sq">
                             Cena
                         </div>
-                        <div class="button-sq small-sq ">
+                        <div class="button-sq small-sq modal-ui-trigger" data-trigger-for="contact">
                             Kontakty
                         </div>
 
-                        <div class="button-sq link-sq small-sq float-right-sq">
+                        {{--<div class="button-sq link-sq small-sq float-right-sq">
                             <i class="icon icon-share"></i>
                             share
-                        </div>
+                        </div>--}}
 
                     </div>
 
@@ -343,25 +333,25 @@
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
                                     <li>
-                                        <i class="icon icon-account-group-5"></i>
+                                        <i class="icon icon-user-circle"></i>
                                         <div>
                                             <p>Ilosc gosci stojąco:</p>
-                                            <strong>240 osob</strong>
+                                            <strong>{{ $venue->max_guests_standing }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
-                                        <i class="icon icon-bath-tub"></i>
+                                        <i class="icon icon-armchair-1"></i>
                                         <div>
                                             <p>Ilosc gosci siedzaco:</p>
-                                            <strong>64 osob</strong>
+                                            <strong>{{ $venue->max_guests_seating }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-bed-double"></i>
                                         <div><p>Przestzen:</p>
-                                            <strong>150 m²</strong>
+                                            <strong>{{ $venue->area }} m²</strong>
                                         </div>
                                     </li>
                                 </ul>
@@ -375,7 +365,7 @@
                                         <i class="icon icon-building-7"></i>
                                         <div>
                                             <p>Typ przestrzeni:</p>
-                                            <strong>Restauracja/Bar</strong>
+                                            <strong>{{ $venue_type }}</strong>
                                         </div>
                                     </li>
 
@@ -383,7 +373,7 @@
                                         <i class="icon icon-door-simple"></i>
                                         <div>
                                             <p>Styl:</p>
-                                            <strong>Modern </strong>
+                                            <strong>{{ $venue_style }}</strong>
 
                                         </div>
                                     </li>
@@ -391,7 +381,7 @@
                                     <li>
                                         <i class="icon icon-house"></i>
                                         <div><p>Ilosc pokoi</p>
-                                            <strong>2</strong></div>
+                                            <strong>{{ $venue->room_number }}</strong></div>
                                     </li>
 
                                 </ul>
@@ -409,25 +399,28 @@
                                     <li>
                                         <div>
                                             <p>Cena za godzine:</p>
-                                            <strong>100 PLN</strong>
+                                            <strong>{{ $venue->price_hour }} PLN</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div><p>Min. ilosc godzin:</p>
-                                            <strong>3</strong></div>
+                                            <strong>{{ $venue->min_hours }}</strong></div>
                                     </li>
 
                                     <li>
                                         <div><p>Cena za dzien:</p>
-                                            <strong>1200 PLN</strong></div>
+                                            <strong>{{ $venue->price_day }} PLN</strong></div>
                                     </li>
 
-                                    <li>
-                                        <div><p>W dni powszednie taniej:</p>
-                                            <strong><i class="fa fa-check"></i></strong></div>
-                                    </li>
-
+                                    @if($venue->price_depends_on_weekday)
+                                        <li>
+                                            <div>
+                                                <p>W dni powszednie taniej:</p>
+                                                <strong><i class="fa fa-check"></i></strong>
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
@@ -453,8 +446,9 @@
                                 </ul>
                             </div>
                             <div class="twelve wide column" style="padding-top:20px;">
-                                <strong>Informacja od wlasciciela:</strong>
-                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
+                                <strong>Informacja od właściciela:</strong>
+                                <div class="extra-text">
+                                    <p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
                                         rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
                                         barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
                                         wydarzenia.
