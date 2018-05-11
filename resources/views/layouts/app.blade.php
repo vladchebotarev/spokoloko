@@ -165,6 +165,9 @@
 <script src={{ asset('new-assets/library/popup.js') }}></script>
 <script src={{ asset('new-assets/library/calendar.js') }}></script>
 
+
+<script src={{ asset('js/jquery.lazy.min.js') }}></script>
+
 <!-- Slick -->
 <script src={{ asset('new-assets/library/slick.js') }}></script>
 
