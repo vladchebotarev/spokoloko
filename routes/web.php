@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', 'WelcomeController')->name('welcome');
 
 Route::get('/b2b', function () {
     return view('b2b');
@@ -84,6 +82,9 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
 
     Route::get('settings', 'User\UserSettingsController@index')->name('settings');
+    Route::post('settings/notifications', 'User\UserSettingsController@changeNotifications')->name('settings.notifications');
+    Route::post('settings/phone', 'User\UserSettingsController@changePhone')->name('settings.phone');
+    Route::post('settings/password', 'User\UserSettingsController@changePassword')->name('settings.password');
 
     Route::get('listings', 'User\UserListingsController@index')->name('listings');
 
@@ -103,6 +104,11 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('update-venue/{venue_url}', 'User\UpdateVenueController@getVenue')->name('update-venue');
     Route::post('update-venue/{venue_url}', 'User\UpdateVenueController@updateVenue');
+    Route::post('update-venue/{venue_url}/delete', 'User\UpdateVenueController@deleteVenue')->name('delete-venue');
+
+    Route::get('update-venue/{venue_url}/cover-image/{image_id}', 'User\UpdateVenueController@setCoverImage');
+    Route::post('update-venue/{venue_url}/image', 'User\UpdateVenueController@uploadImages');
+    Route::delete('update-venue/{venue_url}/image/{image_id}', 'User\UpdateVenueController@deleteImage');
 
     Route::get('update-service', 'User\UpdateServiceController@getService')->name('update-service');
 

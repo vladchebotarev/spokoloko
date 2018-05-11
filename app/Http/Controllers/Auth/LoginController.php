@@ -8,6 +8,8 @@ use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use App\User;
+use Illuminate\Support\Facades\DB;
 
 class LoginController extends Controller
 {
@@ -61,7 +63,12 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver($provider)->user();
+        try {
+            $user = Socialite::driver($provider)->user();
+        } catch (\Exception $e) {
+            return redirect('login')
+                ->withErrors('Logowanie za pomocą ' . $provider . 'nie powiodło się. Spróbuj później.');
+        }
 
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
@@ -81,12 +88,43 @@ class LoginController extends Controller
         if ($authUser) {
             return $authUser;
         }
-        return User::create([
-            'first_name'     => $user->first_name,
-            'email'    => $user->email,
+
+        $authUser = User::where('provider_id', null)->where('email', $user->email)->first();
+        if ($authUser) {
+            $authUser->provider = $provider;
+            $authUser->provider_id = $user->id;
+            $authUser->save();
+
+            return $authUser;
+        }
+
+        $userNameArray = explode(' ', $user->name);
+        $authUser = new User();
+        $authUser->first_name = $userNameArray[0];
+        $authUser->last_name = $userNameArray[1];
+        $authUser->email = $user->email;
+        $authUser->provider = $provider;
+        $authUser->provider_id = $user->id;
+        $authUser->confirmed = 1;
+
+        DB::beginTransaction();
+        try {
+            $authUser->save();
+            $authUser->notifications()->sync([1]);
+            DB::commit();
+            return $authUser;
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+
+        /*return User::create([
+            'first_name' => $userNameArray[0],
+            'last_name' => $userNameArray[1],
+            'email' => $user->email,
             'provider' => $provider,
-            'provider_id' => $user->id
-        ]);
+            'provider_id' => $user->id,
+            'confirmed' => 1
+        ]);*/
     }
 
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Venue;
@@ -16,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Support\Facades\Validator;
+use JD\Cloudder\Facades\Cloudder;
 
 class UpdateVenueController extends Controller
 {
@@ -79,7 +79,7 @@ class UpdateVenueController extends Controller
                 'venue_rules' => $venue->rules()->pluck('id')->toArray(),
                 'venue_features' => $venue->features()->pluck('id')->toArray(),
                 'venue_cover_image' => $venue->images()->where('cover_on', true)->pluck('image_url')->first(),
-                'venue_images' => $venue->images()->pluck('image_url')->toArray(),
+                'venue_images' => $venue->images,
                 'venue_availability' => $venue_availability
             );
 
@@ -119,6 +119,7 @@ class UpdateVenueController extends Controller
                 'security_deposit' => 'regex:/^\d*(\.\d{1,2})?$/',
                 'days_full_refund' => 'nullable|digits_between:1,3',
                 'cancellation_information' => 'max:7000',
+                'facebook_page_id' => 'nullable|digits_between:1,25',
             ]);
 
             if ($validator->fails()) {
@@ -143,6 +144,8 @@ class UpdateVenueController extends Controller
                 $venue->facebook = $request->get('facebook');
                 $venue->instagram = $request->get('instagram');
                 $venue->tripadvisor = $request->get('tripadvisor');
+
+                $venue->facebook_page_id = $request->get('facebook_page_id');
 
                 $venue->description = $request->get('description');
                 $venue->full_description = $request->get('full_description');
@@ -255,35 +258,97 @@ class UpdateVenueController extends Controller
 
                 }
 
-                /*$n = 1;
-                $images_insert = [];
-                foreach ($request->file('images') as $request_image) {
-                    $image = $request_image->getRealPath();
-                    $image_name = $venue->url . '-' . $n++;
-                    Cloudder::upload($image, 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
-                    $images_insert[] = [
-                        'venue_id' => $venue->id,
-                        'image_url' => $image_name,
-                        'cover_on' => 0,
-                        'created_at' => date('Y-m-d H:i:s')
-                    ];
-//                    $image = Image::make($request_image);
-//                    $filename = $venue->url . '-' . $n++.'.jpg';
-//                    $image->save(public_path('/images/venues/' . $filename));
-                }
 
-                try {
-                    DB::table('venue_images')->insert($images_insert);
-                    DB::commit();
-                    return redirect('user/update-venue/' . $venue_url . '#section-header')->with('status', 'Dane zostały zaktualizowane!');
-                } catch (\Exception $e) {
-                    DB::rollback();
-                    return redirect('user/update-venue/' . $venue_url . '#section-header')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
-                }*/
                 DB::commit();
                 return redirect('user/update-venue/' . $venue_url . '#section-header')->with('status', 'Dane zostały zaktualizowane!');
                 //echo 'Success';
             }
         }
+    }
+
+    public function deleteVenue($venue_url)
+    {
+        $venue = Venue::where('url', $venue_url)->first();
+
+        if ($venue === null or $venue->user_id != Auth::user()->id) {
+            return abort(404);
+        } else {
+            foreach ($venue->images as $image) {
+                try {
+                    Cloudder::destroyImage('venues/' . $venue_url . '/' . $image->image_url);
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/update-venue/' . $venue_url . '#section-header')->withErrors(__('messages.db_error'));
+                }
+            }
+
+            try {
+                $venue->delete();
+                DB::commit();
+                return redirect('user/listings')->with('status', 'Twoja przestrzeń została usunięta!');
+            } catch (\Exception $e) {
+                DB::rollback();
+                return redirect('user/update-venue/' . $venue_url . '#section-header')->withErrors(__('messages.db_error'));
+            }
+        }
+    }
+
+    public function setCoverImage($venue_url, $image_id, Request $request)
+    {
+
+    }
+
+    public function uploadImages($venue_url, Request $request)
+    {
+        $venue = Venue::where('url', $venue_url)->first();
+
+        if ($venue === null or $venue->user_id != Auth::user()->id) {
+            return abort(404);
+        } else {
+            $images_insert = [];
+            $coverImageSelected = false;
+            foreach ($request->file('images') as $request_image) {
+
+                $image_name = $venue->url . '-' . str_random(6);
+
+                try {
+                    Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/share-venue')
+                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                        ->withInput();
+                }
+
+                $cover_on = 0;
+                if ($request_image->getClientOriginalName() == $request->get('cover_image') && !$coverImageSelected) {
+                    $cover_on = 1;
+                    $coverImageSelected = true;
+                }
+
+                $images_insert[] = [
+                    'venue_id' => $venue->id,
+                    'image_url' => $image_name,
+                    'cover_on' => $cover_on,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+            }
+
+            try {
+                DB::table('venue_images')->insert($images_insert);
+                DB::commit();
+                return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
+            } catch (\Exception $e) {
+                DB::rollback();
+                return redirect('user/share-venue')
+                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                    ->withInput();
+            }
+        }
+    }
+
+    public function deleteImage()
+    {
+
     }
 }

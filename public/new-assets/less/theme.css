@@ -6723,7 +6723,7 @@ article.article-sq {
   display: flex;
 }
 .h-search-h .hero-search-form .search-item .fltp .ui.dropdown .dropdown.icon {
-  position: relative;
+  /*position: relative;*/
   -webkit-box-ordinal-group: 2;
   -moz-box-ordinal-group: 2;
   -ms-flex-order: 2;

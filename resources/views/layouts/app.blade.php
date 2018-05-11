@@ -16,14 +16,15 @@
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/transition.css') }}">
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     @endif
 
     <link rel="icon" href={{ asset('favicon.ico') }}>
@@ -39,11 +40,11 @@
 
     @endif
 
-{{--TODO customize--}}
+    {{--TODO customize--}}
     @if(Request::is('user/update-venue/*') or Request::is('user/share-venue') or Request::is('user/share-service'))
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
-            <script src={{ asset('new-assets/library/map_adding.js') }}></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
+        <script src={{ asset('new-assets/library/map_adding.js') }}></script>
     @endif
 
 
@@ -173,33 +174,70 @@
 
 <script src={{ asset('new-assets/library/header.js') }}></script>
 <script src={{ asset('new-assets/library/functions.js') }}></script>
+<script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
+<script src={{ asset('js/facebook_messenger.js') }}></script>
+<script src={{ asset('js/semantic-ui/message.js') }}></script>
+<script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
 
 
 <!-- Other scripts -->
 {{--TODO--}}
-@guest
-    {{--@if(!Request::is('login'))
-        @if(!Request::is('register'))
-            @if(!Request::is('password/*'))
-                <script src={{ asset('js/auth-modals.js') }}></script>
-            @endif
-        @endif
-    @endif--}}
-@else
-    @if(Request::is('user/profile'))
-        <script src={{ asset('js/profile-avatar.js') }}></script>
-        <script src={{ asset('js/profile-form.js') }}></script>
-    @endif
-@endguest
+{{--@switch(1)
+    @case('/')
+    <script>
+        $("#searchSubmit").click(function () {
+            $('#searchForm').attr('action', 'venues/' + $("#select_city").val()).submit();
+        });
+    </script>
+    @break
+
+    @case('user/profile')
+    <script src={{ asset('js/user/profile-form.js') }}></script>
+    @break
+
+    @case(Request::is('user/share-venue'))
+    @case(Request::is('user/share-service'))
+    @case(Request::is('user/update-venue/*'))
+    <script src={{ asset('js/jquery.mask.min.js') }}></script>
+    <script src={{ asset('js/velocity.min.js')}}></script>
+    --}}{{--<script src={{ asset('js/move.min.js')}}></script>--}}{{--
+    <script src={{ asset('js/share/steps.js') }}></script>
+    --}}{{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}{{--
+    --}}{{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}{{--
+    <script src="{{ asset('js/share/checkbox.js') }}"></script>
+    <script src={{ asset('js/share/photoModel.js') }}></script>
+    <script src={{ asset('js/share/validation.js') }}></script>
+    <script src={{ asset('js/share/addPhotos.js') }}></script>
+    @break
+
+    @case(Request::is('services/*'))
+    <script src={{ asset('js/search/services.js') }}></script>
+    @break
+
+    @case(Request::is('venues/*'))
+    <script src={{ asset('js/search/venues.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
+    <script src={{ asset('js/search/venues_map.js') }}></script>
+    @break
+
+@endswitch--}}
+
+
+@if(Request::is('user/profile'))
+    <script src={{ asset('js/user/profile-form.js') }}></script>
+@endif
+
+
 
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
     <script src={{ asset('js/velocity.min.js')}}></script>
-    {{--<script src={{ asset('js/move.min.js')}}></script>--}}
+    <script src={{ asset('js/move.min.js')}}></script>
     <script src={{ asset('js/share/steps.js') }}></script>
-    {{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}
-    {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
+    <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
+    <script src={{ asset('js/share/weekButtons.js') }}></script>
     <script src="{{ asset('js/share/checkbox.js') }}"></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
@@ -217,32 +255,9 @@
     <script src={{ asset('js/search/venues_map.js') }}></script>
 @endif
 
-<script>
-    $( "#uploadAvatar" ).click(function() {
-        $('#inputImage').trigger('click');
-    });
-
-    $('#inputImage').change(function() {
-        $('#formUpdateImage').submit();
-    });
-
-    $('.message .close')
-        .on('click', function() {
-            $(this)
-                .closest('.message')
-                .transition('fade')
-            ;
-        })
-    ;
-
-    $("form").submit(function (e) {
-        e.preventDefault();
-        $('button[type=submit], input[type=submit]').prop('disabled',true);
-        $("#dimmer").show();
-        this.submit();
-    });
-</script>
+@if(Request::is('/'))
+    <script src={{ asset('js/welcome/welcome.js') }}></script>
+@endif
 
 </body>
-
 </html>

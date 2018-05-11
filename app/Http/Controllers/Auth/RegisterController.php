@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 //use Illuminate\Foundation\Auth\RegistersUsers;
 use Bestmomo\LaravelEmailConfirmation\Traits\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -64,10 +65,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = new User();
+        $user->first_name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+
+        DB::beginTransaction();
+        try {
+            $user->save();
+            $user->notifications()->sync([1]);
+            DB::commit();
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+
+        /*return User::create([
             'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);*/
     }
 }

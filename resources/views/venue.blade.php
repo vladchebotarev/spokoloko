@@ -9,7 +9,9 @@
 
         <div class="image-wrapper">
             <div class="image-inner">
-                <img class="image-sq slick-img" src="{{ asset('new-assets/images/hero/hero_big_32.jpg') }}" alt=""
+                <img class="image-sq slick-img"
+                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     alt=""
                      data-gallery="gallery"
                      data-caption="Cover Photo">
             </div>
@@ -20,7 +22,7 @@
                 <div class="row">
                     <div class="ui column main-column">
 
-                        <h1 class="title-sq">{{ $name }}</h1>
+                        <h1 class="title-sq">{{ $venue->name }}</h1>
 
                         <div class="rating-sq">
                             <span>9.4</span>
@@ -29,25 +31,25 @@
 
                         <div class="location-sq">
                             <i class="icon icon-location-pin-2"></i>
-                            {{ $street_address }}
+                            {{ $venue->street_address }} {{ $venue->street_number }}, {{ $venue_city }}
                         </div>
 
                         <div class="icons-row">
                             <div class="icons-column">
                                 <i class="icon icon-account-group-5"></i>
-                                do {{ $max_guests }} osób
+                                do {{ $venue->max_guests_standing }} osób
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-home-3"></i>
-                                {{ $area }} m²
+                                {{ $venue->area }} m²
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-user-circle"></i>
-                                {{ $max_guests_standing }} stojąco
+                                {{ $venue->max_guests_standing }} stojąco
                             </div>
                             <div class="icons-column">
                                 <i class="icon icon-armchair-1"></i>
-                                {{ $max_guests_seating }} siedząco
+                                {{ $venue->max_guests_seating }} siedząco
                             </div>
                         </div>
 
@@ -71,10 +73,12 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
-                                        <span class="price-sq">od {{number_format($price_hour*$min_hours, 0, '', '')}}
+
+                                        <span class="price-sq"
+                                              style="font-size: 18px;">od {{number_format($venue->price_hour*$venue->min_hours, 0, '', '')}}
                                             PLN</span>
-                                        <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$min_hours}}
-                                            g</span>
+                                        <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$venue->min_hours}}
+                                            h</span>
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
@@ -84,11 +88,13 @@
                                     <div class="mobile-fixed-section">
                                         <div class="sticky-box-content">
                                             <div class="mobile hidden">
-                                            <div class="calendar_title"><p>Data wydarzenia:</p></div>
+                                                <div class="calendar_title"><p>Data wydarzenia:</p></div>
 
-                                            <div id="examplecalendar" class="calendar-sq" style="padding-bottom: 10px;">
-                                                <input type="text" id="event_date" value="" required placeholder="Wybierz date">
-                                            </div>
+                                                <div id="examplecalendar" class="calendar-sq"
+                                                     style="padding-bottom: 10px;">
+                                                    <input type="text" id="event_date" value="" required
+                                                           placeholder="Wybierz date">
+                                                </div>
 
 
                                                 <div class="main-infos inline-check-in">
@@ -98,7 +104,8 @@
 
 
                                                         <div class="relative">
-                                                            <input type="text" id="from_hour" class="filter" value="" required
+                                                            <input type="text" id="from_hour" class="filter" value=""
+                                                                   required
                                                                    placeholder="od">
                                                             <i class="icon icon-little-arrow filters-arrow"></i>
                                                         </div>
@@ -139,12 +146,12 @@
                                                         <div><p>Kaucja:</p>
                                                             <strong style="float: right">500zl</strong></div>
                                                     </li>  -->
-                                                    <button class="button-sq fullwidth-sq font-weight-extrabold-sq  modal-ui-trigger" data-trigger-for="contact" id="sender_dates">
+                                                    <button class="button-sq fullwidth-sq font-weight-extrabold-sq  modal-ui-trigger"
+                                                            data-trigger-for="contact" id="sender_dates">
                                                         Sprawdz dostepnosc
                                                     </button>
 
                                                     <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
-
 
 
                                                     <style>
@@ -260,7 +267,7 @@
                                                     </li>
                                                     <li>
                                                         <div style="width: 100%">
-                                                        <div style="text-align: center">afterbeng.pl</div>
+                                                            <div style="text-align: center">afterbeng.pl</div>
                                                         </div>
                                                     </li>
 
@@ -340,38 +347,28 @@
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">
-
         <div class="row">
-
             <div class="ui column main-column" role="main">
-
                 <div class="section-container" id="section-01">
-
                     <div class="typo-section-sq top-default bottom-default">
                         <h3>O przestrzeni</h3>
 
-                        <p>Our house is a wood and glass house, built in the 21th century's first years. A large living
-                            room widely glazed with a fireplace, two large sofas and the "chief's armchair" and a
-                            kitchen corner (washdishes).
-                            <br><br>
-                            Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
-                            bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
-                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a
-                                    href="#section-cena">
-                                Czytac więcej
-                            </a></p>
+                        <p>
+                            {{ $venue->description }}
+                            <a href="#section-cena">Więcej</a>
+                        </p>
 
-                        <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
+                        <div class="button-sq small-sq see-through-sq">
                             Cena
                         </div>
-                        <div class="button-sq small-sq ">
+                        <div class="button-sq small-sq modal-ui-trigger" data-trigger-for="contact">
                             Kontakty
                         </div>
 
-                        <div class="button-sq link-sq small-sq float-right-sq">
+                        {{--<div class="button-sq link-sq small-sq float-right-sq">
                             <i class="icon icon-share"></i>
                             share
-                        </div>
+                        </div>--}}
 
                     </div>
 
@@ -381,25 +378,25 @@
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
                                     <li>
-                                        <i class="icon icon-account-group-5"></i>
+                                        <i class="icon icon-user-circle"></i>
                                         <div>
                                             <p>Ilosc gosci stojąco:</p>
-                                            <strong>240 osob</strong>
+                                            <strong>{{ $venue->max_guests_standing }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
-                                        <i class="icon icon-bath-tub"></i>
+                                        <i class="icon icon-armchair-1"></i>
                                         <div>
                                             <p>Ilosc gosci siedzaco:</p>
-                                            <strong>64 osob</strong>
+                                            <strong>{{ $venue->max_guests_seating }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-bed-double"></i>
                                         <div><p>Przestzen:</p>
-                                            <strong>150 m²</strong>
+                                            <strong>{{ $venue->area }} m²</strong>
                                         </div>
                                     </li>
                                 </ul>
@@ -413,7 +410,7 @@
                                         <i class="icon icon-building-7"></i>
                                         <div>
                                             <p>Typ przestrzeni:</p>
-                                            <strong>Restauracja/Bar</strong>
+                                            <strong>{{ $venue_type }}</strong>
                                         </div>
                                     </li>
 
@@ -421,7 +418,7 @@
                                         <i class="icon icon-door-simple"></i>
                                         <div>
                                             <p>Styl:</p>
-                                            <strong>Modern </strong>
+                                            <strong>{{ $venue_style }}</strong>
 
                                         </div>
                                     </li>
@@ -429,7 +426,7 @@
                                     <li>
                                         <i class="icon icon-house"></i>
                                         <div><p>Ilosc pokoi</p>
-                                            <strong>2</strong></div>
+                                            <strong>{{ $venue->room_number }}</strong></div>
                                     </li>
 
                                 </ul>
@@ -437,7 +434,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div class="typo-section-sq bottom-default">
@@ -448,25 +444,28 @@
                                     <li>
                                         <div>
                                             <p>Cena za godzine:</p>
-                                            <strong>100 PLN</strong>
+                                            <strong>{{ $venue->price_hour }} PLN</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div><p>Min. ilosc godzin:</p>
-                                            <strong>3</strong></div>
+                                            <strong>{{ $venue->min_hours }}</strong></div>
                                     </li>
 
                                     <li>
                                         <div><p>Cena za dzien:</p>
-                                            <strong>1200 PLN</strong></div>
+                                            <strong>{{ $venue->price_day }} PLN</strong></div>
                                     </li>
 
-                                    <li>
-                                        <div><p>W dni powszednie taniej:</p>
-                                            <strong><i class="fa fa-check"></i></strong></div>
-                                    </li>
-
+                                    @if($venue->price_depends_on_weekday)
+                                        <li>
+                                            <div>
+                                                <p>W dni powszednie taniej:</p>
+                                                <strong><i class="fa fa-check"></i></strong>
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
@@ -492,8 +491,9 @@
                                 </ul>
                             </div>
                             <div class="twelve wide column" style="padding-top:20px;">
-                                <strong>Informacja od wlasciciela:</strong>
-                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
+                                <strong>Informacja od właściciela:</strong>
+                                <div class="extra-text">
+                                    <p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
                                         rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
                                         barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
                                         wydarzenia.
@@ -536,8 +536,6 @@
                                     </li>
 
 
-
-
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
@@ -555,7 +553,6 @@
                                             <strong>instagram.com/lolkek
                                             </strong></div>
                                     </li>
-
 
 
                                     <li>
@@ -931,7 +928,6 @@
                                 </li>
 
 
-
                             </ul>
                         </div>
                     </div>
@@ -942,42 +938,29 @@
                         <h3>Photos</h3>
 
                         <div class="photo-grid grid-5">
-                            <div class="photo-item">
-                                <div class="image-wrapper">
-                                    <img class="image-sq slick-img"
-                                         src="{{ asset('new-assets/images/property/property_big_01.jpg') }}"
-                                         alt="" data-gallery="gallery" data-caption="Photo 01">
-                                </div>
-                            </div>
-                            <div class="photo-item">
-                                <div class="image-wrapper">
-                                    <img class="image-sq slick-img"
-                                         src="{{ asset('new-assets/images/property/property_big_02.jpg') }}"
-                                         alt="" data-gallery="gallery" data-caption="Photo 02">
-                                </div>
-                            </div>
-                            <div class="photo-item">
-                                <div class="image-wrapper">
-                                    <img class="image-sq slick-img"
-                                         src="{{ asset('new-assets/images/property/property_big_03.jpg') }}"
-                                         alt="" data-gallery="gallery" data-caption="Photo 03">
-                                </div>
-                            </div>
-                            <div class="photo-item">
-                                <div class="image-wrapper">
-                                    <a data-items="+22 Photos"><img class="image-sq slick-img"
-                                                                    src="{{ asset('new-assets/images/property/property_big_04.jpg') }}"
-                                                                    alt="" data-gallery="gallery"
-                                                                    data-caption="Photo 04"></a>
-                                </div>
-                            </div>
-                            <div class="photo-item">
-                                <div class="image-wrapper">
-                                    <img class="image-sq slick-img"
-                                         src="{{ asset('new-assets/images/property/property_big_05.jpg') }}"
-                                         alt="" data-gallery="gallery" data-caption="Photo 05">
-                                </div>
-                            </div>
+                            @for($n = 0; $n < 5; $n++)
+                                @if($n != 4)
+                                    <div class="photo-item">
+                                        <div class="image-wrapper">
+                                            <img class="image-sq slick-img"
+                                                 src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                                 alt="" data-gallery="gallery" data-caption="Photo 01">
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="photo-item">
+                                        <div class="image-wrapper">
+                                            <a data-items="+22 Photos">
+                                                <img class="image-sq slick-img"
+                                                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                                     alt="" data-gallery="gallery"
+                                                     data-caption="Photo 04">
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endfor
+
                         </div>
 
                     </div>
@@ -1019,138 +1002,138 @@
     </div>
 
 
-{{--    <div class="ui grid container stackable app layout right side">
-        <div class="stretched row">
-            <div class="ui column main-column" role="main">
-                <div class="section-container" id="section-04">
+    {{--    <div class="ui grid container stackable app layout right side">
+            <div class="stretched row">
+                <div class="ui column main-column" role="main">
+                    <div class="section-container" id="section-04">
 
-                    <div class="typo-section-sq top-default bottom-default">
-                        <h3>Reviews</h3>
-                        <div class="reviews-header">
-                            <div class="rating-big">
-                                <div class="rating-badge">
-                                    <span>9.2</span>
-                                    <i class="icon icon-heart"></i>
-                                </div>
-                                <div class="rating-info">
-                                    <p>More than <strong>95%</strong> of guests recommend this place</p>
-                                </div>
-                            </div>
-                            <div class="rating-percentage">
-                                <div class="rating-column">
-                                    <p class="rating-label"><strong>Accuracy</strong></p>
-                                    <div class="basic-progressbar">
-                                        <div class="inner" style="width:75%"></div>
+                        <div class="typo-section-sq top-default bottom-default">
+                            <h3>Reviews</h3>
+                            <div class="reviews-header">
+                                <div class="rating-big">
+                                    <div class="rating-badge">
+                                        <span>9.2</span>
+                                        <i class="icon icon-heart"></i>
+                                    </div>
+                                    <div class="rating-info">
+                                        <p>More than <strong>95%</strong> of guests recommend this place</p>
                                     </div>
                                 </div>
-
-                                <div class="rating-column">
-                                    <p class="rating-label"><strong>Communication</strong></p>
-                                    <div class="basic-progressbar">
-                                        <div class="inner" style="width:55%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="rating-column">
-                                    <p class="rating-label"><strong>Location</strong></p>
-                                    <div class="basic-progressbar">
-                                        <div class="inner" style="width:25%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="rating-column">
-                                    <p class="rating-label"><strong>Cleanliness</strong></p>
-                                    <div class="basic-progressbar">
-                                        <div class="inner" style="width:80%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="reviews-feed">
-                            <div class="reviews-row">
-
-                                <div class="review-meta">
-                                    <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                        <img src="{{ asset('new-assets/images/avatar/avatar_01.jpg') }}" alt="">
-                                    </a>
-                                    <a class="name-sq" href="vendor_details.html">Danny Martinez</a>
-                                </div>
-
-                                <div class="comment-sq">
-                                    <span class="date-sq">12 september 2017</span>
-
-                                    <p>As the saying goes: “Hospitality is making your guests feel at home, even though
-                                        you wish they were". So please treat the place and the building neighbours as
-                                        you would do your own.</p>
-                                </div>
-                            </div>
-
-                            <div class="reviews-row">
-                                <div class="review-meta">
-                                    <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                        <img src="{{ asset('new-assets/images/avatar/avatar_03.jpg') }}" alt="">
-                                    </a>
-                                    <a class="name-sq" href="vendor_details.html">Nathaniel Brown</a>
-                                </div>
-                                <div class="comment-sq">
-                                    <span class="date-sq">24 august 2017</span>
-
-                                    <p>With your budget in mind, it is easy to plan a chartered yacht vacation.
-                                        Companies often have a fleet of sailing vessels that can accommodate parties of
-                                        various sizes. You may want to make it a more intimate trip with only close
-                                        family. There are charters that can be rented for as few as two people.</p>
-                                </div>
-                            </div>
-
-                            <div class="reviews-row">
-                                <div class="review-meta">
-                                    <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                        <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
-                                    </a>
-                                    <a class="name-sq" href="vendor_details.html">Adele Burke</a>
-                                </div>
-
-                                <div class="comment-sq">
-                                    <span class="date-sq">06 May 2017</span>
-
-                                    <div class="ui accordion more-sq">
-                                        <div class="title">
-                                            <a class="accordion-trigger more-trigger right-sq" data-more="More"
-                                               data-less="Less">
-                                                <i class="icon icon-arrow-down-122"></i>
-                                            </a>
-                                            <p>It is important to choose a hotel that makes you feel comfortable –
-                                                contemporary or traditional furnishings, local decor or international,
-                                                formal or relaxed. The ideal hotel directory should let you know of the
-                                                options available.
-                                            </p>
-
-                                        </div>
-
-                                        <div class="content">
-                                            <p>If it matters that your hotel is, for example, on the beach, close to the
-                                                theme park, or convenient for the airport, then location is paramount.
-                                                Any decent directory should offer a location map of the hotel and its
-                                                surroundings. There should be distance charts to the airport offered as
-                                                well as some form of interactive map.
-                                            </p>
+                                <div class="rating-percentage">
+                                    <div class="rating-column">
+                                        <p class="rating-label"><strong>Accuracy</strong></p>
+                                        <div class="basic-progressbar">
+                                            <div class="inner" style="width:75%"></div>
                                         </div>
                                     </div>
 
+                                    <div class="rating-column">
+                                        <p class="rating-label"><strong>Communication</strong></p>
+                                        <div class="basic-progressbar">
+                                            <div class="inner" style="width:55%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="rating-column">
+                                        <p class="rating-label"><strong>Location</strong></p>
+                                        <div class="basic-progressbar">
+                                            <div class="inner" style="width:25%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="rating-column">
+                                        <p class="rating-label"><strong>Cleanliness</strong></p>
+                                        <div class="basic-progressbar">
+                                            <div class="inner" style="width:80%"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
+                            <div class="reviews-feed">
+                                <div class="reviews-row">
 
+                                    <div class="review-meta">
+                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                            <img src="{{ asset('new-assets/images/avatar/avatar_01.jpg') }}" alt="">
+                                        </a>
+                                        <a class="name-sq" href="vendor_details.html">Danny Martinez</a>
+                                    </div>
+
+                                    <div class="comment-sq">
+                                        <span class="date-sq">12 september 2017</span>
+
+                                        <p>As the saying goes: “Hospitality is making your guests feel at home, even though
+                                            you wish they were". So please treat the place and the building neighbours as
+                                            you would do your own.</p>
+                                    </div>
+                                </div>
+
+                                <div class="reviews-row">
+                                    <div class="review-meta">
+                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                            <img src="{{ asset('new-assets/images/avatar/avatar_03.jpg') }}" alt="">
+                                        </a>
+                                        <a class="name-sq" href="vendor_details.html">Nathaniel Brown</a>
+                                    </div>
+                                    <div class="comment-sq">
+                                        <span class="date-sq">24 august 2017</span>
+
+                                        <p>With your budget in mind, it is easy to plan a chartered yacht vacation.
+                                            Companies often have a fleet of sailing vessels that can accommodate parties of
+                                            various sizes. You may want to make it a more intimate trip with only close
+                                            family. There are charters that can be rented for as few as two people.</p>
+                                    </div>
+                                </div>
+
+                                <div class="reviews-row">
+                                    <div class="review-meta">
+                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                            <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
+                                        </a>
+                                        <a class="name-sq" href="vendor_details.html">Adele Burke</a>
+                                    </div>
+
+                                    <div class="comment-sq">
+                                        <span class="date-sq">06 May 2017</span>
+
+                                        <div class="ui accordion more-sq">
+                                            <div class="title">
+                                                <a class="accordion-trigger more-trigger right-sq" data-more="More"
+                                                   data-less="Less">
+                                                    <i class="icon icon-arrow-down-122"></i>
+                                                </a>
+                                                <p>It is important to choose a hotel that makes you feel comfortable –
+                                                    contemporary or traditional furnishings, local decor or international,
+                                                    formal or relaxed. The ideal hotel directory should let you know of the
+                                                    options available.
+                                                </p>
+
+                                            </div>
+
+                                            <div class="content">
+                                                <p>If it matters that your hotel is, for example, on the beach, close to the
+                                                    theme park, or convenient for the airport, then location is paramount.
+                                                    Any decent directory should offer a location map of the hotel and its
+                                                    surroundings. There should be distance charts to the airport offered as
+                                                    well as some form of interactive map.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
+                <div class="ui column side-column"></div>
             </div>
-
-            <div class="ui column side-column"></div>
-        </div>
-    </div>--}}
+        </div>--}}
 
 
 
@@ -1164,18 +1147,18 @@
         </div>
 
 
-        <div class="content" >
+        <div class="content">
             <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
                 consectetur, porta ultrices sapien.</p>
 
             <form>
 
-            <div id="examplecalendar2" class="calendar-sq" style="padding-bottom: 10px;">
-                <input type="text" id="event_date_new" value="" placeholder="Wybierz date" >
-            </div>
+                <div id="examplecalendar2" class="calendar-sq" style="padding-bottom: 10px;">
+                    <input type="text" id="event_date_new" value="" placeholder="Wybierz date">
+                </div>
 
 
-            <div class="main-infos  div-c inline-2">
+                <div class="main-infos  div-c inline-2">
                     <div class="timecalendar calendar-sq divided-column">
                         <div class="relative">
                             <input type="text" class="filter" id="from_hour_new"
@@ -1187,22 +1170,22 @@
                     <div class="timecalendar calendar-sq divided-column">
                         <input type="text" class="filter" name="to_hour"
                                id="to_hour_new" value="" placeholder="do"
-                              >
+                        >
                     </div>
                 </div>
 
 
-            <div class="div-c inline-2">
-                <div class="divided-column">
-                    <label>Imie</label>
-                    <input type="text" autofocus placeholder=" ">
-                </div>
+                <div class="div-c inline-2">
+                    <div class="divided-column">
+                        <label>Imie</label>
+                        <input type="text" autofocus placeholder=" ">
+                    </div>
 
-                <div class="divided-column">
-                    <label>Nazwisko</label>
-                    <input type="text" placeholder=" ">
+                    <div class="divided-column">
+                        <label>Nazwisko</label>
+                        <input type="text" placeholder=" ">
+                    </div>
                 </div>
-            </div>
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
@@ -1216,10 +1199,10 @@
                     </div>
                 </div>
 
-            <div class="div-c">
-                <label>Message</label>
-                <textarea cols="30" rows="10" placeholder=" "></textarea>
-            </div>
+                <div class="div-c">
+                    <label>Message</label>
+                    <textarea cols="30" rows="10" placeholder=" "></textarea>
+                </div>
             </form>
         </div>
 
@@ -1228,17 +1211,26 @@
 
 
                 <div class="divided-column">
-                    <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success" id="send_request_availability">Send</div>
+                    <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success"
+                         id="send_request_availability">Send
+                    </div>
                 </div>
             </div>
 
         </div>
 
     </div>
-    <div class="ui modal small" style="background: none; box-shadow: none; text-align: center; color: white" data-for="success" id="icon_succes_send">
+    <div class="ui modal small" style="background: none; box-shadow: none; text-align: center; color: white"
+         data-for="success" id="icon_succes_send">
         <p><i style="color:#F57C00; font-size: 50px;"
-                    class="fa fa-check-circle"></i></p>
+              class="fa fa-check-circle"></i></p>
         <p>Wiadosośc zostanie dostarczona</p>
+    </div>
+
+    <div class="fb-customerchat"
+         logged_in_greeting="Potrzebujesz pomocy? Napisz do nas!"
+         logged_out_greeting="Potrzebujesz pomocy? Zaloguj się i napisz do nas!"
+         theme_color="#f57C00" page_id="{{ $venue->facebook_page_id }}">
     </div>
 
 @endsection

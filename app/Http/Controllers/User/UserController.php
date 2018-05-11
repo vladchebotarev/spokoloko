@@ -82,7 +82,7 @@ class UserController extends Controller
                     Cloudder::destroyImage('avatars/'.$user->avatar);
                 }
                 $image = $request->file('image')->getRealPath();
-                $image_name = substr(md5($user->id . time()), 0, 15);
+                $image_name = str_random(15);
                 Cloudder::upload($image, 'avatars/'.$image_name, array("format" => "jpg"));
 
 /*              $image = Image::make($request->get('image'));
@@ -99,11 +99,10 @@ class UserController extends Controller
                     // all good
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect('user/profile')->withErrors('Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!');
+                    return redirect('user/profile')->withErrors(__('messages.db_error'));
                     // something went wrong
                 }
             }
         }
-        //return redirect('user/profile');
     }
 }

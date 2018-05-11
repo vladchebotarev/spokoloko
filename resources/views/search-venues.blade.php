@@ -433,7 +433,7 @@
 
                                                         </div>
                                                         <div class="biz-adres">
-                                                             <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }}
+                                                             <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }} {{ $venue->street_number }}
                                                         </div>
 
                                                         <div class="icons-row">

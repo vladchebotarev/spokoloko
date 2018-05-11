@@ -7,7 +7,7 @@ Default Header with a White Background & Dark text.
 <!--DEFAULT HEADER-->
 
 <header class="header-section ths header-shadow header-sticky header-slide-up equal-tablet-header-items equal-mobile-header-items
-@if(Route::current()->getName() == 'index')
+@if(Request::is('/'))
         header-transparent is-transparent
 @endif
 @if(Request::is('venues/*'))

@@ -28,7 +28,7 @@ class SearchVenueController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.url, vt.name as venue_type, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
+            $venues_query = "SELECT DISTINCT v.name, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'
@@ -186,7 +186,7 @@ class SearchVenueController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, vt.name as venue_type, v.street_address, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
+            $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'
@@ -275,7 +275,7 @@ class SearchVenueController extends Controller
 
             foreach ($venues as $venue){
                 // Add to XML document node
-                $content .= '<marker name="' . $this->parseToXML($venue->name) . '" url_venue="'. $this->parseToXML($venue->url). '" address="' . $this->parseToXML($venue->street_address) . '" lat="' . $venue->lat . '" lng="' . $venue->lng . '" image="'. $venue->image_url .'" />';
+                $content .= '<marker name="' . $this->parseToXML($venue->name) . '" url_venue="'. $this->parseToXML($venue->url). '" address="' . $this->parseToXML($venue->street_address) . ' ' . $this->parseToXML($venue->street_number) .'" lat="' . $venue->lat . '" lng="' . $venue->lng . '" image="'. $venue->image_url .'" />';
             }
             // End XML file
             $content .= '</markers>';

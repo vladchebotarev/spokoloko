@@ -216,7 +216,7 @@
                             <div class="div-c inline-2">
                                 <div class="divided-column">
                                     <label>Numer domu</label>
-                                    <input type="text" name="street_number"
+                                    <input type="text" name="street_number" value="{{ $venue->street_number }}"
                                            placeholder="" disabled>
                                 </div>
 
@@ -697,8 +697,8 @@
                                         <div class="ui four wide computer six wide tablet six wide mobile column">
                                             <div class="photo-upload-item">
                                                 <div class="image-wrapper">
-                                                    <img class="image-sq"
-                                                         src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image}}"
+                                                    <img class="image-sq" id="{{$image->id}}"
+                                                         src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image->image_url}}"
                                                          alt="">
                                                 </div>
                                                 <a class="remove"><i class="icon icon-close"></i></a>
@@ -726,17 +726,29 @@
                         </div>
                     </div>
 
-                        <div class="section-container" id="section-07">
-                            <div class="typo-section-sq bottom-default">
-                                <h3 class="preview-sq title-sq">Facebook Messager</h3>
-                                <p>Wlacz integracje z Facebook aby ...</p><br>
 
-
+                    <div class="section-container" id="section-07">
+                        <div class="typo-section-sq bottom-default">
+                            <h3 class="preview-sq title-sq">Facebook Messager</h3>
+                            <p>Wlacz integracje z Facebook aby ...</p><br>
+                            <div class="div-c">
+                                <div class="divided-column">
+                                    <label>Facebook Page ID</label>
+                                    <input type="number" id="facebook_page_id" name="facebook_page_id"
+                                           value="{{ $venue->facebook_page_id }}" placeholder="">
+                                </div>
 
                             </div>
+
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </form>
+
+    <form action="{{ route('delete-venue', $venue->url) }}" method="post">
+        @csrf
+        <button class="button-sq small-sq see-through-sq" type="submit">{{ __('Usuń przestrzeń') }}</button>
     </form>
 @endsection
