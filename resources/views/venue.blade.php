@@ -73,6 +73,7 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
+
                                         <span class="price-sq"
                                               style="font-size: 18px;">od {{number_format($venue->price_hour*$venue->min_hours, 0, '', '')}}
                                             PLN</span>
@@ -298,7 +299,51 @@
 
     </div>
 
+    <header class="header-section mhs header-sticky header-is-bottom is-half">
+        <div class="header-content">
+            <div class="ui container stackable grid">
 
+                <div class="header-item header-left">
+                </div>
+
+                <div class="header-item header-center ">
+                </div>
+
+                <div class="header-item header-right flex-align-left flex-grow-true">
+
+                    <div class="menu-default menu-mobile-vertical" data-burger="menu02">
+
+                        <ul class="main-menu anchor-menu">
+
+                            <li class="active"><a href="#section-01" class="item">
+                                    <span>O przestrzeni</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-02" class="item">
+                                    <span>Zdjęcia</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-03" class="item">
+                                    <span>Lokalizacja</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-04" class="item">
+                                    <span>Opinie</span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">

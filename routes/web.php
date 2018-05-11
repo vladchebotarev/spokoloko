@@ -54,6 +54,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+
+
 Auth::routes();
 
 
