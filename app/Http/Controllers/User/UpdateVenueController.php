@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\User;
+
+use App\VenueImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Venue;
@@ -293,8 +295,18 @@ class UpdateVenueController extends Controller
         }
     }
 
-    public function setCoverImage($venue_url, $image_id, Request $request)
+    public function setCoverImage($venue_url, $image_id)
     {
+        $venue = Venue::where('url', $venue_url)->first();
+
+        if ($venue === null or $venue->user_id != Auth::user()->id) {
+            return \Response::json(['status'=>'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
+        } else {
+            //$image = VenueImage::find($image_id);
+            return \Response::json(['status'=>'success', 'code' => '200' ]);
+            //return \Response::json($image);
+        }
+
 
     }
 
@@ -303,6 +315,14 @@ class UpdateVenueController extends Controller
         $venue = Venue::where('url', $venue_url)->first();
 
         if ($venue === null or $venue->user_id != Auth::user()->id) {
+            return \Response::json(['status'=>'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
+        } else {
+            //$image = VenueImage::find($image_id);
+            return \Response::json(['status'=>'success', 'code' => '200' ]);
+            //return \Response::json($image);
+        }
+
+        /*if ($venue === null or $venue->user_id != Auth::user()->id) {
             return abort(404);
         } else {
             $images_insert = [];
@@ -344,11 +364,19 @@ class UpdateVenueController extends Controller
                     ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
                     ->withInput();
             }
-        }
+        }*/
     }
 
-    public function deleteImage()
+    public function deleteImage($venue_url, $image_id)
     {
+        $venue = Venue::where('url', $venue_url)->first();
 
+        if ($venue === null or $venue->user_id != Auth::user()->id) {
+            return \Response::json(['status'=>'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
+        } else {
+            //$image = VenueImage::find($image_id);
+            return \Response::json(['status'=>'success', 'code' => '200' ]);
+            //return \Response::json($image);
+        }
     }
 }

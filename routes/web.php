@@ -105,8 +105,8 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
     Route::post('update-venue/{venue_url}/delete', 'User\UpdateVenueController@deleteVenue')->name('delete-venue');
 
     Route::get('update-venue/{venue_url}/cover-image/{image_id}', 'User\UpdateVenueController@setCoverImage');
-    Route::post('update-venue/{venue_url}/image', 'User\UpdateVenueController@uploadImages');
-    Route::delete('update-venue/{venue_url}/image/{image_id}', 'User\UpdateVenueController@deleteImage');
+    Route::post('update-venue/{venue_url}/images', 'User\UpdateVenueController@uploadImages');
+    Route::delete('update-venue/{venue_url}/delete-image/{image_id}', 'User\UpdateVenueController@deleteImage');
 
     Route::get('update-service', 'User\UpdateServiceController@getService')->name('update-service');
 
