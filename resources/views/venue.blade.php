@@ -31,14 +31,14 @@
 
                         <div class="location-sq">
                             <i class="icon icon-location-pin-2"></i>
-                            {{ $venue->street_address }}
+                            {{ $venue->street_address }} {{ $venue->street_number }}, {{ $venue_city }}
                         </div>
 
                         <div class="icons-row">
-                            {{--<div class="icons-column">
+                            <div class="icons-column">
                                 <i class="icon icon-account-group-5"></i>
-                                do {{ $max_guests }} osób
-                            </div>--}}
+                                do {{ $venue->max_guests_standing }} osób
+                            </div>
                             <div class="icons-column">
                                 <i class="icon icon-home-3"></i>
                                 {{ $venue->area }} m²
@@ -73,11 +73,12 @@
 
                                 <div class="property-sticky-box">
                                     <div class="price-tag-sq">
+
                                         <span class="price-sq"
                                               style="font-size: 18px;">od {{number_format($venue->price_hour*$venue->min_hours, 0, '', '')}}
                                             PLN</span>
                                         <span class="per-sq" data-text-mobile="/ " data-text="za ">{{$venue->min_hours}}
-                                            g</span>
+                                            h</span>
                                     </div>
 
                                     <div class="button-sq font-weight-extrabold-sq mobile-fixed-trigger hidden-desktop hidden-large-desktop hidden-tablet modal-trigger"
@@ -298,42 +299,76 @@
 
     </div>
 
+    <header class="header-section mhs header-sticky header-is-bottom is-half">
+        <div class="header-content">
+            <div class="ui container stackable grid">
 
+                <div class="header-item header-left">
+                </div>
+
+                <div class="header-item header-center ">
+                </div>
+
+                <div class="header-item header-right flex-align-left flex-grow-true">
+
+                    <div class="menu-default menu-mobile-vertical" data-burger="menu02">
+
+                        <ul class="main-menu anchor-menu">
+
+                            <li class="active"><a href="#section-01" class="item">
+                                    <span>O przestrzeni</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-02" class="item">
+                                    <span>Zdjęcia</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-03" class="item">
+                                    <span>Lokalizacja</span>
+                                </a>
+                            </li>
+
+                            <li><a href="#section-04" class="item">
+                                    <span>Opinie</span>
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">
-
         <div class="row">
-
             <div class="ui column main-column" role="main">
-
                 <div class="section-container" id="section-01">
-
                     <div class="typo-section-sq top-default bottom-default">
                         <h3>O przestrzeni</h3>
 
-                        <p>Our house is a wood and glass house, built in the 21th century's first years. A large living
-                            room widely glazed with a fireplace, two large sofas and the "chief's armchair" and a
-                            kitchen corner (washdishes).
-                            <br><br>
-                            Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque sagittis
-                            bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget sollicitudin diam.
-                            Nulla quis ligula eget mi euismod eleifend vitae eu lectus. Suspendisse potenti.<a
-                                    href="#section-cena">
-                                Czytac więcej
-                            </a></p>
+                        <p>
+                            {{ $venue->description }}
+                            <a href="#section-cena">Więcej</a>
+                        </p>
 
-                        <div class="button-sq small-sq see-through-sq modal-ui-trigger" data-trigger-for="contact">
+                        <div class="button-sq small-sq see-through-sq">
                             Cena
                         </div>
-                        <div class="button-sq small-sq ">
+                        <div class="button-sq small-sq modal-ui-trigger" data-trigger-for="contact">
                             Kontakty
                         </div>
 
-                        <div class="button-sq link-sq small-sq float-right-sq">
+                        {{--<div class="button-sq link-sq small-sq float-right-sq">
                             <i class="icon icon-share"></i>
                             share
-                        </div>
+                        </div>--}}
 
                     </div>
 
@@ -343,25 +378,25 @@
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
                                     <li>
-                                        <i class="icon icon-account-group-5"></i>
+                                        <i class="icon icon-user-circle"></i>
                                         <div>
                                             <p>Ilosc gosci stojąco:</p>
-                                            <strong>240 osob</strong>
+                                            <strong>{{ $venue->max_guests_standing }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
-                                        <i class="icon icon-bath-tub"></i>
+                                        <i class="icon icon-armchair-1"></i>
                                         <div>
                                             <p>Ilosc gosci siedzaco:</p>
-                                            <strong>64 osob</strong>
+                                            <strong>{{ $venue->max_guests_seating }} osob</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-bed-double"></i>
                                         <div><p>Przestzen:</p>
-                                            <strong>150 m²</strong>
+                                            <strong>{{ $venue->area }} m²</strong>
                                         </div>
                                     </li>
                                 </ul>
@@ -375,7 +410,7 @@
                                         <i class="icon icon-building-7"></i>
                                         <div>
                                             <p>Typ przestrzeni:</p>
-                                            <strong>Restauracja/Bar</strong>
+                                            <strong>{{ $venue_type }}</strong>
                                         </div>
                                     </li>
 
@@ -383,15 +418,15 @@
                                         <i class="icon icon-door-simple"></i>
                                         <div>
                                             <p>Styl:</p>
-                                            <strong>Modern </strong>
+                                            <strong>{{ $venue_style }}</strong>
 
                                         </div>
                                     </li>
 
                                     <li>
                                         <i class="icon icon-house"></i>
-                                        <div><p>Ilosc pokoi</p>
-                                            <strong>2</strong></div>
+                                        <div><p>Ilość pokoi:</p>
+                                            <strong>{{ $venue->room_number }}</strong></div>
                                     </li>
 
                                 </ul>
@@ -409,59 +444,76 @@
                                     <li>
                                         <div>
                                             <p>Cena za godzine:</p>
-                                            <strong>100 PLN</strong>
+                                            <strong>{{ $venue->price_hour }} PLN</strong>
                                         </div>
                                     </li>
 
                                     <li>
                                         <div><p>Min. ilosc godzin:</p>
-                                            <strong>3</strong></div>
+                                            <strong>{{ $venue->min_hours }}</strong></div>
                                     </li>
 
                                     <li>
                                         <div><p>Cena za dzien:</p>
-                                            <strong>1200 PLN</strong></div>
+                                            <strong>{{ $venue->price_day }} PLN</strong></div>
                                     </li>
 
-                                    <li>
-                                        <div><p>W dni powszednie taniej:</p>
-                                            <strong><i class="fa fa-check"></i></strong></div>
-                                    </li>
-
+                                    @if($venue->price_depends_on_weekday)
+                                        <li>
+                                            <div>
+                                                <p>Cena zależy od dnia tygodnia:</p>
+                                                <strong><i class="fa fa-check"></i></strong>
+                                            </div>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Kaucja:</p>
-                                            <strong>400 PLN</strong>
-                                        </div>
-                                    </li>
+                                    @if($venue->security_deposit)
+                                        <li>
+                                            <div>
+                                                <p>Kaucja:</p>
+                                                <strong>{{ $venue->security_deposit }} PLN</strong>
+                                            </div>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <div><strong>Kaucja nie jest wymagana.</strong></div>
+                                        </li>
+                                    @endif
 
-                                    <li>
+                                    {{--<li>
                                         <div><strong>Rezerwacja za 3 dni do wydarzenia
                                             </strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
-                                            </strong></div>
-                                    </li>
+                                    </li>--}}
+                                    @if($venue->days_full_refund)
+                                        <li>
+                                            <div><strong>Rezygnacja za {{ $venue->days_full_refund }} dni do
+                                                    wydarzenia.</strong></div>
+                                        </li>
+                                    @endif
 
 
                                 </ul>
                             </div>
-                            <div class="twelve wide column" style="padding-top:20px;">
-                                <strong>Informacja od wlasciciela:</strong>
-                                <div class="extra-text"><p>W cenie rezerwacji zawarty jest depozyt na kwotę rowną kwocie
-                                        rezerwacji. Rezerwujac sale na caly dzien mozesz wykorzystac kwote 1200 zl na
-                                        barze. Rezerwacja przestrzeni musi buyc dokonana conajmniej za dzien do
-                                        wydarzenia.
-                                        Rezerwując przestrzen obowiazkowa jest kaucja 400 zł. Ktora jest zwrocana
-                                        wynajmujacemu przy anulowaniu rezerwacji conajmniej za 2 dni do wydarzenia.</p>
+                            @if($venue->price_info)
+                                <div class="twelve wide column" style="padding-top:20px;">
+                                    <strong>Dodatkowa informacja cenowa:</strong>
+                                    <div class="extra-text">
+                                        <p>{{ $venue->price_info }}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
+
+                            @if($venue->cancellation_information)
+                                <div class="twelve wide column" style="padding-top:20px;">
+                                    <strong>Dodatkowe zasady rezygnacji:</strong>
+                                    <div class="extra-text">
+                                        <p>{{ $venue->cancellation_information }}</p>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
 
                     </div>
@@ -474,7 +526,8 @@
                                     <li>
                                         <div>
                                             <p>Adres:</p>
-                                            <strong>Kraków, Rynek Głowny 28, 31-010</strong>
+                                            <strong>{{ $venue->street_address }} {{ $venue->street_number }}
+                                                , {{ $venue_city }}, {{ $venue->postal_code }}</strong>
                                         </div>
                                     </li>
 
@@ -482,50 +535,62 @@
                                     <li>
                                         <div>
                                             <p>Telefon:</p>
-                                            <strong>730 035 946</strong>
+                                            <strong>{{ $venue->phone }}</strong>
                                         </div>
                                     </li>
 
-                                    <li>
-                                        <div><p>Telefon 2:</p>
-                                            <strong>730 035 946</strong></div>
-                                    </li>
+                                    @if($venue->phone2)
+                                        <li>
+                                            <div>
+                                                <p>Telefon 2:</p>
+                                                <strong>{{ $venue->phone2 }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-                                    <li>
-                                        <div><p>Strona internetowa:</p>
-                                            <strong>afterbeng.pl</strong></div>
-                                    </li>
-
+                                    @if($venue->webpage)
+                                        <li>
+                                            <div>
+                                                <p>Strona internetowa:</p>
+                                                <strong>{{ $venue->webpage }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
                                 </ul>
                             </div>
                             <div class="twelve wide mobile six wide tablet six wide computer column">
                                 <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Facebook:</p>
-                                            <strong>facebook.com/stronapl</strong>
-                                        </div>
-                                    </li>
+                                    @if($venue->facebook)
+                                        <li>
+                                            <div>
+                                                <p>Facebook:</p>
+                                                <strong>facebook.com/{{ $venue->facebook }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-                                    <li>
-                                        <div>
-                                            <p>Instagram</p>
-                                            <strong>instagram.com/lolkek
-                                            </strong></div>
-                                    </li>
+                                    @if($venue->instagram)
+                                        <li>
+                                            <div>
+                                                <p>Instagram</p>
+                                                <strong>instagram.com/{{ $venue->instagram }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif
 
-
-                                    <li>
-                                        <div><p>Opinia Tripadvisor:</p>
-                                            <strong>tripadvisor.com/kokoko</strong></div>
-                                    </li>
+                                    {{--@if($venue->tripadvisor)
+                                        <li>
+                                            <div>
+                                                <p>Opinia Tripadvisor:</p>
+                                                <strong>tripadvisor.com/{{ $venue->tripadvisor }}</strong>
+                                            </div>
+                                        </li>
+                                    @endif--}}
 
                                 </ul>
                             </div>
-
                         </div>
-
                     </div>
 
 
@@ -551,29 +616,15 @@
                                 <div class="ui accordion more-sq">
                                     <div class="title">
                                         <div class="ui grid">
-                                            <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                            {{--<a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
                                                 <i class="icon icon-arrow-down-122"></i>
-                                            </a>
+                                            </a>--}}
 
                                             <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
                                                 <ul class="description-list">
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-
-
+                                                    @foreach($venue_eventTypes as $eventType)
+                                                        <div class="ui label">{{ $eventType }}</div>
+                                                    @endforeach
                                                 </ul>
                                             </div>
 
@@ -581,30 +632,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="content">
+                                    {{--<div class="content">
                                         <div class="ui grid">
                                             <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
                                                 <ul class="description-list">
-
                                                     <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-                                                    <div class="ui label">Impreza firmowa</div>
-                                                    <div class="ui label">Konferenja</div>
-                                                    <div class="ui label">Urodziny</div>
-                                                    <div class="ui label">Prezentacja</div>
-                                                    <div class="ui label">Zdjecia</div>
-
-
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                 </div>
                             </div>
                         </div>

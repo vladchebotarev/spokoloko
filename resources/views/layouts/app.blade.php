@@ -166,6 +166,9 @@
 <script src={{ asset('new-assets/library/popup.js') }}></script>
 <script src={{ asset('new-assets/library/calendar.js') }}></script>
 
+
+<script src={{ asset('js/jquery.lazy.min.js') }}></script>
+
 <!-- Slick -->
 <script src={{ asset('new-assets/library/slick.js') }}></script>
 
@@ -179,28 +182,61 @@
 
 <!-- Other scripts -->
 {{--TODO--}}
-@guest
-    {{--@if(!Request::is('login'))
-        @if(!Request::is('register'))
-            @if(!Request::is('password/*'))
-                <script src={{ asset('js/auth-modals.js') }}></script>
-            @endif
-        @endif
-    @endif--}}
-@else
-    @if(Request::is('user/profile'))
-        <script src={{ asset('js/user/profile-form.js') }}></script>
-    @endif
-@endguest
+{{--@switch(1)
+    @case('/')
+    <script>
+        $("#searchSubmit").click(function () {
+            $('#searchForm').attr('action', 'venues/' + $("#select_city").val()).submit();
+        });
+    </script>
+    @break
+
+    @case('user/profile')
+    <script src={{ asset('js/user/profile-form.js') }}></script>
+    @break
+
+    @case(Request::is('user/share-venue'))
+    @case(Request::is('user/share-service'))
+    @case(Request::is('user/update-venue/*'))
+    <script src={{ asset('js/jquery.mask.min.js') }}></script>
+    <script src={{ asset('js/velocity.min.js')}}></script>
+    --}}{{--<script src={{ asset('js/move.min.js')}}></script>--}}{{--
+    <script src={{ asset('js/share/steps.js') }}></script>
+    --}}{{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}{{--
+    --}}{{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}{{--
+    <script src="{{ asset('js/share/checkbox.js') }}"></script>
+    <script src={{ asset('js/share/photoModel.js') }}></script>
+    <script src={{ asset('js/share/validation.js') }}></script>
+    <script src={{ asset('js/share/addPhotos.js') }}></script>
+    @break
+
+    @case(Request::is('services/*'))
+    <script src={{ asset('js/search/services.js') }}></script>
+    @break
+
+    @case(Request::is('venues/*'))
+    <script src={{ asset('js/search/venues.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
+    <script src={{ asset('js/search/venues_map.js') }}></script>
+    @break
+
+@endswitch--}}
+
+
+@if(Request::is('user/profile'))
+    <script src={{ asset('js/user/profile-form.js') }}></script>
+@endif
+
 
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
     <script src={{ asset('js/velocity.min.js')}}></script>
-    {{--<script src={{ asset('js/move.min.js')}}></script>--}}
+    <script src={{ asset('js/move.min.js')}}></script>
     <script src={{ asset('js/share/steps.js') }}></script>
-    {{--<script src={{ asset('js/share/mapImagesLocation.js') }}></script>--}}
-    {{--<script src={{ asset('js/share/weekButtons.js') }}></script>--}}
+    <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
+    <script src={{ asset('js/share/weekButtons.js') }}></script>
     <script src="{{ asset('js/share/checkbox.js') }}"></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
@@ -220,6 +256,10 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
     <script src={{ asset('js/search/venues_map.js') }}></script>
+@endif
+
+@if(Request::is('/'))
+    <script src={{ asset('js/welcome/welcome.js') }}></script>
 @endif
 
 </body>

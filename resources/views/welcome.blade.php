@@ -1,43 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
+
     <!-- Hero Full Page -->
     <div class="hero-search-full-page next-sq">
 
         <!-- Hero Search -->
         <!-- .thin .animate .shadow .colored -->
         <div class="h-search-h thin-sq shadow-sq animate-sq">
-            <form action="listing_page.html" class="hero-search-form">
+            <form action="" method="get" class="hero-search-form" id="searchForm">
                 <div class="search-item">
                     <div class="fltp">
-                        <input type="text" value="" required>
-                        <label class="placeholder" data-big-placeholder="Szukaj"
+                        {{--<input type="text" value="" required>--}}
+                        <select class="ui search dropdown" id="select_city" required>
+                            <option value="Warszawa">Warszawa</option>
+                            @foreach ($cities as $city)
+                                <option value="{{ $city->name }}">{{ $city->name }}</option>
+                            @endforeach
+                        </select>
+
+                        <label class="placeholder" data-big-placeholder="Miasto"
                                data-little-placeholder="np: Impreza Zamknięta"></label>
                     </div>
                 </div>
 
                 <div class="search-item">
                     <div class="fltp">
-                        <select name="dropdown" size="13" class="dropdown" required>
-                            <option value="0" selected>Miejsce na wydarzenie</option>
-                            <option value="0">Miejsca</option>
-                            <option value="2">Obsluga na wydarzenia</option>
-                            <option value="3">Muzyka</option>
-                            <option value="4">Foto/Video</option>
-                            <option value="5">Agencje Eventowe</option>
-                            <option value="6">Rozrywki</option>
-                            <option value="7">Dekoracje</option>
-                            <option value="5">Kuchnia/Catering</option>
-
+                        <select class="ui search dropdown" name="eventType" id="eventType">
+                            <option value="Impreza zamknięta">Impreza zamknięta</option>
+                            @foreach ($eventTypes as $eventType)
+                                <option value="{{ $eventType->name }}">{{ $eventType->name }}</option>
+                            @endforeach
                         </select>
-                        <label class="placeholder">Wybierz</label>
+                        <label class="placeholder">Typ eventu</label>
                     </div>
                 </div>
 
                 <div class="search-item">
-                    <a href="{{ url('search') }}" class="button-sq hero-search-button" >
+                    <button type="button" class="button-sq hero-search-button" id="searchSubmit">
                         <i class="icon icon-search"></i>
-                    </a>
+                    </button>
                 </div>
 
             </form>

@@ -403,6 +403,24 @@ var SQ = SQ || {};
                 $('#icon_succes_send').transition('fly left' , '2000ms');
             });
 
+            $('.lazy').Lazy({
+                // your configuration goes here
+                beforeLoad: function(element) {
+                    element.addClass('image-sq');
+                    element.attr('lol',element.data('data-src'));
+                    console.log('Done image');
+                },
+                scrollDirection: 'vertical',
+                effect: 'fadeIn',
+                visibleOnly: true,
+                afterLoad: function(element){
+                    console.log('Done image' + element.data('data-src'));
+                },
+                onError: function(element) {
+                    console.log('error loading ' + element.data('data-src'));
+                }
+            });
+
 
 
 
