@@ -207,8 +207,8 @@
     <script src={{ asset('js/share/addPhotos.js') }}></script>
 @endif
 
-@if(Request::is('user/update-venue'))
-    <script src={{ asset('js/share/addModifyPhotos.js') }}></script>
+@if(Request::is('user/update-venue/*'))
+    <script src={{ asset('js/update/addModifyPhotos.js') }}></script>
 @endif
 
 @if(Request::is('services/*'))
