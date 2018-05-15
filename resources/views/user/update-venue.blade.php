@@ -695,7 +695,7 @@
 
                                     @foreach($venue_images as $image)
                                         <div class="ui four wide computer six wide tablet six wide mobile column">
-                                            <div class="photo-upload-item">
+                                            <div class="photo-upload-item {{ $venue_cover_image === $image->image_url ? 'selected' : '' }}">
                                                 <div class="image-wrapper">
                                                     <img class="image-sq" id="{{$image->id}}"
                                                          src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$image->image_url}}"
@@ -747,8 +747,8 @@
         </div>
     </form>
 
-    <form action="{{ route('delete-venue', $venue->url) }}" method="post">
+    {{--<form action="{{ route('delete-venue', $venue->url) }}" method="post">
         @csrf
         <button class="button-sq small-sq see-through-sq" type="submit">{{ __('Usuń przestrzeń') }}</button>
-    </form>
+    </form>--}}
 @endsection
