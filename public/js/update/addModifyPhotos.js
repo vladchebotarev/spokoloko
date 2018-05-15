@@ -1,13 +1,9 @@
 $(document).ready(function() {
   let venueUrl = window.location.href;
   venueUrl = venueUrl.substring(venueUrl.indexOf('update-venue/') + 'update-venue/'.length, venueUrl.length);
-  let loaded = $('.photo-upload-item').find('.image-sq');
-  let imageID = loaded.map(function(i, el) {
-    return $(el).attr('id');
-  }).get();
-  for(let i = 0; i < imageID.length; ++i) {
-    console.log(`user/update-venue/${venueUrl}/cover-image/${imageID[ i ]}`);
-    console.log($.get(`user/update-venue/${venueUrl}/cover-image/${imageID[ i ]}`));
-    
-  }
+  $('.photo-upload-item').click(function() {
+      $(this).addClass('selected');
+      console.log($(this).find('.image-sq').attr('id'),`http://localhost:8000/user/update-venue/${venueUrl}/cover-image/${$(this).find('.image-sq').attr('id')}`);
+      $.get(`http://localhost:8000/user/update-venue/${venueUrl}/cover-image/${$(this).find('.image-sq').attr('id')}`).then(res => console.log(res));
+    });
 });
