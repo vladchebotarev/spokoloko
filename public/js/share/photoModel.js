@@ -2,21 +2,23 @@ var photoArray = [];
 
 class Photo {
   constructor(files, index) {
-    this.obj = this.constructor.newPhoto();
-    this.img = this.obj.find('.image-sq');
     this.select = false;
     
-    this.biggerWidth(files, index).then(data => {
-      if (data.isBiggerWidth) {
-        this.img.addClass('bigger-width');
-      } else {
-        this.img.addClass('bigger-height');
-      }
-      this.src = data.src;
-      this.width = data.width;
-      this.height = data.height;
-      this.name = data.name;
-    });
+    if(files) {
+      this.obj = this.constructor.newPhoto();
+      this.img = this.obj.find('.image-sq');
+      this.biggerWidth(files, index).then(data => {
+        if(data.isBiggerWidth) {
+          this.img.addClass('bigger-width');
+        } else {
+          this.img.addClass('bigger-height');
+        }
+        this.src = data.src;
+        this.width = data.width;
+        this.height = data.height;
+        this.name = data.name;
+      });
+    }
   }
   
   readURL(input) {
@@ -71,8 +73,8 @@ class Photo {
   }
   
   static selected() {
-    for (let i = 0; i < photoArray.length; ++i) {
-      if (photoArray[ i ].select === true) {
+    for(let i = 0; i < photoArray.length; ++i) {
+      if(photoArray[ i ].select === true) {
         return photoArray[ i ];
       }
     }
@@ -80,7 +82,7 @@ class Photo {
   
   static fetchData() {
     let srcArray = [];
-    for (let i = 0; i < photoArray.length; ++i) srcArray.push(photoArray[ i ].src);
+    for(let i = 0; i < photoArray.length; ++i) srcArray.push(photoArray[ i ].src);
     return {
       srcArray,
       selected: Photo.selected()
@@ -112,8 +114,8 @@ Photo.prototype.removePhoto = function(event) {
     complete: function() {
       that.obj.remove();
       that.obj = that.img = that.src = that.select = null;
-      for (let i = 0; i < photoArray.length; ++i) {
-        if (photoArray[ i ] === that) {
+      for(let i = 0; i < photoArray.length; ++i) {
+        if(photoArray[ i ] === that) {
           photoArray.splice(i, 1);
           break;
         }
@@ -124,10 +126,10 @@ Photo.prototype.removePhoto = function(event) {
 
 Photo.prototype.selectPhoto = function() {
   let currentlySelected = Photo.selected();
-  if (this.obj.find('.photo-upload-item').hasClass('selected')) {
+  if(this.obj.find('.photo-upload-item').hasClass('selected')) {
     this.obj.find('.photo-upload-item').removeClass('selected');
     this.select = false;
-  } else if (currentlySelected) {
+  } else if(currentlySelected) {
     currentlySelected.obj.find('.photo-upload-item').removeClass('selected');
     currentlySelected.select = false;
     this.obj.find('.photo-upload-item').addClass('selected');
