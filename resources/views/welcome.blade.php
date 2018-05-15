@@ -66,7 +66,7 @@
 
                 <div class="image-wrapper">
                     <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/hero/hero_big_28.jpg" alt="">
+                        <img class="lazy" data-src="http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_1200/a_0/v1526054140/app/img/hero_big_28.jpg" alt="asdasd">
                     </div>
                 </div>
             </div>
@@ -97,8 +97,8 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_01.jpg" alt="">
+                                                <img class="lazy cloudinary"
+                                                     data-src="new-assets/images/magic_grid/magic_grid_photo_01.jpg" alt="">
                                             </div>
                                         </div>
                                     </div>

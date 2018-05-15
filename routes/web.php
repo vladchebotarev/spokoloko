@@ -17,6 +17,9 @@ Route::get('/b2b', function () {
     return view('b2b');
 });
 
+Route::get('/index', function () {
+    return view('index');
+});
 
 
 Route::get('/venues/{city_request}', 'SearchVenueController@index');
