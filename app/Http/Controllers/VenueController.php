@@ -48,6 +48,8 @@ class VenueController extends Controller
             }
 
 
+            //dump($venue_availability);
+
             $data = array(
                 'weekday' => $weekday,
                 'venue' => $venue,
@@ -55,9 +57,9 @@ class VenueController extends Controller
                 'venue_type' => VenueType::find($venue->venue_type_id)->name,
                 'venue_style' => VenueStyle::find($venue->venue_style_id)->name,
                 'venue_eventTypes' => $venue->eventTypes()->pluck('name'),
-                'venue_amenities' => $venue->amenities()->pluck('id')->toArray(),
-                'venue_rules' => $venue->rules()->pluck('id')->toArray(),
-                'venue_features' => $venue->features()->pluck('id')->toArray(),
+                'venue_amenities' => $venue->amenities()->pluck('name'),
+                'venue_rules' => $venue->rules()->pluck('name'),
+                'venue_features' => $venue->features()->pluck('name'),
                 'venue_cover_image' => $venue->images()->where('cover_on', true)->pluck('image_url')->first(),
                 'venue_images' => $venue->images,
                 'venue_availability' => $venue_availability

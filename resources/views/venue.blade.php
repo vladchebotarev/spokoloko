@@ -128,24 +128,6 @@
 
                                             <div class="twelve wide column">
                                                 <ul class="description-list" style="font-size:10pt">
-                                                    <!--     <li>
-                                                        <div>
-                                                            <p>Cena za godzine:</p>
-                                                            <strong style="float: right">100 PLN</strong>
-                                                        </div>
-                                                    </li>
-
-
-
-                                                    <li>
-                                                        <div><p>Cena za dzien:</p>
-                                                            <strong style="float: right">1200 PLN</strong></div>
-                                                    </li>
-
-                                                    <li>
-                                                        <div><p>Kaucja:</p>
-                                                            <strong style="float: right">500zl</strong></div>
-                                                    </li>  -->
                                                     <button class="button-sq fullwidth-sq font-weight-extrabold-sq  modal-ui-trigger"
                                                             data-trigger-for="contact" id="sender_dates">
                                                         Sprawdz dostepnosc
@@ -168,27 +150,33 @@
                                                             width: 100%;
                                                         }
 
-                                                        button.social_icons {
-                                                            font-size: 15px;
+                                                        a.social_icons {
+                                                            font-size: 15px !important;
+                                                            margin: 0px !important;
+                                                            position: static !important;
                                                             width: 100%;
-
                                                             border: 1px;
                                                             border-style: solid;
                                                             background-color: white;
-
                                                         }
 
-                                                        button.social_icons.facebook {
+                                                        a.social_icons.disabled {
+                                                            border-color: #e5e5e5 !important;
+                                                            color: #e5e5e5 !important;
+                                                            pointer-events: none !important;
+                                                        }
+
+                                                        a.social_icons.facebook {
                                                             border-color: dodgerblue;
                                                             color: dodgerblue;
                                                         }
 
-                                                        button.social_icons.instagram {
+                                                        a.social_icons.instagram {
                                                             border-color: deeppink;
                                                             color: deeppink;
                                                         }
 
-                                                        button.social_icons.tripadvisor {
+                                                        a.social_icons.tripadvisor {
                                                             border-color: forestgreen;
                                                             color: forestgreen;
                                                         }
@@ -217,7 +205,7 @@
                                                     </style>
 
 
-                                                    <li>
+                                                    {{--<li>
                                                         <div>
                                                             <button class="button_call"><i class="fa fa-phone"
                                                                                            style="padding-right: 10px;"></i>
@@ -234,7 +222,7 @@
                                                         </div>
                                                     </li>
 
-                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>
+                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>--}}
 
                                                     <div class="calendar_title"><p>Obserwuj nas:</p></div>
 
@@ -244,41 +232,62 @@
                                                                  style="padding-right: 20px; padding-left: 20px;">
                                                                 <div class="four wide column"
                                                                      style="padding-right: 1%; padding-left:0%;">
-                                                                    <button onclick="open('#')"
-                                                                            class="social_icons facebook"><i
-                                                                                class="fa fa-facebook"></i>
-                                                                    </button>
+                                                                    @if($venue->facebook)
+                                                                        <a href="https://www.facebook.com/{{ $venue->facebook }}"
+                                                                           target="_blank"
+                                                                           class="button-sq small-sq see-through-sq social_icons facebook"><i
+                                                                                    class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    @else
+                                                                        <a class="button-sq small-sq see-through-sq social_icons facebook disabled"><i
+                                                                                    class="fa fa-facebook"></i>
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
 
                                                                 <div class="four wide column"
                                                                      style="padding-right: 1%; padding-left:1%;">
-                                                                    <button class="column social_icons instagram"><i
-                                                                                class="fa fa-instagram"></i>
-                                                                    </button>
+                                                                    @if($venue->instagram)
+                                                                        <a href="https://www.instagram.com/{{ $venue->instagram }}"
+                                                                           target="_blank"
+                                                                           class="button-sq small-sq see-through-sq social_icons instagram"><i
+                                                                                    class="fa fa-instagram"></i>
+                                                                        </a>
+                                                                    @else
+                                                                        <a class="button-sq small-sq see-through-sq social_icons instagram disabled"><i
+                                                                                    class="fa fa-instagram"></i>
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
                                                                 <div class="four wide column"
                                                                      style="padding-right: 0%;  padding-left:1%;">
-                                                                    <button class="column social_icons tripadvisor"><i
-                                                                                class="fa fa-tripadvisor"></i>
-                                                                    </button>
+                                                                    @if($venue->tripadvisor)
+                                                                        <a href="https://www.instagram.com/{{ $venue->tripadvisor }}"
+                                                                           target="_blank"
+                                                                           class="button-sq small-sq see-through-sq social_icons tripadvisor"><i
+                                                                                    class="fa fa-tripadvisor"></i>
+                                                                        </a>
+                                                                    @else
+                                                                        <a class="button-sq small-sq see-through-sq social_icons tripadvisor disabled"><i
+                                                                                    class="fa fa-tripadvisor"></i>
+                                                                        </a>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </li>
-                                                    <li>
+                                                    {{--<li>
                                                         <div style="width: 100%">
                                                             <div style="text-align: center">afterbeng.pl</div>
                                                         </div>
-                                                    </li>
-
-
+                                                    </li>--}}
                                                 </ul>
                                             </div>
 
 
                                         </div>
 
-                                        <div class="sticky-box-wishlist">
+                                        {{--<div class="sticky-box-wishlist">
                                             <div class="wishlist-sq">
                                                 <a href=""><i class="icon icon-filter-heart"></i>Zachowaj</a>
                                             </div>
@@ -286,7 +295,7 @@
                                             <div class="share-sq">
                                                 <a href=""><i class="icon icon-share"></i>Udostępnij</a>
                                             </div>
-                                        </div>
+                                        </div>--}}
                                     </div>
 
                                 </div>
@@ -610,380 +619,204 @@
                         <h5>Wydarzenia</h5>
                         <p>Ta przestrzen jest swietnym miejscem na
                         </p>
-
                         <div class="ui grid moved">
                             <div class="ui column">
-                                <div class="ui accordion more-sq">
-                                    <div class="title">
-                                        <div class="ui grid">
-                                            {{--<a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
-                                                <i class="icon icon-arrow-down-122"></i>
-                                            </a>--}}
-
-                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
-                                                <ul class="description-list">
-                                                    @foreach($venue_eventTypes as $eventType)
-                                                        <div class="ui label">{{ $eventType }}</div>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                    {{--<div class="content">
-                                        <div class="ui grid">
-                                            <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
-                                                <ul class="description-list">
-                                                    <div class="ui label">Urodziny</div>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>--}}
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="typo-section-sq bottom-default">
-                        <h5>Dodatkowe atuty</h5>
-
-                        <div class="ui grid moved">
-                            <div class="ui column">
-                                <div class="ui accordion more-sq">
-                                    <div class="title">
-                                        <div class="ui grid">
-                                            <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
-                                                <i class="icon icon-arrow-down-122"></i>
-                                            </a>
-
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-wifi-modem-2"></i>
-                                                        <div><p>Wifi</p></div>
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="icon icon-television"></i>
-                                                        <div><p>TV</p></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-radio-2"></i>
-                                                        <div><p>Hifi System</p></div>
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="icon icon-radio-1"></i>
-                                                        <div><p>Radio</p></div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-air-heater"></i>
-                                                        <div><p>Air Heater</p></div>
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="icon icon-fitness-center"></i>
-                                                        <div><p>Gym</p></div>
-                                                    </li>
-
-
-                                                </ul>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <div class="ui grid">
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-teddy-bear"></i>
-                                                        <div><p>Playground</p></div>
-                                                    </li>
-
-                                                    <li>
-                                                        <i class="icon icon-house"></i>
-                                                        <div><p>Iron</p></div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-fire-extinguisher"></i>
-                                                        <div><p>Fire Extinguisher</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <i class="icon icon-cc-camera-2"></i>
-                                                        <div><p>Camera</p></div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-
-                                            <div class="twelve wide mobile six wide tablet four wide computer column">
-                                                <ul class="description-list">
-                                                    <li>
-                                                        <i class="icon icon-air-conditioner"></i>
-                                                        <div><p>A.C.</p></div>
-                                                    </li>
-                                                    <li>
-                                                        <i class="icon icon-safe-1"></i>
-                                                        <div><p>Big Safe</p></div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        </div>
+                                <div class="ui grid">
+                                    <div class="twelve wide mobile twelve wide tablet twelve wide computer column">
+                                        <ul class="description-list">
+                                            @foreach($venue_eventTypes as $eventType)
+                                                <div class="ui label">{{ $eventType }}</div>
+                                            @endforeach
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Udogodnienia</h5>
+                        <div class="ui grid moved">
+                            <div class="ui column">
+                                <div class="ui grid">
+                                    @foreach($venue_amenities as $amenity)
+                                        <div class="twelve wide mobile six wide tablet four wide computer column"
+                                             style="padding-top: 6px; padding-bottom: 6px;">
+                                            <i class="icon icon-check-22" style="position: absolute"></i>
+                                            <div style="padding-left: 40px;display: block;"><p>{{ $amenity }}</p></div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
 
                     <div class="typo-section-sq bottom-default">
-                        <h5>Description</h5>
-
+                        <h5>Opis</h5>
                         <div class="ui grid moved">
                             <div class="twelve wide column">
-                                <p>
+                                {{--<p>
                                     <strong>Sleeping Arrangements</strong>
                                 </p>
 
 
-                                <strong id="section-cena">The Space</strong>
+                                <strong id="section-cena">The Space</strong>--}}
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus magna vel
-                                    ex semper, in pharetra justo pulvinar. Donec non quam vitae justo mattis vestibulum
-                                    a nec nisi. Morbi mi felis, ultrices vitae risus consectetur, porta ultrices sapien.
-                                    <br><br>
-                                    Nunc sit amet velit nibh. Proin consectetur, ante quis tristique mattis, massa massa
-                                    condimentum enim, quis euismod arcu purus ac eros. Sed dictum elementum odio, id
-                                    viverra est auctor nec. Sed condimentum dolor justo, vitae mattis magna maximus
-                                    feugiat. Mauris malesuada leo libero, vitae tempor ante sagittis vitae. Suspendisse
-                                    consectetur facilisis enim. Donec sollicitudin sed nibh eget rutrum. Donec tincidunt
-                                    nibh non feugiat suscipit. Ut ultricies pretium erat non aliquet.
-                                    <br><br>
-                                    In hac habitasse platea dictumst. Integer quis tortor enim. Integer et elit nec
-                                    magna ultricies convallis. In venenatis eu erat et facilisis. Vestibulum congue enim
-                                    nisl. Fusce arcu enim, porta a auctor vel, hendrerit a libero. Vivamus vel dapibus
-                                    sem. Cras nec felis nibh. Etiam consequat ligula ac dolor aliquet vulputate. Quisque
-                                    sagittis bibendum enim, et auctor mi faucibus at. Nunc nec nisi nulla. Donec eget
-                                    sollicitudin diam. Nulla quis ligula eget mi euismod eleifend vitae eu lectus.
-                                    Suspendisse potenti.
-                                </p>
-
+                                <p>{{ $venue->full_description }}</p>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Cechy</h5>
+                        <div class="ui grid moved">
+                            @foreach($venue_features as $features)
+                                <div class="twelve wide mobile six wide tablet four wide computer column"
+                                     style="padding-top: 6px; padding-bottom: 6px;">
+                                    <i class="icon icon-star-2" style="position: absolute"></i>
+                                    <div style="padding-left: 40px;display: block;"><p>{{ $features }}</p></div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
                     <div class="typo-section-sq bottom-default">
                         <h5>Zasady</h5>
-
                         <div class="ui grid moved">
-                            <div class="twelve wide mobile six wide tablet six wide computer column">
-                                <ul class="description-list">
-                                    <li>
-                                        <div>
+                            @foreach($venue_rules as $rule)
+                                <div class="twelve wide mobile twelve wide tablet twelve wide computer column"
+                                     style="padding-top: 6px; padding-bottom: 6px;">
+                                    <i class="icon icon-lock-close-32" style="position: absolute"></i>
+                                    <div style="padding-left: 40px;display: block;"><p>{{ $rule }}</p></div>
+                                </div>
+                            @endforeach
 
-                                            <strong>Nie palic</strong>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Bez dzieci</strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Glosna muzyka do godz 23:00</strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Bez wlasnego alkoholu</strong></div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="twelve wide mobile six wide tablet six wide computer column">
-                                <ul class="description-list">
-                                    <li>
-                                        <div>
-                                            <p>Kaucja:</p>
-                                            <strong>400 PLN</strong>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Rezerwacja za 3 dni do wydarzenia
-                                            </strong></div>
-                                    </li>
-
-                                    <li>
-                                        <div><strong>Zrezygnuj za 2 dni do wydarzenia
-                                            </strong></div>
-                                    </li>
-
-
-                                </ul>
-                            </div>
 
                             <div class="twelve wide column" style="padding-top: 30px;">
-                                <strong><i class="icon icon-house"></i>Dodatkowo</strong>
+                                <strong>Dodatkowe zasady:</strong>
 
+                                <p>{{ $venue->additional_rules }}</p>
 
-                                <div class="ui accordion more-sq">
-                                    <div class="title">
-                                        <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
-                                            <i class="icon icon-arrow-down-122"></i>
-                                        </a>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus
-                                            magna vel ex semper, in pharetra justo pulvinar. Donec non quam vitae justo
-                                            mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
-                                            consectetur, porta ultrices sapien.
-                                        </p>
-
-                                    </div>
-
-                                    <div class="content">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur faucibus
-                                            magna vel ex semper, in pharetra justo pulvinar. Donec non quam vitae justo
-                                            mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
-                                            consectetur, porta ultrices sapien.
-                                        </p>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="typo-section-sq bottom-default">
-                    <h5>Dostępnośc</h5>
-                    <div class="ui grid moved">
-                        <div class="twelve wide mobile six wide tablet six wide computer column">
-                            <ul class="description-list">
-                                <li>
-                                    <div>
-                                        <p>Poniedziałek:</p>
-                                        <strong style="float: right">18:00 - 20:00</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Wtorek:</p>
-                                        <strong style="float: right">18:00 - 20:00</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Sroda:</p>
-                                        <strong style="float: right">18:00 - 20:00</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Czwartek:</p>
-                                        <strong style="float: right">18:00 - 20:00</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Piątek:</p>
-                                        <strong style="float: right">18:00 - 20:00</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Sobota:</p>
-                                        <strong style="float: right">Niedostępne</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <p>Niedziela:</p>
-                                        <strong style="float: right">Niedostępne</strong>
-                                    </div>
-                                </li>
 
 
-                            </ul>
+                    <div class="typo-section-sq bottom-default">
+                        <h5>Dostępnośc</h5>
+                        <div class="ui grid moved">
+                            @if($venue->availability_type == 'Week')
+                                <div class="twelve wide mobile six wide tablet six wide computer column">
+                                    <ul class="description-list">
+                                        @foreach($weekday as $key => $day)
+                                            <li>
+                                                <div>
+                                                    <p>{{ $day }}:</p>
+                                                    @if(array_key_exists($key, $venue_availability))
+                                                        <strong style="float: right">{{ $venue_availability[$key]['time_from'] }}
+                                                            - {{ $venue_availability[$key]['time_to'] }}</strong>
+                                                    @else
+                                                        <strong style="float: right">Niedostępne</strong>
+                                                    @endif
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @else
+                                <div class="twelve wide column">
+                                    <strong>Dostępny tylko dla rezerwacji</strong>
+                                </div>
+                            @endif
+
                         </div>
                     </div>
+
+
                 </div>
 
-                <div class="section-container" id="section-02">
-                    <div class="typo-section-sq bottom-default">
-                        <h3>Photos</h3>
 
-                        <div class="photo-grid grid-5">
+                <div class="section-container" id="section-02">
+                    <div class="typo-section-sq bottom-default" style="padding: 0;">
+                        <h3>Zdjęcia</h3>
+
+                        <div class="sq-slick carousel-sq center-sq shadow-sq" data-infinite="false"
+                             data-center-mode="false"
+                             data-center-padding="100px" data-desktop-center-padding="50px" data-show-slides="2"
+                             data-scroll-slides="1" data-tablet-show-slides="1" data-tablet-scroll-slides="1"
+                             data-mobile-show-slides="1" data-mobile-scroll-slides="1" data-tablet-center-padding="50px"
+                             data-mobile-center-padding="20px">
+
+                            {{--<div>
+                                <div class="caption-content">
+                                    <img src="http://placehold.it/350x300?text=1" alt="">
+                                </div>
+                            </div>--}}
+
+                            @for($n = 0; $n < count($venue_images); $n++)
+                                <div>
+                                    <div class="caption-content">
+                                        <img class="image-sq slick-img"
+                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                             alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
+                                    </div>
+                                </div>
+                            @endfor
+
+                        </div>
+
+                        {{--<div class="photo-grid grid-5">
                             @for($n = 0; $n < 5; $n++)
-                                @if($n != 4)
+                                @if($n != 3)
                                     <div class="photo-item">
                                         <div class="image-wrapper">
                                             <img class="image-sq slick-img"
                                                  src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
-                                                 alt="" data-gallery="gallery" data-caption="Photo 01">
+                                                 alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1}}">
                                         </div>
                                     </div>
                                 @else
                                     <div class="photo-item">
                                         <div class="image-wrapper">
-                                            <a data-items="+22 Photos">
+                                            <a data-items="+{{ count($venue_images) + 1 }} Zdjęć">
                                                 <img class="image-sq slick-img"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                                      alt="" data-gallery="gallery"
-                                                     data-caption="Photo 04">
+                                                     data-caption="Zdjęcie {{ $n + 1}}">
                                             </a>
                                         </div>
                                     </div>
                                 @endif
                             @endfor
 
-                        </div>
-
+                            @for($n = 5; $n < count($venue_images); $n++)
+                                <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                     alt="" data-gallery="gallery"
+                                     data-caption="Zdjęcie {{ $n + 1 }}" style="display: none">
+                            @endfor
+                        </div>--}}
                     </div>
-
-
                 </div>
-
             </div>
 
             <div class="ui column side-column"></div>
 
         </div>
-
     </div>
-
-
 
     <div class="section-container" id="section-03">
         <div class="ui grid container stackable app layout right side">
             <div class="stretched row">
                 <div class="ui column main-column" role="main">
                     <div class="typo-section-sq">
-                        <h3>Location</h3>
+                        <h3>Lokalizacja</h3>
                     </div>
                 </div>
                 <div class="ui column side-column"></div>
+                <input type="hidden" id="lat" value="{{ $venue->lat }}">
+                <input type="hidden" id="lng" value="{{ $venue->lng }}">
             </div>
         </div>
 
@@ -1224,10 +1057,10 @@
         <p>Wiadosośc zostanie dostarczona</p>
     </div>
 
-    <div class="fb-customerchat"
+    {{--<div class="fb-customerchat"
          logged_in_greeting="Potrzebujesz pomocy? Napisz do nas!"
          logged_out_greeting="Potrzebujesz pomocy? Zaloguj się i napisz do nas!"
          theme_color="#f57C00" page_id="{{ $venue->facebook_page_id }}">
-    </div>
+    </div>--}}
 
 @endsection

@@ -31,22 +31,6 @@
 
     <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 
-    {{--TODO customize--}}
-    @if(Request::is('venue/*') or Request::is('service') or Request::is('contact'))
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
-        <script src={{ asset('new-assets/library/map.js') }}></script>
-        <script src="{{ asset('new-assets/library/checkbox2.js') }}"></script>
-
-    @endif
-
-    {{--TODO customize--}}
-    @if(Request::is('user/update-venue/*') or Request::is('user/share-venue') or Request::is('user/share-service'))
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
-        <script src={{ asset('new-assets/library/map_adding.js') }}></script>
-    @endif
-
 
     <title>Spokoloko @yield('title')</title>
 
@@ -223,6 +207,30 @@
 
 @endswitch--}}
 
+{{--TODO customize--}}
+@if(Request::is('venue/*') or Request::is('service') or Request::is('contact'))
+    <script src={{ asset('js/property-page/map.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&language=pl"></script>
+    {{--<script src="{{ asset('new-assets/library/checkbox2.js') }}"></script>--}}
+
+@endif
+
+{{--TODO customize--}}
+@if(Request::is('user/update-venue/*') or Request::is('user/share-venue') or Request::is('user/share-service'))
+    <script src={{ asset('new-assets/library/map_adding.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&sensor=false&libraries=places&language=pl"></script>
+@endif
+
+@if(Request::is('venues/*'))
+    <script src={{ asset('js/search/venues.js') }}></script>
+
+    <script src={{ asset('js/search/venues_map.js') }}></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap&language=pl"></script>
+
+@endif
 
 @if(Request::is('user/profile'))
     <script src={{ asset('js/user/profile-form.js') }}></script>
@@ -238,7 +246,7 @@
     <script src={{ asset('js/share/steps.js') }}></script>
     <script src={{ asset('js/share/mapImagesLocation.js') }}></script>
     <script src={{ asset('js/share/weekButtons.js') }}></script>
-    <script src="{{ asset('js/share/checkbox.js') }}"></script>
+    <script src={{ asset('js/share/checkbox.js') }}></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
@@ -248,12 +256,7 @@
     <script src={{ asset('js/search/services.js') }}></script>
 @endif
 
-@if(Request::is('venues/*'))
-    <script src={{ asset('js/search/venues.js') }}></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChkty9f2wYPlTFsghY4y-3GYHkch6EGnY&callback=initMap"></script>
-    <script src={{ asset('js/search/venues_map.js') }}></script>
-@endif
+
 
 @if(Request::is('/'))
     <script src={{ asset('js/welcome/welcome.js') }}></script>
