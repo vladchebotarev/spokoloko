@@ -54,13 +54,13 @@
             <div class="">
                 <div class="caption-content">
                     <h1 class="font-weight-extrabold-sq">Zorganizuj swój event</h1>
-                    <p>Znajdż sale, catering, zespół muzyczny lub zleć organizacje wydarzenia firmom eventowym
+                    <p>Znajdź miejsce, catering, zespół muzyczny lub zleć organizację wydarzenia firmom eventowym
                     </p>
                 </div>
                 <div class="caption-outside">
                     <a class="button anchor-sq" href="#top">
                         <i class="icon big icon-location-pin-2"></i>
-                        <span>Explore</span>
+                        <span>Sprawdż</span>
                     </a>
                 </div>
 
@@ -533,8 +533,9 @@
 
                         <div class="typo-section-header-sq" style="padding-top: 0px">
                             <h2 class="text-align-left-sq">Gdzie planujesz wydarzenie?</h2>
-                            <p class="text-align-left-sq">Wibierz miasto i wyszukaj wsrod najlepszych uslugowadcow <br>
-                                Pamiętaj że zawsze możesz zlecic wyszukiwanie i dostac oferte od Spokoloko.</p>
+                            <p class="text-align-left-sq">Wybierz miasto i wyszukaj wśród polecanych partnerów.
+                                Pamiętaj, że zawsze możesz zlecić nam wyszukiwanie i dostać ofertę dopasowaną do Ciebie. I to wszystko za darmo!
+                            </p>
                         </div>
 
                         <div class="magic-grid category-sq special-sq hover-scale">
@@ -722,10 +723,10 @@
 
                         <div class="typo-section-sq">
                             <div class="typo-section-header-sq">
-                                <h2 class="text-align-center-sq">Popular Places</h2>
+                                <h2 class="text-align-center-sq">Popularne miejsca</h2>
                                 <p class="heading-inline text-align-center-sq">
                                     <i class="icon icon-slim-arrow-left sq-prev-button"></i>
-                                    <span>Find the most visited places in entire world.</span>
+                                    <span>Zobacz najbardziej znane miejsca w Polsce</span>
                                     <i class="icon icon-slim-arrow-right sq-next-button"></i>
                                 </p>
 
@@ -1083,7 +1084,7 @@
 
                         <div class="ui twelve wide mobile twelve wide tablet twelve wide computer twelve wide large screen twelve wide widescreen column">
                             <div class="typo-section-sq bottom-default">
-                                <a href="listing_page.html" class="more-trigger" data-more="Discover All">
+                                <a href="{{url('venues/Krakow')}}" class="more-trigger" data-more="Więcej">
                                     <i class="icon icon-arrow-down-122"></i>
                                 </a>
                             </div>
@@ -1101,11 +1102,10 @@
                     <div class="row">
                         <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                             <div class="promo-content style-01">
-                                <h2>Udostepnij swoj biznes</h2>
-                                <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko
-                                    całkowicie za darmo..</p>
+                                <h2>Udostępnij swój biznes</h2>
+                                <p>Wypromuj swój biznes razem ze Spokoloko. Dotrzyj do swoich pożądanych klientów w prosty sposób.</p>
 
-                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Dowiedzie sie wiecej </a>
+                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Wypróbuj za darmo  </a>
                             </div>
 
                         </div>

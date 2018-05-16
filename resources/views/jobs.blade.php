@@ -9,8 +9,9 @@
                 <div class="row">
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                         <div class="promo-content style-02" style="background-color: rgba(255,140,0,0.9); borderborder-radius: 30px;">
-                            <h2>Dolącz się do naszej ekipy</h2>
-                            <p>Jestesmy aby pomagac tworzyc wydarzenia. Laczymy uslugodawcow i ogranizatorow wydarzen</p>
+                            <h2>Dołącz do naszej ekipy
+                            </h2>
+                            <p>Jesteśmy prężnie rozwijającą się firmą ciągle poszukującą młode talenty.</p>
 
                             <a href="/b2b" class="button-sq see-through-sq"> Wyślij CV </a>
 
