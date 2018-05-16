@@ -408,18 +408,14 @@
                                                        data-trigger-for="wishlist">
                                                         <i class="icon icon-heart-line"></i>
                                                     </a>
-                                                    <a class="image-left" href="">
-                                                         <i class="icon icon-arrow-left-12"></i>
-                                                    </a>
-                                                    <a class="image-right" href="">
-                                                        <i class="icon icon-arrow-right-12"></i>
-                                                    </a>
+
 
                                                     <a class="image-sq" href="{{ url('venue/'.$venue->url) }}"
                                                        target="_blank">
                                                 <span class="image-wrapper">
                                                     <span class="image-inner">
-                                                        <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
+                                                        <img class="lazy" data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
+                                                                          src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                              alt="" class="" style="height: 100%">
                                                     </span>
                                                 </span>
