@@ -10,7 +10,7 @@
         <div class="image-wrapper">
             <div class="image-inner">
                 <img class="image-sq slick-img"
-                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     src="https://res.cloudinary.com/spokoloko/image/upload/e_improve,f_jpg,g_auto,c_fill,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
                      alt=""
                      data-gallery="gallery"
                      data-caption="Cover Photo">
@@ -72,6 +72,9 @@
                                 </a>
 
                                 <div class="property-sticky-box">
+
+
+
                                     <div class="price-tag-sq">
 
                                         <span class="price-sq"
@@ -320,7 +323,7 @@
 
                 <div class="header-item header-right flex-align-left flex-grow-true">
 
-                    <div class="menu-default menu-mobile-vertical" data-burger="menu02">
+                    <div class="menu-default menu-mobile-vertical " data-burger="menu02">
 
                         <ul class="main-menu anchor-menu">
 

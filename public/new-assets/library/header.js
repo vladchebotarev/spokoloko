@@ -472,6 +472,12 @@ var SQ = SQ || {};
 				thisTrigger.addClass("active");
 
 				dataBurger.addClass("modal-is-visible");
+
+				$("#page-wrapper").css("display","inline");
+
+				dataBurger.css("display","inline");
+
+
 				
 				$body.addClass("modal-is-open");
 				dataBurger.closest(".header-section").addClass("has-modal");

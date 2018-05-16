@@ -19,7 +19,7 @@
                         <div class="item menu-default burger-mobile-modal burger-tablet-modal search-visible flex-grow-true"
                              data-burger="menu02">
 
-                            <a href="" class="modal-trigger hamburger hamburger-spin item" data-trigger-for="menu02">
+                            <a href="" class="modal-trigger  hamburger hamburger-spin item" data-trigger-for="menu02">
                             <span class="hamburger-box">
                               <span class="hamburger-inner"></span>
                             </span>

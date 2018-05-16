@@ -403,18 +403,41 @@ var SQ = SQ || {};
                 $('#icon_succes_send').transition('fly left' , '2000ms');
             });
 
+
+
+
+
             $('.lazy').Lazy({
                 // your configuration goes here
+
+
+
                 beforeLoad: function(element) {
+                    var ewidth = element.parent().width();
+
+                    var eheight = element.height(element.parent().height());
+                    var oldurl = element.attr('data-src');
+                    var newurl = oldurl.replace('w_1200','w_'+ewidth);
+
+                    element.attr('data-src', newurl);
+
+
+
+
+                    element.attr('s',element.data('data-src'));
+                    element.removeClass('lazy');
                     element.addClass('image-sq');
-                    element.attr('lol',element.data('data-src'));
                     console.log('Done image');
                 },
                 scrollDirection: 'vertical',
                 effect: 'fadeIn',
                 visibleOnly: true,
                 afterLoad: function(element){
-                    console.log('Done image' + element.data('data-src'));
+
+
+                    element.removeAttr('data-scr');
+
+
                 },
                 onError: function(element) {
                     console.log('error loading ' + element.data('data-src'));
