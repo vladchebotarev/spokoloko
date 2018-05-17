@@ -54,19 +54,27 @@
             <div class="">
                 <div class="caption-content">
                     <h1 class="font-weight-extrabold-sq">Zorganizuj swój event</h1>
-                    <p>Znajdż sale, catering, zespół muzyczny lub zleć organizacje wydarzenia firmom eventowym
+                    <p>Znajdź miejsce, catering, zespół muzyczny lub zleć organizację wydarzenia firmom eventowym
                     </p>
                 </div>
                 <div class="caption-outside">
                     <a class="button anchor-sq" href="#top">
                         <i class="icon big icon-location-pin-2"></i>
-                        <span>Explore</span>
+                        <span>Sprawdż</span>
                     </a>
                 </div>
 
                 <div class="image-wrapper">
                     <div class="image-inner">
-                        <img class="lazy" data-src="http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_1200/a_0/v1526054140/app/img/hero_big_28.jpg" alt="asdasd">
+                        <img class="image-sq" src="http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_360/a_0/v1526054140/app/img/hero_big_28.jpg"
+                                          srcset="
+                                                        http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_480/a_0/v1526054140/app/img/hero_big_28.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_750/a_0/v1526054140/app/img/hero_big_28.jpg 768w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/a_0/v1526054140/app/img/hero_big_28.jpg 1000w"
+                                          alt="asdasd" />
+
+
+
                     </div>
                 </div>
             </div>
@@ -77,7 +85,225 @@
     </div>
 
     <div class="ui layout" id="top">
+
         <div class="ui grid container">
+            <div class="row">
+                <div class="ui twelve wide computer column">
+                    <div class="typo-section-sq bottom-default">
+
+                        <div class="typo-section-header-sq">
+                            <h2 class="text-align-left-sq">Najczesciej wyszukiwane</h2>
+                            <p class="text-align-left-sq">Znajdż pomiesczenie na twoje wydarzenie.</p>
+                        </div>
+
+                        <div class="magic-grid photo-sq hover-default hover-center">
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/club.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Krak%C3%B3w?eventType=Impreza+zamkni%C4%99ta')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Sale na impreze</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/wed.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?eventType=Wesele')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Sale na wesele</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/conference.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?eventType=Konferencja')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Sale konferencjne</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/restaurant.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?venue_types%5B%5D=Bar%2FRestauracja')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Restauracje</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/magic_grid_photo_01.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?venue_types%5B%5D=Loft')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Lofty</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/concert.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?eventType=Koncert')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Sale koncertowe</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                            <!-- item-->
+                            <div class="item">
+                                <div class="item-inner">
+
+                                    <!-- image container -->
+                                    <div class="image-sq">
+                                        <div class="image-wrapper">
+                                            <div class="image-inner">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/meet.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- typography container-->
+                                    <a href="{{url('venues/Kraków?eventType=Meet-up')}}" class="typo-sq">
+                                        <span class="typo-whitespace"></span>
+                                        <p class="typo-label-sq" data-label-before="Krakow"
+                                           data-label-after="Zarezerwuj"></p>
+                                        <p class="typo-title-sq">Przestrzen na meet-up</p>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <a class="more-trigger" data-more="Zobacz wszystko" href="{{url('/sitemap')}}">
+                            <i class="icon icon-arrow-down-122"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+
+       {{-- <div class="ui grid container">
             <div class="row">
                 <div class="ui twelve wide computer column">
                     <div class="typo-section-sq bottom-default">
@@ -97,8 +323,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="lazy cloudinary"
-                                                     data-src="new-assets/images/magic_grid/magic_grid_photo_01.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_01.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_01.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_01.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_01.jpg 600w"
+                                                      />
                                             </div>
                                         </div>
                                     </div>
@@ -122,8 +351,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_02.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_02.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_02.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_02.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_02.jpg 600w"
+                                                     />
                                             </div>
                                         </div>
                                     </div>
@@ -147,8 +379,12 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_03.jpg" alt="">
+
+                                                <img class="image-sq " data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_03.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_03.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_03.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_03.jpg 600w"
+                                                      />
                                             </div>
                                         </div>
                                     </div>
@@ -172,8 +408,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_04.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_04.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_04.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_04.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_04.jpg 600w"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -197,8 +436,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_ae.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_dec.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_dec.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_dec.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_dec.jpg 600w"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -222,8 +464,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_dec.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_ae.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_ae.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_ae.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_ae.jpg 600w"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -247,8 +492,11 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_photo_mu.jpg" alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_mu.jpg"
+                                                     data-srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_320/v1526466580/app/img/v1/magic_grid_photo_mu.jpg 320w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526466580/app/img/v1/magic_grid_photo_mu.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_600/v1526466580/app/img/v1/magic_grid_photo_mu.jpg 600w"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -266,7 +514,7 @@
 
                         </div>
 
-                        <a class="more-trigger" data-more="See All" href="listing_page.html">
+                        <a class="more-trigger" data-more="Zobacz wszystko" href="{{url('/sitemap')}}">
                             <i class="icon icon-arrow-down-122"></i>
                         </a>
                     </div>
@@ -275,7 +523,7 @@
 
 
             </div>
-        </div>
+        </div> --}}
 
 
         <div class="ui grid container">
@@ -285,8 +533,9 @@
 
                         <div class="typo-section-header-sq" style="padding-top: 0px">
                             <h2 class="text-align-left-sq">Gdzie planujesz wydarzenie?</h2>
-                            <p class="text-align-left-sq">Wibierz miasto i wyszukaj wsrod najlepszych uslugowadcow <br>
-                                Pamiętaj że zawsze możesz zlecic wyszukiwanie i dostac oferte od Spokoloko.</p>
+                            <p class="text-align-left-sq">Wybierz miasto i wyszukaj wśród polecanych partnerów.
+                                Pamiętaj, że zawsze możesz zlecić nam wyszukiwanie i dostać ofertę dopasowaną do Ciebie. I to wszystko za darmo!
+                            </p>
                         </div>
 
                         <div class="magic-grid category-sq special-sq hover-scale">
@@ -298,16 +547,17 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_01.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/krakow.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
 
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('venues/Krak%C3%B3w')}}" class="typo-sq">
                                         <p class="typo-title-sq">Krakow</p>
                                     </a>
 
@@ -322,15 +572,16 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_02.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/warszawa.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('venues/Warszawa')}}" class="typo-sq">
                                         <p class="typo-title-sq">Warszawa</p>
                                     </a>
 
@@ -345,15 +596,16 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_03.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/wroclaw.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('venues/Wroclaw')}}" class="typo-sq">
                                         <p class="typo-title-sq">Wroclaw</p>
                                     </a>
 
@@ -368,16 +620,17 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_04.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/gdansk.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
-                                        <p class="typo-title-sq">Trojmiasto</p>
+                                    <a href="{{url('venues/Gdansk')}}" class="typo-sq">
+                                        <p class="typo-title-sq">Gdańsk</p>
                                     </a>
 
                                 </div>
@@ -391,15 +644,16 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_05.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/katowice.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('venues/Katowice')}}" class="typo-sq">
                                         <p class="typo-title-sq">Katowice</p>
                                     </a>
 
@@ -414,15 +668,16 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_06.jpg"
-                                                     alt="">
+                                                <img class="image-sq" data-src="http://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/poznan.jpg"
+                                                     src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                     alt="photo"
+                                                />
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('venues/Poznan')}}" class="typo-sq">
                                         <p class="typo-title-sq">Poznań</p>
                                     </a>
 
@@ -437,15 +692,15 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq"
-                                                     src="new-assets/images/magic_grid/magic_grid_category_special_07.jpg"
+                                                <img class="image-sq" style="background-color: #F57C00; opacity: 0.8"
+                                                     src=""
                                                      alt="">
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="article_listing.html" class="typo-sq">
+                                    <a href="{{url('sitemap')}}" class="typo-sq">
                                         <p class="typo-title-sq">Inne</p>
                                     </a>
 
@@ -468,10 +723,10 @@
 
                         <div class="typo-section-sq">
                             <div class="typo-section-header-sq">
-                                <h2 class="text-align-center-sq">Popular Places</h2>
+                                <h2 class="text-align-center-sq">Popularne miejsca</h2>
                                 <p class="heading-inline text-align-center-sq">
                                     <i class="icon icon-slim-arrow-left sq-prev-button"></i>
-                                    <span>Find the most visited places in entire world.</span>
+                                    <span>Zobacz najbardziej znane miejsca w Polsce</span>
                                     <i class="icon icon-slim-arrow-right sq-next-button"></i>
                                 </p>
 
@@ -829,7 +1084,7 @@
 
                         <div class="ui twelve wide mobile twelve wide tablet twelve wide computer twelve wide large screen twelve wide widescreen column">
                             <div class="typo-section-sq bottom-default">
-                                <a href="listing_page.html" class="more-trigger" data-more="Discover All">
+                                <a href="{{url('venues/Krakow')}}" class="more-trigger" data-more="Więcej">
                                     <i class="icon icon-arrow-down-122"></i>
                                 </a>
                             </div>
@@ -847,11 +1102,10 @@
                     <div class="row">
                         <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                             <div class="promo-content style-01">
-                                <h2>Udostepnij swoj biznes</h2>
-                                <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko
-                                    całkowicie za darmo..</p>
+                                <h2>Udostępnij swój biznes</h2>
+                                <p>Wypromuj swój biznes razem ze Spokoloko. Dotrzyj do swoich pożądanych klientów w prosty sposób.</p>
 
-                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Dowiedzie sie wiecej </a>
+                                <a href="{{ url('b2b') }}" class="button-sq see-through-sq"> Wypróbuj za darmo  </a>
                             </div>
 
                         </div>
@@ -861,7 +1115,14 @@
                 <!-- picture -->
                 <div class="image-wrapper">
                     <div class="image-inner">
-                        <img class="image-sq" src="new-assets/images/promo_section/promo_section_01.jpg" alt="">
+
+
+                        <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1526493029/app/img/promo_section_01.jpg"
+                             srcset="http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526493029/app/img/promo_section_01.jpg 480w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1526493029/app/img/promo_section_01.jpg 768w,
+                                                        http://res.cloudinary.com/spokoloko/image/upload/v1526493029/app/img/promo_section_01.jpg 1000w"
+                             alt="asdasd" />
+
                     </div>
                 </div>
             </div>
@@ -1172,9 +1433,10 @@
                   </div>
               </div>
 
-              -->>
+              -->
 
 
+        {{--
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui column">
@@ -1399,6 +1661,8 @@
                     </div>
                 </div>
             </div>
+
+            --}}
 
         </div>
     </div>

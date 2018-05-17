@@ -6,9 +6,10 @@
         <div class="ui centered grid container">
             <div class="row">
                 <div class="ui six wide computer twelve wide tablet column">
-                    <h3 class="text-align-center-sq block-sq title-sq">Dolacz sie do nas</h3>
+                    <h3 class="text-align-center-sq block-sq title-sq">Dolącz do nas</h3>
 
-                    <p class="description-sq text-align-center-sq">Najpierw wybierz typ swojego biznesu sposrod kategorij </p>
+                    <p class="description-sq text-align-center-sq">Wybierz typ swojego biznesu
+                    </p>
 
                 </div>
             </div>

@@ -18,7 +18,9 @@
                     <div class="become-dashboard-inner">
                         <h3 style="padding-bottom: 20px">Kontakty</h3>
                         <div class="content">
-                            <p>Jetemy do twojej dyspozycji. Zadzwoń, napisz lub umów sie na spotkanie w naszym biurze. </p>
+                            <p>Jesteśmy do Twojej dyspozycji.
+                                Zadzwoń, napisz lub umów się na spotkanie z nami.
+                            </p>
 
 
                                 <ul class="description-list">
@@ -31,7 +33,7 @@
 
                                     <li>
                                         <div>
-                                            <p>Odział Krakow:</p>
+                                            <p>Oddział w Krakowie</p>
                                             <strong style="float: right">Kraków, ul.Dekerta 2/21, 31-000</strong>
                                         </div>
                                     </li>
@@ -169,7 +171,8 @@
                     <div class="become-dashboard-inner">
                         <h3 style="padding-bottom: 20px">Napisz do nas</h3>
                         <div class="content">
-                            <p>Masz pytania? Skontaktuj sie z nami używajac formularza poniżej.</p>
+                            <p>Masz pytania? Skontaktuj się z nami używając poniższego formularza.
+                                </p>
 
                             <form>
 
@@ -208,7 +211,7 @@
 
 
                                 <div class="divided-column">
-                                    <div class="button-sq fullwidth-sq" >Send</div>
+                                    <div class="button-sq fullwidth-sq" > Wyślij </div>
                                 </div>
                             </div>
 

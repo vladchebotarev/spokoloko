@@ -9,8 +9,8 @@
                 <div class="row">
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                         <div class="promo-content style-02" style="background-color: rgba(255,140,0,0.9); borderborder-radius: 30px;">
-                            <h2>Tworzymy wydarzenia razem</h2>
-                            <p>Na tej stronie jest przedstawiona karta serwisu Spokoloko dla wybranego miasta</p>
+                            <h2>Twórzmy wydarzenia razem./h2>
+                            <p>Na tej stronie znajdziesz kartę serwisu dla wybranego miasta</p>
 
                             <div class="fltp"  style="background-color: white; padding-left: 10px;">
                                 <select name="dropdown" size="13" class="dropdown" required>
@@ -64,7 +64,7 @@
                             <h5 style="text-align: left">Wydarzenia firmowe</h5>
                             <div class="title">
                                 <div class="ui grid">
-                                    <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                    <a class="accordion-trigger more-trigger" data-more="Więcej" data-less="Less">
                                         <i class="icon icon-arrow-down-122"></i>
                                     </a>
 
@@ -197,7 +197,7 @@
                             <h5 style="text-align: left">Wydarzenia prywatne i imprezy</h5>
                             <div class="title">
                                 <div class="ui grid">
-                                    <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                    <a class="accordion-trigger more-trigger" data-more="Więcej" data-less="Less">
                                         <i class="icon icon-arrow-down-122"></i>
                                     </a>
 
@@ -330,7 +330,7 @@
                             <h5 style="text-align: left">Wystawy, prezentacje i studia zjęciowe</h5>
                             <div class="title">
                                 <div class="ui grid">
-                                    <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                    <a class="accordion-trigger more-trigger" data-more="Więcej" data-less="Less">
                                         <i class="icon icon-arrow-down-122"></i>
                                     </a>
 
@@ -466,7 +466,7 @@
 
                                 <div class="title">
                                     <div class="ui grid">
-                                        <a class="accordion-trigger more-trigger" data-more="More" data-less="Less">
+                                        <a class="accordion-trigger more-trigger" data-more="Więcej" data-less="Less">
                                             <i class="icon icon-arrow-down-122"></i>
                                         </a>
 

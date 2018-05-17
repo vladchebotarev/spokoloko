@@ -14,6 +14,15 @@ var SQ = SQ || {};
 
     function imageResize() {
         var photoContainer = $(".image-wrapper");
+        var scwidth = screen.width;
+        var scmax = 360;
+        if(scwidth>479){
+            scmax=480;
+        }
+        if(scwidth>599){
+            scmax=600;
+        }
+
 
         photoContainer.each(function () {
             var wrapperWidth = $(this).width();
@@ -22,7 +31,13 @@ var SQ = SQ || {};
 
             var imageWidth = $(this).find(".image-sq").width();
             var imageHeight = $(this).find(".image-sq").height();
+            if(imageWidth<101){
+                var imageWidth = scmax;
+                var imageHeight = scmax;
+            }
             var imageRatio = imageWidth / imageHeight;
+
+
 
             if (wrapperWidth === 0 || wrapperHeight === 0) {
                 return false;
@@ -428,21 +443,109 @@ var SQ = SQ || {};
             $('.lazy').Lazy({
                 // your configuration goes here
 
+                beforeLoad: function(element) {
 
+                     var ewidth = element.parent().width();
+                     var oldurl = element.attr('data-src');
+                     var nvalue = 360;
+
+                        if(ewidth>360){
+                            nvalue = 480;
+                            if(ewidth>480){
+                                nvalue = 600;
+                            }
+
+                            var newurl = oldurl.replace('w_360', 'w_' + nvalue);
+                            element.attr('data-src', newurl);
+                            console.log('width > 360');
+
+
+                        }
+
+                   console.log(element.attr('data-src'));
+
+                        element.css('width','auto');
+
+
+                    element.removeClass('lazy');
+
+                    console.log('Done image');
+
+
+                },
+                scrollDirection: 'vertical',
+                effect: 'fadeIn',
+                visibleOnly: true,
+                afterLoad: function(element){
+
+
+
+
+
+                },
+                onError: function(element) {
+                    console.log('error loading ' + element.data('data-src'));
+                }
+            });
+
+
+            $('.image-sq').Lazy({
+                // your configuration goes here
+
+
+
+<<<<<<< HEAD
                 beforeLoad: function (element) {
                     var ewidth = element.parent().width();
+=======
 
-                    var eheight = element.height(element.parent().height());
+                beforeLoad: function(element) {
+>>>>>>> origin/fe_edit_venue
+
+
+                    var ewidth = element.parent().width();
+                    var eheight = element.parent().height();
                     var oldurl = element.attr('data-src');
+<<<<<<< HEAD
                     var newurl = oldurl.replace('w_1200', 'w_' + ewidth);
+=======
+                    var nvalue = 360;
 
-                    element.attr('data-src', newurl);
+                    if(ewidth>360||eheight>360){
+                        nvalue = 480;
+                        if(ewidth>480||eheight>480){
+                            nvalue = 600;
+                        }
+                        if (ewidth >= eheight) {
+                            var newurl = oldurl.replace('w_360', 'w_' + nvalue);
+                            newurl = newurl.replace('h_360','h_'+nvalue);
+                            element.attr('data-src', newurl);
+                            console.log('width > 360');
+                        }
+                        else {
+                            var newurl = oldurl.replace('w_360', 'h_' + nvalue);
+                            newurl = newurl.replace('h_360','h_'+nvalue);
+                            element.attr('data-src', newurl);
+                            console.log('heigth>360');
+                        }
+                    }
+
+                    console.log(element.attr('data-src'));
+>>>>>>> origin/fe_edit_venue
 
 
+
+<<<<<<< HEAD
                     element.attr('s', element.data('data-src'));
+=======
+
+
+>>>>>>> origin/fe_edit_venue
                     element.removeClass('lazy');
-                    element.addClass('image-sq');
+
                     console.log('Done image');
+
+
                 },
                 scrollDirection: 'vertical',
                 effect: 'fadeIn',
@@ -450,7 +553,7 @@ var SQ = SQ || {};
                 afterLoad: function (element) {
 
 
-                    element.removeAttr('data-scr');
+
 
 
                 },
@@ -460,6 +563,11 @@ var SQ = SQ || {};
             });
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/fe_edit_venue
             /* ? - se face focus pe containerul mare din sticky box */
             $(".inline-check-in input[type='text']").focus(function () {
                 $(".inline-check-in").addClass("focused");

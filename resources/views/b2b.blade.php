@@ -11,12 +11,12 @@
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                         <div class="promo-content style-02" style="background-color: rgba(37,37,37,0.8); borderborder-radius: 30px;">
                             <h2>Zarabiaj ze Spokoloko</h2>
-                            <p>Masz lokal do wynajęcia, lub pomagasz innym tworzyć wydarzenia? <br>
-                                Dodaj sie na serwis Spokoloko i zwieksz swoj dochod. <br>
-                                Zarzadzaj swoja stroną, tworz promocje i Pakiety eventowe.</p>
+                            <p>Masz lokal do wynajęcia, lub pomagasz innym tworzyć wydarzenia? <br>
+                                Dodaj swój biznes i powiększ swoje zyski.<br>
+                                Zarządzaj swoim profilem, promuj się, a resztę zostaw nam.</p>
 
 
-                            <a href="/b2b" class="button-sq see-through-sq" > Dodaj swoj biznes </a>
+                            <a href="/b2b" class="button-sq see-through-sq" > Zarejestruj Się </a>
                         </div>
 
                     </div>
@@ -39,10 +39,11 @@
 
 
                     <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Zwiększaj uznawalność</h3>
-                        <p>Spokoloko to pierwszy portal w Polsce poswiecony organizatoram i organizacj eventów. Znajdując pokazujesz że jesteś czlonkiem naszej ekipy. </p>
-                        <p>Średnio twoją ofertę zauwarzy 10.000 odbiorców miesięcznie. </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
+                        <h3 style="padding-bottom: 20px">Stań się widoczny </h3>
+                        <p>Profesjonalny profil pomoże Ci dotrzeć do serca organizatora. W prosty i klarowny  sposób zaprezentuj swój biznes do swoich beneficjentów.  </p>
+                        <p>Każdy profil bierze udział w kampanii SMM/SEO (znak pytania z informacją) i zwiększa rozpoznawalność marki.
+                        </p>
+
                     </div>
 
 
@@ -81,11 +82,12 @@
 
 
                     <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Zyskuj klientow i zarabiaj</h3>
-                        <p>Za pomocą narzędzi Spokoloko można zwiększyć zysk lokalu nawet kilkokrotnie.
+                        <h3 style="padding-bottom: 20px"> Zarabiaj więcej </h3>
+                        <p>Za pomocą Spokoloko zwiększysz swoje zyski nawet kilkukrotnie!
                         </p>
-                        <p>Nigdy wcześnie interakcja z klientami nie była taka prosta. Zostaw  </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
+                        <p>Docieraj do swoich docelowych klientów, otrzymuj zamówienia i prezentuj się w najlepszy sposób.
+                        </p>
+                        <p>Nigdy wcześniej interakcja z klientami nie była tak prosta. </p>
                     </div>
 
 
@@ -99,10 +101,11 @@
 
 
                     <div class="become-dashboard-inner">
-                        <h3 style="padding-bottom: 20px">Bądż na bierząco</h3>
-                        <p>Spokoloko to pierwszy portal w Polsce poswiecony organizatoram i organizacj eventów. Znajdując pokazujesz że jesteś czlonkiem naszej ekipy. </p>
-                        <p>Średnio twoją ofertę zauwarzy 10.000 odbiorców miesięcznie. </p>
-                        <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
+                        <h3 style="padding-bottom: 20px">Bądź na czasie </h3>
+                        <p>Nie trać czasu i pieniędzy na bezużyteczne kampanie reklamowe. Dołącz się do
+                            pierwszego w Polsce portalu łączącego organizatorów wydarzeń z gospodarzami i usługodawcami. Bezpośrednio i bez zbędnych kosztów.
+                        </p>
+
                     </div>
 
 
@@ -131,9 +134,10 @@
                         <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                             <div class="promo-content style-01">
                                 <h2>Zarejestruj się za darmo</h2>
-                                <p>Pomagaj organizowac eventy w calej polsce. Dodaj swoj biznes do serwisu Spokoloko całkowicie za darmo..</p>
+                                <p>Pomagaj organizować eventy w całej Polsce.
+                                    Dodaj swój biznes do serwisu Spokoloko całkowicie za darmo</p>
 
-                                <a href="/b2b" class="button-sq see-through-sq"> Zarejestrować się </a>
+                                <a href="/b2b" class="button-sq see-through-sq"> Rejestracja  </a>
                             </div>
 
                         </div>

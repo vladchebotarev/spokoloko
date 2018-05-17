@@ -31,7 +31,7 @@
                             </div>
                         @endif
 
-                        <h3 class="title-sq">Najwarzniejsze</h3>
+                        <h3 class="title-sq">Najważniejsze</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
@@ -142,7 +142,7 @@
                             </div>
 
                             <div class="divided-column">
-                                <label>Telefon 2(Jeżeli istneje)</label>
+                                <label>Telefon 2(opcjonalnie)</label>
 
                                 <div class="ui labeled input">
                                     <div class="ui label">
@@ -222,7 +222,7 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label class="required">Opis lokalu(krótki)</label>
+                                <label class="required">Opis lokalu (krótki)</label>
                                 <textarea name="description"
                                           class="req-check {{ $errors->has('instagram') ? 'warning' : '' }}" cols="30"
                                           rows="5" maxlength="750" minlength="100"
@@ -235,7 +235,7 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label class="required">Opis lokalu(długi)</label>
+                                <label class="required">Opis lokalu (długi)</label>
                                 <textarea name="full_description"
                                           class="req-check {{ $errors->has('full_description') ? 'warning' : '' }}"
                                           cols="30" rows="10" maxlength="7000" minlength="1000"
@@ -264,7 +264,7 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">Kategorje</h3>
+                        <h3 class="title-sq">Kategorie</h3>
 
                         <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
                             faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
