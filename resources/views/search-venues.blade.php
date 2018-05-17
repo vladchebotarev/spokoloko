@@ -55,7 +55,7 @@
                                 </li>
 
 
-                                <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
+                                <li class="flex-grow-desktop-true flex-grow-large-desktop-true" style="max-width: 95%">
                                     <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
                                         <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
                                         <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">

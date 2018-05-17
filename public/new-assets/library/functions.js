@@ -393,8 +393,10 @@ var SQ = SQ || {};
                 }
                 else{
                     $('#callnow').text(number);
+
                 }
             });
+
 
 
             $("#timeres").click(function () {

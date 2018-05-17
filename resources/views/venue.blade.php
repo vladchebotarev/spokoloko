@@ -10,8 +10,12 @@
         <div class="image-wrapper">
             <div class="image-inner">
                 <img class="image-sq slick-img"
-                     src="https://res.cloudinary.com/spokoloko/image/upload/e_improve,f_jpg,g_auto,c_fill,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
-                     alt=""
+                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w
+                     "
+                     alt="{{ $venue->name }}"
                      data-gallery="gallery"
                      data-caption="Cover Photo">
             </div>
@@ -719,8 +723,8 @@
                             @for($n = 0; $n < count($venue_images); $n++)
                                 <div>
                                     <div class="caption-content">
-                                        <img class="image-sq slick-img"
-                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                        <img class="lazy slick-img"
+                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                              alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
@@ -971,8 +975,8 @@
 
                 <div class="div-c">
                     <label>Imię</label>
-                    <input type="text" name="name"
-                           value="@auth{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}@endauth" 
+                    <input type="text" name="name" autofocus
+                           value="@auth{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}@endauth"
                            placeholder=" ">
                 </div>
 
@@ -1017,10 +1021,11 @@
         <p>Wiadomość została wysłana</p>
     </div>
 
-    {{--<div class="fb-customerchat"
+    <div id="fbchat"></div>
+    <div class="fb-customerchat"
          logged_in_greeting="Potrzebujesz pomocy? Napisz do nas!"
          logged_out_greeting="Potrzebujesz pomocy? Zaloguj się i napisz do nas!"
          theme_color="#f57C00" page_id="{{ $venue->facebook_page_id }}">
-    </div>--}}
+    </div>
 
 @endsection
