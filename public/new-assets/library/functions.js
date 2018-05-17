@@ -239,6 +239,8 @@ var SQ = SQ || {};
             });
 
 
+
+
             /* Datepicker */
             $('#examplecalendar').calendar({
                 type: 'date',
@@ -273,6 +275,7 @@ var SQ = SQ || {};
             });
 
             $('#examplecalendar2').calendar({
+
                 type: 'date',
                 className: {
                     prevIcon: "icon icon-arrow-left-122",
@@ -382,6 +385,17 @@ var SQ = SQ || {};
                 monthFirst: false,
 
             });
+
+            $("#callnow").click(function () {
+                var number = $('#callnow').attr("number");
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    window.location.href = ("tel:"+number);
+                }
+                else{
+                    $('#callnow').text(number);
+                }
+            });
+
 
             $("#timeres").click(function () {
                 $("#setweek").hide();
