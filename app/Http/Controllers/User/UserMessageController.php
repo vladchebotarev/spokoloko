@@ -21,16 +21,17 @@ class UserMessageController extends Controller
         } else {
 
             if($venueBooking->client_id){
-                $seneder_avatar = User::find($venueBooking->client_id)->pluck('avatar');
+                $sender = User::find($venueBooking->client_id);
+                $sender_avatar = $sender->avatar;
             } else {
-                $seneder_avatar = 'default-avatar.jpg';
+                $sender_avatar = 'default-avatar.jpg';
             }
 
             $data = array(
                 'venueBooking' => $venueBooking,
                 'messages' => VenueBookingMessage::where('venue_booking_id', $venueBooking->id)->orderBy('id')->get(),
                 'venue' => Venue::find($venueBooking->venue_id),
-                'sender_avatar' => $seneder_avatar,
+                'sender_avatar' => $sender_avatar,
             );
 
             //dump($data);
