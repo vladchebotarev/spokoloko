@@ -234,5 +234,4 @@
         </div>
     </div>
 
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos eligendi esse, illum inventore iusto quas suscipit. Accusantium, hic repellat. Adipisci alias autem cupiditate delectus deserunt dolores mollitia provident ullam velit!
 @endsection

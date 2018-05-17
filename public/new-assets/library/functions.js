@@ -10,7 +10,7 @@ var SQ = SQ || {};
     // USE STRICT
     "use strict";
 
-	SQ.responsiveClassesAdded = false;
+    SQ.responsiveClassesAdded = false;
 
     function imageResize() {
         var photoContainer = $(".image-wrapper");
@@ -92,9 +92,9 @@ var SQ = SQ || {};
         prevScroll: 0,
         middleHeaderSectionSlideUpOffset: 100,
         stickyElement: $(".sticky-element"),
-        stickyElementHeight:[],
-        stickyElementResponisve:[],
-        windowPosition:0,
+        stickyElementHeight: [],
+        stickyElementResponisve: [],
+        windowPosition: 0,
         generatedSlickGallery: [],
 
         /* checked */
@@ -122,24 +122,24 @@ var SQ = SQ || {};
                 }
             });
 
-	        $(".modal-ui-trigger").on('click', function() {
-		        SQ.main.modalUItrigger(this);
-		        return false;
-	        });
-				
-			/* Slick next / prev */
-			
-			$('.sq-next-button').click(function() {
+            $(".modal-ui-trigger").on('click', function () {
+                SQ.main.modalUItrigger(this);
+                return false;
+            });
+
+            /* Slick next / prev */
+
+            $('.sq-next-button').click(function () {
                 $('.sq-slick').slick("slickNext");
-             });
-			
-			$('.sq-prev-button').click(function() {
+            });
+
+            $('.sq-prev-button').click(function () {
                 $('.sq-slick').slick("slickPrev");
-             });
+            });
 
             /* Accordion function */
             $('.ui.accordion').accordion({
-               /* exclusive: false,*/
+                /* exclusive: false,*/
                 selector: {
                     accordion: '.accordion',
                     title: '.title',
@@ -149,15 +149,15 @@ var SQ = SQ || {};
             });
 
             /* hero search animation in docs */
-            $(".force-animation").on('click', function(){
+            $(".force-animation").on('click', function () {
 
                 var $forceThis = $(this).nextAll("[class^=h-search-]").first();
 
                 $forceThis.hide().removeClass("animate-sq");
 
-                setTimeout(function(){
-                  $forceThis.show().addClass("animate-sq");
-                  return false;
+                setTimeout(function () {
+                    $forceThis.show().addClass("animate-sq");
+                    return false;
                 }, 1);
 
                 return false;
@@ -165,9 +165,9 @@ var SQ = SQ || {};
 
 
             /* photo upload selected */
-            $(".cover-photo-sq").on('click', function(){
+            $(".cover-photo-sq").on('click', function () {
 
-                if($(this).closest(".photo-upload-item").hasClass("selected")) {
+                if ($(this).closest(".photo-upload-item").hasClass("selected")) {
                     $(this).closest(".photo-upload-item").removeClass("selected");
                 } else {
                     $(".photo-upload-item").removeClass("selected");
@@ -187,7 +187,7 @@ var SQ = SQ || {};
 
             /* Properties List triggers */
             $(".switch-view-controller .item").on('click', function (e) {
-            	e.preventDefault();
+                e.preventDefault();
 
                 var trigger = $(this);
                 var thisId = $(this).attr("id");
@@ -209,32 +209,29 @@ var SQ = SQ || {};
                     thisParent.removeClass("only-list");
                 }
 
-	            try {
-		            if (typeof(Event) === 'function') {
-			            window.dispatchEvent(new Event('resize'));
-		            } else {
-			            var evt =  window.document.createEvent('UIEvents');
-			            evt.initUIEvent('resize', true, false, window, 0);
-			            window.dispatchEvent(evt);
-		            }
-	            } catch(e) {}
+                try {
+                    if (typeof(Event) === 'function') {
+                        window.dispatchEvent(new Event('resize'));
+                    } else {
+                        var evt = window.document.createEvent('UIEvents');
+                        evt.initUIEvent('resize', true, false, window, 0);
+                        window.dispatchEvent(evt);
+                    }
+                } catch (e) {
+                }
 
                 return false;
 
             });
 
 
-
-
-
-
             /* Datepicker */
             $('#examplecalendar').calendar({
-              type: 'date',
-              className: {
-                 prevIcon: "icon icon-arrow-left-122",
-                 nextIcon: "icon icon-arrow-right-122"
-              },
+                type: 'date',
+                className: {
+                    prevIcon: "icon icon-arrow-left-122",
+                    nextIcon: "icon icon-arrow-right-122"
+                },
                 formatter: {
                     date: function (date, settings) {
                         if (!date) return '';
@@ -242,18 +239,18 @@ var SQ = SQ || {};
                         var month = date.getMonth() + 1;
                         var year = date.getFullYear();
                         if (month < 9) {
-                            if (day < 9){
-                                return year + ' - 0' + month + ' - 0' + day;
+                            if (day < 9) {
+                                return year + '-0' + month + '-0' + day;
                             }
                             else {
-                                return year + ' - 0' + month + ' - ' + day;
+                                return year + '-0' + month + '-' + day;
                             }
                         } else {
-                            if (day < 9){
-                                return year + ' - ' + month + ' - 0' + day;
+                            if (day < 9) {
+                                return year + '-' + month + '-0' + day;
                             }
                             else {
-                                return year + ' - ' + month + ' - ' + day;
+                                return year + '-' + month + '-' + day;
                             }
                         }
 
@@ -274,18 +271,18 @@ var SQ = SQ || {};
                         var month = date.getMonth() + 1;
                         var year = date.getFullYear();
                         if (month < 9) {
-                            if (day < 9){
-                                return year +  ' - 0' + month + ' - 0' + day;
+                            if (day < 9) {
+                                return year + ' - 0' + month + ' - 0' + day;
                             }
                             else {
-                                return year +  ' - 0' + month + ' - ' + day;
+                                return year + ' - 0' + month + ' - ' + day;
                             }
                         } else {
-                            if (day < 9){
-                                return year  + ' - ' + month + ' - 0' + day;
+                            if (day < 9) {
+                                return year + ' - ' + month + ' - 0' + day;
                             }
                             else {
-                                return year  + ' - ' + month + ' - ' + day;
+                                return year + ' - ' + month + ' - ' + day;
                             }
                         }
 
@@ -295,7 +292,7 @@ var SQ = SQ || {};
 
             $('.timecalendar').calendar({
                 type: 'time',
-                ampm:false,
+                ampm: false,
                 className: {
                     prevIcon: "icon icon-arrow-left-122",
                     nextIcon: "icon icon-arrow-right-122"
@@ -324,8 +321,6 @@ var SQ = SQ || {};
             });
 
 
-
-
             $('#sticky-box-rangestart').calendar({
                 type: 'time',
                 ampm: false,
@@ -340,7 +335,7 @@ var SQ = SQ || {};
 
             $('#sticky-box-rangeend').calendar({
                 type: 'time',
-                ampm:false,
+                ampm: false,
                 startCalendar: $('#sticky-box-rangestart'),
                 className: {
                     prevIcon: "icon icon-arrow-left-122",
@@ -364,7 +359,7 @@ var SQ = SQ || {};
 
             $('#sticky-box-rangeend1').calendar({
                 type: 'time',
-                ampm:false,
+                ampm: false,
                 startCalendar: $('#sticky-box-rangestart'),
                 className: {
                     prevIcon: "icon icon-arrow-left-122",
@@ -374,57 +369,77 @@ var SQ = SQ || {};
 
             });
 
-            $("#timeres").click(function(){
+            $("#timeres").click(function () {
                 $("#setweek").hide();
             });
 
-            $("#timeweek").click(function(){
+            $("#timeweek").click(function () {
                 $("#setweek").show();
             });
 
-            $("#timeseven").click(function(){
+            $("#timeseven").click(function () {
                 $("#setonce").hide();
                 $("#setseven").show();
             });
-            $("#timeonce").click(function(){
+            $("#timeonce").click(function () {
                 $("#setonce").show();
                 $("#setseven").hide();
             });
 
 
-
-            $("#sender_dates").on('click', function() {
+            $("#sender_dates").on('click', function () {
                 $("#event_date_new").val($("#event_date").val());
                 $("#from_hour_new").val($("#from_hour").val());
                 $("#to_hour_new").val($("#to_hour").val());
             });
 
-            $("#send_request_availability").on('click', function() {
-                $('#icon_succes_send').transition('fly left' , '2000ms');
+
+            $("#send_request_availability").on('click', function (e) {
+
+                e.preventDefault();
+
+                /*$('input+small').text('').fadeOut();
+                $('input').removeClass('has-error');*/
+
+                var form = $("#venueBookingRequest");
+
+                $.ajax({
+                    method: form.attr('method'),
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    dataType: "json"
+                })
+                    .always(function (data) {
+                        if (data.status === 200) {
+                            $('#icon_succes_send').transition('fly left', '2000ms');
+                        } else {
+                            console.log(data);
+                            /*$.each(data.responseJSON.errors, function (key, value) {
+                                var input = '#formRegisterEmail input[name=' + key + ']';
+                                $(input + '+small').text(value).fadeIn();
+                                $(input).addClass('has-error');
+                            });*/
+                        }
+
+                    });
             });
-
-
-
 
 
             $('.lazy').Lazy({
                 // your configuration goes here
 
 
-
-                beforeLoad: function(element) {
+                beforeLoad: function (element) {
                     var ewidth = element.parent().width();
 
                     var eheight = element.height(element.parent().height());
                     var oldurl = element.attr('data-src');
-                    var newurl = oldurl.replace('w_1200','w_'+ewidth);
+                    var newurl = oldurl.replace('w_1200', 'w_' + ewidth);
 
                     element.attr('data-src', newurl);
 
 
-
-
-                    element.attr('s',element.data('data-src'));
+                    element.attr('s', element.data('data-src'));
                     element.removeClass('lazy');
                     element.addClass('image-sq');
                     console.log('Done image');
@@ -432,20 +447,17 @@ var SQ = SQ || {};
                 scrollDirection: 'vertical',
                 effect: 'fadeIn',
                 visibleOnly: true,
-                afterLoad: function(element){
+                afterLoad: function (element) {
 
 
                     element.removeAttr('data-scr');
 
 
                 },
-                onError: function(element) {
+                onError: function (element) {
                     console.log('error loading ' + element.data('data-src'));
                 }
             });
-
-
-
 
 
             /* ? - se face focus pe containerul mare din sticky box */
@@ -463,8 +475,8 @@ var SQ = SQ || {};
                 return false;
             });
 
-            $('.return-car-to-location').on('click', function() {
-				$(this).closest('.search-item').prev('.search-return-location').toggleClass('disabled');
+            $('.return-car-to-location').on('click', function () {
+                $(this).closest('.search-item').prev('.search-return-location').toggleClass('disabled');
             });
 
             /* Price Range Slider */
@@ -491,13 +503,13 @@ var SQ = SQ || {};
 
             /* Slick Carousel  */
             SQ.main.slickCarousel();
-            setTimeout(function(){ 
-                    $(".sq-slick").css("opacity", "1");
-			}, 400);
+            setTimeout(function () {
+                $(".sq-slick").css("opacity", "1");
+            }, 400);
 
             /* Slick Gallery */
 
-            $('.slick-img').on('click', function(e) {
+            $('.slick-img').on('click', function (e) {
                 e.preventDefault();
                 SQ.main.slickGallery(this);
 
@@ -506,11 +518,11 @@ var SQ = SQ || {};
 
                 $('.slider-thumbs-' + _gallery).slick("slickGoTo", parseInt(_this.attr('slick-target'), 10));
 
-             });
+            });
 
-            $(document).on("mouseenter", ".slider-thumbs", function() {
+            $(document).on("mouseenter", ".slider-thumbs", function () {
                 $(this).closest(".slick-gallery").addClass("hover-sq");
-            }).on("mouseleave", ".slider-thumbs", function(){
+            }).on("mouseleave", ".slider-thumbs", function () {
                 $(this).closest(".slick-gallery").removeClass("hover-sq");
             });
 
@@ -530,7 +542,7 @@ var SQ = SQ || {};
             SQ.main.stickyElementScroll();
 
         },
-        onClassicResize: function() {
+        onClassicResize: function () {
 
         },
         onScroll: function () {
@@ -539,10 +551,10 @@ var SQ = SQ || {};
         },
 
         responsiveClasses: function () {
-	        if ( SQ.responsiveClassesAdded === true ) {
-		        return;
-	        }
-	        var jRes = jRespond([
+            if (SQ.responsiveClassesAdded === true) {
+                return;
+            }
+            var jRes = jRespond([
                 {
                     label: 'smallest',
                     enter: 0,
@@ -610,43 +622,43 @@ var SQ = SQ || {};
             ]);
         },
 
-        documentOnClick: function(e) {
+        documentOnClick: function (e) {
         },
 
-        modalUItrigger: function(self) {
+        modalUItrigger: function (self) {
 
             var triggerFor = $(self).attr("data-trigger-for");
 
-            if($(self).hasClass("slick-img")) {
-               triggerFor = $(self).attr("data-gallery");
+            if ($(self).hasClass("slick-img")) {
+                triggerFor = $(self).attr("data-gallery");
             }
 
             var modalOpen = $("[data-for=" + triggerFor + "]");
 
             $(modalOpen).modal({
-                    //detachable: false,
-                    selector: {
-                        close: '.close-modal'
-                    },
-                    transition: "fade",
-                    duration: 200,
-                    onShow: function () {
+                //detachable: false,
+                selector: {
+                    close: '.close-modal'
+                },
+                transition: "fade",
+                duration: 200,
+                onShow: function () {
 
-                        if ($(this).hasClass("full") && !$(this).hasClass("slick-gallery")) {
-                            $(this).parent(".dimmer").addClass("full");
-                        }
+                    if ($(this).hasClass("full") && !$(this).hasClass("slick-gallery")) {
+                        $(this).parent(".dimmer").addClass("full");
                     }
-                }).modal("show");
+                }
+            }).modal("show");
 
             return false;
         },
 
         stickyElementInit: function () {
 
-            SQ.main.stickyElement.each(function( index ){
+            SQ.main.stickyElement.each(function (index) {
 
                 this.prevScroll = SQ.main.prevScroll;
-                $(this).css('height','auto');
+                $(this).css('height', 'auto');
                 SQ.main.stickyElementHeight[index] = $(this).height();
 
             });
@@ -654,23 +666,23 @@ var SQ = SQ || {};
             $body.trigger("sticky-init-done");
         },
 
-        stickyElementResponsive: function() {
+        stickyElementResponsive: function () {
 
-            SQ.main.stickyElement.each(function( index ){
+            SQ.main.stickyElement.each(function (index) {
 
-                if($(this).hasClass("sticky-mobile") && ($("body").hasClass("device-xs") || $("body").hasClass("device-xxs"))) {
+                if ($(this).hasClass("sticky-mobile") && ($("body").hasClass("device-xs") || $("body").hasClass("device-xxs"))) {
                     SQ.main.stickyElementResponsive[index] = true;
                 }
-                if($(this).hasClass("sticky-tablet") && $("body").hasClass("device-sm")) {
+                if ($(this).hasClass("sticky-tablet") && $("body").hasClass("device-sm")) {
                     SQ.main.stickyElementResponsive[index] = true;
                 }
-                if($(this).hasClass("sticky-desktop") && $("body").hasClass("device-md")) {
+                if ($(this).hasClass("sticky-desktop") && $("body").hasClass("device-md")) {
                     SQ.main.stickyElementResponsive[index] = true;
                 }
-                if($(this).hasClass("sticky-large-desktop") && $("body").hasClass("device-lg")) {
+                if ($(this).hasClass("sticky-large-desktop") && $("body").hasClass("device-lg")) {
                     SQ.main.stickyElementResponsive[index] = true;
                 }
-                if($(this).hasClass("sticky-all")) {
+                if ($(this).hasClass("sticky-all")) {
                     SQ.main.stickyElementResponsive[index] = true;
                 }
 
@@ -682,61 +694,61 @@ var SQ = SQ || {};
 
             var scrollTop = $window.scrollTop();
 
-            SQ.main.stickyElement.each(function( index ){
+            SQ.main.stickyElement.each(function (index) {
 
                 var topStickyElement = $(this).offset().top;
                 var elementHeight = $(this).height();
 
-                if(scrollTop > this.prevScroll) {
+                if (scrollTop > this.prevScroll) {
 
-                    if(scrollTop > topStickyElement) {
+                    if (scrollTop > topStickyElement) {
 
                         $(this).addClass("is-sticky");
 
-                        if(SQ.main.stickyElementResponsive[index] === true) {
-                           $(this).css("height", SQ.main.stickyElementHeight[index]);
+                        if (SQ.main.stickyElementResponsive[index] === true) {
+                            $(this).css("height", SQ.main.stickyElementHeight[index]);
                         }
 
-                    } else if($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && !$(this).hasClass("ths-is-slide-up") && scrollTop > topStickyElement - $(".ths").children(".header-content").height()) {
+                    } else if ($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && !$(this).hasClass("ths-is-slide-up") && scrollTop > topStickyElement - $(".ths").children(".header-content").height()) {
 
                         $(this).addClass("is-sticky");
 
-                        if(SQ.main.stickyElementResponsive[index] === true) {
-                           $(this).css("height", SQ.main.stickyElementHeight[index]);
+                        if (SQ.main.stickyElementResponsive[index] === true) {
+                            $(this).css("height", SQ.main.stickyElementHeight[index]);
                         }
 
-                    } else if($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && $(this).hasClass("ths-is-slide-up") && scrollTop > $(this).offset().top + SQ.main.middleHeaderSectionSlideUpOffset) {
+                    } else if ($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && $(this).hasClass("ths-is-slide-up") && scrollTop > $(this).offset().top + SQ.main.middleHeaderSectionSlideUpOffset) {
 
                         $(this).addClass("is-sticky");
 
-                        if(SQ.main.stickyElementResponsive[index] === true) {
-                           $(this).css("height", SQ.main.stickyElementHeight[index]);
+                        if (SQ.main.stickyElementResponsive[index] === true) {
+                            $(this).css("height", SQ.main.stickyElementHeight[index]);
                         }
 
                     }
 
-                    if(scrollTop > topStickyElement + elementHeight && $(this).hasClass("after-element")) {
+                    if (scrollTop > topStickyElement + elementHeight && $(this).hasClass("after-element")) {
                         $(this).addClass("is-after");
                     }
 
 
-                } else if(scrollTop < this.prevScroll && scrollTop >= 0)  {
+                } else if (scrollTop < this.prevScroll && scrollTop >= 0) {
 
-                   if(scrollTop < topStickyElement && !$(this).hasClass("under-ths")) {
+                    if (scrollTop < topStickyElement && !$(this).hasClass("under-ths")) {
 
-                       $(this).removeClass("is-sticky");
+                        $(this).removeClass("is-sticky");
 
-                   } else if($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && !$(this).hasClass("ths-is-slide-up") && scrollTop < topStickyElement - $(".ths").children(".header-content").height()) {
+                    } else if ($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && !$(this).hasClass("ths-is-slide-up") && scrollTop < topStickyElement - $(".ths").children(".header-content").height()) {
 
-                       $(this).removeClass("is-sticky");
+                        $(this).removeClass("is-sticky");
 
-                   } else if ($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && $(this).hasClass("ths-is-slide-up") && scrollTop < $(this).offset().top + SQ.main.middleHeaderSectionSlideUpOffset) {
+                    } else if ($(this).hasClass("under-ths") && $(this).hasClass("ths-is-sticky") && $(this).hasClass("ths-is-slide-up") && scrollTop < $(this).offset().top + SQ.main.middleHeaderSectionSlideUpOffset) {
 
-                       $(this).removeClass("is-sticky");
+                        $(this).removeClass("is-sticky");
 
-                   }
+                    }
 
-                    if(scrollTop < topStickyElement + elementHeight && $(this).hasClass("after-element")) {
+                    if (scrollTop < topStickyElement + elementHeight && $(this).hasClass("after-element")) {
                         $(this).removeClass("is-after");
                     }
 
@@ -747,60 +759,60 @@ var SQ = SQ || {};
             });
         },
 
-        slickCarousel: function() {
+        slickCarousel: function () {
 
-            $(".sq-slick").each(function() {
+            $(".sq-slick").each(function () {
 
                 var $this = $(this);
                 var $responsive = [];
                 var breakpoints = ['small-mobile', 'mobile', 'tablet', 'desktop'];
                 var breakpointsValues = {
-                    'small-mobile' : '320',
-                    'mobile' : '768',
-                    'tablet' : '992',
+                    'small-mobile': '320',
+                    'mobile': '768',
+                    'tablet': '992',
                     'desktop': '1200'
                 };
 
-                $.each(breakpoints, function(index, value) {
+                $.each(breakpoints, function (index, value) {
 
                     var $settings = {};
 
-                    if ( $this.attr('data-'+ value +'-infinite') ) {
-                        $settings.infinite = $this.data(value +'-infinite');
+                    if ($this.attr('data-' + value + '-infinite')) {
+                        $settings.infinite = $this.data(value + '-infinite');
                     }
-                    if ( $this.attr('data-'+ value +'-show-slides') ) {
-                        $settings.slidesToShow = $this.data(value +'-show-slides');
+                    if ($this.attr('data-' + value + '-show-slides')) {
+                        $settings.slidesToShow = $this.data(value + '-show-slides');
                     }
-                    if ( $this.attr('data-'+ value +'-scroll-slides') ) {
-                        $settings.slidesToScroll = $this.data(value +'-scroll-slides');
+                    if ($this.attr('data-' + value + '-scroll-slides')) {
+                        $settings.slidesToScroll = $this.data(value + '-scroll-slides');
                     }
-                    if ( $this.attr('data-'+ value +'-dots') ) {
-                        $settings.dots = $this.data(value +'-dots');
+                    if ($this.attr('data-' + value + '-dots')) {
+                        $settings.dots = $this.data(value + '-dots');
                     }
-                    if ( $this.attr('data-'+ value +'-arrows') ) {
-                        $settings.arrows = $this.data(value +'-arrows');
+                    if ($this.attr('data-' + value + '-arrows')) {
+                        $settings.arrows = $this.data(value + '-arrows');
                     }
-                    if ( $this.attr('data-'+ value +'-fade') ) {
-                        $settings.fade = $this.data(value +'-fade');
+                    if ($this.attr('data-' + value + '-fade')) {
+                        $settings.fade = $this.data(value + '-fade');
                     }
-                    if ( $this.attr('data-'+ value +'-center-mode') ) {
-                        $settings.centerMode = $this.data(value +'-center-mode');
+                    if ($this.attr('data-' + value + '-center-mode')) {
+                        $settings.centerMode = $this.data(value + '-center-mode');
                     }
-                    if ( $this.attr('data-'+ value +'-center-padding') ) {
-                        $settings.centerPadding = $this.data(value +'-center-padding');
+                    if ($this.attr('data-' + value + '-center-padding')) {
+                        $settings.centerPadding = $this.data(value + '-center-padding');
                     }
-                    if ( $this.attr('data-'+ value +'-variable-width') ) {
-                        $settings.variableWidth = $this.data(value +'-variable-width');
+                    if ($this.attr('data-' + value + '-variable-width')) {
+                        $settings.variableWidth = $this.data(value + '-variable-width');
                     }
-                    if ( $this.attr('data-'+ value +'-speed') ) {
-                        $settings.speed = $this.data(value +'-speed');
+                    if ($this.attr('data-' + value + '-speed')) {
+                        $settings.speed = $this.data(value + '-speed');
                     }
-                    if ( $this.attr('data-'+ value +'-ease') ) {
-                        $settings.ease = $this.data(value +'-ease');
+                    if ($this.attr('data-' + value + '-ease')) {
+                        $settings.ease = $this.data(value + '-ease');
                     }
 
 
-                    if (! jQuery.isEmptyObject( $settings )) {
+                    if (!jQuery.isEmptyObject($settings)) {
                         var data = {
                             breakpoint: breakpointsValues[value],
                             settings: $settings
@@ -823,60 +835,60 @@ var SQ = SQ || {};
                     $centerPadding = "0px",
                     $variableWidth = false;
 
-                if ( $(this).attr('data-infinite') ) {
+                if ($(this).attr('data-infinite')) {
                     $infinite = $(this).data('infinite');
                 }
-                if ( $(this).attr('data-show-slides') ) {
+                if ($(this).attr('data-show-slides')) {
                     $slidesToShow = $(this).data('show-slides');
                 }
-                if ( $(this).attr('data-scroll-slides') ) {
+                if ($(this).attr('data-scroll-slides')) {
                     $slidesToScroll = $(this).data('scroll-slides');
                 }
-                if ( $(this).attr('data-dots') ) {
+                if ($(this).attr('data-dots')) {
                     $dots = $(this).data('dots');
                 }
-                if ( $(this).attr('data-arrows') ) {
+                if ($(this).attr('data-arrows')) {
                     $arrows = $(this).data('arrows');
                 }
-                if ( $(this).attr('data-fade') ) {
+                if ($(this).attr('data-fade')) {
                     $fade = $(this).data('fade');
                 }
-                if ( $(this).attr('data-speed') ) {
+                if ($(this).attr('data-speed')) {
                     $speed = $(this).data('speed');
                 }
-                if ( $(this).attr('data-ease') ) {
+                if ($(this).attr('data-ease')) {
                     $ease = $(this).data('ease');
                 }
-                if ( $(this).attr('data-center-mode') ) {
+                if ($(this).attr('data-center-mode')) {
                     $centerMode = $(this).data('center-mode');
                 }
-                if ( $(this).attr('data-center-padding') ) {
+                if ($(this).attr('data-center-padding')) {
                     $centerPadding = $(this).data('center-padding');
                 }
-                if ( $(this).attr('data-variable-width') ) {
+                if ($(this).attr('data-variable-width')) {
                     $variableWidth = $(this).data('variable-width');
                 }
 
-               $(this).slick({
-                   infinite: $infinite,
-                   slidesToShow: $slidesToShow,
-                   slidesToScroll: $slidesToScroll,
-                   dots: $dots,
-                   arrows: $arrows,
-                   fade: $fade,
-                   responsive: $responsive,
-                   speed: $speed,
-                   cssEase: $ease,
-                   centerMode: $centerMode,
-                   centerPadding: $centerPadding,
-                   variableWidth: $variableWidth
-               });
-                
-                
+                $(this).slick({
+                    infinite: $infinite,
+                    slidesToShow: $slidesToShow,
+                    slidesToScroll: $slidesToScroll,
+                    dots: $dots,
+                    arrows: $arrows,
+                    fade: $fade,
+                    responsive: $responsive,
+                    speed: $speed,
+                    cssEase: $ease,
+                    centerMode: $centerMode,
+                    centerPadding: $centerPadding,
+                    variableWidth: $variableWidth
+                });
+
+
             });
         },
 
-        slickGallery: function(self) {
+        slickGallery: function (self) {
             var counter = 0;
 
             var gallery = $(self).attr("data-gallery");
@@ -885,63 +897,63 @@ var SQ = SQ || {};
             var preview = '';
             var thumbs = '';
 
-            if(SQ.main.generatedSlickGallery.indexOf(gallery) === -1) {
+            if (SQ.main.generatedSlickGallery.indexOf(gallery) === -1) {
 
-                $('.slick-img[data-gallery="' + gallery + '"]').each(function() {
-                  $(this).attr('slick-target', counter);
-                  counter++;
+                $('.slick-img[data-gallery="' + gallery + '"]').each(function () {
+                    $(this).attr('slick-target', counter);
+                    counter++;
 
-                  preview += '<div>' +
-                    '<p class="caption-gallery"><span>' + counter + '/' + total + '</span> - ' + $(this).attr("data-caption") + '</p><div><img src="' + $(this).attr('src') + '"></div>' +
-                    '</div>';
+                    preview += '<div>' +
+                        '<p class="caption-gallery"><span>' + counter + '/' + total + '</span> - ' + $(this).attr("data-caption") + '</p><div><img src="' + $(this).attr('src') + '"></div>' +
+                        '</div>';
 
-                  thumbs += '<div>' +
-                    '<img src="' + $(this).attr('src') + '">' +
-                    '</div>';
+                    thumbs += '<div>' +
+                        '<img src="' + $(this).attr('src') + '">' +
+                        '</div>';
                 });
 
                 $("body").append('<div class="slick-gallery ui modal full" data-for="' + gallery + '">' +
-                   '<div class="ui container">' +
-                   '<div class="row">' +
-                   '<div class="ui column">'+
-                   '<i class="icon icon-close close-modal"></i>' +
-                   '<div class="slider-preview slider-preview-' + gallery + '">' + preview + '</div>' +
-                   '<div class="slider-thumbs slider-thumbs-' + gallery + '">' + thumbs + '</div>' +
+                    '<div class="ui container">' +
+                    '<div class="row">' +
+                    '<div class="ui column">' +
+                    '<i class="icon icon-close close-modal"></i>' +
+                    '<div class="slider-preview slider-preview-' + gallery + '">' + preview + '</div>' +
+                    '<div class="slider-thumbs slider-thumbs-' + gallery + '">' + thumbs + '</div>' +
                     '</div></div></div></div>');
             }
 
             /* open modal */
             SQ.main.modalUItrigger(self);
 
-            if(SQ.main.generatedSlickGallery.indexOf(gallery) === -1) {
+            if (SQ.main.generatedSlickGallery.indexOf(gallery) === -1) {
 
                 $('.slider-preview-' + gallery).slick({
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  arrows: true,
-                  fade: true,
-                  infinite:true,
-                  asNavFor: '.slider-thumbs-' + gallery,
-                  responsive: [
-                      {
-                      breakpoint: 992,
-                      settings: {
-                        arrows: false
-                      }
-                    }
-                  ]
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    fade: true,
+                    infinite: true,
+                    asNavFor: '.slider-thumbs-' + gallery,
+                    responsive: [
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                arrows: false
+                            }
+                        }
+                    ]
                 });
 
                 $('.slider-thumbs-' + gallery).slick({
-                  slidesToShow: 7,
-                  slidesToScroll: 1,
-                  asNavFor: '.slider-preview-' + gallery,
-                  dots: false,
-                  arrows: false,
-                  //centerMode: true,
-                  focusOnSelect: true,
-                  variableWidth: true,
-                  infinite:true,
+                    slidesToShow: 7,
+                    slidesToScroll: 1,
+                    asNavFor: '.slider-preview-' + gallery,
+                    dots: false,
+                    arrows: false,
+                    //centerMode: true,
+                    focusOnSelect: true,
+                    variableWidth: true,
+                    infinite: true,
                 });
 
                 SQ.main.generatedSlickGallery.push(gallery);
@@ -958,7 +970,7 @@ var SQ = SQ || {};
     $window.on('load', SQ.main.onLoad);
     $window.on('debouncedresize', SQ.main.onResize);
 
-    $window.on( 'resize', SQ.main.onClassicResize );
+    $window.on('resize', SQ.main.onClassicResize);
 
     $(window).on('scroll', function () {
         SQ.main.onScroll();

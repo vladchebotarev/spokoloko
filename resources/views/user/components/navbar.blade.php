@@ -12,7 +12,7 @@
                         <li class="@if(Route::current()->getName() == 'profile') active @endif"><a class="item" href="{{ url('user/profile') }}">{{ __('Mój Profil') }}</a></li>
                         <li class="@if(Route::current()->getName() == 'listings') active @endif"><a class="item" href="{{ url('user/listings') }}">{{ __('Mój Biznes') }}</a></li>
                         <li class="@if(Route::current()->getName() == 'settings') active @endif"><a class="item" href="{{ url('user/settings') }}">{{ __('Ustawienia') }}</a></li>
-                        <li class="@if(Route::current()->getName() == 'messages') active @endif"><a class="item" href="{{ url('user/messages') }}">{{ __('Wiadomości') }}</a></li>
+                        <li class="@if(Route::current()->getName() == 'messages' or Route::current()->getName() == 'message') active @endif"><a class="item" href="{{ url('user/messages') }}">{{ __('Wiadomości') }}</a></li>
                         {{--<li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="orders.html">Trips</a></li>
                         <li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="coupons.html">Coupons</a></li>
                         <li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="charts.html">Reports</a></li>

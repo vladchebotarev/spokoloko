@@ -74,7 +74,6 @@
                                 <div class="property-sticky-box">
 
 
-
                                     <div class="price-tag-sq">
 
                                         <span class="price-sq"
@@ -976,7 +975,7 @@
     <div class="ui modal small" data-for="contact" id="infos_request">
         <i class="icon icon-close close-modal"></i>
         <div class="header center" style="padding-top: 30px;">
-            <h3>Sprawdż dostępnosc</h3>
+            <h3>Sprawdź dostępność</h3>
         </div>
 
 
@@ -984,10 +983,10 @@
             <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
                 consectetur, porta ultrices sapien.</p>
 
-            <form>
-
+            <form method="post" action="{{ route('venue-booking-request') }}" id="venueBookingRequest">
+                @csrf
                 <div id="examplecalendar2" class="calendar-sq" style="padding-bottom: 10px;">
-                    <input type="text" id="event_date_new" value="" placeholder="Wybierz date">
+                    <input type="text" name="book_date" id="event_date_new" value="" placeholder="Wybierz datę">
                 </div>
 
 
@@ -995,69 +994,64 @@
                     <div class="timecalendar calendar-sq divided-column">
                         <div class="relative">
                             <input type="text" class="filter" id="from_hour_new"
-                                   name="from_hour_new" value=""
+                                   name="time_from" value=""
                                    placeholder="od">
                         </div>
                     </div>
 
                     <div class="timecalendar calendar-sq divided-column">
-                        <input type="text" class="filter" name="to_hour"
-                               id="to_hour_new" value="" placeholder="do"
-                        >
+                        <input type="text" class="filter" name="time_to"
+                               id="to_hour_new" value="" placeholder="do">
                     </div>
                 </div>
 
 
-                <div class="div-c inline-2">
-                    <div class="divided-column">
-                        <label>Imie</label>
-                        <input type="text" autofocus placeholder=" ">
-                    </div>
-
-                    <div class="divided-column">
-                        <label>Nazwisko</label>
-                        <input type="text" placeholder=" ">
-                    </div>
+                <div class="div-c">
+                    <label>Imię</label>
+                    <input type="text" name="name"
+                           value="@auth{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}@endauth" autofocus
+                           placeholder=" ">
                 </div>
 
                 <div class="div-c inline-2">
                     <div class="divided-column">
                         <label>Telefon</label>
-                        <input type="number" autofocus placeholder=" ">
+                        <input type="text" name="phone" value="@auth{{ Auth::user()->phone }}@endauth" placeholder=" ">
                     </div>
 
                     <div class="divided-column">
                         <label>Email</label>
-                        <input type="text" placeholder=" ">
+                        <input type="email" name="email" value="@auth{{ Auth::user()->email }}@endauth" placeholder=" ">
                     </div>
                 </div>
 
+                <input type="hidden" name="sender_id" value="@auth{{ Auth::user()->id }}@endauth">
+                <input type="hidden" name="venue_id" value="{{ $venue->id }}">
+
                 <div class="div-c">
                     <label>Message</label>
-                    <textarea cols="30" rows="10" placeholder=" "></textarea>
+                    <textarea name="message" cols="30" rows="10" placeholder=""></textarea>
                 </div>
+
             </form>
         </div>
 
         <div class="actions">
-            <div class="div-c ">
-
-
+            <div class="div-c">
                 <div class="divided-column">
                     <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success"
                          id="send_request_availability">Send
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
+
     <div class="ui modal small" style="background: none; box-shadow: none; text-align: center; color: white"
          data-for="success" id="icon_succes_send">
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>
-        <p>Wiadosośc zostanie dostarczona</p>
+        <p>Wiadomość została wysłana</p>
     </div>
 
     {{--<div class="fb-customerchat"

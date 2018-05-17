@@ -3252,6 +3252,7 @@ button .icon + span {
 }
 .message-body-sq {
   /* Fallback for non-webkit */
+  width: 100%;
   display: -webkit-box;
   max-height: 50px;
   -webkit-line-clamp: 2;
@@ -3267,7 +3268,7 @@ button .icon + span {
   display: block;
   width: 100%;
 }
-.message-status-sq:after {
+/*.message-status-sq:after {
   content: '\e924';
   font-family: 'icon';
   position: absolute;
@@ -3291,7 +3292,7 @@ button .icon + span {
   opacity: 1;
   cursor: pointer;
   text-shadow: 0 3px 5px rgba(245, 166, 35, 0.35);
-}
+}*/
 .message-related-sq {
   margin-top: 3px;
 }
@@ -3361,7 +3362,7 @@ button .icon + span {
 }
 .message-dashboard-details {
   border: 1px solid #D4D4D4;
-  padding: 40px;
+  padding: 20px;
   margin-bottom: 30px;
 }
 @media only screen and (min-width: 1200px) {

@@ -26,7 +26,8 @@ Route::get('/venues/{city_request}', 'SearchVenueController@index');
 
 Route::post('/venues_map/{city_request}', 'SearchVenueController@getMapMarkers');
 
-Route::get('/venue/{venue_url}', 'VenueController@getVenue');
+Route::get('/venue/{venue_url}', 'VenueController@getVenue')->name('venue');
+Route::post('/venue/booking', 'VenueBookingController@sendBookingRequest')->name('venue-booking-request');
 
 
 Route::get('/services/{city_request}', 'SearchServiceController@index');
@@ -91,10 +92,9 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('listings', 'User\UserListingsController@index')->name('listings');
 
-    Route::get('messages', function () {
-        return view('user.messages');
-    })->name('messages');
+    Route::get('messages', 'User\UserMessagesController')->name('messages');
 
+    Route::get('messages/{booking_number}', 'User\UserMessageController@index')->name('message');
 
     Route::get('share', function () {
         return view('user.share');
