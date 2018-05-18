@@ -269,7 +269,7 @@
                                                                 <div class="four wide column"
                                                                      style="padding-right: 0%;  padding-left:1%;">
                                                                     @if($venue->tripadvisor)
-                                                                        <a href="https://www.instagram.com/{{ $venue->tripadvisor }}"
+                                                                        <a href="{{ $venue->tripadvisor }}"
                                                                            target="_blank"
                                                                            class="button-sq small-sq see-through-sq social_icons tripadvisor"><i
                                                                                     class="fa fa-tripadvisor"></i>
@@ -294,15 +294,16 @@
 
                                         </div>
 
-                                        {{--<div class="sticky-box-wishlist">
-                                            <div class="wishlist-sq">
-                                                <a href=""><i class="icon icon-filter-heart"></i>Zachowaj</a>
-                                            </div>
+                                                                               <div class="sticky-box-wishlist">
+                                                                                    <div class="wishlist-sq">
 
-                                            <div class="share-sq">
-                                                <a href=""><i class="icon icon-share"></i>Udostępnij</a>
-                                            </div>
-                                        </div>--}}
+                                                                                        <button  status="1" data-id="{{ $venue->name }}" class="add-wishlist button-sq small-sq link-sq modal-ui-trigger" style="color: #F57C00" data-trigger-for="added_wishlist"></button>
+                                                                                    </div>
+
+                                                                                                                              <div class="share-sq">
+                                                                                                                                  <a href=""><i class="icon icon-share"></i>Udostępnij</a>
+                                                                                                                              </div>
+                                                                                                                          </div>
                                     </div>
 
                                 </div>
@@ -1019,6 +1020,13 @@
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>
         <p>Wiadomość została wysłana</p>
+    </div>
+
+    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+         data-for="added_wishlist" id="added_wishlist">
+        <p><i style="color:#F57C00; font-size: 50px;"
+              class="fa fa-check-circle"></i></p>
+        <p id="text_wishlist">Dodano do listy życzeń</p>
     </div>
 
     <div id="fbchat"></div>

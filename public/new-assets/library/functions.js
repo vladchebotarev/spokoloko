@@ -12,6 +12,33 @@ var SQ = SQ || {};
 
     SQ.responsiveClassesAdded = false;
 
+    function whishListCheck() {
+        $('.add-wishlist').each(function () {
+            if ($(this).is(":button")) {
+                if ($(this).attr('status', '1')) {
+                    $(this).html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
+
+                }
+                else {
+                    $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
+
+                }
+            }
+            else {
+                if ($(this).attr('status', '1')) {
+                    $(this).html('<i class="icon icon-heart"></i>');
+
+                }
+                else {
+                    $(this).html('<i class="icon icon-heart-line"></i>');
+
+                }
+            }
+
+
+        })
+    }
+
     function imageResize() {
         var photoContainer = $(".image-wrapper");
         var scwidth = screen.width;
@@ -455,6 +482,71 @@ var SQ = SQ || {};
             });
 
 
+
+
+
+       /*     $(".add_wishlist").on('click', function (e) {
+
+                if ($('#add_to_whishlist').attr('status') == 1) {
+                    if ($('#add_to_whishlist').is( ":button" ) ){
+                        $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
+                    }
+                    else {
+                        $('#add_to_whishlist').html('<i class="icon icon-heart-line"></i>');
+                    }
+                    $('#add_to_whishlist').attr('status',0);
+                    $('#text_wishlist').text('Usunięto z listy życzeń');
+                }
+                else {
+                    if ( $('#add_to_whishlist').is( ":button" ) ){
+                        $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
+                    }
+                    else {
+
+                        $('#add_to_whishlist').html('<i class="icon icon-heart"></i>');
+                    }
+                    $('#add_to_whishlist').attr('status',1);
+                    $('#text_wishlist').text('Dodano do listy życzeń');
+                }
+
+
+
+            }); */
+
+            $('.add-wishlist').on('click', function (e) {
+                //console.log($(this).attr('data-id'));
+                if ($(this).is(":button")) {
+                    if ($(this).attr('status')=='1') {
+                        $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
+                        $('#text_wishlist').text('Usunięto z listy życzeń');
+                        $(this).attr('status','0');
+                    }
+                    else {
+                        $(this).html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
+                        $('#text_wishlist').text('Dodano do listy życzeń');
+                        $(this).attr('status','1');
+
+                    }
+                }
+                else {
+                    if ($(this).attr('status')=='1') {
+                        $(this).html('<i class="icon icon-heart-line"></i>');
+                        $('#text_wishlist').text('Usunięto z listy życzeń');
+                        $(this).a
+                        $(this).attr('status','0');
+
+
+                    }
+                    else {
+                        $(this).html('<i class="icon icon-heart"></i>');
+                        $('#text_wishlist').text('Dodano do listy życzeń');
+                        $(this).attr('status','1');
+
+                    }
+
+            }});
+
+
             $('.lazy').Lazy({
                 // your configuration goes here
 
@@ -625,6 +717,9 @@ var SQ = SQ || {};
 
             /*Photo Cover resize */
             imageResize();
+            whishListCheck();
+
+
         },
         onResize: function () {
             var body = $('body');
