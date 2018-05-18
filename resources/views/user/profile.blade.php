@@ -164,15 +164,16 @@
                     <div class="div-c">
                         <div class="divided-column">
                             <label>{{ __('O mnie') }}</label>
-                            <textarea name="about" class="{{ $errors->has('about') ? 'has-error' : '' }}" cols="30" rows="5" placeholder="{{ __('Wpisz informację o sobie...') }}">{{ Auth::user()->about }}</textarea>
+                            <textarea name="about" class="{{ $errors->has('about') ? 'has-error' : '' }}" cols="30" rows="5" placeholder="{{ __('Wpisz informacje o sobie...') }}">{{ Auth::user()->about }}</textarea>
                             @if ($errors->has('about'))
                                 <small class="small-display-has-error">{{ $errors->first('about') }}</small>
                             @endif
                             <small style="font-size: 12px; line-height: 0;">
                                 Pomóż organizatorom wydarzeń poznać Ciebie.<br>
-                                Powiedz im o rzeczach, które lubisz: Jakie są Twoje hobby? Czy pasjonujesz się
-                                wydarzeniami i hostingiem? Udostępnij swoją ulubioną muzykę, jedzenie, książki, artystów
-                                itp.
+
+                                Przedstaw się: jakie są Twoje zainteresowania?
+                                Czy jesteś pasjonatem wydarzeń? Opowiedz o swoich pasjach.
+
                             </small>
                         </div>
 
@@ -194,7 +195,7 @@
                     <div class="div-c">
                         <div class="divided-column">
                             <label>{{ __('Firma') }}</label>
-                            <input type="text" name="company" class="{{ $errors->has('company') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz firmę w której pracujesz') }}" value="{{ Auth::user()->company }}">
+                            <input type="text" name="company" class="{{ $errors->has('company') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz firmę, w której pracujesz') }}" value="{{ Auth::user()->company }}">
                             @if ($errors->has('company'))
                                 <small class="small-display-has-error">{{ $errors->first('company') }}</small>
                             @endif
@@ -204,7 +205,7 @@
                     <div class="div-c">
                         <div class="divided-column">
                             <label>{{ __('Stanowisko') }}</label>
-                            <input type="text" name="job_title" class="{{ $errors->has('job_title') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz stanowisko na którym pracujesz') }}"
+                            <input type="text" name="job_title" class="{{ $errors->has('job_title') ? 'has-error' : '' }}" placeholder="{{ __('Wpisz stanowisko, na którym pracujesz') }}"
                                    value="{{ Auth::user()->job_title }}">
                             @if ($errors->has('job_title'))
                                 <small class="small-display-has-error">{{ $errors->first('job_title') }}</small>

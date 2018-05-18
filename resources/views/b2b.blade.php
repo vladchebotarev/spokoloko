@@ -41,7 +41,7 @@
                     <div class="become-dashboard-inner">
                         <h3 style="padding-bottom: 20px">Stań się widoczny </h3>
                         <p>Profesjonalny profil pomoże Ci dotrzeć do serca organizatora. W prosty i klarowny  sposób zaprezentuj swój biznes do swoich beneficjentów.  </p>
-                        <p>Każdy profil bierze udział w kampanii SMM/SEO (znak pytania z informacją) i zwiększa rozpoznawalność marki.
+                        <p>Każdy profil bierze udział w kampanii SMM/SEO i zwiększa rozpoznawalność marki.
                         </p>
 
                     </div>

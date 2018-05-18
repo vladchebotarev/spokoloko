@@ -41,13 +41,13 @@
                     <div class="content">
                         <a href="{{ url('/auth/facebook') }}" class="button-sq fullwidth-sq facebook-button">
                             <i class="icon icon-logo-facebook2"></i>
-                            <span>{{ __('Zaloguj się poprzez Facebook') }}</span>
+                            <span>{{ __('Zaloguj się przez Facebook') }}</span>
                         </a>
                         <br>
                         <br>
                         <a href="/auth/google" class="button-sq fullwidth-sq google-button">
                             <img src="new-assets/images/icon-google-plus.svg" alt="">
-                            <span>{{ __('Zaloguj się poprzez Google') }}</span>
+                            <span>{{ __('Zaloguj się przez Google') }}</span>
                         </a>
                         <br>
                         <br>

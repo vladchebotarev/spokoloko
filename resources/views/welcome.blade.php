@@ -92,8 +92,8 @@
                     <div class="typo-section-sq bottom-default">
 
                         <div class="typo-section-header-sq">
-                            <h2 class="text-align-left-sq">Najczesciej wyszukiwane</h2>
-                            <p class="text-align-left-sq">Znajdż pomiesczenie na twoje wydarzenie.</p>
+                            <h2 class="text-align-left-sq">Najczęściej wyszukiwane</h2>
+                            <p class="text-align-left-sq">Znajdź miejsce na Twoje wydarzenie.</p>
                         </div>
 
                         <div class="magic-grid photo-sq hover-default hover-center">
@@ -283,7 +283,7 @@
                                         <span class="typo-whitespace"></span>
                                         <p class="typo-label-sq" data-label-before="Krakow"
                                            data-label-after="Zarezerwuj"></p>
-                                        <p class="typo-title-sq">Przestrzen na meet-up</p>
+                                        <p class="typo-title-sq">Przestrzeń na meet-up </p>
                                     </a>
 
                                 </div>
@@ -291,7 +291,7 @@
 
                         </div>
 
-                        <a class="more-trigger" data-more="Zobacz wszystko" href="{{url('/sitemap')}}">
+                        <a class="more-trigger" data-more="Więcej" href="{{url('/sitemap')}}">
                             <i class="icon icon-arrow-down-122"></i>
                         </a>
                     </div>
@@ -533,8 +533,8 @@
 
                         <div class="typo-section-header-sq" style="padding-top: 0px">
                             <h2 class="text-align-left-sq">Gdzie planujesz wydarzenie?</h2>
-                            <p class="text-align-left-sq">Wybierz miasto i wyszukaj wśród polecanych partnerów.
-                                Pamiętaj, że zawsze możesz zlecić nam wyszukiwanie i dostać ofertę dopasowaną do Ciebie. I to wszystko za darmo!
+                            <p class="text-align-left-sq">Wybierz miasto i wyszukaj wśród polecanych partnerów. Pamiętaj, że zawsze możesz zlecić nam wyszukiwanie i dostać ofertę dopasowaną do Ciebie. I to wszystko za darmo!
+
                             </p>
                         </div>
 

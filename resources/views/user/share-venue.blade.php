@@ -31,10 +31,9 @@
                             </div>
                         @endif
 
-                        <h3 class="title-sq">Najważniejsze</h3>
+                        <h3 class="title-sq">Podstawowe informację </h3>
 
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                        <p class="description-sq">Uzupełnij najważniejsze informacje o swoim miejscu. Znajdując swoje miejsce na mapie znacznie przyspieszysz proces! </p>
 
                         <div class="div-c">
                             <div class="divided-column">
@@ -266,8 +265,7 @@
                     <div class="ui six wide computer twelve wide tablet column">
                         <h3 class="title-sq">Kategorie</h3>
 
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                        <p class="description-sq">Wybierz typ, który pasuje do Twojej przestrzeni oraz zaznacz rodzaje wydarzeń, które mogą się u Ciebie odbyć.  Pamiętaj - im więcej tym lepiej  :) </p>
 
                         <div class="div-c">
                             <div class="divided-column">
@@ -325,10 +323,10 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">O przestrzeni</h3>
+                        <h3 class="title-sq">Przestrzeń</h3>
 
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                        <p class="description-sq">
+                            Wpisz wymagane informacje o Twojej przestrzeni. Wybierz cechy opisujące Twoje miejsce, aby pomóc klientom się odnaleźć.  </p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -432,8 +430,7 @@
                     <div class="ui six wide computer twelve wide tablet column">
                         <h3 class="title-sq">Udogodnienia i zasady</h3>
 
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                        <p class="description-sq">Zaznacz udogodnienia które posiadasz w swoim miejscu, aby wyróżnić się na tle konkurencji. Także określ zasady panujące w Twoim lokalu. Masz również możliwość dodać swoje zasady, których nie ma na liście.   </p>
 
                         <div class="div-c inline-2 one-label">
                             <label>Udogodnienia</label>
@@ -459,11 +456,11 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Dodatkowo zasady</label>
+                                <label>Inne zasady</label>
                                 <textarea cols="30" rows="5"
                                           class="{{ $errors->has('additional_rules') ? 'warning' : '' }}"
                                           name="additional_rules"
-                                          placeholder="Be clear and descriptive">{{ old('additional_rules') }}</textarea>
+                                          placeholder="Bądź zwięzły i konkretny">{{ old('additional_rules') }}</textarea>
                                 @if ($errors->has('additional_rules'))
                                     <small class="small-display-has-error">{{ $errors->first('additional_rules') }}</small>
                                 @endif
@@ -489,9 +486,9 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui six wide computer twelve wide tablet column">
-                        <h3 class="title-sq">Dostępnośc lokalu</h3>
+                        <h3 class="title-sq">Dostępność lokalu</h3>
 
-                        <p class="description-sq">Kiedy jest otwarty lokal? </p>
+                        <p class="description-sq">Kiedy lokal jest otwarty?</p>
 
                         <div class="div-c inline-2 one-label">
                             <div class="divided-column">
@@ -590,9 +587,9 @@
                             </div>
                         </div>
 
-                        <h3 class="title-sq">Informacja cenowa</h3>
+                        <h3 class="title-sq">Ceny</h3>
 
-                        <p class="description-sq">Lorem ipsum dolor it sit </p>
+                        <p class="description-sq">Przedstaw swój cennik. Opisz, czy jesteś otwarty na negocjacje.</p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -607,7 +604,7 @@
                             </div>
 
                             <div class="divided-column">
-                                <label class="required">Min. ilosc godzin</label>
+                                <label class="required">Minimalna ilość godżin</label>
                                 <input type="text" class="req-check {{ $errors->has('min_hours') ? 'warning' : '' }}"
                                        name="min_hours" placeholder="" data-mask="0#" maxlength="2"
                                        value="{{ old('min_hours') }}">
@@ -620,7 +617,7 @@
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
-                                <label class="required">Cena za calą dobe</label>
+                                <label class="required">Cena za całą dobę</label>
                                 <input type="text" class="req-check {{ $errors->has('price_day') ? 'warning' : '' }}"
                                        name="price_day" placeholder="350" value="{{ old('price_day') }}"
                                        data-mask="#.##0,00"
@@ -639,10 +636,10 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Informacja dodatkowa</label>
+                                <label>Informacje dodatkowe</label>
                                 <textarea cols="30" rows="5" name="price_info"
                                           class="{{ $errors->has('price_info') ? 'warning' : '' }}"
-                                          placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia.">{{ old('price_info') }}</textarea>
+                                          placeholder="Opisz co wpływa na cenę. Czy jesteś otwarty na negocjacje?">{{ old('price_info') }}</textarea>
                                 @if ($errors->has('price_info'))
                                     <small class="small-display-has-error">{{ $errors->first('price_info') }}</small>
                                 @endif
@@ -651,7 +648,7 @@
 
                         <h3 class="title-sq">Zaliczka oraz zasady anulowania</h3>
 
-                        <p class="description-sq">Lorem ipsum dolor it sit </p>
+                        <p class="description-sq">Określ zasady płacenia zaliczki oraz zasady anulowania rezerwacji.</p>
 
                         <div class="div-c inline-2">
                             <div class="divided-column">
@@ -697,11 +694,11 @@
 
                         <div class="div-c">
                             <div class="divided-column">
-                                <label>Informacja dodatkowa</label>
+                                <label>Informacje dodatkowe</label>
                                 <textarea cols="30" rows="5"
                                           class="{{ $errors->has('cancellation_information') ? 'warning' : '' }}"
                                           name="cancellation_information"
-                                          placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia ">{{ old('cancellation_information') }}</textarea>
+                                          placeholder="Omów warunki zwrotu zaliczki i rezygnacji z rezerwacji.">{{ old('cancellation_information') }}</textarea>
                                 @if ($errors->has('days_full_refund'))
                                     <small class="small-display-has-error">{{ $errors->first('days_full_refund') }}</small>
                                 @endif
@@ -729,13 +726,14 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui twelve wide tablet twelve wide computer twelve wide widescreen twelve wide large screen column">
-                        <h3 class="title-sq">Photos</h3>
+                        <h3 class="title-sq">Zdjęcia</h3>
                     </div>
 
 
                     <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
-                        <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                            faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                        <p class="description-sq">Dodaj najbardziej atrakcyjne zdjęcia swojego miejsca.
+                            Następnie wybierz zdjęcie główne, które będzie Twoją wizytówką na portalu.
+                        </p>
                     </div>
 
                     @if ($errors->has('images.*'))
@@ -763,7 +761,7 @@
                     <div class="ui twelve wide computer column">
                         <p class="description-sq alert-message">
                             <i class="icon icon-pin1"></i>
-                            Pin the cover photo
+                            Zdjęcie główne wybierzesz klikając na nie
                         </p>
                     </div>
                 </div>

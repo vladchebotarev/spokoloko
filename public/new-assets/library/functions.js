@@ -316,17 +316,17 @@ var SQ = SQ || {};
                         var year = date.getFullYear();
                         if (month < 9) {
                             if (day < 9) {
-                                return year + ' - 0' + month + ' - 0' + day;
+                                return year + '-0' + month + '- 0' + day;
                             }
                             else {
-                                return year + ' - 0' + month + ' - ' + day;
+                                return year + '-0' + month + '-' + day;
                             }
                         } else {
                             if (day < 9) {
-                                return year + ' - ' + month + ' - 0' + day;
+                                return year + '-' + month + '-0' + day;
                             }
                             else {
-                                return year + ' - ' + month + ' - ' + day;
+                                return year + '-' + month + '-' + day;
                             }
                         }
 
