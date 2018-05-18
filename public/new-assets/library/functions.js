@@ -16,11 +16,11 @@ var SQ = SQ || {};
         $('.add-wishlist').each(function () {
             if ($(this).is(":button")) {
                 if ($(this).attr('status', '1')) {
-                    $(this).html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
+                    $(this).html('<i class="icon icon-filter-heart"></i>Usuń z ulubionych');
 
                 }
                 else {
-                    $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
+                    $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do ulubionych');
 
                 }
             }
@@ -517,13 +517,13 @@ var SQ = SQ || {};
                 //console.log($(this).attr('data-id'));
                 if ($(this).is(":button")) {
                     if ($(this).attr('status')=='1') {
-                        $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
-                        $('#text_wishlist').text('Usunięto z listy życzeń');
+                        $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do ulubionych');
+                        $('#text_wishlist').text('Usunijęto z ulubionych');
                         $(this).attr('status','0');
                     }
                     else {
-                        $(this).html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
-                        $('#text_wishlist').text('Dodano do listy życzeń');
+                        $(this).html('<i class="icon icon-filter-heart"></i>Usuń z ulubionych');
+                        $('#text_wishlist').text('Dodano do ulubionych');
                         $(this).attr('status','1');
 
                     }
@@ -531,7 +531,7 @@ var SQ = SQ || {};
                 else {
                     if ($(this).attr('status')=='1') {
                         $(this).html('<i class="icon icon-heart-line"></i>');
-                        $('#text_wishlist').text('Usunięto z listy życzeń');
+                        $('#text_wishlist').text('Usunięto z ulubionych');
                         $(this).a
                         $(this).attr('status','0');
 
@@ -539,7 +539,7 @@ var SQ = SQ || {};
                     }
                     else {
                         $(this).html('<i class="icon icon-heart"></i>');
-                        $('#text_wishlist').text('Dodano do listy życzeń');
+                        $('#text_wishlist').text('Dodano do ulubionych');
                         $(this).attr('status','1');
 
                     }
