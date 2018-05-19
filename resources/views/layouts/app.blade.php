@@ -161,7 +161,6 @@
 <script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
 <script src={{ asset('js/facebook_messenger.js') }}></script>
 <script src={{ asset('js/semantic-ui/message.js') }}></script>
-<script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
 
 
 <!-- Other scripts -->

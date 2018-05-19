@@ -10,8 +10,12 @@
         <div class="image-wrapper">
             <div class="image-inner">
                 <img class="image-sq slick-img"
-                     src="https://res.cloudinary.com/spokoloko/image/upload/e_improve,f_jpg,g_auto,c_fill,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
-                     alt=""
+                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w
+                     "
+                     alt="{{ $venue->name }}"
                      data-gallery="gallery"
                      data-caption="Cover Photo">
             </div>
@@ -97,6 +101,7 @@
                                                     <input type="text" id="event_date" value="" required
                                                            placeholder="Wybierz date">
                                                 </div>
+
 
 
                                                 <div class="main-infos inline-check-in">
@@ -207,24 +212,24 @@
                                                     </style>
 
 
-                                                    {{--<li>
+                                                  <li>
                                                         <div>
-                                                            <button class="button_call"><i class="fa fa-phone"
+                                                            <button class="button_call" number="{{ $venue->phone }}" id="callnow"><i class="fa fa-phone"
                                                                                            style="padding-right: 10px;"></i>
                                                                 Zadzwon do nas
                                                             </button>
                                                         </div>
                                                     </li>
-                                                    <li>
-                                                        <div>
-                                                            <button class="button_message"><i class="fa fa-commenting"
-                                                                                              style="padding-right: 10px;"></i>
-                                                                Czat s nami
-                                                            </button>
-                                                        </div>
-                                                    </li>
+                                                    {{--        <li>
+                                                              <div>
+                                                                  <button class="button_message"><i class="fa fa-commenting"
+                                                                                                    style="padding-right: 10px;"></i>
+                                                                      Czat s nami
+                                                                  </button>
+                                                              </div>
+                                                          </li>
 
-                                                    <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>--}}
+                                                          <div style="width: 100%; border:1px; border-style: solid; border-bottom:none; border-color: #c5c5c5; margin-top: 15px; margin-bottom: 10px;"></div>--}}
 
                                                     <div class="calendar_title"><p>Obserwuj nas:</p></div>
 
@@ -264,7 +269,7 @@
                                                                 <div class="four wide column"
                                                                      style="padding-right: 0%;  padding-left:1%;">
                                                                     @if($venue->tripadvisor)
-                                                                        <a href="https://www.instagram.com/{{ $venue->tripadvisor }}"
+                                                                        <a href="{{ $venue->tripadvisor }}"
                                                                            target="_blank"
                                                                            class="button-sq small-sq see-through-sq social_icons tripadvisor"><i
                                                                                     class="fa fa-tripadvisor"></i>
@@ -289,15 +294,16 @@
 
                                         </div>
 
-                                        {{--<div class="sticky-box-wishlist">
-                                            <div class="wishlist-sq">
-                                                <a href=""><i class="icon icon-filter-heart"></i>Zachowaj</a>
-                                            </div>
+                                                                               <div class="sticky-box-wishlist">
+                                                                                    <div class="wishlist-sq">
 
-                                            <div class="share-sq">
-                                                <a href=""><i class="icon icon-share"></i>Udostępnij</a>
-                                            </div>
-                                        </div>--}}
+                                                                                        <button  status="1" data-id="{{ $venue->name }}" class="add-wishlist button-sq small-sq link-sq modal-ui-trigger" style="color: #F57C00" data-trigger-for="added_wishlist"></button>
+                                                                                    </div>
+
+                                                                                                                              <div class="share-sq">
+                                                                                                                                  <a href=""><i class="icon icon-share"></i>Udostępnij</a>
+                                                                                                                              </div>
+                                                                                                                          </div>
                                     </div>
 
                                 </div>
@@ -310,51 +316,7 @@
 
     </div>
 
-    <header class="header-section mhs header-sticky header-is-bottom is-half">
-        <div class="header-content">
-            <div class="ui container stackable grid">
 
-                <div class="header-item header-left">
-                </div>
-
-                <div class="header-item header-center ">
-                </div>
-
-                <div class="header-item header-right flex-align-left flex-grow-true">
-
-                    <div class="menu-default menu-mobile-vertical " data-burger="menu02">
-
-                        <ul class="main-menu anchor-menu">
-
-                            <li class="active"><a href="#section-01" class="item">
-                                    <span>O przestrzeni</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-02" class="item">
-                                    <span>Zdjęcia</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-03" class="item">
-                                    <span>Lokalizacja</span>
-                                </a>
-                            </li>
-
-                            <li><a href="#section-04" class="item">
-                                    <span>Opinie</span>
-                                </a>
-                            </li>
-
-
-                        </ul>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </header>
 
     <!-- grid -->
     <div class="ui grid container stackable app layout right side">
@@ -528,6 +490,8 @@
                         </div>
 
                     </div>
+
+
 
                     <div class="typo-section-sq bottom-default">
                         <h5>Kontakty</h5>
@@ -741,10 +705,10 @@
 
 
                 <div class="section-container" id="section-02">
-                    <div class="typo-section-sq bottom-default" style="padding: 0;">
+                    <div class="typo-section-sq bottom-default" style="padding-left: 5px; padding-right: 5px;">
                         <h3>Zdjęcia</h3>
 
-                        <div class="sq-slick carousel-sq center-sq shadow-sq" data-infinite="false"
+                        <div class="sq-slick carousel-sq center-sq shadow-sq"  data-infinite="false"
                              data-center-mode="false"
                              data-center-padding="100px" data-desktop-center-padding="50px" data-show-slides="2"
                              data-scroll-slides="1" data-tablet-show-slides="1" data-tablet-scroll-slides="1"
@@ -760,8 +724,8 @@
                             @for($n = 0; $n < count($venue_images); $n++)
                                 <div>
                                     <div class="caption-content">
-                                        <img class="image-sq slick-img"
-                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                        <img class="lazy slick-img"
+                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                              alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
@@ -822,11 +786,11 @@
             </div>
         </div>
 
-        <div class="ui grid xfluid">
+        <div class="ui grid xfluid" style="max-width: 100%!important;  margin: 0px!important;">
             <div class="row">
-                <div class="ui twelve wide computer twelve wide tablet column">
+                <div class="ui twelve wide computer twelve wide tablet column" style="padding-left: 0px!important ;padding-right: 0px!important">
                     <div class="map-wrapper">
-                        <div id="map"></div>
+                        <div id="map" ></div>
                     </div>
                 </div>
             </div>
@@ -973,6 +937,8 @@
 
     <!-- Contact -->
     <div class="ui modal small" data-for="contact" id="infos_request">
+
+
         <i class="icon icon-close close-modal"></i>
         <div class="header center" style="padding-top: 30px;">
             <h3>Sprawdź dostępność</h3>
@@ -983,12 +949,14 @@
             <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
                 consectetur, porta ultrices sapien.</p>
 
+
+
             <form method="post" action="{{ route('venue-booking-request') }}" id="venueBookingRequest">
                 @csrf
+
                 <div id="examplecalendar2" class="calendar-sq" style="padding-bottom: 10px;">
                     <input type="text" name="book_date" id="event_date_new" value="" placeholder="Wybierz datę">
                 </div>
-
 
                 <div class="main-infos  div-c inline-2">
                     <div class="timecalendar calendar-sq divided-column">
@@ -1008,8 +976,8 @@
 
                 <div class="div-c">
                     <label>Imię</label>
-                    <input type="text" name="name"
-                           value="@auth{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}@endauth" autofocus
+                    <input type="text" name="name" autofocus
+                           value="@auth{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}@endauth"
                            placeholder=" ">
                 </div>
 
@@ -1047,17 +1015,25 @@
         </div>
     </div>
 
-    <div class="ui modal small" style="background: none; box-shadow: none; text-align: center; color: white"
+    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
          data-for="success" id="icon_succes_send">
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>
         <p>Wiadomość została wysłana</p>
     </div>
 
-    {{--<div class="fb-customerchat"
+    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+         data-for="added_wishlist" id="added_wishlist">
+        <p><i style="color:#F57C00; font-size: 50px;"
+              class="fa fa-check-circle"></i></p>
+        <p id="text_wishlist">Dodano do listy życzeń</p>
+    </div>
+
+    <div id="fbchat"></div>
+    <div class="fb-customerchat"
          logged_in_greeting="Potrzebujesz pomocy? Napisz do nas!"
          logged_out_greeting="Potrzebujesz pomocy? Zaloguj się i napisz do nas!"
          theme_color="#f57C00" page_id="{{ $venue->facebook_page_id }}">
-    </div>--}}
+    </div>
 
 @endsection

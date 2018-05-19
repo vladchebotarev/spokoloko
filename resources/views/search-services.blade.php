@@ -16,7 +16,7 @@
                 <div class="header-item header-right flex-align-left flex-grow-true">
 
                     <!-- Mega Menu-->
-                    <div class="item menu-default burger-mobile-modal burger-tablet-modal dropdown-fullwidth flex-grow-true"
+                    <div class="item menu-default burger-mobile-modal burger-tablet-modal dropdown-fullwidth flex-grow-true" "
                          data-burger="menu02">
 
                         <a href="" class="modal-trigger close-sq hamburger hamburger-spin item"
@@ -57,7 +57,7 @@
 
 
 
-                            <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true" style="padding-right: 25px;">
+                            <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true" style="padding-right: 25px">
                                 <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
                                 <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
                                 <label class="placeholder hidden-desktop hidden-large-desktop">Zakres

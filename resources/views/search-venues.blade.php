@@ -55,7 +55,7 @@
                                 </li>
 
 
-                                <li class="flex-grow-desktop-true flex-grow-large-desktop-true">
+                                <li class="flex-grow-desktop-true flex-grow-large-desktop-true" style="max-width: 95%">
                                     <div class="price-range-slider mobile-big item flex-grow-desktop-true flex-grow-large-desktop-true">
                                         <input type="hidden" name="minPrice" id="minPrice" value="{{$min_price}}">
                                         <input type="hidden" name="maxPrice" id="maxPrice" value="{{$max_price}}">
@@ -404,8 +404,8 @@
                                                         <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
                                                         PLN <span>/{{ $venue->min_hours }} h</span>
                                                     </div>
-                                                    <a class="add-wishlist modal-ui-trigger" href=""
-                                                       data-trigger-for="wishlist">
+                                                    <a class="add-wishlist modal-ui-trigger" data-id="{{ $venue->name }}" style="color:green" status="1" href=""
+                                                       data-trigger-for="added_wishlist">
                                                         <i class="icon icon-heart-line"></i>
                                                     </a>
 
@@ -477,5 +477,11 @@
         </div>
         <!--end ui container-->
 
+    </div>
+    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+         data-for="added_wishlist" id="added_wishlist">
+        <p><i style="color:#F57C00; font-size: 50px;"
+              class="fa fa-check-circle"></i></p>
+        <p id="text_wishlist"></p>
     </div>
 @endsection

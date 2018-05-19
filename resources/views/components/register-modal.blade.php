@@ -13,17 +13,17 @@
     <div class="content">
         <a href="" class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="modal03">
             <i class="icon icon-email-2"></i>
-            <span>{{ __('Zarejestruj się poprzez Email') }}</span>
+            <span>{{ __('Zarejestruj się przez Email') }}</span>
         </a>
 
         <a href="{{ url('/auth/facebook') }}" class="button-sq fullwidth-sq facebook-button">
             <i class="icon icon-logo-facebook2"></i>
-            <span>{{ __('Zarejestruj się poprzez Facebook') }}</span>
+            <span>{{ __('Zarejestruj się przez Facebook') }}</span>
         </a>
 
         <a href="/auth/google" class="button-sq fullwidth-sq google-button">
             <img src="new-assets/images/icon-google-plus.svg" alt="">
-            <span>{{ __('Zarejestruj się poprzez Google') }}</span>
+            <span>{{ __('Zarejestruj się przez Google') }}</span>
         </a>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
