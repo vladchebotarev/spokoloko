@@ -83,7 +83,7 @@ Default Header with a White Background & Dark text.
                                             </a>
                                         </li>
                                     @else
-                                        <li><a href="{{ url('user/messages') }}" class="item">
+                                        <li><a href="{{ url('user/messages-inbox') }}" class="item">
                                                 <span>{{ __('Wiadomości') }}</span>
                                             </a>
                                         </li>

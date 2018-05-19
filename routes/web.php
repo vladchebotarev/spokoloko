@@ -92,9 +92,14 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('listings', 'User\UserListingsController@index')->name('listings');
 
-    Route::get('messages', 'User\UserMessagesController')->name('messages');
+    Route::get('messages-inbox', 'User\UserInboxMessagesController')->name('messages-inbox');
+    Route::get('messages-inbox/{booking_number}', 'User\UserInboxMessageController@index')->name('message-inbox');
+    Route::post('messages-inbox/{booking_number}', 'User\UserInboxMessageController@sendMessage')->name('message-inbox-post');
+    Route::post('messages-inbox/{booking_number}/change-status', 'User\UserInboxMessageController@changeStatus')->name('message-inbox-change-status');
 
-    Route::get('messages/{booking_number}', 'User\UserMessageController@index')->name('message');
+    Route::get('messages-sent', 'User\UserSentMessagesController')->name('messages-sent');
+    Route::get('messages-sent/{booking_number}', 'User\UserSentMessageController@index')->name('message-sent');
+    Route::post('messages-sent/{booking_number}', 'User\UserSentMessageController@sendMessage')->name('message-sent-post');
 
     Route::get('share', function () {
         return view('user.share');

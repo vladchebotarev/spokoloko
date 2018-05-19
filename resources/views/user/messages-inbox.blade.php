@@ -12,7 +12,7 @@
                             <a>Odebrane</a>
                         </li>
                         <li>
-                            <a>Wysłane</a>
+                            <a href="{{ route('messages-sent') }}">Wysłane</a>
                         </li>
                         {{--<li class="">
                             <a href="#">Unread</a>
@@ -34,7 +34,7 @@
             @foreach($messages as $message)
                 <!-- Message -->
                     <div class="message-sq {{--favorite-sq--}}
-                    @switch($message['status'])
+                    @switch($message->status)
                         @case('Pending')
                             in-pending-sq
                             @break
@@ -50,18 +50,18 @@
                         <div class="ui grid">
                             <div class="ui twelve wide mobile eight wide tablet eight wide computer eight wide widescreen eight wide large screen column">
 
-                                <a class="avatar-sq" href="messages/{{ $message['booking_number']  }}">
-                                    <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,f_auto,g_auto,f_auto,g_face,w_150,h_150/avatars/{{ $message['sender_avatar'] }}"
+                                <a class="avatar-sq" href="messages-inbox/{{ $message->booking_number  }}">
+                                    <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,f_auto,g_auto,f_auto,g_face,w_150,h_150/avatars/{{ $message->sender_avatar === null ? 'default-avatar.jpg' : $message->sender_avatar  }}"
                                          alt="">
                                 </a>
 
-                                <a class="message-content-sq" href="messages/{{ $message['booking_number'] }}">
-                                    <h3 class="message-title-sq">{{ $message['client_name'] }}</h3>
-                                    <span class="message-date-sq">{{ date('Y-m-d', strtotime($message['created_at'])) }}</span>
+                                <a class="message-content-sq" href="messages-inbox/{{ $message->booking_number }}">
+                                    <h3 class="message-title-sq">{{ $message->client_name }}</h3>
+                                    <span class="message-date-sq">{{ date('Y-m-d', strtotime($message->created_at)) }}</span>
                                     <br>
 
                                     <p class="message-body-sq">
-                                        {{ $message['message'] }}
+                                        {{ $message->message }}
                                     </p>
 
                                 </a>
@@ -72,12 +72,22 @@
                             <div class="ui twelve wide mobile four wide tablet four wide computer for wide widescreen four wide large screen column">
 
                                 <div class="message-status-sq">
-                                    {{ $message['status'] }}
+                                    @switch($message->status)
+                                        @case('Pending')
+                                            W oczekiwaniu
+                                            @break
+                                        @case('Confirmed')
+                                            Zatwierdzona
+                                            @break
+                                        @case('Declined')
+                                            Odrzucona
+                                            @break
+                                    @endswitch
                                 </div>
 
                                 <div class="message-related-sq">
                                     <span>Obiekt: </span>
-                                    <a>{{ $message['venue_name'] }}</a>
+                                    <a href="{{ route('venue', ['venue_url' => $message->venue_url]) }}" target="_blank">{{ $message->venue_name }}</a>
                                 </div>
                             </div>
 
