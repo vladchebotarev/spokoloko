@@ -58,7 +58,7 @@
                             </div>--}}
                             <a class="add-wishlist" href="{{ url('user/update-venue/'.$venue->url) }}"
                                    target="_blank" data-inverted="" data-tooltip="Edytuj" data-position="left center">
-                                <i class="fa fa-cog" aria-hidden="true"></i>
+                                <i class="icon icon-cog2"></i>
                             </a>
 
                             <a class="image-sq" href="{{ url('user/update-venue/'.$venue->url) }}" target="_blank">
