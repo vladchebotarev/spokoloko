@@ -404,18 +404,22 @@
                                                         <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
                                                         PLN <span>/{{ $venue->min_hours }} h</span>
                                                     </div>
-                                                    <a class="add-wishlist modal-ui-trigger" data-id="{{ $venue->name }}" style="color:green" status="1" href=""
-                                                       data-trigger-for="added_wishlist">
-                                                        <i class="icon icon-heart-line"></i>
-                                                    </a>
+                                                    @auth
+                                                        <a class="add-wishlist modal-ui-trigger"
+                                                           data-id="{{ $venue->name }}" style="color:green" status="{{ in_array($venue->id, $wishlist) ? 1 : 0 }}" venue="{{ $venue->id }}"
+                                                           data-trigger-for="added_wishlist" >
+                                                            <i class="icon icon-heart-line"></i>
+                                                        </a>
+                                                    @endauth
 
 
                                                     <a class="image-sq" href="{{ url('venue/'.$venue->url) }}"
                                                        target="_blank">
                                                 <span class="image-wrapper">
                                                     <span class="image-inner">
-                                                        <img class="lazy" data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
-                                                                          src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                        <img class="lazy"
+                                                             data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
+                                                             src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                              alt="" class="" style="height: 100%">
                                                     </span>
                                                 </span>
@@ -429,7 +433,7 @@
 
                                                         </div>
                                                         <div class="biz-adres">
-                                                             <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }} {{ $venue->street_number }}
+                                                            <strong style="padding-right: 10px;">{{ $venue->venue_type }}</strong>| {{ $venue->street_address }} {{ $venue->street_number }}
                                                         </div>
 
                                                         <div class="icons-row">
@@ -450,21 +454,21 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                {{--@endfor--}}
+                                    {{--@endfor--}}
                                 @else
                                     <div class="ui twelve wide column">
-
-
-                                            <div class="not_found" style="width: 15%; margin: auto; padding-top: 50px;">
-                                                <img class="lazy" src="https://res.cloudinary.com/spokoloko/image/upload/v1526503413/app/img/not_found.jpg" alt="">
-                                            </div>
+                                        <div class="not_found" style="width: 15%; margin: auto; padding-top: 50px;">
+                                            <img class="lazy"
+                                                 src="https://res.cloudinary.com/spokoloko/image/upload/v1526503413/app/img/not_found.jpg"
+                                                 alt="">
+                                        </div>
                                         <div class="text_not_f" style="text-align: center; padding-top: 20px;">
-                                    <p >
-                                        Narażie nie ma tu nic :(
-                                    </p>
-                                        <p>
-                                            Ale napewno sie pojawi :) Wracaj pożniej
-                                        </p>
+                                            <p>
+                                                Narażie nie ma tu nic :(
+                                            </p>
+                                            <p>
+                                                Ale napewno sie pojawi :) Wracaj pożniej
+                                            </p>
                                         </div>
                                     </div>
                                 @endif
@@ -478,7 +482,8 @@
         <!--end ui container-->
 
     </div>
-    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+    <div class="ui modal small"
+         style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
          data-for="added_wishlist" id="added_wishlist">
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>

@@ -18,13 +18,13 @@
                 @endif
 
                 <div class="ui twelve wide computer column">
-                    <h2>{{ __('Moje Biznesy') }} {{--<sup>4</sup>--}}</h2>
+                    <h2>{{ __('Ulubione') }} {{--<sup>4</sup>--}}</h2>
                 </div>
 
                 <div class="ui twelve wide tablet eight wide computer eight wide widescreen eight wide large screen column">
                     <ul class="inline-menu-sq list-default-sq list-style-inline-sq">
                         <li class="active">
-                            <a href="{{ url('user/listings') }}">{{ __('Wszystkie') }}</a>
+                            <a href="{{ url('user/wishlist') }}">{{ __('Przestrzenie') }}</a>
                         </li>
                         {{--<li class="">
                             <a href="my_listings_completed.html">{{ __('Przestrzenie') }}</a>
@@ -33,10 +33,6 @@
                             <a href="my_listings_in_progress.html">{{ __('Biznes eventowy') }}</a>
                         </li>--}}
                     </ul>
-                </div>
-                <div class="ui twelve wide tablet four wide computer four wide widescreen four wide large screen column">
-                    <a href="share" class="button-sq small-sq fullwidth-sq">
-                        <i class="icon icon-add-1"></i><span>{{ __('Dodaj biznes') }}</span></a>
                 </div>
 
             </div>
@@ -56,12 +52,16 @@
                                 <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
                                 PLN <span>/{{ $venue->min_hours }} h</span>
                             </div>--}}
-                            <a class="add-wishlist" href="{{ url('user/update-venue/'.$venue->url) }}"
-                                   target="_blank" data-inverted="" data-tooltip="Edytuj" data-position="left center">
-                                <i class="fa fa-cog" aria-hidden="true"></i>
-                            </a>
+                            <form method="post" action="{{ route('wishlist-remove') }}">
+                                @csrf
+                                <input type="hidden" name="venue_id" value="{{ $venue->id }}">
+                                <a class="add-wishlist" onclick="$(this).closest('form').submit()"
+                                   target="_blank" data-inverted="" data-tooltip="Usuń z ulubionych" data-position="left center">
+                                    <i class="icon icon-cog2"></i>
+                                </a>
+                            </form>
 
-                            <a class="image-sq" href="{{ url('user/update-venue/'.$venue->url) }}" target="_blank">
+                            <a class="image-sq" href="{{ url('venue/'.$venue->url) }}" target="_blank">
                             <span class="image-wrapper">
                                 <span class="image-inner">
                                     <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
@@ -73,7 +73,7 @@
 
                             <div class="main-details">
                                 <div class="title-row">
-                                    <a href="{{ url('user/update-venue/'.$venue->url) }}" target="_blank"
+                                    <a href="{{ url('venue/'.$venue->url) }}" target="_blank"
                                        class="title-sq">{{ $venue->name }}</a>
                                 </div>
 
@@ -96,7 +96,6 @@
                         </div>
                     </div>
 
-                   
 
                 </div>
             @endforeach

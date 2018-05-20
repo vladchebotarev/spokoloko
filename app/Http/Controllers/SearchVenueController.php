@@ -9,6 +9,7 @@ use App\VenueFeature;
 use App\VenueRule;
 use App\VenueStyle;
 use App\VenueType;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -28,7 +29,7 @@ class SearchVenueController extends Controller
             $min_price = (Input::get('minPrice') != '') ? Input::get('minPrice') : 0;
             $max_price = (Input::get('maxPrice') != '') ? Input::get('maxPrice') : 10000;
 
-            $venues_query = "SELECT DISTINCT v.name, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
+            $venues_query = "SELECT DISTINCT v.id, v.name, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
                                     AND v.price_hour*v.min_hours >= '$min_price'
@@ -155,8 +156,12 @@ class SearchVenueController extends Controller
 
                 'venues' => $venues,
 
+
             );
 
+            if (Auth::check()) {
+                $data['wishlist'] = Auth::user()->venueWishList();
+            }
 
             //dump($data);
             return view('search-venues', $data);

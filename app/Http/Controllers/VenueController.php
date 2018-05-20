@@ -7,12 +7,14 @@ use App\VenueStyle;
 use App\VenueType;
 use Illuminate\Http\Request;
 use App\Venue;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class VenueController extends Controller
 {
 
-    public function getVenue($venue_url, Request $request){
+    public function getVenue($venue_url, Request $request)
+    {
 
         $venue = Venue::where('url', $venue_url)->first();
 
@@ -64,9 +66,24 @@ class VenueController extends Controller
                 'venue_images' => $venue->images,
                 'venue_availability' => $venue_availability
             );
+
+            if (Auth::check()) {
+                $checkWishList = DB::table('venue_wishlist')->where([
+                    ['user_id', Auth::user()->id],
+                    ['venue_id', $venue->id]
+                ])->get();
+
+                if ($checkWishList->isNotEmpty()) {
+                    $data['wishlist'] = true;
+                } else {
+                    $data['wishlist'] = false;
+                }
+
+            }
+
+            //dump($data);
             return view('venue', $data);
         }
-
 
 
         //echo $venue_url;
@@ -87,7 +104,7 @@ class VenueController extends Controller
             dump($vt->name);
         }*/
 
-        return ;
+        return;
     }
     //
 }

@@ -24,6 +24,9 @@
                         or Route::current()->getName() == 'message-sent') active @endif"><a class="item"
                                                                                              href="{{ url('user/messages-inbox') }}">{{ __('Wiadomości') }}</a>
                         </li>
+                        <li class="@if(Route::current()->getName() == 'wishlist') active @endif"><a class="item"
+                                                                                                    href="{{ url('user/wishlist') }}">{{ __('Ulubione') }}</a>
+                        </li>
                         {{--<li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="orders.html">Trips</a></li>
                         <li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="coupons.html">Coupons</a></li>
                         <li class="@if(Route::current()->getName() == '') active @endif"><a class="item" href="charts.html">Reports</a></li>

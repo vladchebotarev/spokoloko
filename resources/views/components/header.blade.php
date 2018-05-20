@@ -113,6 +113,9 @@ Default Header with a White Background & Dark text.
                                                 <li><a href="{{ url('user/settings') }}"
                                                        class="item"><span>{{ __('Ustawienia') }}</span></a></li>
                                                 <li>
+                                                <li><a href="{{ url('user/wishlist') }}"
+                                                       class="item"><span>{{ __('Ulubione') }}</span></a></li>
+                                                <li>
                                                     <hr>
                                                 </li>
                                                 <li>

@@ -120,6 +120,12 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
 
     Route::get('update-service', 'User\UpdateServiceController@getService')->name('update-service');
 
+    Route::get('wishlist', 'User\UserWishListController@getVenueWishList')->name('wishlist');
+    Route::post('wishlist-add', 'User\UserWishListController@addToVenueWishList')->name('wishlist-add');
+    Route::post('wishlist-remove', 'User\UserWishListController@removeFromVenueWishList')->name('wishlist-remove');
+
+
+
 
 });
 

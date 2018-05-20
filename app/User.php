@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class User
@@ -30,6 +31,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the venue wish list.
+     *
+     * @return array
+     */
+    public function venueWishList()
+    {
+        return DB::table('venue_wishlist')->where('user_id', $this->id)->pluck('venue_id')->toArray();
+    }
 
     /**
      * Get the notifications for the user.

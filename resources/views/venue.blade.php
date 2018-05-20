@@ -103,7 +103,6 @@
                                                 </div>
 
 
-
                                                 <div class="main-infos inline-check-in">
 
 
@@ -212,10 +211,11 @@
                                                     </style>
 
 
-                                                  <li>
+                                                    <li>
                                                         <div>
-                                                            <button class="button_call" number="{{ $venue->phone }}" id="callnow"><i class="fa fa-phone"
-                                                                                           style="padding-right: 10px;"></i>
+                                                            <button class="button_call" number="{{ $venue->phone }}"
+                                                                    id="callnow"><i class="fa fa-phone"
+                                                                                    style="padding-right: 10px;"></i>
                                                                 Zadzwon do nas
                                                             </button>
                                                         </div>
@@ -293,17 +293,22 @@
 
 
                                         </div>
+                                        @auth
+                                            <div class="sticky-box-wishlist">
+                                                <div class="wishlist-sq">
 
-                                                                               <div class="sticky-box-wishlist">
-                                                                                    <div class="wishlist-sq">
+                                                    <button status="{{ $wishlist == true ? 1 : 0 }}" venue="{{ $venue->id }}"
+                                                            class="add-wishlist button-sq small-sq link-sq modal-ui-trigger"
+                                                            style="color: #F57C00"
+                                                            data-trigger-for="added_wishlist"></button>
+                                                </div>
 
-                                                                                        <button  status="1" data-id="{{ $venue->name }}" class="add-wishlist button-sq small-sq link-sq modal-ui-trigger" style="color: #F57C00" data-trigger-for="added_wishlist"></button>
-                                                                                    </div>
+                                                <div class="share-sq">
+                                                    <a href=""><i class="icon icon-share"></i>Udostępnij</a>
+                                                </div>
+                                            </div>
+                                        @endauth
 
-                                                                                                                              <div class="share-sq">
-                                                                                                                                  <a href=""><i class="icon icon-share"></i>Udostępnij</a>
-                                                                                                                              </div>
-                                                                                                                          </div>
                                     </div>
 
                                 </div>
@@ -490,7 +495,6 @@
                         </div>
 
                     </div>
-
 
 
                     <div class="typo-section-sq bottom-default">
@@ -708,7 +712,7 @@
                     <div class="typo-section-sq bottom-default" style="padding-left: 5px; padding-right: 5px;">
                         <h3>Zdjęcia</h3>
 
-                        <div class="sq-slick carousel-sq center-sq shadow-sq"  data-infinite="false"
+                        <div class="sq-slick carousel-sq center-sq shadow-sq" data-infinite="false"
                              data-center-mode="false"
                              data-center-padding="100px" data-desktop-center-padding="50px" data-show-slides="2"
                              data-scroll-slides="1" data-tablet-show-slides="1" data-tablet-scroll-slides="1"
@@ -788,9 +792,10 @@
 
         <div class="ui grid xfluid" style="max-width: 100%!important;  margin: 0px!important;">
             <div class="row">
-                <div class="ui twelve wide computer twelve wide tablet column" style="padding-left: 0px!important ;padding-right: 0px!important">
+                <div class="ui twelve wide computer twelve wide tablet column"
+                     style="padding-left: 0px!important ;padding-right: 0px!important">
                     <div class="map-wrapper">
-                        <div id="map" ></div>
+                        <div id="map"></div>
                     </div>
                 </div>
             </div>
@@ -950,7 +955,6 @@
                 consectetur, porta ultrices sapien.</p>
 
 
-
             <form method="post" action="{{ route('venue-booking-request') }}" id="venueBookingRequest">
                 @csrf
 
@@ -1015,14 +1019,16 @@
         </div>
     </div>
 
-    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+    <div class="ui modal small"
+         style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
          data-for="success" id="icon_succes_send">
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>
         <p>Wiadomość została wysłana</p>
     </div>
 
-    <div class="ui modal small" style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
+    <div class="ui modal small"
+         style="background: none; background-color: transparent; box-shadow: none; text-align: center; color: white"
          data-for="added_wishlist" id="added_wishlist">
         <p><i style="color:#F57C00; font-size: 50px;"
               class="fa fa-check-circle"></i></p>

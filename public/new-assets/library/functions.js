@@ -15,7 +15,7 @@ var SQ = SQ || {};
     function whishListCheck() {
         $('.add-wishlist').each(function () {
             if ($(this).is(":button")) {
-                if ($(this).attr('status', '1')) {
+                if ($(this).attr('status') == 1) {
                     $(this).html('<i class="icon icon-filter-heart"></i>Usuń z ulubionych');
 
                 }
@@ -25,7 +25,7 @@ var SQ = SQ || {};
                 }
             }
             else {
-                if ($(this).attr('status', '1')) {
+                if ($(this).attr('status') == 1) {
                     $(this).html('<i class="icon icon-heart"></i>');
 
                 }
@@ -34,8 +34,6 @@ var SQ = SQ || {};
 
                 }
             }
-
-
         })
     }
 
@@ -266,8 +264,6 @@ var SQ = SQ || {};
             });
 
 
-
-
             /* Datepicker */
             $('#examplecalendar').calendar({
                 type: 'date',
@@ -415,15 +411,14 @@ var SQ = SQ || {};
 
             $("#callnow").click(function () {
                 var number = $('#callnow').attr("number");
-                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-                    window.location.href = ("tel:"+number);
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    window.location.href = ("tel:" + number);
                 }
-                else{
+                else {
                     $('#callnow').text(number);
 
                 }
             });
-
 
 
             $("#timeres").click(function () {
@@ -482,69 +477,72 @@ var SQ = SQ || {};
             });
 
 
+            /*     $(".add_wishlist").on('click', function (e) {
+
+                     if ($('#add_to_whishlist').attr('status') == 1) {
+                         if ($('#add_to_whishlist').is( ":button" ) ){
+                             $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
+                         }
+                         else {
+                             $('#add_to_whishlist').html('<i class="icon icon-heart-line"></i>');
+                         }
+                         $('#add_to_whishlist').attr('status',0);
+                         $('#text_wishlist').text('Usunięto z listy życzeń');
+                     }
+                     else {
+                         if ( $('#add_to_whishlist').is( ":button" ) ){
+                             $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
+                         }
+                         else {
+
+                             $('#add_to_whishlist').html('<i class="icon icon-heart"></i>');
+                         }
+                         $('#add_to_whishlist').attr('status',1);
+                         $('#text_wishlist').text('Dodano do listy życzeń');
+                     }
 
 
 
-       /*     $(".add_wishlist").on('click', function (e) {
-
-                if ($('#add_to_whishlist').attr('status') == 1) {
-                    if ($('#add_to_whishlist').is( ":button" ) ){
-                        $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Dodaj do listy życzeń');
-                    }
-                    else {
-                        $('#add_to_whishlist').html('<i class="icon icon-heart-line"></i>');
-                    }
-                    $('#add_to_whishlist').attr('status',0);
-                    $('#text_wishlist').text('Usunięto z listy życzeń');
-                }
-                else {
-                    if ( $('#add_to_whishlist').is( ":button" ) ){
-                        $('#add_to_whishlist').html('<i class="icon icon-filter-heart"></i>Usuń z listy życzeń');
-                    }
-                    else {
-
-                        $('#add_to_whishlist').html('<i class="icon icon-heart"></i>');
-                    }
-                    $('#add_to_whishlist').attr('status',1);
-                    $('#text_wishlist').text('Dodano do listy życzeń');
-                }
-
-
-
-            }); */
+                 }); */
 
             $('.add-wishlist').on('click', function (e) {
+                e.preventDefault();
                 //console.log($(this).attr('data-id'));
-                if ($(this).is(":button")) {
-                    if ($(this).attr('status')=='1') {
+
+                if ($(this).attr('status') == '1') {
+                    var url = '/user/wishlist-remove';
+                    if ($(this).is(":button")) {
                         $(this).html('<i class="icon icon-filter-heart"></i>Dodaj do ulubionych');
                         $('#text_wishlist').text('Usunijęto z ulubionych');
-                        $(this).attr('status','0');
-                    }
-                    else {
-                        $(this).html('<i class="icon icon-filter-heart"></i>Usuń z ulubionych');
-                        $('#text_wishlist').text('Dodano do ulubionych');
-                        $(this).attr('status','1');
-
-                    }
-                }
-                else {
-                    if ($(this).attr('status')=='1') {
+                        $(this).attr('status', '0');
+                    } else {
                         $(this).html('<i class="icon icon-heart-line"></i>');
                         $('#text_wishlist').text('Usunięto z ulubionych');
-                        $(this).a
-                        $(this).attr('status','0');
-
-
+                        $(this).attr('status', '0');
                     }
-                    else {
+                } else {
+                    var url = '/user/wishlist-add';
+                    if ($(this).is(":button")) {
+                        $(this).html('<i class="icon icon-filter-heart"></i>Usuń z ulubionych');
+                        $('#text_wishlist').text('Dodano do ulubionych');
+                        $(this).attr('status', '1');
+                    } else {
                         $(this).html('<i class="icon icon-heart"></i>');
                         $('#text_wishlist').text('Dodano do ulubionych');
-                        $(this).attr('status','1');
-
+                        $(this).attr('status', '1');
                     }
+                }
 
-            }});
+                $.ajax({
+                    method: 'POST',
+                    url: url,
+                    data: {venue_id: $(this).attr('venue')},
+                    dataType: "json",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            });
 
 
             $('.lazy').Lazy({
