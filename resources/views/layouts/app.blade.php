@@ -180,7 +180,7 @@
 <script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
 
 @if(Request::is('/'))
-    <script src={{ asset('js/main.js') }}></script>
+    <script src={{ asset('js/welcome.js') }}></script>
 @endif
 
 
