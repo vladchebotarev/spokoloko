@@ -61,15 +61,7 @@ Default Header with a White Background & Dark text.
 
                                     @guest
 
-                                        <li><a href="{{ url('/') }}" class="item">
-                                                <span>Blog</span>
-                                            </a>
-                                        </li>
 
-                                        <li><a href="{{ url('/b2b') }}" class="item">
-                                                <span>Zostań gospodarzem</span>
-                                            </a>
-                                        </li>
 
                                         <li>{{--<a href="#" class="item modal-ui-trigger" data-trigger-for="modal01">--}}
                                             <a href="{{ route('register') }}" class="item">
@@ -80,6 +72,12 @@ Default Header with a White Background & Dark text.
                                         <li>{{--<a href="#" class="item modal-ui-trigger" data-trigger-for="modal02">--}}
                                             <a href="{{ route('login') }}" class="item">
                                                 <span>Zaloguj się</span>
+                                            </a>
+                                        </li>
+
+                                        <li><a href="{{ url('/b2b') }}" class="item">
+                                                <span style="border: 1px; border-style: solid; padding-left: 10px;
+padding-right: 10px; border-radius: 5px;">Zostań gospodarzem</span>
                                             </a>
                                         </li>
                                     @else
