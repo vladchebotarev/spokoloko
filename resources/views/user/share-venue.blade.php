@@ -760,12 +760,12 @@
                         </div>
                     </div>
 
-                    <div class="ui twelve wide computer column">
-                        <p class="description-sq alert-message">
-                            <i class="icon icon-pin1"></i>
-                            Pin the cover photo
-                        </p>
-                    </div>
+                    {{--<div class="ui twelve wide computer column">--}}
+                        {{--<p class="description-sq alert-message">--}}
+                            {{--<i class="icon icon-pin1"></i>--}}
+                            {{--Pin the cover photo--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
                 </div>
                 <div class="row photo-upload">
                     <div class="ui three wide computer six wide tablet six wide mobile column">

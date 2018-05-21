@@ -2,6 +2,7 @@ var photoArray = [];
 
 class Photo {
   constructor(files, index) {
+    this.name = files ? files.files[ index ].name : null;
     this.select = false;
     
     if(files) {
@@ -16,7 +17,6 @@ class Photo {
         this.src = data.src;
         this.width = data.width;
         this.height = data.height;
-        this.name = data.name;
       });
     }
   }
@@ -36,7 +36,6 @@ class Photo {
             src: image.src,
             height: image.height,
             width: image.width,
-            name: input.name
           });
         };
         
