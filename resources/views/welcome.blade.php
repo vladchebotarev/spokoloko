@@ -12,7 +12,7 @@
                 <div class="search-item">
                     <div class="fltp">
                         {{--<input type="text" value="" required>--}}
-                        <select class="ui search dropdown" id="select_city" required>
+                        <select class="ui search dropdown" id="select_city" required onclick="$(this).attr('value','');">
                             <option value="Warszawa">Warszawa</option>
                             @foreach ($cities as $city)
                                 <option value="{{ $city->name }}">{{ $city->name }}</option>
@@ -36,6 +36,7 @@
                     </div>
                 </div>
 
+
                 <div class="search-item">
                     <button type="button" class="button-sq hero-search-button" id="searchSubmit">
                         <i class="icon icon-search"></i>
@@ -54,11 +55,14 @@
             <div class="">
                 <div class="caption-content">
                     <h1 class="font-weight-extrabold-sq">Zorganizuj swój event</h1>
-                    <p>Znajdź miejsce, catering, zespół muzyczny lub zleć organizację wydarzenia firmom eventowym
+                    <p style="padding-left: 5px; padding-right: 5px;">Znajdź miejsce, catering, zespół muzyczny lub zleć organizację wydarzenia firmom eventowym
                     </p>
                 </div>
+
+
                 <div class="caption-outside">
-                    <a class="button anchor-sq" href="#top">
+                    <a href="/b2b" class="button-sq see-through-sq" style="background-color: rgba(0,0,0,0.5); " > Zlec wyszukiwanie </a>
+                    <a class="button anchor-sq" style="padding-top: 20px;" href="#top">
                         <i class="icon big icon-location-pin-2"></i>
                         <span>Sprawdż</span>
                     </a>

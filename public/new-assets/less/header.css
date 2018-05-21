@@ -4057,7 +4057,7 @@ body.search-visible.modal-is-open .modal .modal-trigger.close-sq {
     width: 100%;
     position: fixed;
     max-height: inherit;
-
+    overflow: hidden;
 }
 
 .menu-default .has-megamenu.filters-dropdown > .submenu > .item {
