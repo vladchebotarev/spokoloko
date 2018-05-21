@@ -179,6 +179,10 @@
 <script src={{ asset('js/semantic-ui/message.js') }}></script>
 <script src={{ asset('js/semantic-ui/popup.min.js') }}></script>
 
+@if(Request::is('/'))
+    <script src={{ asset('js/main.js') }}></script>
+@endif
+
 
 <!-- Other scripts -->
 {{--TODO--}}
