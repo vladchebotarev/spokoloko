@@ -512,11 +512,10 @@ var SQ = SQ || {};
                 else{$(this).rating();}
 
                 ;
-            })
+            });
 
 
-            $('.ui.rating.disabled')
-            .rating('disable');
+
 
             $('.add-wishlist').on('click', function (e) {
                 e.preventDefault();
