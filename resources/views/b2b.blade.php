@@ -16,7 +16,7 @@
                                 Zarządzaj swoim profilem, promuj się, a resztę zostaw nam.</p>
 
 
-                            <a href="/b2b" class="button-sq see-through-sq" > Zarejestruj Się </a>
+                            <a href="{{url('useshare')}}" class="button-sq see-through-sq" > Zarejestruj Się </a>
                         </div>
 
                     </div>
@@ -26,7 +26,7 @@
             <!-- picture -->
             <div class="image-wrapper">
                 <div class="image-inner">
-                    <img class="image-sq" src="new-assets/images/promo_section/promo_section_03.jpg" alt="">
+                    <img class="image-sq" data-src="new-assets/images/promo_section/promo_section_03.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
                     <div class="image-full-height">
                         <div class="image-wrapper">
                             <div class="image-inner">
-                                <img src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
+                                <img src="new-assets/images/host/moneybox.jpg" alt="" class="image-sq">
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
 
             </div>
 
-            <div class="row become-dashboard-description">
+            <div class="row become-dashboard-description" style="margin-top: 10px;">
                 <div class="ui twelve wide tablet twelve wide computer six wide widescreen six wide large screen column">
 
 
@@ -116,7 +116,7 @@
                     <div class="image-full-height">
                         <div class="image-wrapper">
                             <div class="image-inner">
-                                <img  src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
+                                <img  src="new-assets/images/host/timer.jpg" alt="" class="image-sq">
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                                 <p>Pomagaj organizować eventy w całej Polsce.
                                     Dodaj swój biznes do serwisu Spokoloko całkowicie za darmo</p>
 
-                                <a href="/b2b" class="button-sq see-through-sq"> Rejestracja  </a>
+                                <a href="{{url('user/share')}}" class="button-sq see-through-sq"> Rejestracja  </a>
                             </div>
 
                         </div>
@@ -151,7 +151,7 @@
                     </div>
                 </div>
             </div>
-
+{{--}}
             <div class="ui container text" style="padding-top: 50px;">
                 <h3 class="text-align-center-sq" style="padding:10px; ">Dostępne pakiety</h3>
 
@@ -285,7 +285,7 @@
                 </div>
 
             </div>
-
+--}}
         </div>
     </div>
 @endsection

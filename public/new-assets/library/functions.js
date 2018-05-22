@@ -505,6 +505,19 @@ var SQ = SQ || {};
 
                  }); */
 
+            $('.ui.rating').each(function () {
+                if ($(this).hasClass('disabled')) {
+                    $(this).rating('disable');
+                }
+                else{$(this).rating();}
+
+                ;
+            })
+
+
+            $('.ui.rating.disabled')
+            .rating('disable');
+
             $('.add-wishlist').on('click', function (e) {
                 e.preventDefault();
                 //console.log($(this).attr('data-id'));

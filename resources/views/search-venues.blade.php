@@ -459,15 +459,17 @@
                                     <div class="ui twelve wide column">
                                         <div class="not_found" style="width: 15%; margin: auto; padding-top: 50px;">
                                             <img class="lazy"
-                                                 src="https://res.cloudinary.com/spokoloko/image/upload/v1526503413/app/img/not_found.jpg"
+                                                 src="https://res.cloudinary.com/spokoloko/image/upload/v1526982129/pin-eye2-_2.gif"
                                                  alt="">
                                         </div>
-                                        <div class="text_not_f" style="text-align: center; padding-top: 20px;">
+                                        <div class="text_not_f" style="text-align: center; padding-top: 20px; ">
                                             <p>
-                                                Narażie nie ma tu nic :(
+                                                Na razie nie ma tu nic :(
+
+
                                             </p>
                                             <p>
-                                                Ale napewno sie pojawi :) Wracaj pożniej
+                                                Ale na pewno się pojawi :) Wracaj później
                                             </p>
                                         </div>
                                     </div>

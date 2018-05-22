@@ -27,9 +27,9 @@
                     </ul>
                 </div>
                 <div class="ui twelve wide tablet four wide computer column">
-                    <h5>Title</h5>
+                    <h5>O nas</h5>
 
-                    <p><em>In hac habitasse platea dictumst. Integer quis tortor enim. Integer et elit nec magna ultricies convallis. In venenatis eu erat et facilisis. Vestibulum congue enim nisl. Fusce arcu enim, porta a auctor vel, hendrerit a libero. Vivamus vel dapibus sem.</em></p>
+                    <p><em>Jesteśmy młodym i ambitnym zespołem mającym na celu uprościć pracę organizatorom eventów, zmotywować ich do dalszych działań udostępniając nasze narzędzia. A także pomóc właścicielom miejsc i usługodawcom dotrzeć do swoich klientów w prosty i skuteczny sposób. </em></p>
                 </div>
             </div>
         </div>

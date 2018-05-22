@@ -13,7 +13,7 @@
                             <p>Jesteśmy po to, aby pomóc Ci w organizacji wydarzenia.
                                 Połączymy Cię z właścicielami przestrzeni oraz sprawdzonymi usługodawcami. </p>
 
-                            <a href="{{url('sitemap')}}}" class="button-sq see-through-sq"> Znajdz uslugodawcow </a>
+                            <a href="{{url('sitemap')}}" class="button-sq see-through-sq"> Znajdz uslugodawcow </a>
                             <br><br>
 
                             <a href="{{url('b2b')}}" class="button-sq see-through-sq" > Dodaj swoj biznes </a>
@@ -55,7 +55,7 @@
                     <div class="image-full-height">
                         <div class="image-wrapper">
                             <div class="image-inner">
-                                <img  src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
+                                <img  src="new-assets/images/host/allinoneplace.jpg" alt="" class="image-sq">
                             </div>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
                     <div class="image-full-height">
                         <div class="image-wrapper">
                             <div class="image-inner">
-                                <img src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
+                                <img src="new-assets/images/host/timer.jpg" alt="" class="image-sq">
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                     <div class="image-full-height">
                         <div class="image-wrapper">
                             <div class="image-inner">
-                                <img  src="new-assets/images/host/host_01.jpg" alt="" class="image-sq">
+                                <img  src="new-assets/images/host/moneybox.jpg" alt="" class="image-sq">
                             </div>
                         </div>
                     </div>
