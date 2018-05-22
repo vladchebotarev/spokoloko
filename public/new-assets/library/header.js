@@ -450,6 +450,7 @@ var SQ = SQ || {};
 				$("[data-burger]").removeClass("modal-is-visible");
 				$(".header-section").removeClass("has-modal");
 				$body.removeClass("modal-is-open search-visible");
+                $("#page-wrapper").css("display","inline");
 
 				$(window).scrollTop(SQ.hb.windowPosition);
 
@@ -473,7 +474,7 @@ var SQ = SQ || {};
 
 				dataBurger.addClass("modal-is-visible");
 
-				$("#page-wrapper").css("display","inline");
+				$("#page-wrapper").css("display","inline-flex");
 
 				dataBurger.css("display","inline");
 
