@@ -162,6 +162,10 @@
 <script src={{ asset('js/facebook_messenger.js') }}></script>
 <script src={{ asset('js/semantic-ui/message.js') }}></script>
 
+@if(Request::is('/'))
+    <script src={{ asset('js/welcome.js') }}></script>
+@endif
+
 
 <!-- Other scripts -->
 {{--TODO--}}
@@ -236,7 +240,6 @@
 @endif
 
 
-
 @if(Request::is('user/share-venue') or Request::is('user/share-service') or Request::is('user/update-venue/*'))
 
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
@@ -249,6 +252,10 @@
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
+@endif
+
+@if(Request::is('user/update-venue/*'))
+    <script src={{ asset('js/update/addModifyPhotos.js') }}></script>
 @endif
 
 @if(Request::is('services/*'))

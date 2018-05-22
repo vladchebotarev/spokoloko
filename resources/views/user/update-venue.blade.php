@@ -675,23 +675,23 @@
                                 stands
                                 out to guests who want to stay in your area.</p><br>
 
-                            <p class="description-sq alert-message">
-                                <i class="icon icon-pin1"></i>
-                                Pin the cover photo
-                            </p>
+                            {{--<p class="description-sq alert-message">--}}
+                                {{--<i class="icon icon-pin1"></i>--}}
+                                {{--Pin the cover photo--}}
+                            {{--</p>--}}
 
                             <div class="ui grid">
                                 <div class="row photo-upload">
 
-                                    <div class="ui twelve wide computer column">
-                                        <div class="ui negative message">
-                                            <i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>
-                                            <div class="header">
-                                                Uwaga
-                                            </div>
-                                            Aktualizacja zdjęć chwilowo jest niedostępna
-                                        </div>
-                                    </div>
+                                    {{--<div class="ui twelve wide computer column">--}}
+                                        {{--<div class="ui negative message">--}}
+                                            {{--<i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>--}}
+                                            {{--<div class="header">--}}
+                                                {{--Uwaga--}}
+                                            {{--</div>--}}
+                                            {{--Aktualizacja zdjęć chwilowo jest niedostępna--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
 
                                     @foreach($venue_images as $image)
                                         <div class="ui four wide computer six wide tablet six wide mobile column">

@@ -764,6 +764,7 @@
                             Zdjęcie główne wybierzesz klikając na nie
                         </p>
                     </div>
+
                 </div>
                 <div class="row photo-upload">
                     <div class="ui three wide computer six wide tablet six wide mobile column">

@@ -67,7 +67,7 @@ function submitForm() {
   let data = Photo.fetchData();
   let messages = [];
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
-    messages.push('Zaznaczyłeś mniej niż 5 lub więcej niż 10 zdjęć.');
+    messages.push('Wybrałeś mniej niż 5 lub więcej niż 10 zdjęć.');
   }
   if (data.selected) {
     if (data.selected.width < 1200 || data.selected.height < 750) {
