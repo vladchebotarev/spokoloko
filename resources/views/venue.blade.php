@@ -729,7 +729,7 @@
                                 <div>
                                     <div class="caption-content">
                                         <img class="lazy slick-img"
-                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                             data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                              alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
@@ -803,47 +803,47 @@
     </div>
 
 
-    {{--    <div class="ui grid container stackable app layout right side">
+       {{-- <div class="ui grid container stackable app layout right side">
             <div class="stretched row">
                 <div class="ui column main-column" role="main">
                     <div class="section-container" id="section-04">
 
                         <div class="typo-section-sq top-default bottom-default">
-                            <h3>Reviews</h3>
+                            <h3>Opinia</h3>
                             <div class="reviews-header">
                                 <div class="rating-big">
                                     <div class="rating-badge">
                                         <span>9.2</span>
-                                        <i class="icon icon-heart"></i>
+                                        <i class="icon icon-star"></i>
                                     </div>
                                     <div class="rating-info">
-                                        <p>More than <strong>95%</strong> of guests recommend this place</p>
+                                        <p>Ponad <strong>10</strong> osób rekomendują to miejsce</p>
                                     </div>
                                 </div>
                                 <div class="rating-percentage">
                                     <div class="rating-column">
-                                        <p class="rating-label"><strong>Accuracy</strong></p>
+                                        <p class="rating-label"><strong>Cena</strong></p>
                                         <div class="basic-progressbar">
                                             <div class="inner" style="width:75%"></div>
                                         </div>
                                     </div>
 
                                     <div class="rating-column">
-                                        <p class="rating-label"><strong>Communication</strong></p>
+                                        <p class="rating-label"><strong>Oceny</strong></p>
                                         <div class="basic-progressbar">
                                             <div class="inner" style="width:55%"></div>
                                         </div>
                                     </div>
 
                                     <div class="rating-column">
-                                        <p class="rating-label"><strong>Location</strong></p>
+                                        <p class="rating-label"><strong>Popularnośc</strong></p>
                                         <div class="basic-progressbar">
                                             <div class="inner" style="width:25%"></div>
                                         </div>
                                     </div>
 
                                     <div class="rating-column">
-                                        <p class="rating-label"><strong>Cleanliness</strong></p>
+                                        <p class="rating-label"><strong>Profil</strong></p>
                                         <div class="basic-progressbar">
                                             <div class="inner" style="width:80%"></div>
                                         </div>
@@ -851,39 +851,84 @@
                                 </div>
                             </div>
 
-                            <div class="reviews-feed">
-                                <div class="reviews-row">
+                            <div class="reviews-feed" style="padding-top: 10px;">
+                                <div class="reviews-row" style="border-radius: 5px;border-style: solid; border-width: 1px; border-color: limegreen; padding-right: 15px; padding-left:5px;">
 
                                     <div class="review-meta">
-                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                        <a class="avatar-sq " href="{{url('user/profile')}}">
                                             <img src="{{ asset('new-assets/images/avatar/avatar_01.jpg') }}" alt="">
                                         </a>
-                                        <a class="name-sq" href="vendor_details.html">Danny Martinez</a>
+                                        <a class="name-sq" href="{{url('user/profile')}}">Danny Martinez</a>
                                     </div>
 
                                     <div class="comment-sq">
-                                        <span class="date-sq">12 september 2017</span>
+                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating" data-rating="3" data-max-rating="5"></div></span>
+
+                                        <span class="date-sq" >12 september 2017 </span>
+
+
 
                                         <p>As the saying goes: “Hospitality is making your guests feel at home, even though
                                             you wish they were". So please treat the place and the building neighbours as
                                             you would do your own.</p>
                                     </div>
+                                   <div class="button-sq small-sq see-through-sq" style="position: absolute; right:10px;">
+                                            Zmień
+                                        </div>
                                 </div>
 
                                 <div class="reviews-row">
                                     <div class="review-meta">
                                         <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                            <img src="{{ asset('new-assets/images/avatar/avatar_03.jpg') }}" alt="">
+                                            <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
                                         </a>
+                                        <a class="name-sq" href="vendor_details.html">Adele Burke</a>
+                                    </div>
+
+                                    <div class="comment-sq">
+
+                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
+
+                                        <span class="date-sq">06 May 2017</span>
+
+                                        <div class="ui accordion more-sq">
+                                            <div class="title">
+                                                <a class="accordion-trigger more-trigger right-sq" data-more="More"
+                                                   data-less="Less">
+                                                    <i class="icon icon-arrow-down-122"></i>
+                                                </a>
+                                                <p>It is important to choose a hotel that makes you feel comfortable –
+                                                    contemporary or traditional furnishings, local decor or international,
+                                                    formal or relaxed. The ideal hotel directory should let you know of the
+                                                    options available.
+                                                </p>
+
+                                            </div>
+
+                                            <div class="content">
+                                                <p>If it matters that your hotel is, for example, on the beach, close to the
+                                                    theme park, or convenient for the airport, then location is paramount.
+                                                    Any decent directory should offer a location map of the hotel and its
+                                                    surroundings. There should be distance charts to the airport offered as
+                                                    well as some form of interactive map.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="reviews-row">
+                                    <div class="review-meta">
+
                                         <a class="name-sq" href="vendor_details.html">Nathaniel Brown</a>
                                     </div>
                                     <div class="comment-sq">
+                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
                                         <span class="date-sq">24 august 2017</span>
 
-                                        <p>With your budget in mind, it is easy to plan a chartered yacht vacation.
-                                            Companies often have a fleet of sailing vessels that can accommodate parties of
-                                            various sizes. You may want to make it a more intimate trip with only close
-                                            family. There are charters that can be rented for as few as two people.</p>
+
                                     </div>
                                 </div>
 
@@ -896,6 +941,7 @@
                                     </div>
 
                                     <div class="comment-sq">
+
                                         <span class="date-sq">06 May 2017</span>
 
                                         <div class="ui accordion more-sq">
@@ -934,7 +980,7 @@
 
                 <div class="ui column side-column"></div>
             </div>
-        </div>--}}
+        </div>  --}}
 
 
 

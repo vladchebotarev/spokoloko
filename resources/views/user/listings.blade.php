@@ -56,12 +56,12 @@
                                 <span>od </span>{{ number_format($venue->min_price, 0, '', '')  }}
                                 PLN <span>/{{ $venue->min_hours }} h</span>
                             </div>--}}
-                            <a class="add-wishlist" href="{{ url('user/update-venue/'.$venue->url) }}"
+                            <a class="add-cog" href="{{ url('user/update-venue/'.$venue->url) }}"
                                    target="_blank" data-inverted="" data-tooltip="Edytuj" data-position="left center">
                                 <i class="icon icon-cog2"></i>
                             </a>
 
-                            <a class="image-sq" href="{{ url('user/update-venue/'.$venue->url) }}" target="_blank">
+                            <a class="image-sq" href="{{ url('venue/'.$venue->url) }}" target="_blank">
                             <span class="image-wrapper">
                                 <span class="image-inner">
                                     <img src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_375,w_500/v1/venues/{{$venue->url}}/{{$venue->image_url}}"

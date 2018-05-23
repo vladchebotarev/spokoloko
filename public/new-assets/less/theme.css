@@ -3723,6 +3723,28 @@ button .icon + span {
   -ms-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
+
+.property-item .property-item-inner .add-cog {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+}
+.property-item .property-item-inner .add-cog > i.icon {
+  font-size: 28px;
+  margin: 0;
+  width: 36px;
+  height: 36px;
+  color: rgba(0, 0, 0, 0.12);
+  position: relative;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
 .property-item .property-item-inner .complete-sq,
 .property-item .property-item-inner .preview-sq {
   position: absolute;
@@ -3921,11 +3943,20 @@ button .icon + span {
 .property-item .property-item-inner:hover .add-wishlist > i.icon {
   color: #fff;
 }
+
+.property-item .property-item-inner:hover .add-cog > i.icon {
+  color: #fff;
+}
 /*--- .caption-sq ---*/
 .property-item.caption-sq .property-item-inner {
   background: #fff;
 }
 .property-item.caption-sq .property-item-inner .add-wishlist .icon {
+  color: rgba(255, 255, 255, 0.53);
+  text-shadow: 0 7px 20px rgba(0, 0, 0, 0.09);
+}
+
+.property-item.caption-sq .property-item-inner .add-cog .icon {
   color: rgba(255, 255, 255, 0.53);
   text-shadow: 0 7px 20px rgba(0, 0, 0, 0.09);
 }
@@ -4018,6 +4049,11 @@ button .icon + span {
   left: 15px;
 }
 .property-item.caption-sq.small-sq .property-item-inner .add-wishlist {
+  top: 15px;
+  right: 15px;
+}
+
+.property-item.caption-sq.small-sq .property-item-inner .add-cog {
   top: 15px;
   right: 15px;
 }

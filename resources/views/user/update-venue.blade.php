@@ -13,8 +13,10 @@
         <div class="image-wrapper">
             <div class="image-inner">
                 <img class="image-sq"
-                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,e_improve,f_jpg,g_auto,h_1080,w_1920/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
-                     alt="">
+                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w" />
             </div>
         </div>
 
@@ -51,21 +53,20 @@
                                         <div class="main-infos">
 
                                             <div class="completed-percentage">
-                                                <p><strong>65%</strong> completed</p>
+                                                <p><strong>Prawie koniec</strong> </p>
                                                 <div class="basic-progressbar">
                                                     <div class="inner" style="width:75%"></div>
                                                 </div>
                                             </div>
 
                                             <p class="info">
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                                faucibus magna vel ex semper, in pharetra justo pulvinar.
+                                                Nie zapomnij dodac integracje z Facebook na dołe strony
                                             </p>
                                         </div>
 
 
                                         <a class="button-sq fullwidth-sq font-weight-extrabold-sq"
-                                           onclick="getElementById('button_submit').click()">Apply Updates</a>
+                                           onclick="getElementById('button_submit').click()">Zachowaj</a>
 
                                     </div>
 
@@ -178,10 +179,9 @@
 
                         <div class="typo-section-sq top-default bottom-default">
 
-                            <h3 class="title-sq">Najwarzniejsze</h3>
+                            <h3 class="title-sq">Podstawowe informację</h3>
 
-                            <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                            <p class="description-sq">Uzupełnij najważniejsze informacje o swoim miejscu. </p>
 
                             <div class="div-c">
                                 <div class="divided-column">
@@ -242,7 +242,7 @@
                                 </div>
 
                                 <div class="divided-column">
-                                    <label>Telefon 2(Jeżeli istneje)</label>
+                                    <label>Telefon 2(opcjonalnie)</label>
 
                                     <div class="ui labeled input">
                                         <div class="ui label">
@@ -319,10 +319,9 @@
 
                     <div class="section-container" id="section-02">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="title-sq">Kategorje</h3>
+                            <h3 class="title-sq">Kategorie</h3>
 
-                            <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                            <p class="description-sq">Wybierz typ, który pasuje do Twojej przestrzeni oraz zaznacz rodzaje wydarzeń, które mogą się u Ciebie odbyć. Pamiętaj - im więcej tym lepiej :) </p>
 
                             <div class="div-c">
                                 <div class="divided-column">
@@ -357,10 +356,9 @@
 
                     <div class="section-container" id="section-03">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="title-sq">O przestrzeni</h3>
+                            <h3 class="title-sq">Przestrzeń</h3>
 
-                            <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                            <p class="description-sq">Wpisz wymagane informacje o Twojej przestrzeni. Wybierz cechy opisujące Twoje miejsce, aby pomóc klientom się odnaleźć. </p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -430,8 +428,7 @@
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Udogodnienia i zasady</h3>
 
-                            <p class="description-sq">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-                                faucibus magna vel ex semper, in pharetra justo pulvinar. </p>
+                            <p class="description-sq">Zaznacz udogodnienia które posiadasz w swoim miejscu, aby wyróżnić się na tle konkurencji. Także określ zasady panujące w Twoim lokalu. Masz również możliwość dodać swoje zasady, których nie ma na liście.</p>
 
 
                             <div class="div-c inline-2 one-label">
@@ -460,9 +457,9 @@
 
                             <div class="div-c">
                                 <div class="divided-column">
-                                    <label>Dodatkowo zasady</label>
+                                    <label>Inne zasady</label>
                                     <textarea cols="30" rows="5" name="additional_rules"
-                                              placeholder="Be clear and descriptive">{{ $venue->additional_rules }}</textarea>
+                                              placeholder="Bądź zwięzły i konkretny">{{ $venue->additional_rules }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -472,9 +469,9 @@
                     <div class="section-container" id="section-05">
                         <div class="typo-section-sq bottom-default">
 
-                            <h3 class="title-sq">Dostępnośc lokalu</h3>
+                            <h3 class="title-sq">Dostępność lokalu</h3>
 
-                            <p class="description-sq">Kiedy jest otwarty lokal? </p>
+                            <p class="description-sq">Kiedy lokal jest otwarty?</p>
 
 
                             <div class="div-c inline-2 one-label">
@@ -577,10 +574,10 @@
                             </div>
 
 
-                            <h3 class="title-sq">Informacja cenowa</h3>
+                            <h3 class="title-sq">Ceny</h3>
 
 
-                            <p class="description-sq">Lorem ipsum dolor it sit </p>
+                            <p class="description-sq">Przedstaw swój cennik. Opisz, czy jesteś otwarty na negocjacje. </p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -590,7 +587,7 @@
                                 </div>
 
                                 <div class="divided-column">
-                                    <label>Min. ilosc godzin</label>
+                                    <label>Minimalna ilość godżin</label>
                                     <input type="number" name="min_hours" value="{{ $venue->min_hours }}" placeholder=""
                                            min="1" required>
                                 </div>
@@ -598,7 +595,7 @@
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
-                                    <label>Cena za calą dobe</label>
+                                    <label>Cena za całą dobę</label>
                                     <input type="text" name="price_day" value="{{ $venue->price_day }}"
                                            placeholder="350" required>
                                 </div>
@@ -613,16 +610,16 @@
 
                             <div class="div-c">
                                 <div class="divided-column">
-                                    <label>Informacja dodatkowa</label>
+                                    <label>Informacje dodatkowe</label>
                                     <textarea cols="30" rows="5" name="price_info"
-                                              placeholder="Opisz co wchodzi w cenę. Jak zmienia sie cena zaleznie od dnia tygodnia.">{{ $venue->price_info }}</textarea>
+                                              placeholder="Opisz co wpływa na cenę. Czy jesteś otwarty na negocjacje?">{{ $venue->price_info }}</textarea>
                                 </div>
                             </div>
 
 
-                            <h3 class="title-sq">Zaliczka oraz zasady rezerwacji</h3>
+                            <h3 class="title-sq">Zaliczka oraz zasady anulowania</h3>
 
-                            <p class="description-sq">Lorem ipsum dolor it sit </p>
+                            <p class="description-sq">Określ zasady płacenia zaliczki oraz zasady anulowania rezerwacji.</p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -660,9 +657,9 @@
 
                             <div class="div-c">
                                 <div class="divided-column">
-                                    <label>Informacja dodatkowa</label>
+                                    <label>Informacje dodatkowe</label>
                                     <textarea cols="30" rows="5" name="cancellation_information"
-                                              placeholder="Omów warunki zwrotu zaliczki. Np: 100%  >3 dni do wydarzenia, 50% <2 dni do wydarzenia ">{{ $venue->cancellation_information }}</textarea>
+                                              placeholder="Omów warunki zwrotu zaliczki i rezygnacji z rezerwacji ">{{ $venue->cancellation_information }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -670,15 +667,14 @@
 
                     <div class="section-container" id="section-06">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="title-sq">Photos</h3>
-                            <p>Every space on MyBNB is unique. Highlight what makes your listing welcoming so that it
-                                stands
-                                out to guests who want to stay in your area.</p><br>
+                            <h3 class="title-sq">Zdjęcia</h3>
+                            <p>Dodaj najbardziej atrakcyjne zdjęcia swojego miejsca. Następnie wybierz zdjęcie główne, które będzie Twoją wizytówką na portalu.</p><br>
 
-                            {{--<p class="description-sq alert-message">--}}
-                                {{--<i class="icon icon-pin1"></i>--}}
-                                {{--Pin the cover photo--}}
-                            {{--</p>--}}
+                            <p class="description-sq alert-message">
+                                <i class="icon icon-pin1"></i>
+                                Zdjęcie główne wybierzesz klikając na nie
+                            </p>
+
 
                             <div class="ui grid">
                                 <div class="row photo-upload">
@@ -729,8 +725,14 @@
 
                     <div class="section-container" id="section-07">
                         <div class="typo-section-sq bottom-default">
-                            <h3 class="preview-sq title-sq">Facebook Messager</h3>
-                            <p>Wlacz integracje z Facebook aby ...</p><br>
+                            <h3 class="preview-sq title-sq">Facebook Messenger</h3>
+                            <p>Wklej link to swojego fanpage’u na Facebooku, aby zintegrować się z naszym chatbotem. Pomoże Ci ulepszyć komunikacje z klientami przenosząc ją do Messenger’a. W taki sposób zyskasz ciągły kontakt do klientów i zwiększysz swoją atrakcyjność na tle konkurencji!</p>
+                            <p>Uwaga: Serwis Spokoloko nie posiada dostępu do wiadomości i profilu Facebook. Wiadomości będą dostarczane w Facebook prosto do profilu biznesu.</p><br>
+                            <p>Kroki ktore masz wykonac</p>
+                            <p>1: Wejdż na strone Twojego biznesu na Facebook</p>
+                            <p>2: Nacisnij <strong>"Informacje" w lewym menu</strong></p>
+                            <p>3: Skopiuj <strong>Idendyfikator Strony</strong></p>
+                            <p>4: Wkłej idendifikator w polu poniżej: </p>
                             <div class="div-c">
                                 <div class="divided-column">
                                     <label>Facebook Page ID</label>
@@ -739,6 +741,13 @@
                                 </div>
 
                             </div>
+
+
+                            <p>5. Wejdż w rozdział <strong>Ustalenia</strong> -> <strong>Platforma Messengera</strong> w gornym menu</p>
+                            <p>6: W Polu Powiąż aplikacje ze swoją stroną wprowadż ID aplikacji : <strong>912333495590130</strong></p>
+                            <p>7: Dodaj domeny : <strong>https://spokoloko.club</strong> oraz <strong>https://www.spokoloko.club</strong></p>
+
+
 
                         </div>
                     </div>

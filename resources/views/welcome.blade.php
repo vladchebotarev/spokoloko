@@ -720,9 +720,9 @@
 
 
         <div class="ui layout" id="top2">
-            <div class="ui grid container">
+            {{--  <div class="ui grid container">
 
-                <div class="row">
+              <div class="row">
                     <div class="ui column">
 
                         <div class="typo-section-sq">
@@ -771,8 +771,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_01.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -826,8 +825,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_02.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -881,8 +879,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_03.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -936,8 +933,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_01.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -991,8 +987,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_02.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -1046,8 +1041,7 @@
                                                     <span class="image-inner">
                                                         <img src="new-assets/images/property/property_little_03.jpg"
                                                              alt="" class="" style="height: 100%">
-                                                        {{--<img src="{{ asset('new-assets/images/property/property_little_01.jpg') }}"
-                                                             alt="" class="">--}}
+
                                                     </span>
                                                 </span>
                                         </a>
@@ -1097,7 +1091,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
             <div class="promo-section">
 

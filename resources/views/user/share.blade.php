@@ -39,14 +39,15 @@
 
 
             <div class="ui card" style="-webkit-box-shadow: none; ">
-                <a class="image" href="share-service">
-                    <img src="../new-assets/images/sharing/design.jpg">
+                <a class="image" href="#">
+                    <img src="../new-assets/images/sharing/design.jpg" style="-webkit-filter: grayscale(1);
+  filter: grayscale(1);">
                 </a>
                 <div class="content">
                     <a class="header">Obsługa wydarzeń</a>
 
                     <div class="description">
-                        Agencje eventowe, catering, muzyka, zdjecia/video i inne
+                        Wkrótce
                     </div>
                 </div>
 
