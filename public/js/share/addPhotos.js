@@ -29,7 +29,7 @@ $('#file-upload').change(function() {
               let imageID = $(this).attr('id');
               console.log('imageID',imageID);
               $.ajax({
-                url: `http://localhost:8000/user/update-venue/${venueUrl}/cover-image/${imageID}`,
+                url: `/user/update-venue/${venueUrl}/cover-image/${imageID}`,
                 type: 'GET',
                 success(res) {
                   console.log('GET', res);
@@ -46,7 +46,7 @@ $('#file-upload').change(function() {
                 headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: `http://localhost:8000/user/update-venue/${venueUrl}/delete-image/${imageID}`,
+                url: `/user/update-venue/${venueUrl}/delete-image/${imageID}`,
                 type: 'DELETE',
                 success(res) {
                   console.log('DELETE', res);
@@ -62,7 +62,7 @@ $('#file-upload').change(function() {
               headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
-              url: `http://localhost:8000/user/update-venue/${venueUrl}/images`,
+              url: `/user/update-venue/${venueUrl}/images`,
               type: 'POST',
               data: {
                 name: photo.name

@@ -25,7 +25,7 @@ $(document).ready(function() {
       else {
         photo.selectPhoto();
         $.ajax({
-          url: `http://localhost:8000/user/update-venue/${venueUrl}/cover-image/${imageID}`,
+          url: `/user/update-venue/${venueUrl}/cover-image/${imageID}`,
           type: 'GET',
           success(res) {
             console.log('GET', res);
@@ -46,7 +46,7 @@ $(document).ready(function() {
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-          url: `http://localhost:8000/user/update-venue/${venueUrl}/delete-image/${imageID}`,
+          url: `/user/update-venue/${venueUrl}/delete-image/${imageID}`,
           type: 'DELETE',
           success(res) {
             console.log('DELETE', res);

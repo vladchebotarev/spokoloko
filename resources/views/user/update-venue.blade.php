@@ -747,8 +747,8 @@
         </div>
     </form>
 
-    {{--<form action="{{ route('delete-venue', $venue->url) }}" method="post">
+    <form action="{{ route('delete-venue', $venue->url) }}" method="post">
         @csrf
         <button class="button-sq small-sq see-through-sq" type="submit">{{ __('Usuń przestrzeń') }}</button>
-    </form>--}}
+    </form>
 @endsection
