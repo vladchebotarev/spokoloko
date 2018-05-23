@@ -615,6 +615,9 @@ var SQ = SQ || {};
                     var oldurl = element.attr('data-src');
                     var nvalue = 360;
 
+
+
+
                     if (ewidth > 360 || eheight > 360) {
                         nvalue = 480;
                         if (ewidth > 480 || eheight > 480) {
@@ -624,15 +627,31 @@ var SQ = SQ || {};
                             var newurl = oldurl.replace('w_360', 'w_' + nvalue);
                             newurl = newurl.replace('h_360', 'h_' + nvalue);
                             element.attr('data-src', newurl);
-                            console.log('width > 360');
+
                         }
                         else {
                             var newurl = oldurl.replace('w_360', 'h_' + nvalue);
                             newurl = newurl.replace('h_360', 'h_' + nvalue);
                             element.attr('data-src', newurl);
-                            console.log('heigth>360');
+
                         }
                     }
+
+                    if (element.hasClass("big-image-sq")) {
+                        if(ewidth>360){
+                            nvalue=480;
+                            if(ewidth>480){
+                                nvalue=768;
+                                    if(ewidth>768){
+                                        nvalue=1200;
+                                    }
+                                }
+                            }
+                        var newurl = oldurl.replace('w_360', 'w_' + nvalue);
+                        newurl = newurl.replace('h_360', 'h_' + nvalue);
+                        element.attr('data-src', newurl);
+                        }
+
 
                     console.log(element.attr('data-src'));
 
@@ -670,6 +689,12 @@ var SQ = SQ || {};
 
                 return false;
             });
+
+            $("#new-img-send").on('click', function () {
+                console.log($('#file-upload:file'));
+
+            });
+
 
             $('.return-car-to-location').on('click', function () {
                 $(this).closest('.search-item').prev('.search-return-location').toggleClass('disabled');

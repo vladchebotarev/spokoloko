@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                         <div class="promo-content style-02" style="background-color: rgba(255,140,0,0.9); borderborder-radius: 30px;">
-                            <h2>Twórzmy wydarzenia razem./h2>
+                            <h2>Twórzmy wydarzenia razem.</h2>
                             <p>Na tej stronie znajdziesz kartę serwisu dla wybranego miasta</p>
 
                             <div class="fltp"  style="background-color: white; padding-left: 10px;">

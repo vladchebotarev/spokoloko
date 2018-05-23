@@ -66,7 +66,7 @@
                                     </div>
                                 </li>
 
-                                <li class="has-submenu has-megamenu open-inside-modal filters-dropdown overlay-dropdown">
+                                <li class="has-submenu has-megamenu open-inside-modal filters-dropdown overlay-dropdown" style="height: auto; display: flex; flex-direction: row;">
 
                                     <a href="#" class="item hidden-tablet hidden-mobile">
                                         <i class="icon icon-filter"></i>
