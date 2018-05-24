@@ -452,6 +452,7 @@ var SQ = SQ || {};
 				$body.removeClass("modal-is-open search-visible");
                 $("#page-wrapper").css("display","inline");
 
+
 				$(window).scrollTop(SQ.hb.windowPosition);
 
 			} else {
@@ -476,7 +477,9 @@ var SQ = SQ || {};
 
 				$("#page-wrapper").css("display","inline-flex");
 
-				dataBurger.css("display","inline");
+
+                dataBurger.css("display","inline");
+
 
 
 				
@@ -514,7 +517,9 @@ var SQ = SQ || {};
 						$(".sticky-element").removeClass("mhs-is-slide-up").addClass("stop-mhs-is-slide-up");
 					}
 
-					$(this).addClass("reverse");
+
+						$(this).addClass("reverse");
+
 
 				} else if(!$body.hasClass("sidemenu-is-open") && !$body.hasClass("modal-is-open")) {
 
@@ -559,14 +564,15 @@ var SQ = SQ || {};
 							SQ.hb.resizeCheck = true;
 						}
 
-						if($(this).hasClass("header-sticky") && $(this).offset().top <= 0) {
+						if($(this).hasClass("header-sticky")  && $(this).offset().top <= 0) {
 
 							/* if top is sticky by default */
 							$(this).addClass("is-sticky");
 							SQ.hb.headerSection.eq(index + 1).addClass("ths-is-sticky");
 							SQ.hb.headerSection.eq(index + 2).addClass("ths-is-sticky");
 
-							SQ.hb.stickyElement.addClass("ths-is-sticky");
+							if(!SQ.hb.stickyElement.hasClass('not-sticky')){
+							SQ.hb.stickyElement.addClass("ths-is-sticky");}
 
 						}
 						break;
@@ -619,7 +625,7 @@ var SQ = SQ || {};
 			SQ.hb.headerSection.each(function( index ) {
 
 				/* Sticky scroll down */
-				if(scrollTop > this.prevScroll && $(this).hasClass("header-sticky")) {
+				if(scrollTop > this.prevScroll && $(this).hasClass("header-sticky") ) {
 
 					SQ.hb.headerSection.eq(index).removeClass("reverse");
 					SQ.hb.headerSection.eq(index + 1).removeClass("reverse");

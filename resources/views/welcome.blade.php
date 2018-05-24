@@ -1115,7 +1115,7 @@
                     <div class="image-inner">
 
 
-                        <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1526493029/app/img/promo_section_01.jpg"
+                        <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1526493029/app/img/promo_section_01.jpg"
                              srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526493029/app/img/promo_section_01.jpg 480w,
                                                         https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1526493029/app/img/promo_section_01.jpg 768w,
                                                         https://res.cloudinary.com/spokoloko/image/upload/v1526493029/app/img/promo_section_01.jpg 1000w"

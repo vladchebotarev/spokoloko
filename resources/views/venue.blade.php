@@ -64,7 +64,7 @@
 
                         <div class="property-sticky-box-wrapper">
 
-                            <div class="sticky-element sticky-desktop sticky-large-desktop under-ths burger-mobile-modal search-visible"
+                            <div class="sticky-element sticky-desktop sticky-large-desktop not-sticky under-ths burger-mobile-modal search-visible"
                                  data-burger="menu04">
 
                                 <a href=""
@@ -803,7 +803,7 @@
     </div>
 
 
-       {{-- <div class="ui grid container stackable app layout right side">
+        <div class="ui grid container stackable app layout right side">
             <div class="stretched row">
                 <div class="ui column main-column" role="main">
                     <div class="section-container" id="section-04">
@@ -980,7 +980,7 @@
 
                 <div class="ui column side-column"></div>
             </div>
-        </div>  --}}
+        </div>
 
 
 
@@ -1056,7 +1056,7 @@
 
         <div class="actions">
             <div class="div-c">
-                <div class="divided-column">
+                <div class="divided-column" style="padding-bottom: 20px;">
                     <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success"
                          id="send_request_availability">Send
                     </div>
