@@ -119,6 +119,8 @@ class ShareVenueController extends Controller
     public function createNewVenue(Request $request)
     {
 
+        return \Response::json(['status'=>'success', 'code' => '200' ]);
+
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:150',
             'city' => 'required',

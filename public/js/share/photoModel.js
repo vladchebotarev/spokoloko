@@ -1,7 +1,8 @@
-var photoArray = [];
+let photoArray = [];
 
 class Photo {
   constructor(files, index) {
+    this.file = files ? files.files[ index ] : null;
     this.name = files ? files.files[ index ].name : null;
     this.select = false;
     

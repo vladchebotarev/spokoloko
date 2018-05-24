@@ -15,7 +15,7 @@ const fastAndEase = {
 function enableButtons(boolean) {
   return new Promise((resolve, reject) => {
     let buttons = $('.add-listing-footer button');
-    if (boolean) {
+    if(boolean) {
       buttons.each(function(button) {
         buttons[ button ].disabled = false;
       });
@@ -30,12 +30,13 @@ function enableButtons(boolean) {
 
 // MAIN FUNCTION
 async function goToNext(direction) {
-  if ((direction && counter === 6) || (!direction && counter === 1)) return;
-  if (direction) ++counter;
+  if(!direction && counter === 1) return;
+  // else if(direction && counter === 6) sendData();
+  else if(direction) ++counter;
   else --counter;
   let turnOff = await enableButtons(false);
   
-  if (turnOff) {
+  if(turnOff) {
     current = $('.active-block');
     next = direction ? current.next('.add-listing-content') : current.prev(
       '.add-listing-content');
@@ -78,7 +79,7 @@ async function goToNext(direction) {
 
 // NEXT BUTTON
 $('.add-listing-footer .next-sq').click(function(e) {
-  if ($('.prev-btn').css('visibility') === 'hidden') {
+  if($('.prev-btn').css('visibility') === 'hidden') {
     $('.prev-btn').velocity({
       opacity: 1
     }, {
@@ -89,13 +90,13 @@ $('.add-listing-footer .next-sq').click(function(e) {
   }
   e.stopImmediatePropagation();
   let unfilled = validate();
-  if (unfilled === true) goToNext(true);
+  if(unfilled === true) goToNext(true);
   else displayWarning(unfilled, true);
 });
 
 // PREV BUTTON
 $('.add-listing-footer .prev-btn').click(function() {
-  if ($('.prev-btn').css('visibility') === 'visible' && counter === 2) {
+  if($('.prev-btn').css('visibility') === 'visible' && counter === 2) {
     $('.prev-btn').velocity({
       opacity: 0
     }, {
@@ -104,7 +105,7 @@ $('.add-listing-footer .prev-btn').click(function() {
       easing: 'ease'
     });
   }
-  if ($('.button-submit').css('display') !== 'none') {
+  if($('.button-submit').css('display') !== 'none') {
     $('.button-submit').velocity({
       opacity: 0
     }, {
@@ -128,6 +129,6 @@ $('.add-listing-footer .prev-btn').click(function() {
 $('.add-listing-footer .button-submit').click(function(e) {
   e.stopImmediatePropagation();
   let unfilled = validate();
-  if (unfilled === true) goToNext(true);
+  if(unfilled === true) /*goToNext(true);*/ sendData();
   else displayWarning([ $('.active-block').find('.error') ], false);
 });
