@@ -1,4 +1,5 @@
 function sendData() {
+  $('#dimmer').show();
   $('#file-upload').attr('disabled', true);
   let data = new FormData($('.venue-form')[ 0 ]);
   console.log(photoArray[0].file);
@@ -12,6 +13,11 @@ function sendData() {
     method: 'POST',
     success(data) {
       console.log('POST', data);
+      // if(data.errors) {
+      //
+      // }
+      // else window.location.href = data.url;
+      window.location.href = data.url;
     },
     error(jqXHR) {
       console.log(jqXHR);
