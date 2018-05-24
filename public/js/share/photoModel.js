@@ -1,13 +1,13 @@
 let photoArray = [];
 
 class Photo {
-  constructor(files, index) {
+  constructor(files, index, size) {
     this.file = files ? files.files[ index ] : null;
     this.name = files ? files.files[ index ].name : null;
     this.select = false;
     
     if(files) {
-      this.obj = this.constructor.newPhoto();
+      this.obj = this.constructor.newPhoto(size);
       this.img = this.obj.find('.image-sq');
       this.biggerWidth(files, index).then(data => {
         if(data.isBiggerWidth) {
@@ -52,9 +52,9 @@ class Photo {
     return imageLoaded;
   }
   
-  static newPhoto() {
+  static newPhoto(size) {
     return $(
-      `<div class="ui three wide computer six wide tablet six wide mobile column">
+      `<div class="ui ${size} wide computer six wide tablet six wide mobile column">
 
       <div class="photo-upload-item">
       <div class="image-wrapper">

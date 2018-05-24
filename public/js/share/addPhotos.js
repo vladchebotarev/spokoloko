@@ -2,6 +2,9 @@ $('#file-upload').change(function() {
   let lowerThan10 = true;
   let update = false;
   let venueUrl = window.location.href;
+  let fileList = {
+    images: []
+  };
   venueUrl = venueUrl.substring(venueUrl.indexOf('update-venue/') + 'update-venue/'.length, venueUrl.length);
   if(window.location.href.includes('update-venue/')) {
     update = true;
@@ -21,7 +24,7 @@ $('#file-upload').change(function() {
         case 'png':
         case 'bmp':
         case 'jpeg':
-          let photo = new Photo(this, i);
+          let photo = new Photo(this, i, update ? 'four' : 'three');
           let photoDOM = photo.addPhoto($(this));
           photoDOM.find('.photo-upload-item').first().click(function() {
             photo.selectPhoto();
@@ -58,29 +61,30 @@ $('#file-upload').change(function() {
             }
           });
           if(update) {
-            $.ajax({
-              headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              },
-              url: `/user/update-venue/${venueUrl}/images`,
-              type: 'POST',
-              data: {
-                name: photo.name
-              },
-              success(res) {
-                console.log('POST', res);
-                console.log(this.data);
-              },
-              error(jqXHR) {
-                console.log(jqXHR);
-              }
-            });
+            fileList.images.push(photo.file);
           }
           break;
         case null:
         default:
           check = true;
       }
+    }
+    if(update){
+      $.ajax({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: `/user/update-venue/${venueUrl}/images`,
+        type: 'POST',
+        data: fileList,
+        success(res) {
+          console.log('POST', res);
+          console.log(this.data);
+        },
+        error(jqXHR) {
+          console.log(jqXHR);
+        }
+      });
     }
     if(check) {
       $('.active-block').find('.error').removeClass('hide');
