@@ -118,9 +118,6 @@ class ShareVenueController extends Controller
 
     public function createNewVenue(Request $request)
     {
-
-        return \Response::json(['status'=>'success', 'code' => '200' ]);
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:150',
             'city' => 'required',
@@ -156,173 +153,175 @@ class ShareVenueController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('user/share-venue')
+            /*return redirect('user/share-venue')
                 ->withErrors($validator)
-                ->withInput();
+                ->withInput();*/
+            return response()->json($validator->messages(), 200);
         } else {
 
-            dump($request->all());
+            //dump($request->all());
 
-//            $venue = new Venue();
-//
-//            $venue->name = $request->get('name');
-//            $venue->user_id = Auth::user()->id;
-//            $venue->url = $this->generateUrl($venue->name);
-//
-//            $venue->city_id = $request->get('city');
-//            $venue->street_address = $request->get('street_address');
-//            $venue->street_number = $request->get('street_number');
-//            $venue->postal_code = $request->get('postal_code');
-//            $venue->lat = $request->get('lat');
-//            $venue->lng = $request->get('lng');
-//
-//            $venue->phone = $request->get('phone');
-//            $venue->phone2 = $request->get('phone2');
-//
-//            $venue->webpage = $request->get('webpage');
-//            $venue->facebook = $request->get('facebook');
-//            $venue->instagram = $request->get('instagram');
-//            $venue->tripadvisor = $request->get('tripadvisor');
-//
-//            $venue->description = $request->get('description');
-//            $venue->full_description = $request->get('full_description');
-//
-//            $venue->venue_type_id = $request->get('venue_type');
-//            $venue->venue_style_id = $request->get('venue_style');
-//
-//
-//            $venue->area = $request->get('area');
-//            $venue->room_number = $request->get('room_number');
-//            $venue->restroom_number = $request->get('restroom_number');
-//            $venue->max_guests_standing = $request->get('max_guests_standing');
-//            $venue->max_guests_seating = $request->get('max_guests_seating');
-//
-//            $venue->additional_rules = $request->get('additional_rules');
-//
-//            $venue->availability_type = $request->get('availability');
-//
-//            if ($request->get('availability') === 'Week') {
-//                $venue->week_availability = $request->get('week_availability');
-//            }
-//
-//            $venue->price_hour = str_replace(',', '.', str_replace('.', '', $request->get('price_hour')));
-//            $venue->price_day = str_replace(',', '.', str_replace('.', '', $request->get('price_day')));
-//            $venue->min_hours = $request->get('min_hours');
-//
-//            if ($request->get('price_depends_on_weekday') === 'on') {
-//                $venue->price_depends_on_weekday = true;
-//            }
-//
-//            $venue->price_info = $request->get('price_info');
-//
-//            if ($request->get('security_deposit_not_required') != 'on') {
-//                $venue->security_deposit = str_replace(',', '.', str_replace('.', '', $request->get('security_deposit')));
-//            }
-//
-//            if ($request->get('cancel_book_in_eventday') != 'on') {
-//                $venue->days_full_refund = $request->get('days_full_refund');
-//            }
-//
-//            $venue->cancellation_information = $request->get('cancellation_information');
-//
-//            DB::beginTransaction();
-//
-//            try {
-//                $venue->save();
-//
-//                $venue->eventTypes()->attach($request->get('event_types'));
-//                $venue->amenities()->attach($request->get('amenities'));
-//                $venue->rules()->attach($request->get('rules'));
-//                $venue->features()->attach($request->get('features'));
-//            } catch (\Exception $e) {
-//                DB::rollback();
-//                return redirect('user/share-venue')
-//                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-//                    ->withInput();
-//            }
-//
-//
-//            /**
-//             * Insert venue week availability.
-//             *
-//             */
-//            if ($request->get('availability') === 'Week') {
-//                $week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-//                $availability_insert = [];
-//                if ($request->get('week_availability') === 'All') {
-//                    foreach ($week as $day) {
-//                        $availability_insert[] = [
-//                            'venue_id' => $venue->id,
-//                            'day_week' => $day,
-//                            'time_from' => $request->get('week_from'),
-//                            'time_to' => $request->get('week_to'),
-//                            'created_at' => date('Y-m-d H:i:s')
-//                        ];
-//                    }
-//                } elseif ($request->get('week_availability') === 'Custom') {
-//                    foreach ($week as $day) {
-//                        if ($request->get('week_day_' . $day) === 'on') {
-//                            $availability_insert[] = [
-//                                'venue_id' => $venue->id,
-//                                'day_week' => $day,
-//                                'time_from' => $request->get($day . '_from'),
-//                                'time_to' => $request->get($day . '_to'),
-//                                'created_at' => date('Y-m-d H:i:s')
-//                            ];
-//                        }
-//                    }
-//                }
-//
-//                try {
-//                    DB::table('venue_availability')->insert($availability_insert);
-//                } catch (\Exception $e) {
-//                    DB::rollback();
-//                    return redirect('user/share-venue')
-//                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-//                        ->withInput();
-//                }
-//            }
-//
-//
-//            $images_insert = [];
-//            $coverImageSelected = false;
-//            foreach ($request->file('images') as $request_image) {
-//
-//                $image_name = $venue->url . '-' . str_random(6);
-//
-//                try {
-//                    Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
-//                } catch (\Exception $e) {
-//                    DB::rollback();
-//                    return redirect('user/share-venue')
-//                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-//                        ->withInput();
-//                }
-//
-//                $cover_on = 0;
-//                if($request_image->getClientOriginalName() == $request->get('cover_image') && !$coverImageSelected) {
-//                    $cover_on = 1;
-//                    $coverImageSelected = true;
-//                }
-//
-//                $images_insert[] = [
-//                    'venue_id' => $venue->id,
-//                    'image_url' => $image_name,
-//                    'cover_on' => $cover_on,
-//                    'created_at' => date('Y-m-d H:i:s')
-//                ];
-//            }
-//
-//            try {
-//                DB::table('venue_images')->insert($images_insert);
-//                DB::commit();
-//                return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
-//            } catch (\Exception $e) {
-//                DB::rollback();
-//                return redirect('user/share-venue')
-//                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-//                    ->withInput();
-//            }
+            $venue = new Venue();
+
+            $venue->name = $request->get('name');
+            $venue->user_id = Auth::user()->id;
+            $venue->url = $this->generateUrl($venue->name);
+
+            $venue->city_id = $request->get('city');
+            $venue->street_address = $request->get('street_address');
+            $venue->street_number = $request->get('street_number');
+            $venue->postal_code = $request->get('postal_code');
+            $venue->lat = $request->get('lat');
+            $venue->lng = $request->get('lng');
+
+            $venue->phone = $request->get('phone');
+            $venue->phone2 = $request->get('phone2');
+
+            $venue->webpage = $request->get('webpage');
+            $venue->facebook = $request->get('facebook');
+            $venue->instagram = $request->get('instagram');
+            $venue->tripadvisor = $request->get('tripadvisor');
+
+            $venue->description = $request->get('description');
+            $venue->full_description = $request->get('full_description');
+
+            $venue->venue_type_id = $request->get('venue_type');
+            $venue->venue_style_id = $request->get('venue_style');
+
+
+            $venue->area = $request->get('area');
+            $venue->room_number = $request->get('room_number');
+            $venue->restroom_number = $request->get('restroom_number');
+            $venue->max_guests_standing = $request->get('max_guests_standing');
+            $venue->max_guests_seating = $request->get('max_guests_seating');
+
+            $venue->additional_rules = $request->get('additional_rules');
+
+            $venue->availability_type = $request->get('availability');
+
+            if ($request->get('availability') === 'Week') {
+                $venue->week_availability = $request->get('week_availability');
+            }
+
+            $venue->price_hour = str_replace(',', '.', str_replace('.', '', $request->get('price_hour')));
+            $venue->price_day = str_replace(',', '.', str_replace('.', '', $request->get('price_day')));
+            $venue->min_hours = $request->get('min_hours');
+
+            if ($request->get('price_depends_on_weekday') === 'on') {
+                $venue->price_depends_on_weekday = true;
+            }
+
+            $venue->price_info = $request->get('price_info');
+
+            if ($request->get('security_deposit_not_required') != 'on') {
+                $venue->security_deposit = str_replace(',', '.', str_replace('.', '', $request->get('security_deposit')));
+            }
+
+            if ($request->get('cancel_book_in_eventday') != 'on') {
+                $venue->days_full_refund = $request->get('days_full_refund');
+            }
+
+            $venue->cancellation_information = $request->get('cancellation_information');
+
+            DB::beginTransaction();
+
+            try {
+                $venue->save();
+
+                $venue->eventTypes()->attach($request->get('event_types'));
+                $venue->amenities()->attach($request->get('amenities'));
+                $venue->rules()->attach($request->get('rules'));
+                $venue->features()->attach($request->get('features'));
+            } catch (\Exception $e) {
+                DB::rollback();
+                return redirect('user/share-venue')
+                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                    ->withInput();
+            }
+
+
+            /**
+             * Insert venue week availability.
+             *
+             */
+            if ($request->get('availability') === 'Week') {
+                $week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+                $availability_insert = [];
+                if ($request->get('week_availability') === 'All') {
+                    foreach ($week as $day) {
+                        $availability_insert[] = [
+                            'venue_id' => $venue->id,
+                            'day_week' => $day,
+                            'time_from' => $request->get('week_from'),
+                            'time_to' => $request->get('week_to'),
+                            'created_at' => date('Y-m-d H:i:s')
+                        ];
+                    }
+                } elseif ($request->get('week_availability') === 'Custom') {
+                    foreach ($week as $day) {
+                        if ($request->get('week_day_' . $day) === 'on') {
+                            $availability_insert[] = [
+                                'venue_id' => $venue->id,
+                                'day_week' => $day,
+                                'time_from' => $request->get($day . '_from'),
+                                'time_to' => $request->get($day . '_to'),
+                                'created_at' => date('Y-m-d H:i:s')
+                            ];
+                        }
+                    }
+                }
+
+                try {
+                    DB::table('venue_availability')->insert($availability_insert);
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/share-venue')
+                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                        ->withInput();
+                }
+            }
+
+
+            $images_insert = [];
+            $coverImageSelected = false;
+            foreach ($request->file('images') as $request_image) {
+
+                $image_name = $venue->url . '-' . str_random(6);
+
+                try {
+                    Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return redirect('user/share-venue')
+                        ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                        ->withInput();
+                }
+
+                $cover_on = 0;
+                if($request_image->getClientOriginalName() == $request->get('cover_image') && !$coverImageSelected) {
+                    $cover_on = 1;
+                    $coverImageSelected = true;
+                }
+
+                $images_insert[] = [
+                    'venue_id' => $venue->id,
+                    'image_url' => $image_name,
+                    'cover_on' => $cover_on,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+            }
+
+            try {
+                DB::table('venue_images')->insert($images_insert);
+                DB::commit();
+                //return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
+                return response()->json(['success'=>true,'url'=> route('listings') . '?share=ok']);
+            } catch (\Exception $e) {
+                DB::rollback();
+                return redirect('user/share-venue')
+                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                    ->withInput();
+            }
 
         }
 
