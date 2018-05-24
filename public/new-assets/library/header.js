@@ -571,7 +571,7 @@ var SQ = SQ || {};
 							SQ.hb.headerSection.eq(index + 1).addClass("ths-is-sticky");
 							SQ.hb.headerSection.eq(index + 2).addClass("ths-is-sticky");
 
-							if(!SQ.hb.stickyElement.hasClass('not-sticky')){
+							if(!($body.hasClass("device-xs"))){
 							SQ.hb.stickyElement.addClass("ths-is-sticky");}
 
 						}
