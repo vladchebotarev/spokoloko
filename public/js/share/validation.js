@@ -38,7 +38,7 @@ function validate() {
       values.unshift(result);
     }
     else {
-      $('.venue-form').submit();
+      // $('.venue-form').submit();
     }
   }
   console.log('Values:', values);
@@ -60,18 +60,18 @@ function displayWarning($array, bool) {
 
 function submitForm() {
   $('.active-block').find('.error').find('.list').find('li').empty();
-  if($('.active-block').find('.error').hasClass('hide')){
-    console.log('second removeClass');
-    $('.active-block').find('.error').removeClass('hide');
-  }
+  // if($('.active-block').find('.error').hasClass('hide')){
+  //   console.log('second removeClass');
+  //   $('.active-block').find('.error').removeClass('hide');
+  // }
   let data = Photo.fetchData();
   let messages = [];
   if (data.srcArray.length < 5 || data.srcArray.length > 10) {
     messages.push('Wybrałeś mniej niż 5 lub więcej niż 10 zdjęć.');
   }
   if (data.selected) {
-    if (data.selected.width < 1200 || data.selected.height < 750) {
-      messages.push('Zdjęcie główne musi mieć minimalne wymiary 1200 x 750.');
+    if (data.selected.width < 800 || data.selected.height < 750) {
+      messages.push('Zdjęcie główne musi mieć minimalne wymiary 800 x 750.');
     }
     else {
       $('#main_image').val(`${data.selected.name}`);
@@ -80,6 +80,7 @@ function submitForm() {
     messages.push('Zdjęcie główne nie zostało wybrane.');
   }
   if (messages.length !== 0) {
+    $('.active-block').find('.error').removeClass('hide');
     for (let i = 0; i < messages.length; ++i) {
       $('.active-block').find('.error').find('.list').append(`<li>${messages[ i ]}</li>`);
     }

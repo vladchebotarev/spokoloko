@@ -254,6 +254,7 @@
     <script src={{ asset('js/share/photoModel.js') }}></script>
     <script src={{ asset('js/share/validation.js') }}></script>
     <script src={{ asset('js/share/addPhotos.js') }}></script>
+    <script src={{ asset('js/share/sendData.js') }}></script>
 @endif
 
 @if(Request::is('user/update-venue/*'))
