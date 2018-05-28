@@ -4,18 +4,18 @@ function validate() {
   $('#setseven input:checkbox').first().parent().parent().parent().removeClass('warning');
   required = $('.active-block .req-check');
   let values = required.map(function() {
-    if (!$(this).val()) return $(this);
+    if(!$(this).val()) return $(this);
   }).get();
-  if ($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
-  else if ($('.active-block').find('#select_venue_type').length) {
+  if($('.active-block').find('#select_city').length && !$('.active-block').find('#select_city').val()) values.unshift($('.active-block').find('#select_city').parent());
+  else if($('.active-block').find('#select_venue_type').length) {
     let checkboxes = eventType();
-    if (checkboxes) values.unshift(checkboxes);
-    if (!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
-  } else if ($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
-  else if ($('.active-block').find('input:radio[name="availability"]').length) {
+    if(checkboxes) values.unshift(checkboxes);
+    if(!$('.active-block').find('#select_venue_type').val()) values.unshift($('.active-block').find('#select_venue_type').parent());
+  } else if($('.active-block').find('#select_venue_style').length && !$('.active-block').find('#select_venue_style').val()) values.unshift($('.active-block').find('#select_venue_style').parent());
+  else if($('.active-block').find('input:radio[name="availability"]').length) {
     values.unshift(...days());
     
-    if (!values.length) {
+    if(!values.length) {
       $('.next-sq').velocity({
         opacity: 0
       }, {
@@ -32,9 +32,9 @@ function validate() {
         display: 'flex'
       });
     }
-  } else if ($('.active-block').find('.photo-upload').length) {
+  } else if($('.active-block').find('.photo-upload').length) {
     let result = submitForm();
-    if (result) {
+    if(result) {
       values.unshift(result);
     }
     else {
@@ -42,13 +42,13 @@ function validate() {
     }
   }
   console.log('Values:', values);
-  if (values.length) return values;
+  if(values.length) return values;
   return true;
 }
 
 function displayWarning($array, bool) {
-  if (bool) {
-    for (let i = 0; i < $array.length; ++i) {
+  if(bool) {
+    for(let i = 0; i < $array.length; ++i) {
       $array[ i ].addClass('warning');
     }
   }
@@ -60,17 +60,19 @@ function displayWarning($array, bool) {
 
 function submitForm() {
   $('.active-block').find('.error').find('.list').find('li').empty();
-  // if($('.active-block').find('.error').hasClass('hide')){
-  //   console.log('second removeClass');
-  //   $('.active-block').find('.error').removeClass('hide');
-  // }
   let data = Photo.fetchData();
   let messages = [];
-  if (data.srcArray.length < 5 || data.srcArray.length > 10) {
+  for(let i = 0; i < data.srcArray.length; ++i) {
+    if(data.srcArray[ i ].size > 4) {
+      messages.push('Zdjęcia nie mogą przekraczać 4 MB.');
+      break;
+    }
+  }
+  if(data.srcArray.length < 5 || data.srcArray.length > 10) {
     messages.push('Wybrałeś mniej niż 5 lub więcej niż 10 zdjęć.');
   }
-  if (data.selected) {
-    if (data.selected.width < 800 || data.selected.height < 750) {
+  if(data.selected) {
+    if(data.selected.width < 800 || data.selected.height < 750) {
       messages.push('Zdjęcie główne musi mieć minimalne wymiary 800 x 750.');
     }
     else {
@@ -79,9 +81,9 @@ function submitForm() {
   } else {
     messages.push('Zdjęcie główne nie zostało wybrane.');
   }
-  if (messages.length !== 0) {
+  if(messages.length !== 0) {
     $('.active-block').find('.error').removeClass('hide');
-    for (let i = 0; i < messages.length; ++i) {
+    for(let i = 0; i < messages.length; ++i) {
       $('.active-block').find('.error').find('.list').append(`<li>${messages[ i ]}</li>`);
     }
     return $('.active-block .photo-upload');
@@ -91,10 +93,10 @@ function submitForm() {
 function eventType() {
   let types = $('.active-block input:checkbox:checked');
   let checked = [];
-  types.each(function(i ,el) {
+  types.each(function(i, el) {
     checked.push(parseInt($(el).val()));
   });
-  if (!checked.length) {
+  if(!checked.length) {
     return $('.active-block input:checkbox').first().parent().parent();
   }
 }
@@ -102,15 +104,15 @@ function eventType() {
 function days() {
   let array = [];
   let radio = $('input:radio:checked[name="availability"]');
-  if (radio.is('#timeweek')) {
+  if(radio.is('#timeweek')) {
     let hours = $('input:radio:checked[name="week_availability"]');
-    if (hours.is('#timeonce')) {
+    if(hours.is('#timeonce')) {
       $('#setonce .filter').addClass('req-check');
       $('#setseven input:checkbox:checked').parent().next().find('.filter').removeClass('req-check').val('');
       $('#setseven input:checkbox:checked').prop('checked', false);
     } else {
       $('#setonce .filter').removeClass('req-check').val('');
-      if ($('#setseven input:checkbox:checked').length) $('#setseven input:checkbox:checked').parent().next().find('.filter').addClass('req-check');
+      if($('#setseven input:checkbox:checked').length) $('#setseven input:checkbox:checked').parent().next().find('.filter').addClass('req-check');
       else array.push($('#setseven input:checkbox').first().parent().parent().parent());
     }
   } else {
@@ -119,7 +121,7 @@ function days() {
   }
   $('#setres input:not(:checkbox)').addClass('req-check');
   $('.active-block').find('.req-check').each(function(i, el) {
-    if (!$(el).val()) array.push($(el));
+    if(!$(el).val()) array.push($(el));
   });
   return array;
 }
@@ -139,7 +141,7 @@ $('#cancel_book_in_eventday').change(function() {
 function notRequired(checkbox) {
   let input = checkbox.parent().prev().find('input');
   let label = checkbox.parent().prev().find('label');
-  if (checkbox.is(':checked')) {
+  if(checkbox.is(':checked')) {
     input.removeClass('req-check').removeClass('warning');
     label.removeClass('required');
   } else {
