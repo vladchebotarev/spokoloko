@@ -20,6 +20,7 @@ class Photo {
         this.height = data.height;
       });
     }
+    photoArray.push(this);
   }
   
   readURL(input) {
@@ -82,7 +83,10 @@ class Photo {
   
   static fetchData() {
     let srcArray = [];
-    for(let i = 0; i < photoArray.length; ++i) srcArray.push(photoArray[ i ].src);
+    for(let i = 0; i < photoArray.length; ++i) srcArray.push({
+      src: photoArray[ i ].src,
+      size: photoArray[ i ].file.size / (1024 * 1024)
+    });
     return {
       srcArray,
       selected: Photo.selected()
@@ -91,7 +95,6 @@ class Photo {
 }
 
 Photo.prototype.addPhoto = function(fileUpload) {
-  photoArray.push(this);
   this.obj.find('.image-wrapper').css('opacity', '0');
   let container = fileUpload.parent().parent().parent().prepend(this.obj);
   this.obj.find('.image-wrapper').velocity({

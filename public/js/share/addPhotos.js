@@ -7,6 +7,7 @@ $('#file-upload').change(function() {
   };
   venueUrl = venueUrl.substring(venueUrl.indexOf('update-venue/') + 'update-venue/'.length, venueUrl.length);
   if(window.location.href.includes('update-venue/')) {
+    console.log('tererererere');
     update = true;
     let current = $('.photo-upload-item:not(#add-photo)').length;
     let sum = current + this.files.length;
@@ -30,7 +31,7 @@ $('#file-upload').change(function() {
             photo.selectPhoto();
             if(update) {
               let imageID = $(this).attr('id');
-              console.log('imageID',imageID);
+              console.log('imageID', imageID);
               $.ajax({
                 url: `/user/update-venue/${venueUrl}/cover-image/${imageID}`,
                 type: 'GET',
@@ -44,7 +45,7 @@ $('#file-upload').change(function() {
             photo.removePhoto(event);
             if(update) {
               let imageID = $(this).attr('id');
-              console.log('imageID',imageID);
+              console.log('imageID', imageID);
               $.ajax({
                 headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -69,7 +70,7 @@ $('#file-upload').change(function() {
           check = true;
       }
     }
-    if(update){
+    if(update) {
       $.ajax({
         headers: {
           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -77,6 +78,8 @@ $('#file-upload').change(function() {
         url: `/user/update-venue/${venueUrl}/images`,
         type: 'POST',
         data: fileList,
+        processData: false,
+        contentType: false,
         success(res) {
           console.log('POST', res);
           console.log(this.data);
