@@ -10,18 +10,22 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/base.css') }}>
+{{--    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/base.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/header.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/less/theme.css') }}>
-    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">--}}
+
+    <link rel="stylesheet" type="text/css" href={{ asset('css/main.css') }}>
+
+    <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
+
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/message.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/popup.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/labeled.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/transition.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/rating.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/rating.css') }}">--}}
 
     @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
@@ -30,7 +34,7 @@
 
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
-    <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
+
 
 
     <title>Spokoloko @yield('title')</title>
@@ -123,30 +127,24 @@
     @endif
 </div><!--end #page-wrapper-->
 <script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>
+{{--<script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
+
 <script src={{ asset('new-assets/library/flexmenu.js') }}></script>
-<script src={{ asset('new-assets/library/nouislider.min.js') }}></script>
-
 <script src={{ asset('new-assets/library/wNumb.js') }}></script>
-
 <script src={{ asset('new-assets/library/jrespond.min.js') }}></script>
 <script src={{ asset('new-assets/library/scrollspy.min.js') }}></script>
-
 <script src={{ asset('js/transition.js') }}></script>
-
+<script src={{ asset('new-assets/library/nouislider.min.js') }}></script>
 <script src={{ asset('new-assets/library/visibility.js') }}></script>
-
 <script src={{ asset('new-assets/library/accordion.js') }}></script>
 <script src={{ asset('new-assets/library/dropdown-custom.js') }}></script>
 <script src={{ asset('new-assets/library/sticky.js') }}></script>
-
 <script src={{ asset('new-assets/library/page-transition.js') }}></script>
 <script src={{ asset('new-assets/library/checkbox.js') }}></script>
 <script src={{ asset('new-assets/library/transition.js') }}></script>
 <script src={{ asset('new-assets/library/sidebar.js') }}></script>
-
 <script src={{ asset('new-assets/library/modal.js') }}></script>
 <script src={{ asset('new-assets/library/dimmer.js') }}></script>
-
 <!-- Datepicker -->
 <script src={{ asset('new-assets/library/popup.js') }}></script>
 <script src={{ asset('new-assets/library/calendar.js') }}></script>
@@ -161,7 +159,9 @@
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 <script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
 <script src={{ asset('js/facebook_messenger.js') }}></script>
-<script src={{ asset('js/semantic-ui/message.js') }}></script>
+<script src={{ asset('js/semantic-ui/message.js') }}></script>--}}
+
+<script src={{ asset('js/main.js') }}></script>
 
 @if(Request::is('/'))
     <script src={{ asset('js/welcome.js') }}></script>

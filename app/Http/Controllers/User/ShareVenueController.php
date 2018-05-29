@@ -235,9 +235,11 @@ class ShareVenueController extends Controller
                 $venue->features()->attach($request->get('features'));
             } catch (\Exception $e) {
                 DB::rollback();
-                return redirect('user/share-venue')
+                return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+
+                /*return redirect('user/share-venue')
                     ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                    ->withInput();
+                    ->withInput();*/
             }
 
 
@@ -276,9 +278,10 @@ class ShareVenueController extends Controller
                     DB::table('venue_availability')->insert($availability_insert);
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect('user/share-venue')
+                    return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+                    /*return redirect('user/share-venue')
                         ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                        ->withInput();
+                        ->withInput();*/
                 }
             }
 
@@ -293,9 +296,11 @@ class ShareVenueController extends Controller
                     Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return redirect('user/share-venue')
+                    return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+
+                    /*return redirect('user/share-venue')
                         ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                        ->withInput();
+                        ->withInput();*/
                 }
 
                 $cover_on = 0;
@@ -319,9 +324,11 @@ class ShareVenueController extends Controller
                 return response()->json(['success'=>true,'url'=> route('listings') . '?share=ok']);
             } catch (\Exception $e) {
                 DB::rollback();
-                return redirect('user/share-venue')
+                return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+
+                /*return redirect('user/share-venue')
                     ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                    ->withInput();
+                    ->withInput();*/
             }
 
         }
