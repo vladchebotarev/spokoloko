@@ -19,12 +19,12 @@ Default Header with a White Background & Dark text.
             <div class="header-item header-left flex-order-tablet-second flex-order-mobile-second flex-grow-tablet-true flex-grow-mobile-true">
 
                 <a href="{{ url('/') }}" class="logo item">
-                    <img src="{{ asset('new-assets/images/logo-mybnb-transparent.png') }}"
-                         srcset="{{ asset('new-assets/images/logo-mybnb-transparent.png') }} 1x, {{ asset('new-assets/images/logo-mybnb-transparent@2x.png') }} 2x"
+                    <img src="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png"
+                         srcset="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png 1x, https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent_2x.png 2x"
                          alt="mybnb logo" class="logo-transparent">
 
-                    <img src="{{ asset('new-assets/images/logo-mybnb.png') }}"
-                         srcset="{{ asset('new-assets/images/logo-mybnb.png') }} 1x, {{ asset('new-assets/images/logo-mybnb@2x.png') }} 2x"
+                    <img src="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko.png"
+                         srcset="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko.png 1x, https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko_2x.png 2x"
                          alt="mybnb logo">
                 </a>
 
