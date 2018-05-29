@@ -16,7 +16,8 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/my_styles.css') }}>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/loader.min.css') }}">--}}
 
-    <link rel="stylesheet" type="text/css" href={{ asset('css/main.css') }}>
+    {{--<link rel="stylesheet" type="text/css" href={{ asset('css/main.css') }}>--}}
+    <link rel="stylesheet" type="text/css" href='https://cf.spokoloko.club/css/main.css'>
 
     <link rel="stylesheet" type="text/css" href={{ asset('new-assets/icon/style.css') }}>
     <link rel="stylesheet" type="text/css" href={{ asset('icon/css/font-awesome.min.css') }}>
@@ -126,7 +127,9 @@
         @endcomponent
     @endif
 </div><!--end #page-wrapper-->
-<script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>
+{{--<script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>--}}
+<script src='https://cf.spokoloko.club/new-assets/library/jquery-2.2.0.min.js'></script>
+
 {{--<script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 
 <script src={{ asset('new-assets/library/flexmenu.js') }}></script>
@@ -161,7 +164,8 @@
 <script src={{ asset('js/facebook_messenger.js') }}></script>
 <script src={{ asset('js/semantic-ui/message.js') }}></script>--}}
 
-<script src={{ asset('js/main.js') }}></script>
+{{--<script src={{ asset('js/main.js') }}></script>--}}
+<script src='https://cf.spokoloko.club/js/main.js'></script>
 
 @if(Request::is('/'))
     <script src={{ asset('js/welcome.js') }}></script>
