@@ -6,7 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
+//use Illuminate\Foundation\Auth\RegistersUsers;
+use Bestmomo\LaravelEmailConfirmation\Traits\RegistersUsers;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user/profile';
 
     /**
      * Create a new controller instance.
@@ -51,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
         ]);
     }
 
@@ -63,10 +65,25 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = new User();
+        $user->first_name = $data['name'];
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+
+        DB::beginTransaction();
+        try {
+            $user->save();
+            $user->notifications()->sync([1]);
+            DB::commit();
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollback();
+        }
+
+        /*return User::create([
+            'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-        ]);
+        ]);*/
     }
 }

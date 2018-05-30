@@ -120,4 +120,10 @@ return [
         ],
     ],
 
+
+    'mailgun' => [
+        'domain' => env('MAILGUN_DOMAIN', 587),
+        'secret' => env('MAILGUN_SECRET', 587),
+    ],
+
 ];
