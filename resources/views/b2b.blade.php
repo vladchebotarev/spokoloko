@@ -16,7 +16,7 @@
                                 Zarządzaj swoim profilem, promuj się, a resztę zostaw nam.</p>
 
 
-                            <a href="{{url('useshare')}}" class="button-sq see-through-sq" > Zarejestruj Się </a>
+                            <a href="{{url('user/share')}}" class="button-sq see-through-sq" > Zarejestruj Się </a>
                         </div>
 
                     </div>

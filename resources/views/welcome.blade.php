@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Spokoloko - Znajdż Miejsce na Każde Wydarzenie')
-@section('description','Rezerwuj Sale i Lokale na Twoje Wydarzenie. Za pomocą serwisu znajdziesz Sale Konferencyjne, Weselne, Imprezowe i inne. Przegadaj ceny, menu i kontaktuj się w prosty spos&oacute;b. Zorganizuj swoje wydarzenie razem ze Spokoloko.')
+@section('description','Rezerwuj Sale i Lokale na Twoje Wydarzenie. Za pomocą serwisu znajdziesz Sale Konferencyjne, Weselne, Imprezowe i inne. Przegadaj ceny, menu i kontaktuj się w prosty sposób. Zorganizuj swoje wydarzenie razem ze Spokoloko.')
 
 @section('content')
 
@@ -572,7 +572,7 @@
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->
@@ -588,15 +588,16 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="{{url('venues/Warszawa')}}" class="typo-sq">
+                                    <a href="#" class="typo-sq">
                                         <p class="typo-title-sq">Warszawa</p>
+                                        <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
 
                                 </div>
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->
@@ -612,15 +613,16 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="{{url('venues/Wroclaw')}}" class="typo-sq">
+                                    <a href="#" class="typo-sq">
                                         <p class="typo-title-sq">Wroclaw</p>
+                                        <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
 
                                 </div>
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->
@@ -636,15 +638,16 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="{{url('venues/Gdansk')}}" class="typo-sq">
+                                    <a href="#" class="typo-sq">
                                         <p class="typo-title-sq">Gdańsk</p>
+                                        <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
 
                                 </div>
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->
@@ -660,15 +663,16 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="{{url('venues/Katowice')}}" class="typo-sq">
+                                    <a href="#" class="typo-sq">
                                         <p class="typo-title-sq">Katowice</p>
+                                        <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
 
                                 </div>
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->
@@ -684,15 +688,16 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="{{url('venues/Poznan')}}" class="typo-sq">
+                                    <a href="#" class="typo-sq">
                                         <p class="typo-title-sq">Poznań</p>
+                                        <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
 
                                 </div>
                             </div>
 
                             <!-- item-->
-                            <div class="item">
+                            <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
 
                                     <!-- image container -->

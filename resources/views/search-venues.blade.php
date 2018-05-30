@@ -30,7 +30,7 @@
                                     <div class="field item">
                                         <input type="hidden" name="city" id="city" lat="{{ $current_city->lat }}"
                                                lng="{{ $current_city->lng }}" disabled>
-                                        <select class="ui search dropdown" id="select_city">
+                                        <select class="ui search dropdown" disabled id="select_city">
                                             <option value="">Miasto</option>
                                             @foreach ($cities as $city)
                                                 <option value="{{ $city->name }}"
