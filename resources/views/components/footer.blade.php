@@ -42,8 +42,8 @@
             <div class="row">
                 <div class="ui twelve wide mobile eight wide computer column">
                     <a href="" class="footer-logo">
-                        <img src="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png"
-                             srcset="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png 1x, https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent_2x.png 2x"
+                        <img src="https://res.cloudinary.com/spokoloko/image/upload/q_auto/v1527606382/app/img/logo-spokoloko-transparent.png"
+                             srcset="https://res.cloudinary.com/spokoloko/image/upload/q_auto/v1527606382/app/img/logo-spokoloko-transparent.png 1x, https://res.cloudinary.com/spokoloko/image/upload/q_auto/v1527606382/app/img/logo-spokoloko-transparent_2x.png 2x"
                              alt="Spokoloko logo">
                         © 2017-2018 Spokoloko                   </a>
                 </div>

@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Venue')
+@section('title', $venue->name .' - Rezerwacja na Twoje Wydarzenie - Spokoloko')
+@section('description','Rezerwuj '.$venue->name .', '.$venue_city.' od '.number_format($venue->price_hour*$venue->min_hours, 0, '', '').' zł. Zobacz ceny, opinia, zdjęcia, menu. Zapłanuj twoje wydarzenie ze Spokoloko.')
+@section('ogimage','https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_1190,h_623/v1/venues/'.$venue->url.'/'.$venue_cover_image)
 
 @section('content')
     <!--BASIC LAYOUT-->
@@ -729,7 +731,7 @@
                                 <div>
                                     <div class="caption-content">
                                         <img class="lazy slick-img"
-                                             data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                             data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                              alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
