@@ -26,7 +26,7 @@
             <!-- picture -->
             <div class="image-wrapper">
                 <div class="image-inner">
-                    <img class="image-sq" data-src="new-assets/images/promo_section/promo_section_03.jpg" alt="">
+                    <img class="image-sq" src="new-assets/images/promo_section/promo_section_03.jpg" alt="">
                 </div>
             </div>
         </div>

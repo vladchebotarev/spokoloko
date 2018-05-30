@@ -12,14 +12,14 @@
                 <div class="search-item">
                     <div class="fltp">
                         {{--<input type="text" value="" required>--}}
-                        <select class="ui search dropdown" id="select_city" required onclick="$(this).attr('value','');">
-                            <option value="Warszawa">Warszawa</option>
+                        <select class="ui search dropdown" id="select_city" required disabled onclick="$(this).attr('value','');">
+                            <option value="Kraków">Kraków</option>
                             @foreach ($cities as $city)
                                 <option value="{{ $city->name }}">{{ $city->name }}</option>
                             @endforeach
                         </select>
 
-                        <label class="placeholder" data-big-placeholder="Miasto"
+                        <label class="placeholder" data-big-placeholder="Kraków"
                                data-little-placeholder="np: Impreza Zamknięta"></label>
                     </div>
                 </div>

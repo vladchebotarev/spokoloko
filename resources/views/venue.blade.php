@@ -803,7 +803,7 @@
     </div>
 
 
-        <div class="ui grid container stackable app layout right side">
+       {{-- <div class="ui grid container stackable app layout right side">
             <div class="stretched row">
                 <div class="ui column main-column" role="main">
                     <div class="section-container" id="section-04">
@@ -980,7 +980,7 @@
 
                 <div class="ui column side-column"></div>
             </div>
-        </div>
+        </div> --}}
 
 
 
