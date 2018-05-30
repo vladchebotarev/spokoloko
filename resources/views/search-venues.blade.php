@@ -419,7 +419,7 @@
                                                     <span class="image-inner">
                                                         <img class="lazy"
                                                              data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue->image_url}}"
-                                                             src="http://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
+                                                             src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                              alt="" class="" style="height: 100%">
                                                     </span>
                                                 </span>
