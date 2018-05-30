@@ -4,7 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 
+/**
+ * Class User
+ * @package App
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password', 'provider', 'provider_id', 'confirmed'
     ];
 
     /**
@@ -26,4 +31,46 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the venue wish list.
+     *
+     * @return array
+     */
+    public function venueWishList()
+    {
+        return DB::table('venue_wishlist')->where('user_id', $this->id)->pluck('venue_id')->toArray();
+    }
+
+    /**
+     * Get the notifications for the user.
+     */
+    public function notifications()
+    {
+        return $this->belongsToMany('App\Notification', 'user_notifications', 'user_id', 'notification_id');
+    }
+
+    /**
+     * Get the venues for the user.
+     */
+    public function venues()
+    {
+        return $this->hasMany('App\Venue');
+    }
+
+    /**
+     * Get the businesses for the user.
+     */
+    public function businesses()
+    {
+        return $this->hasMany('App\Service');
+    }
+
+    /**
+     * Get the sessions for the user.
+     */
+    public function sessions()
+    {
+        return $this->hasMany('App\Session');
+    }
 }
