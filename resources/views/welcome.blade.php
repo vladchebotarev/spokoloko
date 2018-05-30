@@ -571,6 +571,8 @@
                                 </div>
                             </div>
 
+
+
                             <!-- item-->
                             <div class="item" style="opacity: 0.6;">
                                 <div class="item-inner">
@@ -588,7 +590,7 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="#" class="typo-sq">
+                                    <a class="typo-sq">
                                         <p class="typo-title-sq">Warszawa</p>
                                         <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
@@ -613,7 +615,7 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="#" class="typo-sq">
+                                    <a class="typo-sq">
                                         <p class="typo-title-sq">Wroclaw</p>
                                         <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
@@ -638,7 +640,7 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="#" class="typo-sq">
+                                    <a class="typo-sq">
                                         <p class="typo-title-sq">Gdańsk</p>
                                         <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
@@ -663,7 +665,7 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="#" class="typo-sq">
+                                    <a class="typo-sq">
                                         <p class="typo-title-sq">Katowice</p>
                                         <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>
@@ -688,7 +690,7 @@
                                     </div>
 
                                     <!-- typography container-->
-                                    <a href="#" class="typo-sq">
+                                    <a class="typo-sq">
                                         <p class="typo-title-sq">Poznań</p>
                                         <p style="padding-top: 10px;">Wkrótce</p>
                                     </a>

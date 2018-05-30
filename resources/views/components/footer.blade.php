@@ -42,16 +42,17 @@
             <div class="row">
                 <div class="ui twelve wide mobile eight wide computer column">
                     <a href="" class="footer-logo">
-                        <img src="{{ asset('new-assets/images/logo-mybnb-transparent.png') }}" srcset="{{ asset('new-assets/images/logo-mybnb-transparent.png') }} 1x, {{ asset('new-assets/images/logo-mybnb-transparent@2x.png') }} 2x" alt="mybnb logo" >
+                        <img src="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png"
+                             srcset="https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent.png 1x, https://res.cloudinary.com/spokoloko/image/upload/v1527606382/app/img/logo-spokoloko-transparent_2x.png 2x"
+                             alt="Spokoloko logo">
                         © 2017-2018 Spokoloko                   </a>
                 </div>
                 <div class="ui twelve wide mobile four wide computer column">
                     <ul class="social-links-sq list-style-inline-sq list-default-sq">
-                        <li><a href="https://www.facebook.com/spokolokoeu/" class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
+                        <li><a href="https://www.facebook.com/spokoloko.club/" class="fb"><i class="icon icon-logo-facebook2"></i></a></li>
 
                         <li><a href="https://twitter.com/spokoloko_eu" class="tw"><i class="icon icon-logo-twitter-bird2"></i></a></li>
 
-                        <li><a href="" class="gp"><i class="icon icon-logo-circle-google-plus-22"></i></a></li>
                     </ul>
                 </div>
             </div>

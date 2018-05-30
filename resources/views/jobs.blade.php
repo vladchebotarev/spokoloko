@@ -133,7 +133,12 @@
                 </div>
 
 
-
+                <div class="become-dashboard-inner">
+                    <h3 style="padding-bottom: 20px">Zwiększaj uznawalność</h3>
+                    <p>Spokoloko to pierwszy portal w Polsce poswiecony organizatoram i organizacj eventów. Znajdując pokazujesz że jesteś czlonkiem naszej ekipy. </p>
+                    <p>Średnio twoją ofertę zauwarzy 10.000 odbiorców miesięcznie. </p>
+                    <p>Każda oferta w naszym serwisie uczestniczy w kompanii marketingowej SMM/SEO co pozytywnie wpływa na uznowalność brandu na rynkie </p>
+                </div>
 
 
 
