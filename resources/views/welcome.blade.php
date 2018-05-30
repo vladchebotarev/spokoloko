@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'Spokoloko - Znajdż Miejsce na Każde Wydarzenie')
+@section('description','Rezerwuj Sale i Lokale na Twoje Wydarzenie. Za pomocą serwisu znajdziesz Sale Konferencyjne, Weselne, Imprezowe i inne. Przegadaj ceny, menu i kontaktuj się w prosty spos&oacute;b. Zorganizuj swoje wydarzenie razem ze Spokoloko.')
+
 @section('content')
 
     <!-- Hero Full Page -->
@@ -70,11 +73,11 @@
 
                 <div class="image-wrapper">
                     <div class="image-inner">
-                        <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_360/a_0/v1526054140/app/img/hero_big_28.jpg"
+                        <img class="image-sq" src="https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/q_auto,c_fill,w_360/a_0/v1526054140/app/img/hero_big_28.jpg"
                                           srcset="
-                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_480/a_0/v1526054140/app/img/hero_big_28.jpg 480w,
-                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/c_fill,w_750/a_0/v1526054140/app/img/hero_big_28.jpg 768w,
-                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/a_0/v1526054140/app/img/hero_big_28.jpg 1000w"
+                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/q_auto,c_fill,w_480/a_0/v1526054140/app/img/hero_big_28.jpg 480w,
+                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/q_auto,c_fill,w_750/a_0/v1526054140/app/img/hero_big_28.jpg 768w,
+                                                        https://res.cloudinary.com/spokoloko/image/upload/s--T8JJP3ts--/q_auto/a_0/v1526054140/app/img/hero_big_28.jpg 1000w"
                                           alt="asdasd" />
 
 
@@ -110,7 +113,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/club.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/club.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -137,7 +140,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/wed.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/wed.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -165,7 +168,7 @@
                                         <div class="image-wrapper">
                                             <div class="image-inner">
 
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/conference.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/conference.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -192,7 +195,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/restaurant.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/restaurant.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -219,7 +222,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/magic_grid_photo_01.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/magic_grid_photo_01.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -247,7 +250,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526466580/app/img/concert.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526466580/app/img/concert.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -274,7 +277,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/meet.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/meet.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -551,7 +554,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/krakow.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/krakow.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -576,7 +579,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/warszawa.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/warszawa.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -600,7 +603,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/wroclaw.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/wroclaw.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -624,7 +627,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/gdansk.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/gdansk.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -648,7 +651,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/katowice.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/katowice.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -672,7 +675,7 @@
                                     <div class="image-sq">
                                         <div class="image-wrapper">
                                             <div class="image-inner">
-                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/w_360,h_360/v1526482291/app/img/poznan.jpg"
+                                                <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_360,h_360/v1526482291/app/img/poznan.jpg"
                                                      src="https://res.cloudinary.com/spokoloko/image/upload/c_scale,w_100/v1526490381/app/img/loading.jpg"
                                                      alt="photo"
                                                 />
@@ -1115,10 +1118,13 @@
                     <div class="image-inner">
 
 
-                        <img class="image-sq" data-src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1526493029/app/img/promo_section_01.jpg"
-                             srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1526493029/app/img/promo_section_01.jpg 480w,
-                                                        https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1526493029/app/img/promo_section_01.jpg 768w,
-                                                        https://res.cloudinary.com/spokoloko/image/upload/v1526493029/app/img/promo_section_01.jpg 1000w"
+                        <img class="image-sq big-image-sq"
+                             src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_480/v1526493029/app/img/promo_section_01.jpg"
+                             data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_480/v1526493029/app/img/promo_section_01.jpg"
+                             data-srcset="https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_480/v1526493029/app/img/promo_section_01.jpg 320w,
+                                            https://res.cloudinary.com/spokoloko/image/upload/q_auto,w_720/v1526493029/app/img/promo_section_01.jpg 480w,
+                                             https://res.cloudinary.com/spokoloko/image/upload/q_auto/v1526493029/app/img/promo_section_01.jpg 720w
+                            "
                              alt="asdasd" />
 
                     </div>

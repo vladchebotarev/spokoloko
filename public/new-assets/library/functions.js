@@ -616,9 +616,31 @@ var SQ = SQ || {};
                     var nvalue = 360;
 
 
+                    if (element.hasClass("big-image-sq")) {
+
+                        ewidth=$(window).width();
+
+                        if(ewidth>360){
+                            nvalue=480;
+                            if(ewidth>480){
+                                nvalue=768;
+
+                                if(ewidth>768){
+                                    nvalue=1200;
+                                }
+                            }
+
+                        }
+                        var newurl = oldurl.replace('w_360', 'w_' + nvalue);
+                        console.log(newurl);
+                        element.attr('data-src', newurl);
 
 
-                    if (ewidth > 360 || eheight > 360) {
+
+
+                    }
+
+                    else if (ewidth > 360 || eheight > 360) {
                         nvalue = 480;
                         if (ewidth > 480 || eheight > 480) {
                             nvalue = 600;
@@ -637,20 +659,7 @@ var SQ = SQ || {};
                         }
                     }
 
-                    if (element.hasClass("big-image-sq")) {
-                        if(ewidth>360){
-                            nvalue=480;
-                            if(ewidth>480){
-                                nvalue=768;
-                                    if(ewidth>768){
-                                        nvalue=1200;
-                                    }
-                                }
-                            }
-                        var newurl = oldurl.replace('w_360', 'w_' + nvalue);
-                        newurl = newurl.replace('h_360', 'h_' + nvalue);
-                        element.attr('data-src', newurl);
-                        }
+
 
 
                     console.log(element.attr('data-src'));
@@ -666,6 +675,7 @@ var SQ = SQ || {};
                 effect: 'fadeIn',
                 visibleOnly: true,
                 afterLoad: function (element) {
+
 
 
                 },

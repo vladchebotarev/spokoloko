@@ -36,9 +36,21 @@
     <link rel="icon" href={{ asset('favicon.ico') }}>
 
 
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
 
-
-    <title>Spokoloko @yield('title')</title>
+    <meta property="og:image" content="
+              @if(View::hasSection('ogimage'))
+                @yield('ogimage')
+                @else
+            https://res.cloudinary.com/spokoloko/image/upload/v1527650330/app/icons/og-image.jpg
+                @endif
+            ">
+    <meta property="og:image:width" content="1190">
+    <meta property="og:image:height" content="623">
+    <meta property="og:description" content="@yield('description')">
+    <meta property="og:title" content="@yield('title')">
+    <meta property="og:url" content="{{url()->current()}}">
 
 </head>
 <body class="no-transition"
