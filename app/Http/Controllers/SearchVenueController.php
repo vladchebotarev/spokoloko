@@ -32,6 +32,7 @@ class SearchVenueController extends Controller
             $venues_query = "SELECT DISTINCT v.id, v.name, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
+                                    AND v.verified = 1
                                     AND v.price_hour*v.min_hours >= '$min_price'
                                     AND v.price_hour*v.min_hours <= '$max_price'
                                     AND vi.cover_on = 1";
@@ -194,6 +195,7 @@ class SearchVenueController extends Controller
             $venues_query = "SELECT DISTINCT v.name, v.lat, v.lng, v.url, vt.name as venue_type, v.street_address, v.street_number, v.price_hour*v.min_hours as min_price, v.min_hours, v.area, v.max_guests, vi.image_url FROM sl_venues v LEFT JOIN sl_venue_images vi ON (v.id = vi.venue_id) LEFT JOIN sl_venuetypes vt ON (v.venue_type_id=vt.id)";
 
             $venues_query_cond = " WHERE v.city_id=$city->id
+                                    AND v.verified = 1
                                     AND v.price_hour*v.min_hours >= '$min_price'
                                     AND v.price_hour*v.min_hours <= '$max_price'
                                     AND vi.cover_on = 1";
