@@ -86,9 +86,10 @@ $grey: #AAAAAA;
   padding-bottom: 30px;
 }
 
-.selected {
-  box-shadow: 0 0 0 3px #fff, 0 0 0 6px $orange !important;
-}
+//.selected {
+//  box-shadow: 0 0 0 3px #fff, 0 0 0 6px $orange !important;
+//}
+
 .photo-upload {
   & > div {
     justify-content: space-around;

@@ -1,9 +1,7 @@
 {
-	"version": 3,
-	"file": "validation.min.css",
-	"sources": [
-		"validation.scss"
-	],
-	"names": [],
-	"mappings": "2EAAA,AACE,SADO,AACP,OAAQ,AAAA,CACN,OAAO,CAAE,GAAG,CACZ,KAAK,CAAE,OAAO,CACd,WAAW,CAAE,EAAE,CACf,SAAS,CAAE,MAAM,CACjB,WAAW,CAAE,sDAAsD,CACpE,4EAGH,AAAA,QAAQ,AAAC,CACP,UAAU,CAAE,4CAA4C,CACzD,4EAED,AAAA,UAAU,CAAE,AAAA,WAAW,AAAC,CACtB,UAAU,CAAE,gCAAgC,CAC7C"
+"version": 3,
+"mappings": "AACE,gBAAQ,CACN,OAAO,CAAE,GAAG,CACZ,KAAK,CAAE,OAAO,CACd,WAAW,CAAE,EAAE,CACf,SAAS,CAAE,MAAM,CACjB,WAAW,CAAE,sDAAsD,CAIvE,QAAS,CAEP,MAAM,CAAE,4BAA4B,CAGtC,sBAAwB,CAEtB,UAAU,CAAE,4BAA4B",
+"sources": ["validation.scss"],
+"names": [],
+"file": "validation.min.css"
 }

@@ -1,3 +1,2 @@
-/* line 2, git/spokoloko-repo/public/css/scss/validation/validation.scss */.required::after{content:"*";color:#c93710;margin-left:1%;font-size:1.3rem;font-family:'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif}/* line 11, git/spokoloko-repo/public/css/scss/validation/validation.scss */.warning{border: 1px solid #ff0000 !important;}/* line 15, git/spokoloko-repo/public/css/scss/validation/validation.scss */.req-check,.req-select{transition:border 400ms ease !important}
-
+.required::after{content:"*";color:#c93710;margin-left:1%;font-size:1.3rem;font-family:'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif}.warning{border:1px solid #ff0000 !important}.req-check,.req-select{transition:border 400ms ease !important}
 /*# sourceMappingURL=validation.min.css.map */

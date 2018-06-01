@@ -129,6 +129,13 @@ $('.add-listing-footer .prev-btn').click(function() {
 $('.add-listing-footer .button-submit').click(function(e) {
   e.stopImmediatePropagation();
   let unfilled = validate();
-  if(unfilled === true) /*goToNext(true);*/ sendData();
+  if(unfilled === true) /*goToNext(true);*/ {
+    let prices = $('input').filter('[data-mask="#.##0,00"]');
+    prices.each(function(i, el) {
+      let price = $(el).val();
+      if(price.length < 3) $(el).val(`${price},00`);
+    });
+    sendData();
+  }
   else displayWarning([ $('.active-block').find('.error') ], false);
 });
