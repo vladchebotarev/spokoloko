@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@spokoloko.club'),
+        'name' => env('MAIL_FROM_NAME', 'Spokoloko'),
     ],
 
     /*
@@ -126,4 +126,9 @@ return [
         'secret' => env('MAILGUN_SECRET', 587),
     ],
 
+    'ses' => [
+        'key' => env('AWS_ACCESS_KEY_ID'),
+        'secret' => env('AWS_SECRET_ACCESS_KEY'),
+        'region' => 'eu-west-1',
+    ],
 ];

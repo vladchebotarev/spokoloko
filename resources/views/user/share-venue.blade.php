@@ -604,7 +604,7 @@
                             </div>
 
                             <div class="divided-column">
-                                <label class="required">Minimalna ilość godżin</label>
+                                <label class="required">Minimalna liczba godzin</label>
                                 <input type="text" class="req-check {{ $errors->has('min_hours') ? 'warning' : '' }}"
                                        name="min_hours" placeholder="" data-mask="0#" maxlength="2"
                                        value="{{ old('min_hours') }}">
