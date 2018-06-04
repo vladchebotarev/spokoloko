@@ -618,6 +618,8 @@ var SQ = SQ || {};
 
                     if (element.hasClass("big-image-sq")) {
 
+
+
                         ewidth=$(window).width();
 
                         if(ewidth>360){

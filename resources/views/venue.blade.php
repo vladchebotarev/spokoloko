@@ -9,13 +9,13 @@
 
     <div class="property-section-default">
 
-        <div class="image-wrapper">
+        <div class="image-wrapper" onclick="location.href='#section-02';">
             <div class="image-inner">
                 <img class="image-sq slick-img"
-                     src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
-                     srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
-                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
-                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w
+                     src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
+                     srcset="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
+                            https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
+                            https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w
                      "
                      alt="{{ $venue->name }}"
                      data-gallery="gallery"
@@ -335,7 +335,7 @@
 
                         <p>
                             {{ $venue->description }}
-                            <a href="#section-cena">Więcej</a>
+                            <a href="#section-02">Więcej</a>
                         </p>
 
                         <div class="button-sq small-sq see-through-sq">
@@ -730,9 +730,10 @@
                             @for($n = 0; $n < count($venue_images); $n++)
                                 <div>
                                     <div class="caption-content">
-                                        <img class="lazy slick-img"
+                                        <img class="slick-img"
                                              data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
-                                             alt="" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
+                                             data-lazy="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
+                                             alt="{{$venue->url}} {{$n+1}}" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
                             @endfor
