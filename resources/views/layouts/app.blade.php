@@ -143,7 +143,7 @@
 </div><!--end #page-wrapper-->
 {{--<script src={{ asset('new-assets/library/jquery-2.2.0.min.js') }}></script>--}}
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
-{{--
+
 <script src={{ asset('new-assets/library/modernizr-custom.js') }}></script>
 
 <script src={{ asset('new-assets/library/flexmenu.js') }}></script>
@@ -176,10 +176,10 @@
 <script src={{ asset('new-assets/library/functions.js') }}></script>
 <script src={{ asset('js/semantic-ui/dimmer.js') }}></script>
 <script src={{ asset('js/facebook_messenger.js') }}></script>
-<script src={{ asset('js/semantic-ui/message.js') }}></script>--}}
+<script src={{ asset('js/semantic-ui/message.js') }}></script>
 
-{{--<script src={{ asset('js/main.js') }}></script>--}}
-<script src='https://src.spokoloko.club/js/main.js'></script>
+{{--<script src={{ asset('js/main.js') }}></script>
+<script src='https://src.spokoloko.club/js/main.js'></script>--}}
 
 
 @if(Request::is('/'))

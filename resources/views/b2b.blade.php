@@ -288,4 +288,9 @@
 --}}
         </div>
     </div>
+    <div class="fb-customerchat"
+         logged_in_greeting="Potrzebujesz pomocy? Napisz do nas!"
+         logged_out_greeting="Potrzebujesz pomocy? Zaloguj się i napisz do nas!"
+         theme_color="#f57C00" page_id="451368201896328">
+    </div>
 @endsection
