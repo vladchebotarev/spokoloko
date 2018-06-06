@@ -21,10 +21,6 @@ class WelcomeController extends Controller
             'eventTypes' => $eventTypes,
         );
 
-        //return view('welcome', $data);
-        $venue = Venue::find(5);
-        Mail::to($venue->user)
-            ->queue(new \App\Mail\VenueBookRequestOwner($venue, $venue->user, '123456'));
-        return (new \App\Mail\VenueBookRequestOwner($venue, $venue->user, '123456'))->render();
+        return view('welcome', $data);
     }
 }
