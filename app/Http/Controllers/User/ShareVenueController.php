@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 use App\Venue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Schema;
@@ -321,6 +322,8 @@ class ShareVenueController extends Controller
                 DB::table('venue_images')->insert($images_insert);
                 DB::commit();
                 //return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
+                Mail::to(Auth::user())
+                    ->queue(new \App\Mail\VenueShared($venue, Auth::user()));
                 return response()->json(['success'=>true,'url'=> route('listings') . '?share=ok']);
             } catch (\Exception $e) {
                 DB::rollback();

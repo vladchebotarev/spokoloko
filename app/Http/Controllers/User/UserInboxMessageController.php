@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class UserInboxMessageController extends Controller
@@ -89,6 +90,16 @@ class UserInboxMessageController extends Controller
             try {
                 $venueBooking->status = $request->get('status');
                 $venueBooking->save();
+                switch ($venueBooking->status){
+                    case 'Confirmed':
+                        Mail::to($venueBooking->client_email)
+                            ->queue(new \App\Mail\VenueBookConfirmed(Venue::find($venueBooking->venue_id), $venueBooking->client_name));
+                        break;
+                    case 'Declined':
+                        Mail::to($venueBooking->client_email)
+                            ->queue(new \App\Mail\VenueBookDeclined(Venue::find($venueBooking->venue_id), $venueBooking->client_name));
+                        break;
+                }
                 DB::commit();
                 return redirect()->back();
             } catch (\Exception $e) {

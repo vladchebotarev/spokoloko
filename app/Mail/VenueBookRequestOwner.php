@@ -9,14 +9,14 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class VenueShared extends Mailable
+class VenueBookRequestOwner extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
      * The user instance.
      *
-     * @var Venue
+     * @var User
      */
     protected $user;
 
@@ -28,14 +28,22 @@ class VenueShared extends Mailable
     protected $venue;
 
     /**
+     * The booking number.
+     *
+     * @var String
+     */
+    protected $booking_number;
+
+    /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Venue $venue, User $user)
+        public function __construct(Venue $venue, User $user, String $booking_number)
     {
         $this->venue = $venue;
         $this->user = $user;
+        $this->booking_number = $booking_number;
     }
 
     /**
@@ -45,11 +53,12 @@ class VenueShared extends Mailable
      */
     public function build()
     {
-        return $this->subject('Dziękujemy że jesteś!')
-            ->markdown('emails.venue-shared')
+        return $this->subject('Dostałeś zapytanie na '. $this->venue->name)
+            ->markdown('emails.venue-book-request-owner')
             ->with([
                 'name' => $this->user->first_name,
                 'venue_name' => $this->venue->name,
+                'booking_number' => $this->booking_number,
             ]);
     }
 }

@@ -77,8 +77,6 @@ class UserSentMessageController extends Controller
                         ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
                         ->withInput();
                 }
-
-
             }
         }
     }

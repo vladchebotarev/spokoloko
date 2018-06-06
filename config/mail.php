@@ -120,15 +120,4 @@ return [
         ],
     ],
 
-
-    'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN', 587),
-        'secret' => env('MAILGUN_SECRET', 587),
-    ],
-
-    'ses' => [
-        'key' => env('AWS_ACCESS_KEY_ID'),
-        'secret' => env('AWS_SECRET_ACCESS_KEY'),
-        'region' => 'eu-west-1',
-    ],
 ];

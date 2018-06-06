@@ -45,7 +45,8 @@ class VenueConfirmed extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.venue-confirmed')
+        return $this->subject('Twoje miejsce jest spoko!')
+            ->markdown('emails.venue-confirmed')
             ->with([
                 'name' => $this->user->first_name,
                 'venue_name' => $this->venue->name,

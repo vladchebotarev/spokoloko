@@ -2,14 +2,13 @@
 
 namespace App\Mail;
 
-use App\User;
 use App\Venue;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class VenueShared extends Mailable
+class VenueBookRequest extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -18,7 +17,7 @@ class VenueShared extends Mailable
      *
      * @var Venue
      */
-    protected $user;
+    protected $username;
 
     /**
      * The venue instance.
@@ -32,10 +31,10 @@ class VenueShared extends Mailable
      *
      * @return void
      */
-    public function __construct(Venue $venue, User $user)
+    public function __construct(Venue $venue, String $username)
     {
         $this->venue = $venue;
-        $this->user = $user;
+        $this->username = $username;
     }
 
     /**
@@ -45,10 +44,10 @@ class VenueShared extends Mailable
      */
     public function build()
     {
-        return $this->subject('Dziękujemy że jesteś!')
-            ->markdown('emails.venue-shared')
+        return $this->subject('Zapytanie zostało wysłane!')
+            ->markdown('emails.venue-book-request')
             ->with([
-                'name' => $this->user->first_name,
+                'name' => $this->username,
                 'venue_name' => $this->venue->name,
             ]);
     }
