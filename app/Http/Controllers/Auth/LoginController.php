@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Bestmomo\LaravelEmailConfirmation\Traits\AuthenticatesUsers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -112,6 +113,8 @@ class LoginController extends Controller
             $authUser->save();
             $authUser->notifications()->sync([1]);
             DB::commit();
+            Mail::to($authUser->email)
+                ->queue(new \App\Mail\WelcomeMail($authUser));
             return $authUser;
         } catch (\Exception $e) {
             DB::rollback();

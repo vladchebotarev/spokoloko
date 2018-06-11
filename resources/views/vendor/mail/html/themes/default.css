@@ -226,6 +226,14 @@ img {
     border-left: 18px solid #3097D1;
 }
 
+.button-spokoloko {
+    background-color: #FF8A00;
+    border-top: 10px solid #FF8A00;
+    border-right: 18px solid #FF8A00;
+    border-bottom: 10px solid #FF8A00;
+    border-left: 18px solid #FF8A00;
+}
+
 .button-green {
     background-color: #2ab27b;
     border-top: 10px solid #2ab27b;
