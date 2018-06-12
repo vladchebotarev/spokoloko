@@ -426,13 +426,9 @@
             <div class="ui grid container">
                 <div class="row">
                     <div class="ui column">
-                        <button class="button-sq link-sq">
+                        <button type=button class="button-sq prev-btn">
                             <i class="icon icon-slim-arrow-left"></i>
                         </button>
-                        <!-- href="add_listing_amenities.html" -->
-                        <!-- <div class="basic-progressbar dashboard-progressbar-sq">
-                            <div class="inner" data-percentage="0%" style="width:0%"></div>
-                        </div> -->
                         <nav id="pagination">
                             <ul class="pagination-list">
                                 <li class="pagination-active"></li>
@@ -443,7 +439,7 @@
                                 <li></li>
                             </ul>
                         </nav>
-                        <button class="button-sq next-sq">
+                        <button type="button" class="button-sq next-sq">
                             <i class="icon icon-slim-arrow-right"></i>
                         </button>
                         <!-- href="add_listing_location.html" -->

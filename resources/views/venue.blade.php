@@ -299,7 +299,8 @@
                                             <div class="sticky-box-wishlist">
                                                 <div class="wishlist-sq">
 
-                                                    <button status="{{ $wishlist == true ? 1 : 0 }}" venue="{{ $venue->id }}"
+                                                    <button status="{{ $wishlist == true ? 1 : 0 }}"
+                                                            venue="{{ $venue->id }}"
                                                             class="add-wishlist button-sq small-sq link-sq modal-ui-trigger"
                                                             style="color: #F57C00"
                                                             data-trigger-for="added_wishlist"></button>
@@ -330,7 +331,7 @@
         <div class="row">
             <div class="ui column main-column" role="main">
                 <div class="section-container" id="section-01">
-                    <div class="typo-section-sq top-default bottom-default">
+                    <div class="typo-section-sq top-default bottom-default anchor-menu">
                         <h3>O przestrzeni</h3>
 
                         <p>
@@ -338,9 +339,7 @@
                             <a href="#section-02">Więcej</a>
                         </p>
 
-                        <div class="button-sq small-sq see-through-sq">
-                            Cena
-                        </div>
+                        <a href="#price-section" class="item button-sq small-sq see-through-sq">Cena</a>
                         <div class="button-sq small-sq modal-ui-trigger" data-trigger-for="contact">
                             Kontakty
                         </div>
@@ -416,7 +415,7 @@
                     </div>
 
 
-                    <div class="typo-section-sq bottom-default">
+                    <div id="price-section" class="typo-section-sq bottom-default">
                         <h5>Cena i zasady rezerwacji</h5>
                         <div class="ui grid moved">
                             <div class="twelve wide mobile six wide tablet six wide computer column">
@@ -733,7 +732,8 @@
                                         <img class="slick-img"
                                              data-src="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
                                              data-lazy="https://res.cloudinary.com/spokoloko/image/upload/q_auto,c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_images[$n]->image_url}}"
-                                             alt="{{$venue->url}} {{$n+1}}" data-gallery="gallery" data-caption="Zdjęcie {{ $n + 1 }}">
+                                             alt="{{$venue->url}} {{$n+1}}" data-gallery="gallery"
+                                             data-caption="Zdjęcie {{ $n + 1 }}">
                                     </div>
                                 </div>
                             @endfor
@@ -806,184 +806,184 @@
     </div>
 
 
-       {{-- <div class="ui grid container stackable app layout right side">
-            <div class="stretched row">
-                <div class="ui column main-column" role="main">
-                    <div class="section-container" id="section-04">
+    {{-- <div class="ui grid container stackable app layout right side">
+         <div class="stretched row">
+             <div class="ui column main-column" role="main">
+                 <div class="section-container" id="section-04">
 
-                        <div class="typo-section-sq top-default bottom-default">
-                            <h3>Opinia</h3>
-                            <div class="reviews-header">
-                                <div class="rating-big">
-                                    <div class="rating-badge">
-                                        <span>9.2</span>
-                                        <i class="icon icon-star"></i>
-                                    </div>
-                                    <div class="rating-info">
-                                        <p>Ponad <strong>10</strong> osób rekomendują to miejsce</p>
-                                    </div>
-                                </div>
-                                <div class="rating-percentage">
-                                    <div class="rating-column">
-                                        <p class="rating-label"><strong>Cena</strong></p>
-                                        <div class="basic-progressbar">
-                                            <div class="inner" style="width:75%"></div>
-                                        </div>
-                                    </div>
+                     <div class="typo-section-sq top-default bottom-default">
+                         <h3>Opinia</h3>
+                         <div class="reviews-header">
+                             <div class="rating-big">
+                                 <div class="rating-badge">
+                                     <span>9.2</span>
+                                     <i class="icon icon-star"></i>
+                                 </div>
+                                 <div class="rating-info">
+                                     <p>Ponad <strong>10</strong> osób rekomendują to miejsce</p>
+                                 </div>
+                             </div>
+                             <div class="rating-percentage">
+                                 <div class="rating-column">
+                                     <p class="rating-label"><strong>Cena</strong></p>
+                                     <div class="basic-progressbar">
+                                         <div class="inner" style="width:75%"></div>
+                                     </div>
+                                 </div>
 
-                                    <div class="rating-column">
-                                        <p class="rating-label"><strong>Oceny</strong></p>
-                                        <div class="basic-progressbar">
-                                            <div class="inner" style="width:55%"></div>
-                                        </div>
-                                    </div>
+                                 <div class="rating-column">
+                                     <p class="rating-label"><strong>Oceny</strong></p>
+                                     <div class="basic-progressbar">
+                                         <div class="inner" style="width:55%"></div>
+                                     </div>
+                                 </div>
 
-                                    <div class="rating-column">
-                                        <p class="rating-label"><strong>Popularnośc</strong></p>
-                                        <div class="basic-progressbar">
-                                            <div class="inner" style="width:25%"></div>
-                                        </div>
-                                    </div>
+                                 <div class="rating-column">
+                                     <p class="rating-label"><strong>Popularnośc</strong></p>
+                                     <div class="basic-progressbar">
+                                         <div class="inner" style="width:25%"></div>
+                                     </div>
+                                 </div>
 
-                                    <div class="rating-column">
-                                        <p class="rating-label"><strong>Profil</strong></p>
-                                        <div class="basic-progressbar">
-                                            <div class="inner" style="width:80%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                 <div class="rating-column">
+                                     <p class="rating-label"><strong>Profil</strong></p>
+                                     <div class="basic-progressbar">
+                                         <div class="inner" style="width:80%"></div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
 
-                            <div class="reviews-feed" style="padding-top: 10px;">
-                                <div class="reviews-row" style="border-radius: 5px;border-style: solid; border-width: 1px; border-color: limegreen; padding-right: 15px; padding-left:5px;">
+                         <div class="reviews-feed" style="padding-top: 10px;">
+                             <div class="reviews-row" style="border-radius: 5px;border-style: solid; border-width: 1px; border-color: limegreen; padding-right: 15px; padding-left:5px;">
 
-                                    <div class="review-meta">
-                                        <a class="avatar-sq " href="{{url('user/profile')}}">
-                                            <img src="{{ asset('new-assets/images/avatar/avatar_01.jpg') }}" alt="">
-                                        </a>
-                                        <a class="name-sq" href="{{url('user/profile')}}">Danny Martinez</a>
-                                    </div>
+                                 <div class="review-meta">
+                                     <a class="avatar-sq " href="{{url('user/profile')}}">
+                                         <img src="{{ asset('new-assets/images/avatar/avatar_01.jpg') }}" alt="">
+                                     </a>
+                                     <a class="name-sq" href="{{url('user/profile')}}">Danny Martinez</a>
+                                 </div>
 
-                                    <div class="comment-sq">
-                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating" data-rating="3" data-max-rating="5"></div></span>
+                                 <div class="comment-sq">
+                                     <span class="date-sq" style="opacity: 1;"><div class="ui star rating" data-rating="3" data-max-rating="5"></div></span>
 
-                                        <span class="date-sq" >12 september 2017 </span>
-
-
-
-                                        <p>As the saying goes: “Hospitality is making your guests feel at home, even though
-                                            you wish they were". So please treat the place and the building neighbours as
-                                            you would do your own.</p>
-                                    </div>
-                                   <div class="button-sq small-sq see-through-sq" style="position: absolute; right:10px;">
-                                            Zmień
-                                        </div>
-                                </div>
-
-                                <div class="reviews-row">
-                                    <div class="review-meta">
-                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                            <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
-                                        </a>
-                                        <a class="name-sq" href="vendor_details.html">Adele Burke</a>
-                                    </div>
-
-                                    <div class="comment-sq">
-
-                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
-
-                                        <span class="date-sq">06 May 2017</span>
-
-                                        <div class="ui accordion more-sq">
-                                            <div class="title">
-                                                <a class="accordion-trigger more-trigger right-sq" data-more="More"
-                                                   data-less="Less">
-                                                    <i class="icon icon-arrow-down-122"></i>
-                                                </a>
-                                                <p>It is important to choose a hotel that makes you feel comfortable –
-                                                    contemporary or traditional furnishings, local decor or international,
-                                                    formal or relaxed. The ideal hotel directory should let you know of the
-                                                    options available.
-                                                </p>
-
-                                            </div>
-
-                                            <div class="content">
-                                                <p>If it matters that your hotel is, for example, on the beach, close to the
-                                                    theme park, or convenient for the airport, then location is paramount.
-                                                    Any decent directory should offer a location map of the hotel and its
-                                                    surroundings. There should be distance charts to the airport offered as
-                                                    well as some form of interactive map.
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="reviews-row">
-                                    <div class="review-meta">
-
-                                        <a class="name-sq" href="vendor_details.html">Nathaniel Brown</a>
-                                    </div>
-                                    <div class="comment-sq">
-                                        <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
-                                        <span class="date-sq">24 august 2017</span>
+                                     <span class="date-sq" >12 september 2017 </span>
 
 
-                                    </div>
-                                </div>
 
-                                <div class="reviews-row">
-                                    <div class="review-meta">
-                                        <a class="avatar-sq verified-sq" href="vendor_details.html">
-                                            <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
-                                        </a>
-                                        <a class="name-sq" href="vendor_details.html">Adele Burke</a>
-                                    </div>
+                                     <p>As the saying goes: “Hospitality is making your guests feel at home, even though
+                                         you wish they were". So please treat the place and the building neighbours as
+                                         you would do your own.</p>
+                                 </div>
+                                <div class="button-sq small-sq see-through-sq" style="position: absolute; right:10px;">
+                                         Zmień
+                                     </div>
+                             </div>
 
-                                    <div class="comment-sq">
+                             <div class="reviews-row">
+                                 <div class="review-meta">
+                                     <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                         <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
+                                     </a>
+                                     <a class="name-sq" href="vendor_details.html">Adele Burke</a>
+                                 </div>
 
-                                        <span class="date-sq">06 May 2017</span>
+                                 <div class="comment-sq">
 
-                                        <div class="ui accordion more-sq">
-                                            <div class="title">
-                                                <a class="accordion-trigger more-trigger right-sq" data-more="More"
-                                                   data-less="Less">
-                                                    <i class="icon icon-arrow-down-122"></i>
-                                                </a>
-                                                <p>It is important to choose a hotel that makes you feel comfortable –
-                                                    contemporary or traditional furnishings, local decor or international,
-                                                    formal or relaxed. The ideal hotel directory should let you know of the
-                                                    options available.
-                                                </p>
+                                     <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
 
-                                            </div>
+                                     <span class="date-sq">06 May 2017</span>
 
-                                            <div class="content">
-                                                <p>If it matters that your hotel is, for example, on the beach, close to the
-                                                    theme park, or convenient for the airport, then location is paramount.
-                                                    Any decent directory should offer a location map of the hotel and its
-                                                    surroundings. There should be distance charts to the airport offered as
-                                                    well as some form of interactive map.
-                                                </p>
-                                            </div>
-                                        </div>
+                                     <div class="ui accordion more-sq">
+                                         <div class="title">
+                                             <a class="accordion-trigger more-trigger right-sq" data-more="More"
+                                                data-less="Less">
+                                                 <i class="icon icon-arrow-down-122"></i>
+                                             </a>
+                                             <p>It is important to choose a hotel that makes you feel comfortable –
+                                                 contemporary or traditional furnishings, local decor or international,
+                                                 formal or relaxed. The ideal hotel directory should let you know of the
+                                                 options available.
+                                             </p>
 
-                                    </div>
-                                </div>
+                                         </div>
+
+                                         <div class="content">
+                                             <p>If it matters that your hotel is, for example, on the beach, close to the
+                                                 theme park, or convenient for the airport, then location is paramount.
+                                                 Any decent directory should offer a location map of the hotel and its
+                                                 surroundings. There should be distance charts to the airport offered as
+                                                 well as some form of interactive map.
+                                             </p>
+                                         </div>
+                                     </div>
+
+                                 </div>
+
+                             </div>
+
+                             <div class="reviews-row">
+                                 <div class="review-meta">
+
+                                     <a class="name-sq" href="vendor_details.html">Nathaniel Brown</a>
+                                 </div>
+                                 <div class="comment-sq">
+                                     <span class="date-sq" style="opacity: 1;"><div class="ui star rating disabled" data-rating="3" data-max-rating="5"></div></span>
+                                     <span class="date-sq">24 august 2017</span>
 
 
-                            </div>
-                        </div>
-                    </div>
+                                 </div>
+                             </div>
 
-                </div>
+                             <div class="reviews-row">
+                                 <div class="review-meta">
+                                     <a class="avatar-sq verified-sq" href="vendor_details.html">
+                                         <img src="{{ asset('new-assets/images/avatar/avatar_02.jpg') }}" alt="">
+                                     </a>
+                                     <a class="name-sq" href="vendor_details.html">Adele Burke</a>
+                                 </div>
 
-                <div class="ui column side-column"></div>
-            </div>
-        </div> --}}
+                                 <div class="comment-sq">
+
+                                     <span class="date-sq">06 May 2017</span>
+
+                                     <div class="ui accordion more-sq">
+                                         <div class="title">
+                                             <a class="accordion-trigger more-trigger right-sq" data-more="More"
+                                                data-less="Less">
+                                                 <i class="icon icon-arrow-down-122"></i>
+                                             </a>
+                                             <p>It is important to choose a hotel that makes you feel comfortable –
+                                                 contemporary or traditional furnishings, local decor or international,
+                                                 formal or relaxed. The ideal hotel directory should let you know of the
+                                                 options available.
+                                             </p>
+
+                                         </div>
+
+                                         <div class="content">
+                                             <p>If it matters that your hotel is, for example, on the beach, close to the
+                                                 theme park, or convenient for the airport, then location is paramount.
+                                                 Any decent directory should offer a location map of the hotel and its
+                                                 surroundings. There should be distance charts to the airport offered as
+                                                 well as some form of interactive map.
+                                             </p>
+                                         </div>
+                                     </div>
+
+                                 </div>
+                             </div>
+
+
+                         </div>
+                     </div>
+                 </div>
+
+             </div>
+
+             <div class="ui column side-column"></div>
+         </div>
+     </div> --}}
 
 
 
@@ -1000,10 +1000,6 @@
 
 
         <div class="content">
-            <p>Donec non quam vitae justo mattis vestibulum a nec nisi. Morbi mi felis, ultrices vitae risus
-                consectetur, porta ultrices sapien.</p>
-
-
             <form method="post" action="{{ route('venue-booking-request') }}" id="venueBookingRequest">
                 @csrf
 
@@ -1061,7 +1057,7 @@
             <div class="div-c">
                 <div class="divided-column" style="padding-bottom: 20px;">
                     <div class="button-sq fullwidth-sq modal-ui-trigger" data-trigger-for="success"
-                         id="send_request_availability">Send
+                         id="send_request_availability">Wyślij
                     </div>
                 </div>
             </div>

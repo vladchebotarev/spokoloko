@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/transition.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/semantic-ui/rating.css') }}">
 
-    @if(Request::is('user/share-venue') or Request::is('user/update-venue/*'))
+    @if(Request::is('user/share-venue') or Request::is('user/update-venue/*') or Request::is('user/share-service'))
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/share/share-venue.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
     @endif
