@@ -11,7 +11,7 @@
                     <div class="ui twelve wide mobile ten wide tablet eight wide computer six wide large screen six wide widescreen column">
                         <div class="promo-content style-02" style="background-color: rgba(37,37,37,0.8); borderborder-radius: 30px;">
                             <h2>Zarabiaj ze Spokoloko</h2>
-                            <p>Masz lokal do wynajęcia, lub pomagasz innym tworzyć wydarzenia? <br>
+                            <p>Masz lokal do wynajęcia lub pomagasz innym tworzyć wydarzenia?<br>
                                 Dodaj swój biznes i powiększ swoje zyski.<br>
                                 Zarządzaj swoim profilem, promuj się, a resztę zostaw nam.</p>
 

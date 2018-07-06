@@ -124,8 +124,7 @@ Route::group(['prefix' => 'user',  'middleware' => ['auth', 'web']], function() 
     Route::post('wishlist-add', 'User\UserWishListController@addToVenueWishList')->name('wishlist-add');
     Route::post('wishlist-remove', 'User\UserWishListController@removeFromVenueWishList')->name('wishlist-remove');
 
-
-
-
 });
 
+Route::get('/fb-messenger-webhook', 'FacebookMessengerController@webhook_verify_token');
+Route::post('/fb-messenger-webhook', 'FacebookMessengerController@webhook_handle_msg');

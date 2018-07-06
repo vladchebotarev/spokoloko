@@ -29,7 +29,7 @@
                 <div class="ui twelve wide tablet four wide computer column">
                     <h5>O nas</h5>
 
-                    <p><em>Jesteśmy młodym i ambitnym zespołem mającym na celu uprościć pracę organizatorom eventów, zmotywować ich do dalszych działań udostępniając nasze narzędzia. A także pomóc właścicielom miejsc i usługodawcom dotrzeć do swoich klientów w prosty i skuteczny sposób. </em></p>
+                    <p><em>Jesteśmy młodym, ambitnym zespołem, którego celem jest uproszczenie pracy organizatorom eventów poprzez udostępnianie naszego narzędzia - spokoloko.  Chcemy pomóc również właścicielom lokali, restauracji i usługodawcom dotrzeć do swoich klientów w prosty i skuteczny sposób.</em></p>
                 </div>
             </div>
         </div>

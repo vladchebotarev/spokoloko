@@ -56,6 +56,9 @@
                                     @endif
                                 </div>
                             </div>
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">Oświadczam, że zapoznałem się i akceptuję <a href="https://res.cloudinary.com/spokoloko/image/upload/v1528125324/docs/Terms-Of-Service-PL.pdf" target="_blank">regulamin</a> i <a
+                                        href="https://res.cloudinary.com/spokoloko/image/upload/v1528125326/docs/Privacy-Policy-PL.pdf" target="_blank">politykę prywatności</a> serwisu.</label>
                             <button type="submit" class="button-sq fullwidth-sq">{{ __('Zarejestruj się') }}</button>
 
                         </form>

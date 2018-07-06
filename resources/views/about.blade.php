@@ -13,10 +13,10 @@
                             <p>Jesteśmy po to, aby pomóc Ci w organizacji wydarzenia.
                                 Połączymy Cię z właścicielami przestrzeni oraz sprawdzonymi usługodawcami. </p>
 
-                            <a href="{{url('sitemap')}}" class="button-sq see-through-sq"> Znajdz uslugodawcow </a>
+                            <a href="{{url('sitemap')}}" class="button-sq see-through-sq">Znajdź usługodawców</a>
                             <br><br>
 
-                            <a href="{{url('b2b')}}" class="button-sq see-through-sq" > Dodaj swoj biznes </a>
+                            <a href="{{url('b2b')}}" class="button-sq see-through-sq" >Dodaj swój biznes</a>
                         </div>
 
                     </div>

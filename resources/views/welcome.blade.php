@@ -67,7 +67,7 @@
                     {{--<a href="/b2b" class="button-sq see-through-sq" style="background-color: rgba(0,0,0,0.5); " > Zlec wyszukiwanie </a>--}}
                     <a class="button anchor-sq" style="padding-top: 20px;" href="#top">
                         <i class="icon big icon-location-pin-2"></i>
-                        <span>Sprawdż</span>
+                        <span>Sprawdź</span>
                     </a>
                 </div>
 
