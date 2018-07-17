@@ -4,7 +4,7 @@
 
     <div class="property-section-default anchor editable-sq">
         <div class="ui grid container stackable change-cover">
-            <a href="#section-06" class="">
+            <a href="#section-photo" class="">
                 Zmien tło
                 <i class="icon icon-pin1"></i>
             </a>
@@ -123,8 +123,8 @@
                                 </a>
                             </li>
 
-                            <li><a href="#section-06" class="item">
-                                    <span>Foto</span>
+                            <li><a href="#section-photo" class="item">
+                                    <span>Zdjęcia</span>
                                 </a>
                             </li>
 
@@ -665,7 +665,10 @@
                         </div>
                     </div>
 
-                    <div class="section-container" id="section-06">
+                    <div class="section-container" id="section-photo">
+
+
+
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Zdjęcia</h3>
                             <p>Dodaj najbardziej atrakcyjne zdjęcia swojego miejsca. Następnie wybierz zdjęcie główne, które będzie Twoją wizytówką na portalu.</p><br>
@@ -675,6 +678,27 @@
                                 Zdjęcie główne wybierzesz klikając na nie
                             </p>
 
+                            @if ($errors->has('images.*'))
+                            <div class="ui twelve wide computer column">
+                                <div class="ui negative message">
+                                    <div class="header">
+                                        Popraw następujące blędy
+                                    </div>
+                                    <p>{{ __("Zdjęcia muszą być w plikami jpeg, jpg, png, bmp. Oraz nie przekraczać 4MB.") }}</p>
+                                </div>
+                            </div>
+                            @endif
+
+                            @if (session('SaveError'))
+                                <div class="ui twelve wide computer column">
+                                    <div class="ui negative message">
+                                        <div class="header">
+                                            Błąd
+                                        </div>
+                                        <p>{{ session('SaveError') }}</p>
+                                    </div>
+                                </div>
+                            @endif
 
                             <div class="ui grid">
                                 <div class="row photo-upload">
@@ -709,9 +733,7 @@
                                                 <i class="icon icon-add-wishlist"></i>
                                                 Add Photo
                                             </label>
-                                            <input type="file" id="file-upload" name="images[]"
-                                                   multiple
-                                                   accept=".png, .jpg, .jpeg"/>
+
                                         </div>
                                     </div>
                                 </div>
@@ -754,6 +776,15 @@
                 </div>
             </div>
         </div>
+    </form>
+
+    <form method="POST" id="formUploadImage" action="{{ route('update-venue.upload-image', ['venue_url' => $venue->url]) }}" enctype="multipart/form-data">
+        @csrf
+        {{--<input type="hidden" name="image" id="imageBase64input">--}}
+        {{--<input type="file" accept="image/*" name="image" id="inputImage" style="display: none;">--}}
+        <input type="file" id="file-upload" name="images[]"
+               multiple
+               accept=".png, .jpg, .jpeg" style="display: none;"/>
     </form>
 
     <form action="{{ route('delete-venue', $venue->url) }}" method="post">

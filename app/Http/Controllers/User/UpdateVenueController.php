@@ -302,12 +302,22 @@ class UpdateVenueController extends Controller
         if ($venue === null or $venue->user_id != Auth::user()->id) {
             return \Response::json(['status' => 'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
         } else {
-            //$image = VenueImage::find($image_id);
-            return \Response::json(['status' => 'success', 'code' => '200']);
-            //return \Response::json($image);
+            DB::beginTransaction();
+            $image = VenueImage::find($image_id);
+            try {
+                DB::table('venue_images')->where([
+                    ['venue_id', $venue->id],
+                    ['cover_on', true],
+                ])->update(['cover_on' => false]);
+                $image->cover_on = true;
+                $image->save();
+                DB::commit();
+                return \Response::json(['status' => 'success', 'code' => '200']);
+            } catch (\Exception $e) {
+                DB::rollback();
+                return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+            }
         }
-
-
     }
 
     public function uploadImages($venue_url, Request $request)
@@ -315,50 +325,55 @@ class UpdateVenueController extends Controller
         $venue = Venue::where('url', $venue_url)->first();
 
         if ($venue === null or $venue->user_id != Auth::user()->id) {
-            return \Response::json(['status' => 'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
+            return abort(404);
+            //return \Response::json(['status' => 'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
         } else {
-            $images_insert = [];
-            $coverImageSelected = false;
-            foreach ($request->file('images') as $request_image) {
+            $validator = Validator::make($request->all(), [
+                'images.*' => 'required|mimes:jpeg,bmp,jpg,png|between:1, 4000'
+            ]);
 
-                $image_name = $venue->url . '-' . str_random(6);
+            if ($validator->fails()) {
+                return redirect('user/update-venue/' . $venue_url . '#section-photo')
+                    ->withErrors($validator)
+                    ->withInput();
+            } else {
 
+
+                $images_insert = [];
+                foreach ($request->file('images') as $request_image) {
+
+                    $image_name = $venue->url . '-' . str_random(6);
+
+                    try {
+                        Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                    } catch (\Exception $e) {
+                        DB::rollback();
+                        //return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+                        return redirect('user/update-venue/' . $venue_url . '#section-photo')
+                            ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
+                            ->withInput();
+                    }
+
+                    $images_insert[] = [
+                        'venue_id' => $venue->id,
+                        'image_url' => $image_name,
+                        'cover_on' => 0,
+                        'created_at' => date('Y-m-d H:i:s')
+                    ];
+                }
+
+                DB::beginTransaction();
                 try {
-                    Cloudder::upload($request_image->getRealPath(), 'venues/' . $venue->url . '/' . $image_name, array("format" => "jpg"));
+                    DB::table('venue_images')->insert($images_insert);
+                    DB::commit();
+                    return redirect('user/update-venue/' . $venue_url . '#section-photo');
                 } catch (\Exception $e) {
                     DB::rollback();
-                    return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
-                    /*return redirect('user/share-venue')
+                    return redirect('user/update-venue/' . $venue_url . '#section-photo')
                         ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                        ->withInput();*/
+                        ->withInput();
                 }
-
-                $cover_on = 0;
-                if ($request_image->getClientOriginalName() == $request->get('cover_image') && !$coverImageSelected) {
-                    $cover_on = 1;
-                    $coverImageSelected = true;
-                }
-
-                $images_insert[] = [
-                    'venue_id' => $venue->id,
-                    'image_url' => $image_name,
-                    'cover_on' => $cover_on,
-                    'created_at' => date('Y-m-d H:i:s')
-                ];
             }
-
-            try {
-                DB::table('venue_images')->insert($images_insert);
-                DB::commit();
-                return redirect('user/listings')->with('status', 'Twoja przestrzeń została dodana i czeka na akceptację, po akceptacji otrzymasz powiadomienie!');
-            } catch (\Exception $e) {
-                DB::rollback();
-                return redirect('user/share-venue')
-                    ->with('SaveError', 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!')
-                    ->withInput();
-            }
-
-            return \Response::json(['status' => 'success', 'code' => '200']);
         }
     }
 
@@ -369,9 +384,19 @@ class UpdateVenueController extends Controller
         if ($venue === null or $venue->user_id != Auth::user()->id) {
             return \Response::json(['status' => 'error', 'errors' => [['code' => '403', 'message' => 'Forbidden']]]);
         } else {
-            //$image = VenueImage::find($image_id);
-            return \Response::json(['status' => 'success', 'code' => '200']);
-            //return \Response::json($image);
+            $image = VenueImage::find($image_id);
+            if ($image->cover_on != true) {
+                DB::beginTransaction();
+                try {
+                    Cloudder::destroyImage('venues/' . $venue->url . '/' . $image->image_url);
+                    $image->delete();
+                    DB::commit();
+                    return \Response::json(['status' => 'success', 'code' => '200']);
+                } catch (\Exception $e) {
+                    DB::rollback();
+                    return \Response::json(['status' => 'error', 'errors' => [['code' => '500', 'message' => 'Wystąpił błąd podczas zapisywania danych. Spróbuj jeszcze raz!']]]);
+                }
+            }
         }
     }
 }

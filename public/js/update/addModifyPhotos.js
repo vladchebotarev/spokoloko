@@ -1,5 +1,6 @@
 $(document).ready(function() {
   let venueUrl = window.location.href;
+  venueUrl = venueUrl.substring(0, venueUrl.indexOf('#'));
   venueUrl = venueUrl.substring(venueUrl.indexOf('update-venue/') + 'update-venue/'.length, venueUrl.length);
   let loaded = $('.photo-upload').find('.four').not(':has(#add-photo)');
   loaded.each(function(i, el) {
@@ -25,7 +26,7 @@ $(document).ready(function() {
       else {
         photo.selectPhoto();
         $.ajax({
-          url: `/user/update-venue/${venueUrl}/cover-image/${imageID}`,
+          url: '/user/update-venue/'+venueUrl+'/cover-image/'+imageID,
           type: 'GET',
           success(res) {
             console.log('GET', res);
@@ -33,6 +34,7 @@ $(document).ready(function() {
         });
       }
     });
+
     photo.obj.find('.remove').click((e) => {
       if($(this).find('.photo-upload-item').hasClass('selected')) {
         e.stopPropagation();
@@ -46,7 +48,7 @@ $(document).ready(function() {
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-          url: `/user/update-venue/${venueUrl}/delete-image/${imageID}`,
+          url: '/user/update-venue/'+venueUrl+'/delete-image/'+imageID,
           type: 'DELETE',
           success(res) {
             console.log('DELETE', res);
@@ -59,6 +61,9 @@ $(document).ready(function() {
     });
     
   });
-})
-;
+});
+
+$('#file-upload').change(function () {
+    $('#formUploadImage').submit();
+});
 

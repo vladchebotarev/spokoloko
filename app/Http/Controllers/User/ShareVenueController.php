@@ -155,6 +155,7 @@ class ShareVenueController extends Controller
         ]);
 
         if ($validator->fails()) {
+
             /*return redirect('user/share-venue')
                 ->withErrors($validator)
                 ->withInput();*/
