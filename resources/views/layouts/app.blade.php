@@ -238,6 +238,7 @@
 
 @if(Request::is('user/update-venue/*'))
     <script src={{ asset('js/jquery.mask.min.js') }}></script>
+    <script src={{ asset('js/velocity.min.js')}}></script>
     <script src={{ asset('js/update/addModifyPhotos.js') }}></script>
     <script src={{ asset('js/share/checkbox.js') }}></script>
     <script src={{ asset('js/share/photoModel.js') }}></script>
