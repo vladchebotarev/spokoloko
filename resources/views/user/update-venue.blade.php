@@ -16,7 +16,7 @@
                      src="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_360/v1/venues/{{$venue->url}}/{{$venue_cover_image}}"
                      srcset="https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_480/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 480w,
                             https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_750/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 768w,
-                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w" />
+                            https://res.cloudinary.com/spokoloko/image/upload/c_fill,w_1200/v1/venues/{{$venue->url}}/{{$venue_cover_image}} 1000w"/>
             </div>
         </div>
 
@@ -53,7 +53,7 @@
                                         <div class="main-infos">
 
                                             <div class="completed-percentage">
-                                                <p><strong>Prawie koniec</strong> </p>
+                                                <p><strong>Prawie koniec</strong></p>
                                                 <div class="basic-progressbar">
                                                     <div class="inner" style="width:75%"></div>
                                                 </div>
@@ -321,7 +321,8 @@
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Kategorie</h3>
 
-                            <p class="description-sq">Wybierz typ, który pasuje do Twojej przestrzeni oraz zaznacz rodzaje wydarzeń, które mogą się u Ciebie odbyć. Pamiętaj - im więcej tym lepiej :) </p>
+                            <p class="description-sq">Wybierz typ, który pasuje do Twojej przestrzeni oraz zaznacz
+                                rodzaje wydarzeń, które mogą się u Ciebie odbyć. Pamiętaj - im więcej tym lepiej :) </p>
 
                             <div class="div-c">
                                 <div class="divided-column">
@@ -358,7 +359,8 @@
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Przestrzeń</h3>
 
-                            <p class="description-sq">Wpisz wymagane informacje o Twojej przestrzeni. Wybierz cechy opisujące Twoje miejsce, aby pomóc klientom się odnaleźć. </p>
+                            <p class="description-sq">Wpisz wymagane informacje o Twojej przestrzeni. Wybierz cechy
+                                opisujące Twoje miejsce, aby pomóc klientom się odnaleźć. </p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -428,7 +430,9 @@
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Udogodnienia i zasady</h3>
 
-                            <p class="description-sq">Zaznacz udogodnienia które posiadasz w swoim miejscu, aby wyróżnić się na tle konkurencji. Także określ zasady panujące w Twoim lokalu. Masz również możliwość dodać swoje zasady, których nie ma na liście.</p>
+                            <p class="description-sq">Zaznacz udogodnienia które posiadasz w swoim miejscu, aby wyróżnić
+                                się na tle konkurencji. Także określ zasady panujące w Twoim lokalu. Masz również
+                                możliwość dodać swoje zasady, których nie ma na liście.</p>
 
 
                             <div class="div-c inline-2 one-label">
@@ -577,7 +581,8 @@
                             <h3 class="title-sq">Ceny</h3>
 
 
-                            <p class="description-sq">Przedstaw swój cennik. Opisz, czy jesteś otwarty na negocjacje. </p>
+                            <p class="description-sq">Przedstaw swój cennik. Opisz, czy jesteś otwarty na
+                                negocjacje. </p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -619,7 +624,8 @@
 
                             <h3 class="title-sq">Zaliczka oraz zasady anulowania</h3>
 
-                            <p class="description-sq">Określ zasady płacenia zaliczki oraz zasady anulowania rezerwacji.</p>
+                            <p class="description-sq">Określ zasady płacenia zaliczki oraz zasady anulowania
+                                rezerwacji.</p>
 
                             <div class="div-c inline-2">
                                 <div class="divided-column">
@@ -668,10 +674,10 @@
                     <div class="section-container" id="section-photo">
 
 
-
                         <div class="typo-section-sq bottom-default">
                             <h3 class="title-sq">Zdjęcia</h3>
-                            <p>Dodaj najbardziej atrakcyjne zdjęcia swojego miejsca. Następnie wybierz zdjęcie główne, które będzie Twoją wizytówką na portalu.</p><br>
+                            <p>Dodaj najbardziej atrakcyjne zdjęcia swojego miejsca. Następnie wybierz zdjęcie główne,
+                                które będzie Twoją wizytówką na portalu.</p><br>
 
                             <p class="description-sq alert-message">
                                 <i class="icon icon-pin1"></i>
@@ -679,14 +685,14 @@
                             </p>
 
                             @if ($errors->has('images.*'))
-                            <div class="ui twelve wide computer column">
-                                <div class="ui negative message">
-                                    <div class="header">
-                                        Popraw następujące blędy
+                                <div class="ui twelve wide computer column">
+                                    <div class="ui negative message">
+                                        <div class="header">
+                                            Popraw następujące blędy
+                                        </div>
+                                        <p>{{ __("Zdjęcia muszą być w plikami jpeg, jpg, png, bmp. Oraz nie przekraczać 4MB.") }}</p>
                                     </div>
-                                    <p>{{ __("Zdjęcia muszą być w plikami jpeg, jpg, png, bmp. Oraz nie przekraczać 4MB.") }}</p>
                                 </div>
-                            </div>
                             @endif
 
                             @if (session('SaveError'))
@@ -704,13 +710,13 @@
                                 <div class="row photo-upload">
 
                                     {{--<div class="ui twelve wide computer column">--}}
-                                        {{--<div class="ui negative message">--}}
-                                            {{--<i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>--}}
-                                            {{--<div class="header">--}}
-                                                {{--Uwaga--}}
-                                            {{--</div>--}}
-                                            {{--Aktualizacja zdjęć chwilowo jest niedostępna--}}
-                                        {{--</div>--}}
+                                    {{--<div class="ui negative message">--}}
+                                    {{--<i class="fa fa-times close" aria-hidden="true" style="float: right;"></i>--}}
+                                    {{--<div class="header">--}}
+                                    {{--Uwaga--}}
+                                    {{--</div>--}}
+                                    {{--Aktualizacja zdjęć chwilowo jest niedostępna--}}
+                                    {{--</div>--}}
                                     {{--</div>--}}
 
                                     @foreach($venue_images as $image)
@@ -748,8 +754,12 @@
                     <div class="section-container" id="section-07">
                         <div class="typo-section-sq bottom-default">
                             <h3 class="preview-sq title-sq">Facebook Messenger</h3>
-                            <p>Wklej link to swojego fanpage’u na Facebooku, aby zintegrować się z naszym chatbotem. Pomoże Ci ulepszyć komunikacje z klientami przenosząc ją do Messenger’a. W taki sposób zyskasz ciągły kontakt do klientów i zwiększysz swoją atrakcyjność na tle konkurencji!</p>
-                            <p>Uwaga: Serwis Spokoloko nie posiada dostępu do wiadomości i profilu Facebook. Wiadomości będą dostarczane w Facebook prosto do profilu biznesu.</p><br>
+                            <p>Wklej link to swojego fanpage’u na Facebooku, aby zintegrować się z naszym chatbotem.
+                                Pomoże Ci ulepszyć komunikacje z klientami przenosząc ją do Messenger’a. W taki sposób
+                                zyskasz ciągły kontakt do klientów i zwiększysz swoją atrakcyjność na tle
+                                konkurencji!</p>
+                            <p>Uwaga: Serwis Spokoloko nie posiada dostępu do wiadomości i profilu Facebook. Wiadomości
+                                będą dostarczane w Facebook prosto do profilu biznesu.</p><br>
                             <p>Kroki ktore masz wykonac</p>
                             <p>1: Wejdż na strone Twojego biznesu na Facebook</p>
                             <p>2: Nacisnij <strong>"Informacje" w lewym menu</strong></p>
@@ -765,12 +775,29 @@
                             </div>
 
 
-                            <p>5. Wejdż w rozdział <strong>Ustalenia</strong> -> <strong>Platforma Messengera</strong> w gornym menu</p>
-                            <p>6: W Polu Powiąż aplikacje ze swoją stroną wprowadż ID aplikacji : <strong>912333495590130</strong></p>
-                            <p>7: Dodaj domeny : <strong>https://spokoloko.club</strong> oraz <strong>https://www.spokoloko.club</strong></p>
+                            <p>5. Wejdż w rozdział <strong>Ustalenia</strong> -> <strong>Platforma Messengera</strong> w
+                                gornym menu</p>
+                            <p>6: W Polu Powiąż aplikacje ze swoją stroną wprowadż ID aplikacji : <strong>912333495590130</strong>
+                            </p>
+                            <p>7: Dodaj domeny : <strong>https://spokoloko.club</strong> oraz <strong>https://www.spokoloko.club</strong>
+                            </p>
 
 
+                        </div>
+                    </div>
 
+                    <div class="section-container" id="section-remove">
+                        <div class="typo-section-sq bottom-default">
+                            <h3 class="preview-sq title-sq">Usunięcie przestrzeni</h3>
+
+                            <div class="div-c">
+                                <div class="divided-column">
+
+                                    <a class="button-sq see-through-sq small-sq modal-ui-trigger"
+                                       data-trigger-for="remove-venue-modal">{{ __('Usuń przestrzeń') }}</a>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -778,7 +805,8 @@
         </div>
     </form>
 
-    <form method="POST" id="formUploadImage" action="{{ route('update-venue.upload-image', ['venue_url' => $venue->url]) }}" enctype="multipart/form-data">
+    <form method="POST" id="formUploadImage"
+          action="{{ route('update-venue.upload-image', ['venue_url' => $venue->url]) }}" enctype="multipart/form-data">
         @csrf
         {{--<input type="hidden" name="image" id="imageBase64input">--}}
         {{--<input type="file" accept="image/*" name="image" id="inputImage" style="display: none;">--}}
@@ -787,8 +815,7 @@
                accept=".png, .jpg, .jpeg" style="display: none;"/>
     </form>
 
-    <form action="{{ route('delete-venue', $venue->url) }}" method="post">
+    <form action="{{ route('delete-venue', $venue->url) }}" id="remove-venue" method="post">
         @csrf
-        <button class="button-sq small-sq see-through-sq" type="submit">{{ __('Usuń przestrzeń') }}</button>
     </form>
 @endsection

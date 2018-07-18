@@ -874,7 +874,7 @@ var SQ = SQ || {};
             $(modalOpen).modal({
                 //detachable: false,
                 selector: {
-                    close: '.close-modal'
+                    close: '.close-modal-function'
                 },
                 transition: "fade",
                 duration: 200,

@@ -270,6 +270,7 @@ class UpdateVenueController extends Controller
 
     public function deleteVenue($venue_url)
     {
+
         $venue = Venue::where('url', $venue_url)->first();
 
         if ($venue === null or $venue->user_id != Auth::user()->id) {

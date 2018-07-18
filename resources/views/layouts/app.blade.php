@@ -34,9 +34,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/scss/validation/validation.min.css') }}">
     @endif
 
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <link rel="icon" href={{ asset('favicon.ico') }}>
-
-
 
     <title>@yield('title')</title>
     <meta name="description" content="@yield('description')">
@@ -85,6 +84,11 @@
 @else
     @if(Request::is('user/profile'))
         @component('user.components.update_image_modal')
+        @endcomponent
+    @endif
+
+    @if(Request::is('user/update-venue/*'))
+        @component('components.remove-venue-modal')
         @endcomponent
     @endif
 @endguest
@@ -248,6 +252,31 @@
 @if(Request::is('/'))
     <script src={{ asset('js/welcome/welcome.js') }}></script>
 @endif
+
+<!-- Script cookie -->
+<script async src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#252b33"
+                },
+                "button": {
+                    "background": "#ff5722",
+                    "text": "#ffdddd",
+                }
+            },
+            "theme": "edgeless",
+            "position": "bottom-left",
+            "content": {
+                "message": "Ta strona wykorzystuje pliki cookie. Używamy informacji zapisanych za pomocą plików cookies w celu zapewnienia maksymalnej wygody w korzystaniu z naszego serwisu. ",
+                "dismiss": "Akceptuję",
+                "link": "Więcej",
+                "href": "https://res.cloudinary.com/spokoloko/v1528125326/docs/Privacy-Policy-PL.pdf"
+            }
+        })});
+</script>
 
 </body>
 </html>
